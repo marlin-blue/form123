@@ -1,0 +1,6 @@
+type Distance @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  sourcePort: String
+  destinationPort: String
+  distance: Int
+}
