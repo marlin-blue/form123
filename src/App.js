@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { DistanceCreateForm } from './ui-components';
-import { API } from 'aws-amplify';
-import { listDistances } from './graphql/queries';
+import { fetchDistanceFromDatabase } from './api';
 
 function App() {
   const [distance, setDistance] = useState(null);
@@ -18,26 +17,10 @@ function App() {
 
     try {
       // Query the database for the distance based on source and destination port names
-      const apiData = await API.graphql({
-        query: listDistances,
-        variables: {
-          filter: {
-            sourcePort: { eq: updatedFields.sourcePort },
-            destinationPort: { eq: updatedFields.destinationPort }
-          }
-        }
-      });
+      const distance = await fetchDistanceFromDatabase(updatedFields.sourcePort, updatedFields.destinationPort);
 
-      // Retrieve the distance from the API response
-      const { items } = apiData.data.listDistances;
-      if (items.length > 0) {
-        const distance = items[0].distance;
-        // Set the distance in state
-        setDistance(distance);
-      } else {
-        // Distance not found
-        setDistance(null);
-      }
+      // Set the distance in state
+      setDistance(distance);
     } catch (error) {
       console.log('Error fetching distance:', error);
       // Handle error scenario
@@ -48,7 +31,7 @@ function App() {
     <div>
       <h1>Distance Calculator</h1>
       <DistanceCreateForm onSubmit={onSubmit} />
-      {distance !== null && <p>Distance: {distance} km</p>}
+      {distance && <p>Distance: {distance} km</p>}
     </div>
   );
 }
