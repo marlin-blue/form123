@@ -1,26 +1,15 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-form123-staging-41204-authRole",
-      "UnauthRoleArn": "arn:aws:iam::836260020679:role/amplify-form123-staging-41204-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::836260020679:role/amplify-form123-staging-41204-authRole",
+      "AuthRoleName": "amplify-distance-staging-15140-authRole",
+      "UnauthRoleArn": "arn:aws:iam::575480496315:role/amplify-distance-staging-15140-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::575480496315:role/amplify-distance-staging-15140-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-form123-staging-41204-deployment",
-      "UnauthRoleName": "amplify-form123-staging-41204-unauthRole",
-      "StackName": "amplify-form123-staging-41204",
-      "StackId": "arn:aws:cloudformation:us-west-2:836260020679:stack/amplify-form123-staging-41204/196198c0-1aea-11ee-80cf-06783902a1cf",
-      "AmplifyAppId": "d1403xo7onl9qn"
-    },
-    "categories": {
-      "auth": {
-        "form123": {}
-      },
-      "storage": {
-        "form1239cdf8674": {
-          "bucketName": "distancescsv",
-          "region": "us-west-2"
-        }
-      }
+      "DeploymentBucketName": "amplify-distance-staging-15140-deployment",
+      "UnauthRoleName": "amplify-distance-staging-15140-unauthRole",
+      "StackName": "amplify-distance-staging-15140",
+      "StackId": "arn:aws:cloudformation:us-west-2:575480496315:stack/amplify-distance-staging-15140/a7317390-1b9f-11ee-8e7c-06ff6c6bf9c7",
+      "AmplifyAppId": "d1ztk7modjjjnn"
     }
   }
 }
