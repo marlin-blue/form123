@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DistanceCreateForm } from './ui-components';
-import { fetchDistanceFromDatabase } from './api';
+import { fetchDistanceFromAPI } from './api';
 
 function App() {
   const [distance, setDistance] = useState(null);
@@ -16,13 +16,19 @@ function App() {
     });
 
     try {
-      // Query the database for the distance based on source and destination port names
-      const distance = await fetchDistanceFromDatabase(updatedFields.sourcePort, updatedFields.destinationPort);
+      // Make an HTTP POST request to the API Gateway endpoint
+      const response = await fetchDistanceFromAPI(updatedFields.sourcePort, updatedFields.destinationPort);
 
-      // Set the distance in state
-      setDistance(distance);
+      if (response.statusCode === 200) {
+        const { distance } = JSON.parse(response.body);
+        // Set the distance in state
+        setDistance(distance);
+      } else {
+        // Handle error scenario
+        console.log('Error:', response.body);
+      }
     } catch (error) {
-      console.log('Error fetching distance:', error);
+      console.log('Error:', error);
       // Handle error scenario
     }
   };
