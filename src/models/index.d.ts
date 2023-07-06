@@ -14,7 +14,7 @@ type EagerDistance = {
   readonly id: string;
   readonly sourcePort?: string | null;
   readonly destinationPort?: string | null;
-  readonly distance?: number | null;
+  readonly distance?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -27,7 +27,7 @@ type LazyDistance = {
   readonly id: string;
   readonly sourcePort?: string | null;
   readonly destinationPort?: string | null;
-  readonly distance?: number | null;
+  readonly distance?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

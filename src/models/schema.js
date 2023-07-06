@@ -27,7 +27,7 @@ export const schema = {
                 "distance": {
                     "name": "distance",
                     "isArray": false,
-                    "type": "Int",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -77,5 +77,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "9b107f8e02b575bf3b7a326ffd9080f3"
+    "version": "c73d7781cfd3c8d46aa3ff4e64fe8005"
 };
