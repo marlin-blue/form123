@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, SelectFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Distance } from "../models";
 export declare type ValidationResponse = {
@@ -16,19 +16,16 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type DistanceUpdateFormInputValues = {
     sourcePort?: string;
     destinationPort?: string;
-    distance?: string;
 };
 export declare type DistanceUpdateFormValidationValues = {
     sourcePort?: ValidationFunction<string>;
     destinationPort?: ValidationFunction<string>;
-    distance?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DistanceUpdateFormOverridesProps = {
     DistanceUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    sourcePort?: PrimitiveOverrideProps<TextFieldProps>;
-    destinationPort?: PrimitiveOverrideProps<TextFieldProps>;
-    distance?: PrimitiveOverrideProps<TextFieldProps>;
+    sourcePort?: PrimitiveOverrideProps<SelectFieldProps>;
+    destinationPort?: PrimitiveOverrideProps<SelectFieldProps>;
 } & EscapeHatchProps;
 export declare type DistanceUpdateFormProps = React.PropsWithChildren<{
     overrides?: DistanceUpdateFormOverridesProps | undefined | null;

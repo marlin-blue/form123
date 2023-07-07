@@ -1,16 +1,19 @@
 export const fetchDistanceFromAPI = async (sourcePort, destinationPort) => {
-    const url = 'https://je63zukb2a.execute-api.us-west-2.amazonaws.com/prod';
-    const requestBody = JSON.stringify({ sourcePort, destinationPort });
+    const url = `https://27ph7xpsud.execute-api.us-west-2.amazonaws.com/prod/distance?sourcePort=${encodeURIComponent(
+      sourcePort
+    )}&destinationPort=${encodeURIComponent(destinationPort)}`;
   
     try {
-      const response = await fetch(url, {
-        method: 'GET',
-        body: requestBody,
-      });
+      const response = await fetch(url);
+      const data = await response.json();
   
-      return response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.error);
+      }
     } catch (error) {
-      throw new Error('Error making API request');
+      throw new Error('Error making API request: ' + error.message);
     }
   };
   

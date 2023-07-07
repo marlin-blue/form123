@@ -15,17 +15,20 @@ function App() {
       }
     });
 
+    // Log the selected options in the console
+    console.log('Selected sourcePort:', updatedFields.sourcePort);
+    console.log('Selected destinationPort:', updatedFields.destinationPort);
+
     try {
-      // Make an HTTP POST request to the API Gateway endpoint
+      // Make an HTTP GET request to the API endpoint
       const response = await fetchDistanceFromAPI(updatedFields.sourcePort, updatedFields.destinationPort);
 
-      if (response.statusCode === 200) {
-        const { distance } = JSON.parse(response.body);
+      if (response.distance) {
         // Set the distance in state
-        setDistance(distance);
+        setDistance(response.distance);
       } else {
         // Handle error scenario
-        console.log('Error:', response.body);
+        console.log('Error:', response.error);
       }
     } catch (error) {
       console.log('Error:', error);
@@ -37,7 +40,7 @@ function App() {
     <div>
       <h1>Distance Calculator</h1>
       <DistanceCreateForm onSubmit={onSubmit} />
-      {distance && <p>Distance: {distance} km</p>}
+      {distance && <p>Distance: {distance} nm</p>}
     </div>
   );
 }
