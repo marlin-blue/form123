@@ -1,0 +1,2383 @@
+id,sourcePort,destinationPort,distance
+1,Ayutthaya - Bangpain (AB),Bangkok (BK),43
+2,Ayutthaya - Bangpain (AB),Ko Sichang (KSI),103
+3,Ayutthaya - Bangpain (AB),Pattani (PTN),475
+4,Ayutthaya - Bangpain (AB),Songkhla (SK),455
+5,Ayutthaya - Bangpain (AB),Surat Thanee (SRT),341
+6,Ayutthaya - Nakorn Luang (ANL),Bangkok (BK),90
+7,Ayutthaya - Nakorn Luang (ANL),Ko Sichang (KSI),150
+8,Ayutthaya - Nakorn Luang (ANL),Pattani (PTN),520
+9,Ayutthaya - Nakorn Luang (ANL),Songkhla (SK),500
+10,Ayutthaya - Nakorn Luang (ANL),Surat Thanee (SRT),386
+11,Bangpakong (BAK),Bahodopi (BHDP),2270
+12,Bangpakong (BAK),Bangkok (BK),59
+13,Bangpakong (BAK),Balikpapan (BPN),1800
+14,Bangpakong (BAK),Bang Sapan (BS),162
+15,Bangpakong (BAK),Cat Lai (CLI),675
+16,Bangpakong (BAK),Dumai (DMI),1050
+17,Bangpakong (BAK),Futong (FTG),1045
+18,Bangpakong (BAK),Godau port  (GDP),652
+19,Bangpakong (BAK),Khanom (KHM),274
+20,Bangpakong (BAK),Kedah (KKH),1245
+21,Bangpakong (BAK),Kemaman (KMN),644
+22,Bangpakong (BAK),Ko Sichang (KSI),27
+23,Bangpakong (BAK),Lahad Datu (LDU),1650
+24,Bangpakong (BAK),Lumut (LUM),1150
+25,Bangpakong (BAK),Century Harbour (MHI),65
+26,Bangpakong (BAK),Maeklong (Firesun) (MKG),68
+27,Bangpakong (BAK),Manila Habour (MNL),1540
+28,Bangpakong (BAK),My Tho (MUT),760
+29,Bangpakong (BAK),Nunukan (NNX),1805
+30,Bangpakong (BAK),Singapore (SG),825
+31,Bangpakong (BAK),Songkhla (SK),297
+32,Bangpakong (BAK),Semarang - Tanjung Emas (SRG),1400
+33,Bangpakong (BAK),Surat Thanee (SRT),280
+34,Bangpakong (BAK),Tanjung Batu (TJQ),1080
+35,Bangpakong (BAK),Can Tho (VCA),590
+36,Benoa (Bali) (BAO),Phuket (HKT),1545
+37,Benoa (Bali) (BAO),Jakarta (JAK),655
+38,Benoa (Bali) (BAO),Kuantan (KT),1121
+39,Benoa (Bali) (BAO),Tanjong Manis (TGM),1045
+40,BA,Surabaya (SUBY),1360
+41,Batam (BAT),Bangkok (BK),861
+42,Batam (BAT),Kuantan (KT),196
+43,Batam (BAT),Kuching (KUC),423
+44,Batam (BAT),Pontianak (POT),336
+45,Batam (BAT),Songkhla (SK),490
+46,Batam (BAT),Tanjong Manis (TGM),450
+47,Batam (BAT),Ranong (UNN),694
+48,Bahodopi (BHDP),Bangpakong (BAK),2270
+49,Bahodopi (BHDP),Bintulu (BIN),1385
+50,Bahodopi (BHDP),Bangkok (BK),2180
+51,Bahodopi (BHDP),Bourbon (BOUR),1970
+52,Bahodopi (BHDP),Bang Sapan (BS),2140
+53,Bahodopi (BHDP),Godau port  (GDP),1970
+54,Bahodopi (BHDP),HO CHI MINH (HCM),1940
+55,Bahodopi (BHDP),Jakarta (JAK),1265
+56,Bahodopi (BHDP),K.K. Kota Kinabalu (KK),1580
+57,Bahodopi (BHDP),Kemaman (KMN),1665
+58,Bahodopi (BHDP),Kuantan (KT),1650
+59,Bahodopi (BHDP),Kuching (KUC),1555
+60,Bahodopi (BHDP),Labuan (LBN),1645
+61,Bahodopi (BHDP),Laem Chabang (LCB),2245
+62,Bahodopi (BHDP),Makassar (MAK),500
+63,Bahodopi (BHDP),Malacca (MAL),1690
+64,Bahodopi (BHDP),Maptaphut (MAT),2230
+65,Bahodopi (BHDP),Century Harbour (MHI),2280
+66,Bahodopi (BHDP),Pasir Gudang (PAS),1560
+67,Bahodopi (BHDP),Port Klang (PKL),1770
+68,Bahodopi (BHDP),Palembang (PLB),1410
+69,Bahodopi (BHDP),Penang (PNG),1920
+70,Bahodopi (BHDP),Panjang (PNJ),1345
+71,Bahodopi (BHDP),Pontianak (POT),1365
+72,Bahodopi (BHDP),Singapore (SG),1585
+73,Bahodopi (BHDP),Sungai Guntung (SGGT),1530
+74,Bahodopi (BHDP),Songkhla (SK),1955
+75,Bahodopi (BHDP),Sampit (SMQ),975
+76,Bahodopi (BHDP),Son Duong (SOD),2460
+77,Bahodopi (BHDP),Sriracha Harbor (SRC),2260
+78,Bahodopi (BHDP),Surabaya (SUBY),860
+79,Bahodopi (BHDP),Tarjun (TAR),720
+80,Bahodopi (BHDP),Tawau (TAW),850
+81,Bahodopi (BHDP),Terengganu (TGG),1740
+82,Bahodopi (BHDP),Tha Sala (TSL),2020
+83,Bahodopi (BHDP),Vung Tau (VUT),1920
+84,Beihai (BHY),Bangkok (BK),1620
+85,Beihai (BHY),Hong Kong (HKG),780
+86,Beihai (BHY),Ningde (NDE),930
+87,Bintulu (BIN),Bahodopi (BHDP),1385
+88,Bintulu (BIN),Bangkok (BK),1181
+89,Bintulu (BIN),Balikpapan (BPN),1056
+90,Bintulu (BIN),Bang Sapan (BS),1039
+91,Bintulu (BIN),Cayagan de Oro City (Macabalan wharf) (CDO),880
+92,Bintulu (BIN),Cat Lai (CLI),614
+93,Bintulu (BIN),Cam Pha (CPH),1157
+94,Bintulu (BIN),Dumai (DMI),730
+95,Bintulu (BIN),Dung Quat (DQT),780
+96,Bintulu (BIN),Davao (Sasa Wharf) (DVO),1026
+97,Bintulu (BIN),Futong (FTG),670
+98,Bintulu (BIN),Godau port  (GDP),580
+99,Bintulu (BIN),Hon Gai (HON),1154
+100,Bintulu (BIN),Haiphong (HPH),1335
+101,Bintulu (BIN),Jakarta (JAK),778
+102,Bintulu (BIN),K.K. Kota Kinabalu (KK),308
+103,Bintulu (BIN),Kuantan (KT),583
+104,Bintulu (BIN),Dumai (DMI),730
+105,Bintulu (BIN),Labuan (LBN),226
+106,Bintulu (BIN),Laem Chabang (LCB),1145
+107,Bintulu (BIN),Lahad Datu (LDU),850
+108,Bintulu (BIN),Lumut (LUM),850
+109,Bintulu (BIN),Malacca (MAL),734
+110,Bintulu (BIN),Manila Habour (MNL),910
+111,Bintulu (BIN),Muara (MUR),220
+112,Bintulu (BIN),My Tho (MUT),600
+113,Bintulu (BIN),Nghi Son (NGH),1238
+114,Bintulu (BIN),Nunukan (NNX),725
+115,Bintulu (BIN),Pasir Gudang (PAS),592
+116,Bintulu (BIN),Port Klang (PKL),882
+117,Bintulu (BIN),Palembang (PLB),675
+118,Bintulu (BIN),Poso (POSO),1375
+119,Bintulu (BIN),Pontianak (POT),426
+120,Bintulu (BIN),Sandakan (SAN),531
+121,Bintulu (BIN),Sandakan (SAN),531
+122,Bintulu (BIN),Singapore (SG),600
+123,Bintulu (BIN),Sungai Guntung (SGGT),600
+124,Bintulu (BIN),Sipitang (SIP),280
+125,Bintulu (BIN),Songkhla (SK),802
+126,Bintulu (BIN),Semarang - Tanjung Emas (SRG),845
+127,Bintulu (BIN),Sarekei (SRK),216
+128,Bintulu (BIN),Surabaya (SUBY),918
+129,Bintulu (BIN),Tacloban (TAC),970
+130,Bintulu (BIN),Tagbilaran (TAG),843
+131,Bintulu (BIN),Tawau (TAW),785
+132,Bintulu (BIN),Terengganu (TGG),628
+133,Bintulu (BIN),Tanjong Manis (TGM),170
+134,Bintulu (BIN),Tanjung Batu (TJQ),570
+135,Bintulu (BIN),Tanjung Priok (TP),776
+136,Bintulu (BIN),Vung Ang (VAG),1192
+137,Bintulu (BIN),Can Tho (VCA),602
+138,Bangkok (BK),Ayutthaya - Bangpain (AB),43
+139,Bangkok (BK),Ayutthaya - Nakorn Luang (ANL),90
+140,Bangkok (BK),Bangpakong (BAK),59
+141,Bangkok (BK),Batam (BAT),861
+142,Bangkok (BK),Bahodopi (BHDP),2180
+143,Bangkok (BK),Beihai (BHY),1620
+144,Bangkok (BK),Bintulu (BIN),1181
+145,Bangkok (BK),Balikpapan (BPN),1815
+146,Bangkok (BK),Brunei (BRU),1327
+147,Bangkok (BK),Belawan (BRW),1230
+148,Bangkok (BK),Bang Sapan (BS),178
+149,Bangkok (BK),Kolkata (CCU),2545
+150,Bangkok (BK),Cayagan de Oro City (Macabalan wharf) (CDO),1880
+151,Bangkok (BK),Cigading (CIG),1320
+152,Bangkok (BK),Cat Lai (CLI),690
+153,Bangkok (BK),Cai Lan (CLN),1450
+154,Bangkok (BK),Chantaburi LaemSing (CLS),165
+155,Bangkok (BK),Cam Pha (CPH),1483
+156,Bangkok (BK),Chittagong (CTG),2390
+157,Bangkok (BK),Danang (DAD),1155
+158,Bangkok (BK),Dumai (DMI),1100
+159,Bangkok (BK),Dung Quat (DQT),1030
+160,Bangkok (BK),Davao (Sasa Wharf) (DVO),2047
+161,Bangkok (BK),Futong (FTG),1070
+162,Bangkok (BK),Godau port  (GDP),671
+163,Bangkok (BK),HO CHI MINH (HCM),690
+164,Bangkok (BK),Hong Kong (HKG),1690
+165,Bangkok (BK),Hon Gai (HON),1480
+166,Bangkok (BK),Haiphong (HPH),1429
+167,Bangkok (BK),Rayong (IRPC),125
+168,Bangkok (BK),Jakarta (JAK),1320
+169,Bangkok (BK),Jambi (JBI),300
+170,Bangkok (BK),Khanom (KHM),295
+171,Bangkok (BK),K.K. Kota Kinabalu (KK),1410
+172,Bangkok (BK),Kedah (KKH),1260
+173,Bangkok (BK),Kelantan (KLT),475
+174,Bangkok (BK),Kemaman (KMN),650
+175,Bangkok (BK),Kampot (KMP),334
+176,Bangkok (BK),Ko Sichang (KSI),60
+177,Bangkok (BK),Kor Samui (KSM),268
+178,Bangkok (BK),Kuantan (KT),680
+179,Bangkok (BK),Kantang (KTG),1399
+180,Bangkok (BK),Kuching (KUC),1088
+181,Bangkok (BK),KUM,1360
+182,Bangkok (BK),Labuan (LBN),1393
+183,Bangkok (BK),Laem Chabang (LCB),65
+184,Bangkok (BK),Lahad Datu (LDU),1670
+185,Bangkok (BK),Lumut (LUM),1207
+186,Bangkok (BK),Makassar (MAK),1855
+187,Bangkok (BK),Malacca (MAL),986
+188,Bangkok (BK),Maptaphut (MAT),123
+189,Bangkok (BK),Century Harbour (MHI),60
+190,Bangkok (BK),Maeklong (Firesun) (MKG),74
+191,Bangkok (BK),Manila Habour (MNL),1935
+192,Bangkok (BK),Manila Habour (MNL),1590
+193,Bangkok (BK),Marunda (MRD),1321
+194,Bangkok (BK),Muara (MUR),1249
+195,Bangkok (BK),My Tho (MUT),765
+196,Bangkok (BK),Ningde (NDE),2090
+197,Bangkok (BK),Nghi Son (NGH),1356
+198,Bangkok (BK),Nunukan (NNX),1825
+199,Bangkok (BK),Nan Tong (NTG),2290
+200,Bangkok (BK),Oknha Mong Port (OMP),307
+201,Bangkok (BK),Onomichi (ONO),2820
+202,Bangkok (BK),Pasir Gudang (PAS),865
+203,Bangkok (BK),Port Moresby (PGPOM),3650
+204,Bangkok (BK),Phumy (PHU),680
+205,Bangkok (BK),Port Klang (PKL),1070
+206,Bangkok (BK),PAKAN Baru (PKRU),1100
+207,Bangkok (BK),Palembang (PLB),1110
+208,Bangkok (BK),Penang (PNG),1258
+209,Bangkok (BK),Phnom Penh (PNH),845
+210,Bangkok (BK),Panjang (PNJ),1405
+211,Bangkok (BK),Poso (POSO),2170
+212,Bangkok (BK),Pontianak (POT),1075
+213,Bangkok (BK),Quy Nhon (QNN),932
+214,Bangkok (BK),Yangon (RGN),1960
+215,Bangkok (BK),Sandakan (SAN),1595
+216,Bangkok (BK),Singapore (SG),850
+217,Bangkok (BK),Sungai Guntung (SGGT),960
+218,Bangkok (BK),Steung Hav (SHV),298
+219,Bangkok (BK),Sibu (SIB),1134
+220,Bangkok (BK),Srihanoville (SIH),286
+221,Bangkok (BK),Sipitang (SIP),1352
+222,Bangkok (BK),Songkhla (SK),420
+223,Bangkok (BK),Sampit (SMQ),1490
+224,Bangkok (BK),Son Duong (SOD),1264
+225,Bangkok (BK),Sriracha Harbor (SRC),60
+226,Bangkok (BK),Semarang - Tanjung Emas (SRG),1420
+227,Bangkok (BK),Sarekei (SRK),1132
+228,Bangkok (BK),Surat Thanee (SRT),296
+229,Bangkok (BK),Sarawak (SRW),980
+230,Bangkok (BK),Surabaya (SUBY),1545
+231,Bangkok (BK),Tacloban (TAC),1760
+232,Bangkok (BK),Tagbilaran (TAG),1933
+233,Bangkok (BK),Tarjun (TAR),1630
+234,Bangkok (BK),Tawau (TAW),1820
+235,Bangkok (BK),Terengganu (TGG),592
+236,Bangkok (BK),Tanjong Manis (TGM),1095
+237,Bangkok (BK),Tanjung Batu (TJQ),1100
+238,Bangkok (BK),Tanjung Priok (TP),1320
+239,Bangkok (BK),Tha Sala (TSL),326
+240,Bangkok (BK),Tsukumi (TSUM),2710
+241,Bangkok (BK),Ranong (UNN),1550
+242,Bangkok (BK),Vung Ang (VAG),1556
+243,Bangkok (BK),Can Tho (VCA),605
+244,Bangkok (BK),Vung Tau (VUT),650
+245,Bourbon (BOUR),Bahodopi (BHDP),1970
+246,Bourbon (BOUR),Dumai (DMI),820
+247,Bourbon (BOUR),Lahad Datu (LDU),1150
+248,Bourbon (BOUR),Manila Habour (MNL),970
+249,Bourbon (BOUR),My Tho (MUT),90
+250,Bourbon (BOUR),Nunukan (NNX),1030
+251,Bourbon (BOUR),Semarang - Tanjung Emas (SRG),1125
+252,Bourbon (BOUR),Tanjung Batu (TJQ),840
+253,Balikpapan (BPN),Bangpakong (BAK),1800
+254,Balikpapan (BPN),Bintulu (BIN),1056
+255,Balikpapan (BPN),Bangkok (BK),1815
+256,Balikpapan (BPN),Bang Sapan (BS),1685
+257,Balikpapan (BPN),Godau port  (GDP),1320
+258,Balikpapan (BPN),HO CHI MINH (HCM),1345
+259,Balikpapan (BPN),Kemaman (KMN),1185
+260,Balikpapan (BPN),Kuantan (KT),1170
+261,Balikpapan (BPN),Kuching (KUC),1053
+262,Balikpapan (BPN),Labuan (LBN),864
+263,Balikpapan (BPN),Maptaphut (MAT),1756
+264,Balikpapan (BPN),Century Harbour (MHI),1805
+265,Balikpapan (BPN),Pasir Gudang (PAS),1060
+266,Balikpapan (BPN),Phumy (PHU),1330
+267,Balikpapan (BPN),Port Klang (PKL),1275
+268,Balikpapan (BPN),Pontianak (POT),842
+269,Balikpapan (BPN),Songkhla (SK),1490
+270,Balikpapan (BPN),Son Duong (SOD),1580
+271,Balikpapan (BPN),Tawau (TAW),418
+272,Balikpapan (BPN),Terengganu (TGG),854
+273,Balikpapan (BPN),TJM,1090
+274,Balikpapan (BPN),Tha Sala (TSL),1568
+275,Balikpapan (BPN),Vung Tau (VUT),1300
+276,Brunei (BRU),Bangkok (BK),1327
+277,Brunei (BRU),Songkhla (SK),900
+278,Brunei (BRU),Tawau (TAW),584
+279,Belawan (BRW),Bangkok (BK),1230
+280,Belawan (BRW),Fangcheng (FAN),1750
+281,Belawan (BRW),Kuantan (KT),582
+282,Belawan (BRW),Kuching (KUC),813
+283,Belawan (BRW),Port Klang (PKL),316
+284,Belawan (BRW),PAKAN Baru (PKRU),722
+285,Belawan (BRW),Palembang (PLB),750
+286,Belawan (BRW),Pontianak (POT),720
+287,Belawan (BRW),Songkhla (SK),867
+288,Bang Sapan (BS),Bangpakong (BAK),162
+289,Bang Sapan (BS),Bahodopi (BHDP),2140
+290,Bang Sapan (BS),Bintulu (BIN),1039
+291,Bang Sapan (BS),Bangkok (BK),178
+292,Bang Sapan (BS),Balikpapan (BPN),1685
+293,Bang Sapan (BS),Cayagan de Oro City (Macabalan wharf) (CDO),1820
+294,Bang Sapan (BS),Cat Lai (CLI),622
+295,Bang Sapan (BS),Cam Pha (CPH),1413
+296,Bang Sapan (BS),Dumai (DMI),890
+297,Bang Sapan (BS),Dung Quat (DQT),955
+298,Bang Sapan (BS),Davao (Sasa Wharf) (DVO),1901
+299,Bang Sapan (BS),Futong (FTG),930
+300,Bang Sapan (BS),Godau port  (GDP),603
+301,Bang Sapan (BS),HO CHI MINH (HCM),621
+302,Bang Sapan (BS),Hon Gai (HON),1410
+303,Bang Sapan (BS),Haiphong (HPH),1454
+304,Bang Sapan (BS),Jakarta (JAK),1168
+305,Bang Sapan (BS),K.K. Kota Kinabalu (KK),1250
+306,Bang Sapan (BS),Kemaman (KMN),508
+307,Bang Sapan (BS),Kuantan (KT),497
+308,Bang Sapan (BS),Kuching (KUC),944
+309,Bang Sapan (BS),Laem Chabang (LCB),140
+310,Bang Sapan (BS),Lahad Datu (LDU),1450
+311,Bang Sapan (BS),Lumut (LUM),1050
+312,Bang Sapan (BS),Malacca (MAL),847
+313,Bang Sapan (BS),Maptaphut (MAT),130
+314,Bang Sapan (BS),Century Harbour (MHI),155
+315,Bang Sapan (BS),Manila Habour (MNL),1440
+316,Bang Sapan (BS),Muara (MUR),1106
+317,Bang Sapan (BS),My Tho (MUT),690
+318,Bang Sapan (BS),Nghi Son (NGH),1352
+319,Bang Sapan (BS),Nunukan (NNX),1647
+320,Bang Sapan (BS),Pasir Gudang (PAS),722
+321,Bang Sapan (BS),Phumy (PHU),617
+322,Bang Sapan (BS),Port Klang (PKL),925
+323,Bang Sapan (BS),Yangon (RGN),1810
+324,Bang Sapan (BS),Sandakan (SAN),1465
+325,Bang Sapan (BS),Singapore (SG),720
+326,Bang Sapan (BS),Steung Hav (SHV),243
+327,Bang Sapan (BS),Songkhla (SK),250
+328,Bang Sapan (BS),Son Duong (SOD),1231
+329,Bang Sapan (BS),Semarang - Tanjung Emas (SRG),1390
+330,Bang Sapan (BS),Surabaya (SUBY),1360
+331,Bang Sapan (BS),Terengganu (TGG),436
+332,Bang Sapan (BS),Tanjung Batu (TJQ),1070
+333,Bang Sapan (BS),Can Tho (VCA),537
+334,Bang Sapan (BS),Vung Tau (VUT),587
+335,Bintan (BTN),Century Harbour (MHI),864
+336,Bintan (BTN),Songkhla (SK),527
+337,Bontang (BXT),Tacloban (TAC),930
+338,Kolkata (CCU),Bangkok (BK),2545
+339,Cayagan de Oro City (Macabalan wharf) (CDO),Bintulu (BIN),880
+340,Cayagan de Oro City (Macabalan wharf) (CDO),Bangkok (BK),1880
+341,Cayagan de Oro City (Macabalan wharf) (CDO),Bang Sapan (BS),1820
+342,Cayagan de Oro City (Macabalan wharf) (CDO),Kemaman (KMN),1360
+343,Cayagan de Oro City (Macabalan wharf) (CDO),Kuantan (KT),1360
+344,Cayagan de Oro City (Macabalan wharf) (CDO),Labuan (LBN),689
+345,Cayagan de Oro City (Macabalan wharf) (CDO),Son Duong (SOD),1275
+346,Cayagan de Oro City (Macabalan wharf) (CDO),Surat Thanee (SRT),1751
+347,Cayagan de Oro City (Macabalan wharf) (CDO),Tawau (TAW),568
+348,Cayagan de Oro City (Macabalan wharf) (CDO),Tanjong Manis (TGM),1005
+349,Cigading (CIG),Bangkok (BK),1320
+350,Cigading (CIG),KUM,420
+351,Cigading (CIG),Maptaphut (MAT),1250
+352,Cigading (CIG),Sungai Guntung (SGGT),550
+353,Cigading (CIG),Surabaya (SUBY),460
+354,Cigading (CIG),Terengganu (TGG),790
+355,Cat Lai (CLI),Bangpakong (BAK),675
+356,Cat Lai (CLI),Bintulu (BIN),614
+357,Cat Lai (CLI),Bangkok (BK),690
+358,Cat Lai (CLI),Bang Sapan (BS),622
+359,Cat Lai (CLI),Godau port  (GDP),55
+360,Cat Lai (CLI),Kemaman (KMN),490
+361,Cat Lai (CLI),Kuantan (KT),510
+362,Cat Lai (CLI),Kuching (KUC),630
+363,Cat Lai (CLI),Labuan (LBN),645
+364,Cat Lai (CLI),Maptaphut (MAT),605
+365,Cat Lai (CLI),Century Harbour (MHI),680
+366,Cat Lai (CLI),Pasir Gudang (PAS),656
+367,Cat Lai (CLI),Phumy (PHU),73
+368,Cat Lai (CLI),Port Klang (PKL),864
+369,Cat Lai (CLI),Songkhla (SK),515
+370,Cat Lai (CLI),Son Duong (SOD),700
+371,Cat Lai (CLI),Tagbilaran (TAG),1115
+372,Cat Lai (CLI),Tawau (TAW),1050
+373,Cat Lai (CLI),Tanjong Manis (TGM),605
+374,Cat Lai (CLI),Tha Sala (TSL),605
+375,Cat Lai (CLI),Vung Tau (VUT),43
+376,Cai Lan (CLN),Bangkok (BK),1450
+377,Cai Lan (CLN),Godau port  (GDP),870
+378,Cai Lan (CLN),Haiphong (HPH),70
+379,Cai Lan (CLN),Lumut (LUM),1690
+380,Cai Lan (CLN),Vung Tau (VUT),800
+381,Chantaburi LaemSing (CLS),Bangkok (BK),165
+382,Chantaburi LaemSing (CLS),Surat Thanee (SRT),256
+383,Cam Pha (CPH),Bintulu (BIN),1157
+384,Cam Pha (CPH),Bangkok (BK),1483
+385,Cam Pha (CPH),Bang Sapan (BS),1413
+386,Cam Pha (CPH),Danang (DAD),305
+387,Cam Pha (CPH),Godau port  (GDP),818
+388,Cam Pha (CPH),Haiphong (HPH),54
+389,Cam Pha (CPH),Kemaman (KMN),1231
+390,Cam Pha (CPH),Kuantan (KT),1246
+391,Cam Pha (CPH),Kuching (KUC),1292
+392,Cam Pha (CPH),Labuan (LBN),1166
+393,Cam Pha (CPH),Maptaphut (MAT),1392
+394,Cam Pha (CPH),Pasir Gudang (PAS),1351
+395,Cam Pha (CPH),Phumy (PHU),831
+396,Cam Pha (CPH),Port Klang (PKL),1551
+397,Cam Pha (CPH),Songkhla (SK),1302
+398,Cam Pha (CPH),Son Duong (SOD),202
+399,Cam Pha (CPH),Tagbilaran (TAG),1529
+400,Cam Pha (CPH),Tawau (TAW),1558
+401,Cam Pha (CPH),Tanjong Manis (TGM),1250
+402,Cam Pha (CPH),Vung Tau (VUT),801
+403,Chittagong (CTG),Bangkok (BK),2390
+404,Chittagong (CTG),Ningde (NDE),3570
+405,Danang (DAD),Bangkok (BK),1155
+406,Danang (DAD),Cam Pha (CPH),305
+407,Danang (DAD),Dung Quat (DQT),70
+408,Danang (DAD),Godau port  (GDP),516
+409,Danang (DAD),Haiphong (HPH),300
+410,Danang (DAD),K.K. Kota Kinabalu (KK),1003
+411,Danang (DAD),Kuantan (KT),925
+412,Danang (DAD),Labuan (LBN),815
+413,Danang (DAD),Century Harbour (MHI),1126
+414,Danang (DAD),Songkhla (SK),956
+415,Danang (DAD),Terengganu (TGG),958
+416,Dhaka (DKA),Ningde (NDE),3670
+417,Dumai (DMI),Bangpakong (BAK),1050
+418,Dumai (DMI),Bintulu (BIN),730
+419,Dumai (DMI),Bangkok (BK),1100
+420,Dumai (DMI),Bourbon (BOUR),820
+421,Dumai (DMI),Bang Sapan (BS),890
+422,Dumai (DMI),Godau port  (GDP),810
+423,Dumai (DMI),HO CHI MINH (HCM),790
+424,Dumai (DMI),Jakarta (JAK),970
+425,Dumai (DMI),K.K. Kota Kinabalu (KK),1080
+426,Dumai (DMI),Kemaman (KMN),460
+427,Dumai (DMI),Kuantan (KT),450
+428,Dumai (DMI),Kuching (KUC),637
+429,Dumai (DMI),Labuan (LBN),1020
+430,Dumai (DMI),Malacca (MAL),85
+431,Dumai (DMI),Maptaphut (MAT),1070
+432,Dumai (DMI),Century Harbour (MHI),1029
+433,Dumai (DMI),Pasir Gudang (PAS),240
+434,Dumai (DMI),Port Klang (PKL),170
+435,Dumai (DMI),Palembang (PLB),670
+436,Dumai (DMI),Panjang (PNJ),1050
+437,Dumai (DMI),Pontianak (POT),510
+438,Dumai (DMI),Singapore (SG),200
+439,Dumai (DMI),Sungai Guntung (SGGT),20
+440,Dumai (DMI),Songkhla (SK),696
+441,Dumai (DMI),Sampit (SMQ),960
+442,Dumai (DMI),Son Duong (SOD),1480
+443,Dumai (DMI),Sriracha Harbor (SRC),1012
+444,Dumai (DMI),Tawau (TAW),1610
+445,Dumai (DMI),Terengganu (TGG),490
+446,Dumai (DMI),Tha Sala (TSL),780
+447,Dung Quat (DQT),Bintulu (BIN),780
+448,Dung Quat (DQT),Bangkok (BK),1030
+449,Dung Quat (DQT),Bang Sapan (BS),955
+450,Dung Quat (DQT),Danang (DAD),70
+451,Dung Quat (DQT),Godau port  (GDP),428
+452,Dung Quat (DQT),Kemaman (KMN),806
+453,Dung Quat (DQT),Kuantan (KT),820
+454,Dung Quat (DQT),Kuching (KUC),832
+455,Dung Quat (DQT),Labuan (LBN),722
+456,Dung Quat (DQT),Maptaphut (MAT),942
+457,Dung Quat (DQT),Pasir Gudang (PAS),953
+458,Dung Quat (DQT),Phumy (PHU),437
+459,Dung Quat (DQT),Port Klang (PKL),1160
+460,Dung Quat (DQT),Songkhla (SK),855
+461,Dung Quat (DQT),Son Duong (SOD),215
+462,Dung Quat (DQT),Surat Thanee (SRT),940
+463,Dung Quat (DQT),Tagbilaran (TAG),1005
+464,Dung Quat (DQT),Tawau (TAW),1000
+465,Dung Quat (DQT),Tanjong Manis (TGM),815
+466,Dung Quat (DQT),Vung Tau (VUT),407
+467,Davao (Sasa Wharf) (DVO),Bintulu (BIN),1026
+468,Davao (Sasa Wharf) (DVO),Bangkok (BK),2047
+469,Davao (Sasa Wharf) (DVO),Bang Sapan (BS),1901
+470,Davao (Sasa Wharf) (DVO),Kemaman (KMN),1526
+471,Davao (Sasa Wharf) (DVO),Kuantan (KT),1526
+472,Davao (Sasa Wharf) (DVO),Labuan (LBN),880
+473,Davao (Sasa Wharf) (DVO),Songkhla (SK),1701
+474,Davao (Sasa Wharf) (DVO),Son Duong (SOD),1557
+475,Davao (Sasa Wharf) (DVO),Surat Thanee (SRT),1839
+476,Davao (Sasa Wharf) (DVO),Tacloban (TAC),430
+477,Davao (Sasa Wharf) (DVO),Tawau (TAW),575
+478,Davao (Sasa Wharf) (DVO),Tanjong Manis (TGM),1170
+479,Fangcheng (FAN),Belawan (BRW),1750
+480,Fangcheng (FAN),Haiphong (HPH),170
+481,Fangcheng (FAN),Surabaya (SUBY),1880
+482,Mawei Fuzhou (FOC),Ningde (NDE),140
+483,Mawei Fuzhou (FOC),Pasir Gudang (PAS),2000
+484,Futong (FTG),Bangpakong (BAK),1045
+485,Futong (FTG),Bintulu (BIN),670
+486,Futong (FTG),Bangkok (BK),1070
+487,Futong (FTG),Bang Sapan (BS),930
+488,Futong (FTG),Godau port  (GDP),780
+489,Futong (FTG),HO CHI MINH (HCM),785
+490,Futong (FTG),Jakarta (JAK),580
+491,Futong (FTG),K.K. Kota Kinabalu (KK),910
+492,Futong (FTG),Kemaman (KMN),390
+493,Futong (FTG),Kuantan (KT),270
+494,Futong (FTG),Kuching (KUC),510
+495,Futong (FTG),Labuan (LBN),840
+496,Futong (FTG),Maptaphut (MAT),920
+497,Futong (FTG),Century Harbour (MHI),990
+498,Futong (FTG),Pasir Gudang (PAS),250
+499,Futong (FTG),Port Klang (PKL),250
+500,Futong (FTG),Palembang (PLB),310
+501,Futong (FTG),Panjang (PNJ),690
+502,Futong (FTG),Pontianak (POT),770
+503,Futong (FTG),Singapore (SG),260
+504,Futong (FTG),Sungai Guntung (SGGT),100
+505,Futong (FTG),Songkhla (SK),690
+506,Futong (FTG),Sampit (SMQ),770
+507,Futong (FTG),Son Duong (SOD),1430
+508,Futong (FTG),Tawau (TAW),1340
+509,Futong (FTG),Terengganu (TGG),450
+510,Futong (FTG),Tha Sala (TSL),750
+511,Godau port  (GDP),Bangpakong (BAK),652
+512,Godau port  (GDP),Bahodopi (BHDP),1970
+513,Godau port  (GDP),Bintulu (BIN),580
+514,Godau port  (GDP),Bangkok (BK),671
+515,Godau port  (GDP),Balikpapan (BPN),1320
+516,Godau port  (GDP),Bang Sapan (BS),600
+517,Godau port  (GDP),Cat Lai (CLI),55
+518,Godau port  (GDP),Cai Lan (CLN),870
+519,Godau port  (GDP),Cam Pha (CPH),818
+520,Godau port  (GDP),Danang (DAD),516
+521,Godau port  (GDP),Dumai (DMI),810
+522,Godau port  (GDP),Dung Quat (DQT),428
+523,Godau port  (GDP),Futong (FTG),780
+524,Godau port  (GDP),HO CHI MINH (HCM),58
+525,Godau port  (GDP),Hon Gai (HON),815
+526,Godau port  (GDP),Haiphong (HPH),798
+527,Godau port  (GDP),Khanom (KHM),572
+528,Godau port  (GDP),Kedah (KKH),1038
+529,Godau port  (GDP),Ko Sichang (KSI),620
+530,Godau port  (GDP),Kuantan (KT),485
+531,Godau port  (GDP),Kuching (KUC),595
+532,Godau port  (GDP),KUM,1130
+533,Godau port  (GDP),Labuan (LBN),605
+534,Godau port  (GDP),Laem Chabang (LCB),650
+535,Godau port  (GDP),Lahad Datu (LDU),1150
+536,Godau port  (GDP),Lhokseumawe (LHOK),1180
+537,Godau port  (GDP),Lumut (LUM),930
+538,Godau port  (GDP),Maptaphut (MAT),580
+539,Godau port  (GDP),Manila Habour (MNL),970
+540,Godau port  (GDP),My Tho (MUT),90
+541,Godau port  (GDP),Nghi Son (NGH),780
+542,Godau port  (GDP),Nunukan (NNX),1030
+543,Godau port  (GDP),Oknha Mong Port (OMP),446
+544,Godau port  (GDP),Palembang (PLB),860
+545,Godau port  (GDP),Pontianak (POT),680
+546,Godau port  (GDP),Yangon (RGN),1776
+547,Godau port  (GDP),Singapore (SG),630
+548,Godau port  (GDP),Sungai Guntung (SGGT),770
+549,Godau port  (GDP),Steung Hav (SHV),445
+550,Godau port  (GDP),Srihanoville (SIH),380
+551,Godau port  (GDP),Sipitang (SIP),630
+552,Godau port  (GDP),Songkhla (SK),500
+553,Godau port  (GDP),Son Duong (SOD),664
+554,Godau port  (GDP),Semarang - Tanjung Emas (SRG),1125
+555,Godau port  (GDP),Surat Thanee (SRT),619
+556,Godau port  (GDP),Tacloban (TAC),1280
+557,Godau port  (GDP),Terengganu (TGG),420
+558,Godau port  (GDP),Tanjung Batu (TJQ),840
+559,Godau port  (GDP),Tanjung Priok (TP),999
+560,Godau port  (GDP),Tha Sala (TSL),510
+561,Godau port  (GDP),Vung Ang (VAG),769
+562,Godau port  (GDP),Can Tho (VCA),138
+563,Godau port  (GDP),Vung Tau (VUT),120
+564,GRN,Palembang (PLB),1458
+565,HO CHI MINH (HCM),Bahodopi (BHDP),1940
+566,HO CHI MINH (HCM),Bangkok (BK),690
+567,HO CHI MINH (HCM),Balikpapan (BPN),1345
+568,HO CHI MINH (HCM),Bang Sapan (BS),621
+569,HO CHI MINH (HCM),Dumai (DMI),790
+570,HO CHI MINH (HCM),Futong (FTG),785
+571,HO CHI MINH (HCM),Godau port  (GDP),58
+572,HO CHI MINH (HCM),Halong Bay (HLG),808
+573,HO CHI MINH (HCM),K.K. Kota Kinabalu (KK),761
+574,HO CHI MINH (HCM),Kedah (KKH),1060
+575,HO CHI MINH (HCM),KUM,1150
+576,HO CHI MINH (HCM),Labuan (LBN),638
+577,HO CHI MINH (HCM),Laem Chabang (LCB),668
+578,HO CHI MINH (HCM),Lahad Datu (LDU),1120
+579,HO CHI MINH (HCM),Lumut (LUM),904
+580,HO CHI MINH (HCM),Makassar (MAK),1520
+581,HO CHI MINH (HCM),Maptaphut (MAT),611
+582,HO CHI MINH (HCM),Manila Habour (MNL),940
+583,HO CHI MINH (HCM),My Tho (MUT),100
+584,HO CHI MINH (HCM),Nghi Son (NGH),820
+585,HO CHI MINH (HCM),Nunukan (NNX),1000
+586,HO CHI MINH (HCM),Oknha Mong Port (OMP),461
+587,HO CHI MINH (HCM),Pasir Gudang (PAS),704
+588,HO CHI MINH (HCM),Panjang (PNJ),1080
+589,HO CHI MINH (HCM),Pontianak (POT),576
+590,HO CHI MINH (HCM),Quy Nhon (QNN),350
+591,HO CHI MINH (HCM),Yangon (RGN),1826
+592,HO CHI MINH (HCM),Sungai Guntung (SGGT),760
+593,HO CHI MINH (HCM),Srihanoville (SIH),400
+594,HO CHI MINH (HCM),Sipitang (SIP),648
+595,HO CHI MINH (HCM),Songkhla (SK),520
+596,HO CHI MINH (HCM),Sampit (SMQ),1135
+597,HO CHI MINH (HCM),Semarang - Tanjung Emas (SRG),1100
+598,HO CHI MINH (HCM),Surabaya (SUBY),1330
+599,HO CHI MINH (HCM),Tacloban (TAC),1250
+600,HO CHI MINH (HCM),Tarjun (TAR),1320
+601,HO CHI MINH (HCM),Tawau (TAW),1211
+602,HO CHI MINH (HCM),Tanjung Batu (TJQ),810
+603,HO CHI MINH (HCM),Tanjung Priok (TP),1021
+604,HO CHI MINH (HCM),Vung Ang (VAG),695
+605,HO CHI MINH (HCM),Vung Tau (VUT),41
+606,Hong Kong (HKG),Beihai (BHY),780
+607,Hong Kong (HKG),Bangkok (BK),1690
+608,Hong Kong (HKG),Ningde (NDE),570
+609,Hong Kong (HKG),Son Duong (SOD),580
+610,Hong Kong (HKG),Vung Tau (VUT),990
+611,Phuket (HKT),Benoa (Bali) (BAO),1545
+612,Phuket (HKT),Laem Chabang (LCB),1346
+613,Phuket (HKT),Malacca (MAL),418
+614,Halong Bay (HLG),HO CHI MINH (HCM),808
+615,Halong Bay (HLG),Songkhla (SK),1243
+616,Hon Gai (HON),Bintulu (BIN),1154
+617,Hon Gai (HON),Bangkok (BK),1480
+618,Hon Gai (HON),Bang Sapan (BS),1410
+619,Hon Gai (HON),Godau port  (GDP),815
+620,Hon Gai (HON),Haiphong (HPH),45
+621,Hon Gai (HON),Kemaman (KMN),1228
+622,Hon Gai (HON),Kuantan (KT),1243
+623,Hon Gai (HON),Kuching (KUC),1289
+624,Hon Gai (HON),Labuan (LBN),1163
+625,Hon Gai (HON),Maptaphut (MAT),1389
+626,Hon Gai (HON),Pasir Gudang (PAS),1348
+627,Hon Gai (HON),Phumy (PHU),828
+628,Hon Gai (HON),Port Klang (PKL),1548
+629,Hon Gai (HON),Songkhla (SK),1229
+630,Hon Gai (HON),Son Duong (SOD),199
+631,Hon Gai (HON),Tagbilaran (TAG),1526
+632,Hon Gai (HON),Tawau (TAW),1555
+633,Hon Gai (HON),Tanjong Manis (TGM),1247
+634,Hon Gai (HON),Vung Tau (VUT),798
+635,Haiphong (HPH),Bintulu (BIN),1335
+636,Haiphong (HPH),Bangkok (BK),1429
+637,Haiphong (HPH),Bang Sapan (BS),1454
+638,Haiphong (HPH),Cai Lan (CLN),70
+639,Haiphong (HPH),Cam Pha (CPH),54
+640,Haiphong (HPH),Danang (DAD),300
+641,Haiphong (HPH),Fangcheng (FAN),170
+642,Haiphong (HPH),Godau port  (GDP),798
+643,Haiphong (HPH),Hon Gai (HON),45
+644,Haiphong (HPH),Khanom (KHM),1330
+645,Haiphong (HPH),Kemaman (KMN),1235
+646,Haiphong (HPH),Kuantan (KT),1253
+647,Haiphong (HPH),Kuching (KUC),1335
+648,Haiphong (HPH),KUM,1870
+649,Haiphong (HPH),Labuan (LBN),1186
+650,Haiphong (HPH),Makassar (MAK),2045
+651,Haiphong (HPH),Maptaphut (MAT),1336
+652,Haiphong (HPH),Century Harbour (MHI),1375
+653,Haiphong (HPH),Pasir Gudang (PAS),1353
+654,Haiphong (HPH),Phumy (PHU),811
+655,Haiphong (HPH),Port Klang (PKL),1556
+656,Haiphong (HPH),Palembang (PLB),1552
+657,Haiphong (HPH),Songkhla (SK),1254
+658,Haiphong (HPH),Son Duong (SOD),194
+659,Haiphong (HPH),Tacloban (TAC),1490
+660,Haiphong (HPH),Tagbilaran (TAG),1379
+661,Haiphong (HPH),Tarjun (TAR),1950
+662,Haiphong (HPH),Tawau (TAW),1405
+663,Haiphong (HPH),Tanjong Manis (TGM),1487
+664,Haiphong (HPH),Tanjung Priok (TP),1706
+665,Haiphong (HPH),Can Tho (VCA),874
+666,Haiphong (HPH),Vung Tau (VUT),781
+667,Rayong (IRPC),Bangkok (BK),125
+668,Rayong (IRPC),Kelantan (KLT),405
+669,Rayong (IRPC),Kuantan (KT),560
+670,Rayong (IRPC),Narathiwat (NAW),375
+671,Rayong (IRPC),Oknha Mong Port (OMP),194
+672,Rayong (IRPC),Yangon (RGN),1815
+673,Rayong (IRPC),Songkhla (SK),342
+674,Rayong (IRPC),Surabaya (SUBY),1408
+675,Rayong (IRPC),Terengganu (TGG),470
+676,Jakarta (JAK),Benoa (Bali) (BAO),655
+677,Jakarta (JAK),Bahodopi (BHDP),1265
+678,Jakarta (JAK),Bintulu (BIN),778
+679,Jakarta (JAK),Bangkok (BK),1320
+680,Jakarta (JAK),Bang Sapan (BS),1172
+681,Jakarta (JAK),Dumai (DMI),970
+682,Jakarta (JAK),Futong (FTG),580
+683,Jakarta (JAK),K.K. Kota Kinabalu (KK),1005
+684,Jakarta (JAK),Kemaman (KMN),680
+685,Jakarta (JAK),Kuantan (KT),669
+686,Jakarta (JAK),Kantang (KTG),1130
+687,Jakarta (JAK),Kuching (KUC),640
+688,Jakarta (JAK),Labuan (LBN),945
+689,Jakarta (JAK),Laem Chabang (LCB),1251
+690,Jakarta (JAK),Lahad Datu (LDU),1370
+691,Jakarta (JAK),Malacca (MAL),900
+692,Jakarta (JAK),Maptaphut (MAT),1220
+693,Jakarta (JAK),Manila Habour (MNL),1850
+694,Jakarta (JAK),My Tho (MUT),1140
+695,Jakarta (JAK),Nunukan (NNX),1100
+696,Jakarta (JAK),Pasir Gudang (PAS),550
+697,Jakarta (JAK),Port Klang (PKL),1000
+698,Jakarta (JAK),Palembang (PLB),460
+699,Jakarta (JAK),Penang (PNG),1200
+700,Jakarta (JAK),Pontianak (POT),430
+701,Jakarta (JAK),Singapore (SG),526
+702,Jakarta (JAK),Sampit (SMQ),458
+703,Jakarta (JAK),Son Duong (SOD),1546
+704,Jakarta (JAK),Semarang - Tanjung Emas (SRG),280
+705,Jakarta (JAK),Surat Thanee (SRT),1130
+706,Jakarta (JAK),Surabaya (SUBY),386
+707,Jakarta (JAK),Tacloban (TAC),1790
+708,Jakarta (JAK),Tawau (TAW),1160
+709,Jakarta (JAK),Terengganu (TGG),745
+710,Jakarta (JAK),Tanjong Manis (TGM),660
+711,Jakarta (JAK),Tanjung Batu (TJQ),200
+712,Jakarta (JAK),Tha Sala (TSL),1028
+713,Jambi (JBI),Bangkok (BK),300
+714,Jambi (JBI),Tanjong Manis (TGM),300
+715,KEM ,Surabaya (SUBY),886
+716,Khanom (KHM),Bangpakong (BAK),274
+717,Khanom (KHM),Bangkok (BK),295
+718,Khanom (KHM),Godau port  (GDP),572
+719,Khanom (KHM),Haiphong (HPH),1330
+720,Khanom (KHM),Kemaman (KMN),392
+721,Khanom (KHM),Ko Sichang (KSI),250
+722,Khanom (KHM),Kuantan (KT),408
+723,Khanom (KHM),Century Harbour (MHI),271
+724,Khanom (KHM),Phumy (PHU),590
+725,Khanom (KHM),Songkhla (SK),144
+726,Khanom (KHM),Surat Thanee (SRT),49
+727,Khanom (KHM),Tha Sala (TSL),35
+728,Khanom (KHM),Vung Tau (VUT),560
+729,K.K. Kota Kinabalu (KK),Bahodopi (BHDP),1580
+730,K.K. Kota Kinabalu (KK),Bintulu (BIN),308
+731,K.K. Kota Kinabalu (KK),Bangkok (BK),1410
+732,K.K. Kota Kinabalu (KK),Bang Sapan (BS),1250
+733,K.K. Kota Kinabalu (KK),Danang (DAD),1003
+734,K.K. Kota Kinabalu (KK),Dumai (DMI),1080
+735,K.K. Kota Kinabalu (KK),Futong (FTG),910
+736,Kedah (KKH),Bangpakong (BAK),1245
+737,Kedah (KKH),Bangkok (BK),1260
+738,K.K. Kota Kinabalu (KK),HO CHI MINH (HCM),761
+739,Kedah (KKH),Godau port  (GDP),1038
+740,Kedah (KKH),HO CHI MINH (HCM),1060
+741,Kedah (KKH),Kuantan (KT),625
+742,Kedah (KKH),Malacca (MAL),300
+743,Kedah (KKH),Century Harbour (MHI),1250
+744,Kedah (KKH),Port Klang (PKL),210
+745,Kedah (KKH),Songkhla (SK),918
+746,K.K. Kota Kinabalu (KK),Jakarta (JAK),1005
+747,K.K. Kota Kinabalu (KK),Kuantan (KT),790
+748,K.K. Kota Kinabalu (KK),KUM,960
+749,K.K. Kota Kinabalu (KK),Labuan (LBN),80
+750,K.K. Kota Kinabalu (KK),Lahad Datu (LDU),570
+751,K.K. Kota Kinabalu (KK),Lumut (LUM),1071
+752,K.K. Kota Kinabalu (KK),Malacca (MAL),917
+753,K.K. Kota Kinabalu (KK),Century Harbour (MHI),1395
+754,K.K. Kota Kinabalu (KK),Manila Habour (MNL),650
+755,K.K. Kota Kinabalu (KK),Muara (MUR),103
+756,K.K. Kota Kinabalu (KK),My Tho (MUT),650
+757,K.K. Kota Kinabalu (KK),Nghi Son (NGH),1040
+758,K.K. Kota Kinabalu (KK),Nunukan (NNX),510
+759,K.K. Kota Kinabalu (KK),Pasir Gudang (PAS),802
+760,K.K. Kota Kinabalu (KK),Port Klang (PKL),1005
+761,K.K. Kota Kinabalu (KK),Sandakan (SAN),223
+762,K.K. Kota Kinabalu (KK),Sungai Guntung (SGGT),830
+763,K.K. Kota Kinabalu (KK),Sipitang (SIP),130
+764,K.K. Kota Kinabalu (KK),Songkhla (SK),1030
+765,K.K. Kota Kinabalu (KK),Semarang - Tanjung Emas (SRG),1130
+766,K.K. Kota Kinabalu (KK),Sarekei (SRK),452
+767,K.K. Kota Kinabalu (KK),Surabaya (SUBY),1146
+768,K.K. Kota Kinabalu (KK),Tacloban (TAC),730
+769,K.K. Kota Kinabalu (KK),Tawau (TAW),450
+770,K.K. Kota Kinabalu (KK),Terengganu (TGG),833
+771,K.K. Kota Kinabalu (KK),Tanjung Batu (TJQ),790
+772,K.K. Kota Kinabalu (KK),Vung Ang (VAG),1208
+773,Kelantan (KLT),Bangkok (BK),475
+774,Kelantan (KLT),Rayong (IRPC),405
+775,Kelantan (KLT),Phumy (PHU),424
+776,Kelantan (KLT),Songkhla (SK),125
+777,Kelantan (KLT),Vung Tau (VUT),394
+778,Kemaman (KMN),Bangpakong (BAK),644
+779,Kemaman (KMN),Bahodopi (BHDP),1665
+780,Kemaman (KMN),Bangkok (BK),650
+781,Kemaman (KMN),Balikpapan (BPN),1185
+782,Kemaman (KMN),Bang Sapan (BS),508
+783,Kemaman (KMN),Cayagan de Oro City (Macabalan wharf) (CDO),1360
+784,Kemaman (KMN),Cat Lai (CLI),490
+785,Kemaman (KMN),Cam Pha (CPH),1231
+786,Kemaman (KMN),Dumai (DMI),460
+787,Kemaman (KMN),Dung Quat (DQT),806
+788,Kemaman (KMN),Davao (Sasa Wharf) (DVO),1526
+789,Kemaman (KMN),Futong (FTG),390
+790,Kemaman (KMN),Hon Gai (HON),1228
+791,Kemaman (KMN),Haiphong (HPH),1235
+792,Kemaman (KMN),Jakarta (JAK),680
+793,Kemaman (KMN),Khanom (KHM),392
+794,Kemaman (KMN),Kuantan (KT),20.5
+795,Kemaman (KMN),Kuching (KUC),500
+796,Kemaman (KMN),KUM,730
+797,Kemaman (KMN),Labuan (LBN),741
+798,Kemaman (KMN),Lahad Datu (LDU),1250
+799,Kemaman (KMN),Lumut (LUM),516
+800,Kemaman (KMN),Malacca (MAL),365
+801,Kemaman (KMN),Maptaphut (MAT),590
+802,Kemaman (KMN),Century Harbour (MHI),645
+803,Kemaman (KMN),Maeklong (Firesun) (MKG),638
+804,Kemaman (KMN),Manila Habour (MNL),1210
+805,Kemaman (KMN),Muara (MUR),732
+806,Kemaman (KMN),My Tho (MUT),500
+807,Kemaman (KMN),Nghi Son (NGH),1100
+808,Kemaman (KMN),Nunukan (NNX),1220
+809,Kemaman (KMN),Pasir Gudang (PAS),215
+810,Kemaman (KMN),Port Klang (PKL),435
+811,Kemaman (KMN),Palembang (PLB),480
+812,Kemaman (KMN),Penang (PNG),608
+813,Kemaman (KMN),Pontianak (POT),460
+814,Kemaman (KMN),Yangon (RGN),1345
+815,Kemaman (KMN),Singapore (SG),234
+816,Kemaman (KMN),Sungai Guntung (SGGT),330
+817,Kemaman (KMN),Songkhla (SK),305
+818,Kemaman (KMN),Semarang - Tanjung Emas (SRG),800
+819,Kemaman (KMN),Sarekei (SRK),512
+820,Kemaman (KMN),Surat Thanee (SRT),443
+821,Kemaman (KMN),Tacloban (TAC),1440
+822,Kemaman (KMN),Terengganu (TGG),87
+823,Kemaman (KMN),Tanjung Batu (TJQ),500
+824,Kemaman (KMN),Tanjung Priok (TP),695
+825,Kemaman (KMN),Vung Ang (VAG),1287
+826,Kemaman (KMN),Can Tho (VCA),410
+827,Kampot (KMP),Bangkok (BK),334
+828,Kampot (KMP),Phumy (PHU),600
+829,Kampot (KMP),Surat Thanee (SRT),340
+830,Ko Sichang (KSI),Ayutthaya - Bangpain (AB),103
+831,Ko Sichang (KSI),Ayutthaya - Nakorn Luang (ANL),150
+832,Ko Sichang (KSI),Bangpakong (BAK),27
+833,Ko Sichang (KSI),Bangkok (BK),60
+834,Ko Sichang (KSI),Godau port  (GDP),620
+835,Ko Sichang (KSI),Khanom (KHM),250
+836,Ko Sichang (KSI),Kuantan (KT),635
+837,Ko Sichang (KSI),Maptaphut (MAT),75
+838,Ko Sichang (KSI),Century Harbour (MHI),45
+839,Ko Sichang (KSI),Maeklong (Firesun) (MKG),60
+840,Ko Sichang (KSI),Oknha Mong Port (OMP),248
+841,Ko Sichang (KSI),Pasir Gudang (PAS),828.5
+842,Ko Sichang (KSI),Port Klang (PKL),1039
+843,Ko Sichang (KSI),Palembang (PLB),1100
+844,Ko Sichang (KSI),Pontianak (POT),1060
+845,Ko Sichang (KSI),Songkhla (SK),365
+846,Ko Sichang (KSI),Sampit (SMQ),1500
+847,Ko Sichang (KSI),Surat Thanee (SRT),260
+848,Kor Samui (KSM),Bangkok (BK),268
+849,Kor Samui (KSM),Surat Thanee (SRT),47
+850,Kuantan (KT),Benoa (Bali) (BAO),1121
+851,Kuantan (KT),Batam (BAT),196
+852,Kuantan (KT),Bahodopi (BHDP),1650
+853,Kuantan (KT),Bintulu (BIN),583
+854,Kuantan (KT),Bangkok (BK),680
+855,Kuantan (KT),Balikpapan (BPN),1170
+856,Kuantan (KT),Belawan (BRW),582
+857,Kuantan (KT),Bang Sapan (BS),497
+858,Kuantan (KT),Cayagan de Oro City (Macabalan wharf) (CDO),1360
+859,Kuantan (KT),Cat Lai (CLI),510
+860,Kuantan (KT),Cam Pha (CPH),1246
+861,Kuantan (KT),Danang (DAD),925
+862,Kuantan (KT),Dumai (DMI),450
+863,Kuantan (KT),Dung Quat (DQT),820
+864,Kuantan (KT),Davao (Sasa Wharf) (DVO),1526
+865,Kuantan (KT),Futong (FTG),270
+866,Kantang (KTG),Bangkok (BK),1399
+867,Kuantan (KT),Godau port  (GDP),485
+868,Kantang (KTG),Jakarta (JAK),1130
+869,Kantang (KTG),Kuantan (KT),724
+870,Kantang (KTG),Malacca (MAL),393
+871,Kantang (KTG),Port Klang (PKL),305
+872,Kantang (KTG),Penang (PNG),150
+873,Kantang (KTG),Yangon (RGN),668
+874,Kantang (KTG),Songkhla (SK),1022
+875,Kantang (KTG),Ranong (UNN),255
+876,Kuantan (KT),Hon Gai (HON),1243
+877,Kuantan (KT),Haiphong (HPH),1253
+878,Kuantan (KT),Rayong (IRPC),560
+879,Kuantan (KT),Jakarta (JAK),669
+880,Kuantan (KT),Khanom (KHM),408
+881,Kuantan (KT),K.K. Kota Kinabalu (KK),790
+882,Kuantan (KT),Kedah (KKH),625
+883,Kuantan (KT),Kemaman (KMN),20.5
+884,Kuantan (KT),Ko Sichang (KSI),635
+885,Kuantan (KT),Kantang (KTG),724
+886,Kuantan (KT),Kuching (KUC),493
+887,Kuantan (KT),KUM,760
+888,Kuantan (KT),Labuan (LBN),738
+889,Kuantan (KT),Laem Chabang (LCB),625
+890,Kuantan (KT),Lahad Datu (LDU),1250
+891,Kuantan (KT),Lumut (LUM),480
+892,Kuantan (KT),Maptaphut (MAT),617
+893,Kuantan (KT),Century Harbour (MHI),666
+894,Kuantan (KT),Maeklong (Firesun) (MKG),657
+895,Kuantan (KT),Manila Habour (MNL),1230
+896,Kuantan (KT),Marunda (MRD),684
+897,Kuantan (KT),Muara (MUR),732
+898,Kuantan (KT),My Tho (MUT),520
+899,Kuantan (KT),Nghi Son (NGH),1180
+900,Kuantan (KT),Nunukan (NNX),1230
+901,Kuantan (KT),Oknha Mong Port (OMP),439
+902,Kuantan (KT),Pasir Gudang (PAS),216
+903,Kuantan (KT),Port Moresby (PGPOM),3015
+904,Kuantan (KT),Port Klang (PKL),428
+905,Kuantan (KT),PAKAN Baru (PKRU),99
+906,Kuantan (KT),Palembang (PLB),465
+907,Kuantan (KT),Penang (PNG),612
+908,Kuantan (KT),Phnom Penh (PNH),640
+909,Kuantan (KT),Panjang (PNJ),740
+910,Kuantan (KT),Poso (POSO),1850
+911,Kuantan (KT),Pontianak (POT),445
+912,Kuantan (KT),Quy Nhon (QNN),710
+913,Kuantan (KT),Yangon (RGN),1326
+914,Kuantan (KT),Singapore (SG),220
+915,Kuantan (KT),Sungai Guntung (SGGT),300
+916,Kuantan (KT),Srihanoville (SIH),415
+917,Kuantan (KT),Sipitang (SIP),763
+918,Kuantan (KT),Songkhla (SK),310
+919,Kuantan (KT),Semarang - Tanjung Emas (SRG),790
+920,Kuantan (KT),Sarekei (SRK),512
+921,Kuantan (KT),Sarawak (SRW),490
+922,Kuantan (KT),Sritama Jetty (STM),410
+923,Kuantan (KT),Surabaya (SUBY),874
+924,Kuantan (KT),Tacloban (TAC),1455
+925,Kuantan (KT),Tawau (TAW),1229
+926,Kuantan (KT),Terengganu (TGG),102
+927,Kuantan (KT),Tanjong Manis (TGM),498
+928,Kuantan (KT),Tanjung Batu (TJQ),480
+929,Kuantan (KT),Tanjung Priok (TP),670
+930,Kuantan (KT),Ranong (UNN),892
+931,Kuantan (KT),Vung Ang (VAG),1287
+932,Kuantan (KT),Can Tho (VCA),420
+933,Kuching (KUC),Batam (BAT),423
+934,Kuching (KUC),Bahodopi (BHDP),1555
+935,Kuching (KUC),Bangkok (BK),1088
+936,Kuching (KUC),Balikpapan (BPN),1053
+937,Kuching (KUC),Belawan (BRW),813
+938,Kuching (KUC),Bang Sapan (BS),944
+939,Kuching (KUC),Cat Lai (CLI),630
+940,Kuching (KUC),Cam Pha (CPH),1292
+941,Kuching (KUC),Dumai (DMI),637
+942,Kuching (KUC),Dung Quat (DQT),832
+943,Kuching (KUC),Futong (FTG),510
+944,Kuching (KUC),Godau port  (GDP),595
+945,Kuching (KUC),Hon Gai (HON),1289
+946,Kuching (KUC),Haiphong (HPH),1335
+947,Kuching (KUC),Jakarta (JAK),640
+948,Kuching (KUC),Kemaman (KMN),500
+949,Kuching (KUC),Kuantan (KT),490
+950,Kuching (KUC),KUM,560
+951,Kuching (KUC),Lahad Datu (LDU),980
+952,Kuching (KUC),Lumut (LUM),700
+953,Kuching (KUC),Malacca (MAL),583
+954,Kuching (KUC),Manila Habour (MNL),1050
+955,Kuching (KUC),Muara (MUR),390
+956,Kuching (KUC),My Tho (MUT),610
+957,Kuching (KUC),Nghi Son (NGH),1137
+958,Kuching (KUC),Nunukan (NNX),900
+959,Kuching (KUC),Pasir Gudang (PAS),449
+960,Kuching (KUC),Port Klang (PKL),651
+961,Kuching (KUC),PAKAN Baru (PKRU),99
+962,Kuching (KUC),Palembang (PLB),548
+963,Kuching (KUC),Pontianak (POT),273
+964,Kuching (KUC),Sandakan (SAN),663
+965,Kuching (KUC),Sattahip (SATP),909
+966,Kuching (KUC),Singapore (SG),415
+967,Kuching (KUC),Sungai Guntung (SGGT),360
+968,Kuching (KUC),Sipitang (SIP),441
+969,Kuching (KUC),Songkhla (SK),723
+970,Kuching (KUC),Son Duong (SOD),1079
+971,Kuching (KUC),Semarang - Tanjung Emas (SRG),720
+972,Kuching (KUC),Surabaya (SUBY),743
+973,Kuching (KUC),Tacloban (TAC),1155
+974,Kuching (KUC),Terengganu (TGG),523
+975,Kuching (KUC),Tanjung Batu (TJQ),440
+976,Kuching (KUC),Tanjung Priok (TP),639
+977,Kuching (KUC),Tha Sala (TSL),800
+978,Kuching (KUC),Vung Ang (VAG),1100
+979,Kuching (KUC),Can Tho (VCA),580
+980,KUM,Bintulu (BIN),730
+981,KUM,Bangkok (BK),1360
+982,KUM,Cigading (CIG),420
+983,KUM,Godau port  (GDP),1130
+984,KUM,HO CHI MINH (HCM),1150
+985,KUM,Haiphong (HPH),1870
+986,KUM,K.K. Kota Kinabalu (KK),960
+987,KUM,Kemaman (KMN),730
+988,KUM,Kuantan (KT),760
+989,KUM,Kuching (KUC),560
+990,KUM,Labuan (LBN),910
+991,KUM,MAP ,1310
+992,KUM,Century Harbour (MHI),1350
+993,KUM,Pasir Gudang (PAS),615
+994,KUM,Port Klang (PKL),820
+995,KUM,Penang (PNG),980
+996,KUM,Songkhla (SK),998
+997,KUM,Son Duong (SOD),1740
+998,KUM,TJM,610
+999,KUM,Tha Sala (TSL),1080
+1000,Labuan (LBN),Bahodopi (BHDP),1645
+1001,Labuan (LBN),Bintulu (BIN),226
+1002,Labuan (LBN),Bangkok (BK),1393
+1003,Labuan (LBN),Balikpapan (BPN),864
+1004,Labuan (LBN),Cayagan de Oro City (Macabalan wharf) (CDO),689
+1005,Labuan (LBN),Cat Lai (CLI),645
+1006,Labuan (LBN),Cam Pha (CPH),1166
+1007,Labuan (LBN),Danang (DAD),815
+1008,Labuan (LBN),Dumai (DMI),1020
+1009,Labuan (LBN),Dung Quat (DQT),722
+1010,Labuan (LBN),Davao (Sasa Wharf) (DVO),880
+1011,Labuan (LBN),Futong (FTG),840
+1012,Labuan (LBN),Godau port  (GDP),605
+1013,Labuan (LBN),HO CHI MINH (HCM),638
+1014,Labuan (LBN),Hon Gai (HON),1163
+1015,Labuan (LBN),Haiphong (HPH),1186
+1016,Labuan (LBN),Jakarta (JAK),945
+1017,Labuan (LBN),K.K. Kota Kinabalu (KK),80
+1018,Labuan (LBN),Kemaman (KMN),741
+1019,Labuan (LBN),Kuantan (KT),738
+1020,Labuan (LBN),KUM,910
+1021,Labuan (LBN),Lahad Datu (LDU),650
+1022,Labuan (LBN),Lumut (LUM),1005
+1023,Labuan (LBN),Century Harbour (MHI),1080
+1024,Labuan (LBN),Manila Habour (MNL),735
+1025,Labuan (LBN),Muara (MUR),19
+1026,Labuan (LBN),My Tho (MUT),630
+1027,Labuan (LBN),Nghi Son (NGH),1034
+1028,Labuan (LBN),Nunukan (NNX),570
+1029,Labuan (LBN),Palembang (PLB),1124
+1030,Labuan (LBN),Pontianak (POT),615
+1031,Labuan (LBN),Singapore (SG),753
+1032,Labuan (LBN),Sungai Guntung (SGGT),810
+1033,Labuan (LBN),Sipitang (SIP),22
+1034,Labuan (LBN),Songkhla (SK),989
+1035,Labuan (LBN),Semarang - Tanjung Emas (SRG),1020
+1036,Labuan (LBN),Surabaya (SUBY),1087
+1037,Labuan (LBN),Tacloban (TAC),815
+1038,Labuan (LBN),Terengganu (TGG),776
+1039,Labuan (LBN),Tanjong Manis (TGM),378
+1040,Labuan (LBN),Tanjung Batu (TJQ),740
+1041,Labuan (LBN),Tha Sala (TSL),1016
+1042,Labuan (LBN),Can Tho (VCA),648
+1043,Laem Chabang (LCB),Bahodopi (BHDP),2245
+1044,Laem Chabang (LCB),Bintulu (BIN),1145
+1045,Laem Chabang (LCB),Bangkok (BK),65
+1046,Laem Chabang (LCB),Bang Sapan (BS),140
+1047,Laem Chabang (LCB),Godau port  (GDP),650
+1048,Laem Chabang (LCB),HO CHI MINH (HCM),668
+1049,Laem Chabang (LCB),Phuket (HKT),1346
+1050,Laem Chabang (LCB),Jakarta (JAK),1251
+1051,Laem Chabang (LCB),Kuantan (KT),625
+1052,Laem Chabang (LCB),Lahad Datu (LDU),1500
+1053,Laem Chabang (LCB),Manila Habour (MNL),1470
+1054,Laem Chabang (LCB),Nunukan (NNX),1500
+1055,Laem Chabang (LCB),Plathong Oil Rig (PATO),250
+1056,Laem Chabang (LCB),Port Moresby (PGPOM),3591
+1057,Laem Chabang (LCB),Phumy (PHU),664
+1058,Laem Chabang (LCB),Port Klang (PKL),1042
+1059,Laem Chabang (LCB),Srihanoville (SIH),235
+1060,Laem Chabang (LCB),Songkhla (SK),360
+1061,Laem Chabang (LCB),Semarang - Tanjung Emas (SRG),1385
+1062,Laem Chabang (LCB),Surat Thanee (SRT),250
+1063,Laem Chabang (LCB),Tacloban (TAC),1745
+1064,Laem Chabang (LCB),Tawau (TAW),1485
+1065,Laem Chabang (LCB),Tanjong Manis (TGM),1055
+1066,Laem Chabang (LCB),Tanjung Batu (TJQ),1065
+1067,Laem Chabang (LCB),Vung Ang (VAG),1490
+1068,Laem Chabang (LCB),Vung Tau (VUT),634
+1069,Lahad Datu (LDU),Bangpakong (BAK),1650
+1070,Lahad Datu (LDU),Bintulu (BIN),850
+1071,Lahad Datu (LDU),Bangkok (BK),1670
+1072,Lahad Datu (LDU),Bourbon (BOUR),1150
+1073,Lahad Datu (LDU),Bang Sapan (BS),1450
+1074,Lahad Datu (LDU),Godau port  (GDP),1150
+1075,Lahad Datu (LDU),HO CHI MINH (HCM),1120
+1076,Lahad Datu (LDU),Jakarta (JAK),1370
+1077,Lahad Datu (LDU),K.K. Kota Kinabalu (KK),570
+1078,Lahad Datu (LDU),Kemaman (KMN),1250
+1079,Lahad Datu (LDU),Kuantan (KT),1250
+1080,Lahad Datu (LDU),Kuching (KUC),980
+1081,Lahad Datu (LDU),Labuan (LBN),650
+1082,Lahad Datu (LDU),Laem Chabang (LCB),1500
+1083,Lahad Datu (LDU),Malacca (MAL),1470
+1084,Lahad Datu (LDU),Maptaphut (MAT),1570
+1085,Lahad Datu (LDU),Century Harbour (MHI),1490
+1086,Lahad Datu (LDU),Pasir Gudang (PAS),1350
+1087,Lahad Datu (LDU),Port Klang (PKL),1550
+1088,Lahad Datu (LDU),Palembang (PLB),1480
+1089,Lahad Datu (LDU),Panjang (PNJ),1470
+1090,Lahad Datu (LDU),Pontianak (POT),1130
+1091,Lahad Datu (LDU),Sandakan (SAN),169
+1092,Lahad Datu (LDU),Singapore (SG),1350
+1093,Lahad Datu (LDU),Sungai Guntung (SGGT),1290
+1094,Lahad Datu (LDU),Songkhla (SK),1400
+1095,Lahad Datu (LDU),Sampit (SMQ),980
+1096,Lahad Datu (LDU),Son Duong (SOD),1270
+1097,Lahad Datu (LDU),Tacloban (TAC),630
+1098,Lahad Datu (LDU),Tawau (TAW),150
+1099,Lahad Datu (LDU),Terengganu (TGG),1195
+1100,Lahad Datu (LDU),Tha Sala (TSL),1370
+1101,Lahad Datu (LDU),Vung Tau (VUT),1090
+1102,Lhokseumawe (LHOK),Godau port  (GDP),1180
+1103,Lhokseumawe (LHOK),Phumy (PHU),1180
+1104,Lhokseumawe (LHOK),Port Klang (PKL),350
+1105,Lhokseumawe (LHOK),Vung Tau (VUT),1150
+1106,Lumut (LUM),Bangpakong (BAK),1150
+1107,Lumut (LUM),Bintulu (BIN),850
+1108,Lumut (LUM),Bangkok (BK),1207
+1109,Lumut (LUM),Bang Sapan (BS),1050
+1110,Lumut (LUM),Cai Lan (CLN),1690
+1111,Lumut (LUM),Godau port  (GDP),930
+1112,Lumut (LUM),HO CHI MINH (HCM),904
+1113,Lumut (LUM),K.K. Kota Kinabalu (KK),1071
+1114,Lumut (LUM),Kemaman (KMN),516
+1115,Lumut (LUM),Kuantan (KT),480
+1116,Lumut (LUM),Kuching (KUC),700
+1117,Lumut (LUM),Labuan (LBN),1005
+1118,Lumut (LUM),Maptaphut (MAT),1100
+1119,Lumut (LUM),Century Harbour (MHI),1200
+1120,Lumut (LUM),Pasir Gudang (PAS),353
+1121,Lumut (LUM),Port Klang (PKL),103
+1122,Lumut (LUM),Sungai Guntung (SGGT),370
+1123,Lumut (LUM),Songkhla (SK),760
+1124,Lumut (LUM),Son Duong (SOD),1660
+1125,Lumut (LUM),Tawau (TAW),1430
+1126,Lumut (LUM),Terengganu (TGG),1587
+1127,Lumut (LUM),TJM,768
+1128,Lumut (LUM),Tha Sala (TSL),860
+1129,Makassar (MAK),Bahodopi (BHDP),500
+1130,Makassar (MAK),Bangkok (BK),1855
+1131,Makassar (MAK),HO CHI MINH (HCM),1520
+1132,Makassar (MAK),Haiphong (HPH),2045
+1133,Malacca (MAL),Bahodopi (BHDP),1690
+1134,Malacca (MAL),Bintulu (BIN),734
+1135,Malacca (MAL),Bangkok (BK),986
+1136,Malacca (MAL),Bang Sapan (BS),847
+1137,Malacca (MAL),Dumai (DMI),85
+1138,Malacca (MAL),Phuket (HKT),418
+1139,Malacca (MAL),Jakarta (JAK),900
+1140,Malacca (MAL),K.K. Kota Kinabalu (KK),917
+1141,Malacca (MAL),Kedah (KKH),300
+1142,Malacca (MAL),Kemaman (KMN),365
+1143,Malacca (MAL),Ko Sichang (KSI),940
+1144,Malacca (MAL),Kuantan (KT),350
+1145,Malacca (MAL),Kantang (KTG),393
+1146,Malacca (MAL),Kuching (KUC),583
+1147,Malacca (MAL),Lahad Datu (LDU),1470
+1148,Malacca (MAL),Century Harbour (MHI),995
+1149,Malacca (MAL),Manila Habour (MNL),1480
+1150,Malacca (MAL),My Tho (MUT),770
+1151,Malacca (MAL),Nunukan (NNX),1380
+1152,Malacca (MAL),Pasir Gudang (PAS),186
+1153,Malacca (MAL),Port Klang (PKL),90
+1154,Malacca (MAL),Palembang (PLB),446
+1155,Malacca (MAL),Penang (PNG),252
+1156,Malacca (MAL),Panjang (PNJ),729
+1157,Malacca (MAL),Pontianak (POT),500
+1158,Malacca (MAL),Yangon (RGN),996
+1159,Malacca (MAL),Singapore (SG),135
+1160,Malacca (MAL),Sibu (SIB),657
+1161,Malacca (MAL),Sipitang (SIP),880
+1162,Malacca (MAL),Songkhla (SK),637
+1163,Malacca (MAL),Sampit (SMQ),844
+1164,Malacca (MAL),Sriracha Harbor (SRC),973
+1165,Malacca (MAL),Semarang - Tanjung Emas (SRG),795
+1166,Malacca (MAL),Sarawak (SRW),583
+1167,Malacca (MAL),Tawau (TAW),1356
+1168,Malacca (MAL),Terengganu (TGG),435
+1169,Malacca (MAL),Tanjong Manis (TGM),602
+1170,Malacca (MAL),Tanjung Batu (TJQ),490
+1171,Malacca (MAL),Tha Sala (TSL),663
+1172,MAP,KUM,1310
+1173,MAP,Sungai Guntung (SGGT),900
+1174,Maptaphut (MAT),Bahodopi (BHDP),2230
+1175,Maptaphut (MAT),Bangkok (BK),123
+1176,Maptaphut (MAT),Balikpapan (BPN),1756
+1177,Maptaphut (MAT),Bang Sapan (BS),130
+1178,Maptaphut (MAT),Cigading (CIG),1250
+1179,Maptaphut (MAT),Cat Lai (CLI),605
+1180,Maptaphut (MAT),Cam Pha (CPH),1392
+1181,Maptaphut (MAT),Dumai (DMI),1070
+1182,Maptaphut (MAT),Dung Quat (DQT),942
+1183,Maptaphut (MAT),Futong (FTG),920
+1184,Maptaphut (MAT),HO CHI MINH (HCM),611
+1185,Maptaphut (MAT),Hon Gai (HON),1389
+1186,Maptaphut (MAT),Haiphong (HPH),1310
+1187,Maptaphut (MAT),Jakarta (JAK),1220
+1188,Maptaphut (MAT),Kemaman (KMN),590
+1189,Maptaphut (MAT),Ko Sichang (KSI),75
+1190,Maptaphut (MAT),Kuantan (KT),617
+1191,Maptaphut (MAT),Lahad Datu (LDU),1570
+1192,Maptaphut (MAT),Lumut (LUM),1100
+1193,Maptaphut (MAT),Century Harbour (MHI),96
+1194,Maptaphut (MAT),Manila Habour (MNL),1386
+1195,Maptaphut (MAT),Manila Habour (MNL),1435
+1196,Maptaphut (MAT),My Tho (MUT),690
+1197,Maptaphut (MAT),Nghi Son (NGH),1260
+1198,Maptaphut (MAT),Nunukan (NNX),1460
+1199,Maptaphut (MAT),Pasir Gudang (PAS),784
+1200,Maptaphut (MAT),Phumy (PHU),615
+1201,Maptaphut (MAT),Port Klang (PKL),980
+1202,Maptaphut (MAT),Phnom Penh (PNH),733
+1203,Maptaphut (MAT),Yangon (RGN),1874
+1204,Maptaphut (MAT),Singapore (SG),765
+1205,Maptaphut (MAT),Srihanoville (SIH),200
+1206,Maptaphut (MAT),Songkhla (SK),332
+1207,Maptaphut (MAT),Son Duong (SOD),1167
+1208,Maptaphut (MAT),Semarang - Tanjung Emas (SRG),1365
+1209,Maptaphut (MAT),Surat Thanee (SRT),235
+1210,Maptaphut (MAT),Tacloban (TAC),1724
+1211,Maptaphut (MAT),Terengganu (TGG),520
+1212,Maptaphut (MAT),Tanjung Batu (TJQ),1045
+1213,Maptaphut (MAT),Can Tho (VCA),520
+1214,Maptaphut (MAT),Vung Tau (VUT),585
+1215,Century Harbour (MHI),Bangpakong (BAK),65
+1216,Century Harbour (MHI),Bahodopi (BHDP),2280
+1217,Century Harbour (MHI),Bangkok (BK),60
+1218,Century Harbour (MHI),Balikpapan (BPN),1805
+1219,Century Harbour (MHI),Bang Sapan (BS),155
+1220,Century Harbour (MHI),Bintan (BTN),864
+1221,Century Harbour (MHI),Cat Lai (CLI),680
+1222,Century Harbour (MHI),Danang (DAD),1126
+1223,Century Harbour (MHI),Dumai (DMI),1029
+1224,Century Harbour (MHI),Futong (FTG),990
+1225,Century Harbour (MHI),Haiphong (HPH),1375
+1226,Century Harbour (MHI),Khanom (KHM),271
+1227,Century Harbour (MHI),K.K. Kota Kinabalu (KK),1395
+1228,Century Harbour (MHI),Kedah (KKH),1250
+1229,Century Harbour (MHI),Kemaman (KMN),645
+1230,Century Harbour (MHI),Ko Sichang (KSI),45
+1231,Century Harbour (MHI),Kuantan (KT),666
+1232,Century Harbour (MHI),KUM,1350
+1233,Century Harbour (MHI),Labuan (LBN),1080
+1234,Century Harbour (MHI),Lahad Datu (LDU),1490
+1235,Century Harbour (MHI),Lumut (LUM),1200
+1236,Century Harbour (MHI),Malacca (MAL),995
+1237,Century Harbour (MHI),Maptaphut (MAT),96
+1238,Century Harbour (MHI),Maeklong (Firesun) (MKG),37
+1239,Century Harbour (MHI),Manila Habour (MNL),1500
+1240,Century Harbour (MHI),My Tho (MUT),760
+1241,Century Harbour (MHI),Nghi Son (NGH),1370
+1242,Century Harbour (MHI),Nunukan (NNX),1530
+1243,Century Harbour (MHI),Pasir Gudang (PAS),857
+1244,Century Harbour (MHI),Port Klang (PKL),1077
+1245,Century Harbour (MHI),Penang (PNG),1256
+1246,Century Harbour (MHI),Singapore (SG),840
+1247,Century Harbour (MHI),Srihanoville (SIH),270
+1248,Century Harbour (MHI),Songkhla (SK),392
+1249,Century Harbour (MHI),Semarang - Tanjung Emas (SRG),1410
+1250,Century Harbour (MHI),Surat Thanee (SRT),266
+1251,Century Harbour (MHI),Tacloban (TAC),1780
+1252,Century Harbour (MHI),Terengganu (TGG),540
+1253,Century Harbour (MHI),Tanjung Batu (TJQ),1090
+1254,Century Harbour (MHI),Can Tho (VCA),595
+1255,Maeklong (Firesun) (MKG),Bangpakong (BAK),68
+1256,Maeklong (Firesun) (MKG),Bangkok (BK),74
+1257,Maeklong (Firesun) (MKG),Kemaman (KMN),638
+1258,Maeklong (Firesun) (MKG),Ko Sichang (KSI),60
+1259,Maeklong (Firesun) (MKG),Kuantan (KT),657
+1260,Maeklong (Firesun) (MKG),Century Harbour (MHI),37
+1261,Maeklong (Firesun) (MKG),Songkhla (SK),385
+1262,Maeklong (Firesun) (MKG),Surat Thanee (SRT),265
+1263,Maeklong (Firesun) (MKG),Tha Sala (TSL),289
+1264,Manila Habour (MNL),Bangpakong (BAK),1540
+1265,Manila Habour (MNL),Bintulu (BIN),910
+1266,Manila Habour (MNL),Bangkok (BK),1935
+1267,Manila Habour (MNL),Bangkok (BK),1590
+1268,Manila Habour (MNL),Bourbon (BOUR),970
+1269,Manila Habour (MNL),Bang Sapan (BS),1440
+1270,Manila Habour (MNL),Godau port  (GDP),970
+1271,Manila Habour (MNL),HO CHI MINH (HCM),940
+1272,Manila Habour (MNL),Jakarta (JAK),1850
+1273,Manila Habour (MNL),K.K. Kota Kinabalu (KK),650
+1274,Manila Habour (MNL),Kemaman (KMN),1210
+1275,Manila Habour (MNL),Kuantan (KT),1230
+1276,Manila Habour (MNL),Kuching (KUC),1050
+1277,Manila Habour (MNL),Labuan (LBN),735
+1278,Manila Habour (MNL),Laem Chabang (LCB),1470
+1279,Manila Habour (MNL),Malacca (MAL),1480
+1280,Manila Habour (MNL),Maptaphut (MAT),1386
+1281,Manila Habour (MNL),Maptaphut (MAT),1435
+1282,Manila Habour (MNL),Century Harbour (MHI),1500
+1283,Manila Habour (MNL),Pasir Gudang (PAS),1350
+1284,Manila Habour (MNL),Port Klang (PKL),1565
+1285,Manila Habour (MNL),Palembang (PLB),1550
+1286,Manila Habour (MNL),Penang (PNG),1770
+1287,Manila Habour (MNL),Panjang (PNJ),1935
+1288,Manila Habour (MNL),Pontianak (POT),1245
+1289,Manila Habour (MNL),Singapore (SG),1360
+1290,Manila Habour (MNL),Sungai Guntung (SGGT),1390
+1291,Manila Habour (MNL),Songkhla (SK),1290
+1292,Manila Habour (MNL),Sampit (SMQ),1685
+1293,Manila Habour (MNL),Son Duong (SOD),880
+1294,Manila Habour (MNL),Tacloban (TAC),570
+1295,Manila Habour (MNL),Tawau (TAW),815
+1296,Manila Habour (MNL),Terengganu (TGG),1190
+1297,Manila Habour (MNL),Tha Sala (TSL),1340
+1298,Manila Habour (MNL),Vung Tau (VUT),920
+1299,Marunda (MRD),Bangkok (BK),1321
+1300,Marunda (MRD),Kuantan (KT),684
+1301,Muara (MUR),Bintulu (BIN),220
+1302,Muara (MUR),Bangkok (BK),1249
+1303,Muara (MUR),Bang Sapan (BS),1106
+1304,Muara (MUR),K.K. Kota Kinabalu (KK),103
+1305,Muara (MUR),Kemaman (KMN),732
+1306,Muara (MUR),Kuantan (KT),732
+1307,Muara (MUR),Kuching (KUC),390
+1308,Muara (MUR),Labuan (LBN),19
+1309,Muara (MUR),Pasir Gudang (PAS),741
+1310,Muara (MUR),Songkhla (SK),919
+1311,Muara (MUR),Sriracha Harbor (SRC),1202
+1312,Muara (MUR),Surat Thanee (SRT),1046
+1313,Muara (MUR),Tawau (TAW),543
+1314,Muara (MUR),Tanjong Manis (TGM),365
+1315,My Tho (MUT),Bangpakong (BAK),760
+1316,My Tho (MUT),Bintulu (BIN),600
+1317,My Tho (MUT),Bangkok (BK),765
+1318,My Tho (MUT),Bourbon (BOUR),90
+1319,My Tho (MUT),Bang Sapan (BS),690
+1320,My Tho (MUT),Godau port  (GDP),90
+1321,My Tho (MUT),HO CHI MINH (HCM),100
+1322,My Tho (MUT),Jakarta (JAK),1140
+1323,My Tho (MUT),K.K. Kota Kinabalu (KK),650
+1324,My Tho (MUT),Kemaman (KMN),500
+1325,My Tho (MUT),Kuantan (KT),520
+1326,My Tho (MUT),Kuching (KUC),610
+1327,My Tho (MUT),Labuan (LBN),630
+1328,My Tho (MUT),Malacca (MAL),770
+1329,My Tho (MUT),Maptaphut (MAT),690
+1330,My Tho (MUT),Century Harbour (MHI),760
+1331,My Tho (MUT),Pasir Gudang (PAS),820
+1332,My Tho (MUT),Port Klang (PKL),840
+1333,My Tho (MUT),Palembang (PLB),860
+1334,My Tho (MUT),Panjang (PNJ),1100
+1335,My Tho (MUT),Pontianak (POT),710
+1336,My Tho (MUT),Singapore (SG),645
+1337,My Tho (MUT),Sungai Guntung (SGGT),710
+1338,My Tho (MUT),Songkhla (SK),550
+1339,My Tho (MUT),Sampit (SMQ),1240
+1340,My Tho (MUT),Son Duong (SOD),715
+1341,My Tho (MUT),Tawau (TAW),1020
+1342,My Tho (MUT),Terengganu (TGG),450
+1343,My Tho (MUT),Tha Sala (TSL),590
+1344,My Tho (MUT),Vung Tau (VUT),60
+1345,Narathiwat (NAW),Rayong (IRPC),375
+1346,Narathiwat (NAW),Songkhla (SK),110
+1347,Ningde (NDE),Beihai (BHY),930
+1348,Ningde (NDE),Bangkok (BK),2090
+1349,Ningde (NDE),Chittagong (CTG),3570
+1350,Ningde (NDE),Dhaka (DKA),3670
+1351,Ningde (NDE),Mawei Fuzhou (FOC),140
+1352,Ningde (NDE),Hong Kong (HKG),570
+1353,Ningde (NDE),Pusan (PUS),790
+1354,Nghi Son (NGH),Bintulu (BIN),1238
+1355,Nghi Son (NGH),Bangkok (BK),1356
+1356,Nghi Son (NGH),Bang Sapan (BS),1352
+1357,Nghi Son (NGH),Godau port  (GDP),780
+1358,Nghi Son (NGH),HO CHI MINH (HCM),820
+1359,Nghi Son (NGH),K.K. Kota Kinabalu (KK),1040
+1360,Nghi Son (NGH),Kemaman (KMN),1100
+1361,Nghi Son (NGH),Kuantan (KT),1180
+1362,Nghi Son (NGH),Kuching (KUC),1137
+1363,Nghi Son (NGH),Labuan (LBN),1034
+1364,Nghi Son (NGH),Maptaphut (MAT),1260
+1365,Nghi Son (NGH),Century Harbour (MHI),1370
+1366,Nghi Son (NGH),Pasir Gudang (PAS),1310
+1367,Nghi Son (NGH),Port Klang (PKL),1512
+1368,Nghi Son (NGH),Songkhla (SK),1170
+1369,Nghi Son (NGH),Son Duong (SOD),100
+1370,Nghi Son (NGH),Tawau (TAW),1360
+1371,Nghi Son (NGH),TJM,1105
+1372,Nghi Son (NGH),Tha Sala (TSL),1200
+1373,Nunukan (NNX),Bangpakong (BAK),1805
+1374,Nunukan (NNX),Bintulu (BIN),725
+1375,Nunukan (NNX),Bangkok (BK),1825
+1376,Nunukan (NNX),Bourbon (BOUR),1030
+1377,Nunukan (NNX),Bang Sapan (BS),1647
+1378,Nunukan (NNX),Godau port  (GDP),1030
+1379,Nunukan (NNX),HO CHI MINH (HCM),1000
+1380,Nunukan (NNX),Jakarta (JAK),1100
+1381,Nunukan (NNX),K.K. Kota Kinabalu (KK),510
+1382,Nunukan (NNX),Kemaman (KMN),1220
+1383,Nunukan (NNX),Kuantan (KT),1230
+1384,Nunukan (NNX),Kuching (KUC),900
+1385,Nunukan (NNX),Labuan (LBN),570
+1386,Nunukan (NNX),Laem Chabang (LCB),1500
+1387,Nunukan (NNX),Malacca (MAL),1380
+1388,Nunukan (NNX),Maptaphut (MAT),1460
+1389,Nunukan (NNX),Century Harbour (MHI),1530
+1390,Nunukan (NNX),Pasir Gudang (PAS),1260
+1391,Nunukan (NNX),Port Klang (PKL),1455
+1392,Nunukan (NNX),Palembang (PLB),1370
+1393,Nunukan (NNX),Penang (PNG),1555
+1394,Nunukan (NNX),Panjang (PNJ),1560
+1395,Nunukan (NNX),Pontianak (POT),1115
+1396,Nunukan (NNX),Singapore (SG),1275
+1397,Nunukan (NNX),Sungai Guntung (SGGT),1280
+1398,Nunukan (NNX),Songkhla (SK),1400
+1399,Nunukan (NNX),Sampit (SMQ),860
+1400,Nunukan (NNX),Son Duong (SOD),1255
+1401,Nunukan (NNX),Tawau (TAW),40
+1402,Nunukan (NNX),Terengganu (TGG),1225
+1403,Nunukan (NNX),Tha Sala (TSL),1403
+1404,Nunukan (NNX),Vung Tau (VUT),980
+1405,Nan Tong (NTG),Bangkok (BK),2290
+1406,Oknha Mong Port (OMP),Bangkok (BK),307
+1407,Oknha Mong Port (OMP),Godau port  (GDP),446
+1408,Oknha Mong Port (OMP),HO CHI MINH (HCM),461
+1409,Oknha Mong Port (OMP),Rayong (IRPC),194
+1410,Oknha Mong Port (OMP),Ko Sichang (KSI),248
+1411,Oknha Mong Port (OMP),Kuantan (KT),439
+1412,Oknha Mong Port (OMP),Phumy (PHU),459
+1413,Oknha Mong Port (OMP),Port Klang (PKL),850
+1414,Oknha Mong Port (OMP),Surat Thanee (SRT),330
+1415,Oknha Mong Port (OMP),Vung Tau (VUT),429
+1416,Onomichi (ONO),Bangkok (BK),2820
+1417,Pasir Gudang (PAS),Bahodopi (BHDP),1560
+1418,Pasir Gudang (PAS),Bintulu (BIN),592
+1419,Pasir Gudang (PAS),Bangkok (BK),865
+1420,Pasir Gudang (PAS),Balikpapan (BPN),1060
+1421,Pasir Gudang (PAS),Bang Sapan (BS),722
+1422,Pasir Gudang (PAS),Cat Lai (CLI),656
+1423,Pasir Gudang (PAS),Cam Pha (CPH),1351
+1424,Pasir Gudang (PAS),Dumai (DMI),240
+1425,Pasir Gudang (PAS),Dung Quat (DQT),953
+1426,Pasir Gudang (PAS),Mawei Fuzhou (FOC),2000
+1427,Pasir Gudang (PAS),Futong (FTG),250
+1428,Pasir Gudang (PAS),HO CHI MINH (HCM),704
+1429,Pasir Gudang (PAS),Hon Gai (HON),1348
+1430,Pasir Gudang (PAS),Haiphong (HPH),1353
+1431,Pasir Gudang (PAS),Jakarta (JAK),550
+1432,Pasir Gudang (PAS),K.K. Kota Kinabalu (KK),802
+1433,Pasir Gudang (PAS),Kemaman (KMN),215
+1434,Pasir Gudang (PAS),Ko Sichang (KSI),828.5
+1435,Pasir Gudang (PAS),Kuantan (KT),216
+1436,Pasir Gudang (PAS),Kuching (KUC),449
+1437,Pasir Gudang (PAS),KUM,615
+1438,Pasir Gudang (PAS),Lahad Datu (LDU),1350
+1439,Pasir Gudang (PAS),Lumut (LUM),353
+1440,Pasir Gudang (PAS),Malacca (MAL),186
+1441,Pasir Gudang (PAS),Maptaphut (MAT),784
+1442,Pasir Gudang (PAS),Century Harbour (MHI),857
+1443,Pasir Gudang (PAS),Manila Habour (MNL),1350
+1444,Pasir Gudang (PAS),Muara (MUR),741
+1445,Pasir Gudang (PAS),My Tho (MUT),820
+1446,Pasir Gudang (PAS),Nghi Son (NGH),1310
+1447,Pasir Gudang (PAS),Nunukan (NNX),1260
+1448,Pasir Gudang (PAS),Phumy (PHU),699
+1449,Pasir Gudang (PAS),Port Klang (PKL),259.5
+1450,Pasir Gudang (PAS),Palembang (PLB),361
+1451,Pasir Gudang (PAS),Penang (PNG),453
+1452,Pasir Gudang (PAS),Pontianak (POT),352
+1453,Pasir Gudang (PAS),Yangon (RGN),1125
+1454,Pasir Gudang (PAS),Sandakan (SAN),1012
+1455,Pasir Gudang (PAS),Singapore (SG),36
+1456,Pasir Gudang (PAS),Sungai Guntung (SGGT),185
+1457,Pasir Gudang (PAS),Songkhla (SK),512
+1458,Pasir Gudang (PAS),Sampit (SMQ),730
+1459,Pasir Gudang (PAS),Semarang - Tanjung Emas (SRG),665
+1460,Pasir Gudang (PAS),Surabaya (SUBY),766
+1461,Pasir Gudang (PAS),Tacloban (TAC),1490
+1462,Pasir Gudang (PAS),Tawau (TAW),1249
+1463,Pasir Gudang (PAS),Terengganu (TGG),300
+1464,Pasir Gudang (PAS),Tanjung Batu (TJQ),360
+1465,Pasir Gudang (PAS),Tanjung Priok (TP),577
+1466,Pasir Gudang (PAS),Tha Sala (TSL),565
+1467,Pasir Gudang (PAS),Can Tho (VCA),588
+1468,Pasir Gudang (PAS),Vung Tau (VUT),669
+1469,Plathong Oil Rig (PATO),Laem Chabang (LCB),230
+1470,Plathong Oil Rig (PATO),Songkhla (SK),160
+1471,Phra Chulachomklao Fort (PCF),Surat Thanee (SRT),275
+1472,Port Moresby (PGPOM),Bangkok (BK),3650
+1473,Port Moresby (PGPOM),Kuantan (KT),3015
+1474,Port Moresby (PGPOM),Laem Chabang (LCB),3591
+1475,Port Moresby (PGPOM),Palembang (PLB),2835
+1476,Port Moresby (PGPOM),Tanjung Priok (TP),2592
+1477,Phumy (PHU),Bangkok (BK),680
+1478,Phumy (PHU),Balikpapan (BPN),1330
+1479,Phumy (PHU),Bang Sapan (BS),617
+1480,Phumy (PHU),Cat Lai (CLI),73
+1481,Phumy (PHU),Cam Pha (CPH),831
+1482,Phumy (PHU),Dung Quat (DQT),437
+1483,Phumy (PHU),Hon Gai (HON),828
+1484,Phumy (PHU),Haiphong (HPH),811
+1485,Phumy (PHU),Khanom (KHM),590
+1486,Phumy (PHU),Kelantan (KLT),424
+1487,Phumy (PHU),Kampot (KMP),600
+1488,Phumy (PHU),Laem Chabang (LCB),664
+1489,Phumy (PHU),Lhokseumawe (LHOK),1180
+1490,Phumy (PHU),Maptaphut (MAT),615
+1491,Phumy (PHU),Oknha Mong Port (OMP),459
+1492,Phumy (PHU),Pasir Gudang (PAS),699
+1493,Phumy (PHU),Palembang (PLB),770
+1494,Phumy (PHU),Phnom Penh (PNH),225
+1495,Phumy (PHU),Pontianak (POT),590
+1496,Phumy (PHU),Yangon (RGN),1789
+1497,Phumy (PHU),Singapore (SG),640
+1498,Phumy (PHU),Steung Hav (SHV),459
+1499,Phumy (PHU),Son Duong (SOD),677
+1500,Phumy (PHU),Can Tho (VCA),150
+1501,Phumy (PHU),Vung Tau (VUT),30
+1502,Port Klang (PKL),Bahodopi (BHDP),1770
+1503,Port Klang (PKL),Bintulu (BIN),882
+1504,Port Klang (PKL),Bangkok (BK),1070
+1505,Port Klang (PKL),Balikpapan (BPN),1275
+1506,Port Klang (PKL),Belawan (BRW),316
+1507,Port Klang (PKL),Bang Sapan (BS),925
+1508,Port Klang (PKL),Cat Lai (CLI),864
+1509,Port Klang (PKL),Cam Pha (CPH),1551
+1510,Port Klang (PKL),Dumai (DMI),170
+1511,Port Klang (PKL),Dung Quat (DQT),1160
+1512,Port Klang (PKL),Futong (FTG),250
+1513,Port Klang (PKL),Hon Gai (HON),1548
+1514,Port Klang (PKL),Haiphong (HPH),1556
+1515,Port Klang (PKL),Jakarta (JAK),1000
+1516,Port Klang (PKL),K.K. Kota Kinabalu (KK),1005
+1517,Port Klang (PKL),Kedah (KKH),210
+1518,Port Klang (PKL),Kemaman (KMN),435
+1519,Port Klang (PKL),Ko Sichang (KSI),1039
+1520,Port Klang (PKL),Kuantan (KT),428
+1521,Port Klang (PKL),Kantang (KTG),305
+1522,Port Klang (PKL),Kuching (KUC),658
+1523,Port Klang (PKL),KUM,820
+1524,Port Klang (PKL),Laem Chabang (LCB),1042
+1525,Port Klang (PKL),Lahad Datu (LDU),1550
+1526,Port Klang (PKL),Lhokseumawe (LHOK),350
+1527,Port Klang (PKL),Lumut (LUM),103
+1528,Port Klang (PKL),Malacca (MAL),90
+1529,Port Klang (PKL),Maptaphut (MAT),980
+1530,Port Klang (PKL),Century Harbour (MHI),1077
+1531,Port Klang (PKL),Manila Habour (MNL),1565
+1532,Port Klang (PKL),My Tho (MUT),840
+1533,Port Klang (PKL),Nghi Son (NGH),1512
+1534,Port Klang (PKL),Nunukan (NNX),1455
+1535,Port Klang (PKL),Oknha Mong Port (OMP),850
+1536,Port Klang (PKL),Pasir Gudang (PAS),259.5
+1537,Port Klang (PKL),Palembang (PLB),700
+1538,Port Klang (PKL),Penang (PNG),170
+1539,Port Klang (PKL),Panjang (PNJ),795
+1540,Port Klang (PKL),Pontianak (POT),569
+1541,Port Klang (PKL),Yangon (RGN),947
+1542,Port Klang (PKL),Sandakan (SAN),1413
+1543,Port Klang (PKL),Singapore (SG),208
+1544,Port Klang (PKL),Sungai Guntung (SGGT),402
+1545,Port Klang (PKL),Songkhla (SK),705
+1546,Port Klang (PKL),Sampit (SMQ),920
+1547,Port Klang (PKL),Son Duong (SOD),1395
+1548,Port Klang (PKL),Semarang - Tanjung Emas (SRG),870
+1549,Port Klang (PKL),Tacloban (TAC),1690
+1550,Port Klang (PKL),Tawau (TAW),1691
+1551,Port Klang (PKL),Terengganu (TGG),104
+1552,Port Klang (PKL),Tanjung Batu (TJQ),565
+1553,Port Klang (PKL),Tha Sala (TSL),780
+1554,Port Klang (PKL),Can Tho (VCA),798
+1555,PAKAN Baru (PKRU),Bangkok (BK),99
+1556,PAKAN Baru (PKRU),Belawan (BRW),722
+1557,PAKAN Baru (PKRU),Kuantan (KT),99
+1558,PAKAN Baru (PKRU),Kuching (KUC),99
+1559,PAKAN Baru (PKRU),Songkhla (SK),730
+1560,Palembang (PLB),Bahodopi (BHDP),1410
+1561,Palembang (PLB),Bintulu (BIN),675
+1562,Palembang (PLB),Bangkok (BK),1110
+1563,Palembang (PLB),Belawan (BRW),750
+1564,Palembang (PLB),Dumai (DMI),670
+1565,Palembang (PLB),Futong (FTG),310
+1566,Palembang (PLB),KUM,1458
+1567,Palembang (PLB),Haiphong (HPH),1552
+1568,Palembang (PLB),Jakarta (JAK),460
+1569,Palembang (PLB),Kemaman (KMN),480
+1570,Palembang (PLB),Ko Sichang (KSI),1100
+1571,Palembang (PLB),Kuantan (KT),465
+1572,Palembang (PLB),Kuching (KUC),548
+1573,Palembang (PLB),Labuan (LBN),1124
+1574,Palembang (PLB),Lahad Datu (LDU),1480
+1575,Palembang (PLB),Malacca (MAL),446
+1576,Palembang (PLB),Manila Habour (MNL),1550
+1577,Palembang (PLB),My Tho (MUT),860
+1578,Palembang (PLB),Nunukan (NNX),1370
+1579,Palembang (PLB),Pasir Gudang (PAS),361
+1580,Palembang (PLB),Port Moresby (PGPOM),2835
+1581,Palembang (PLB),Phumy (PHU),770
+1582,Palembang (PLB),Port Klang (PKL),700
+1583,Palembang (PLB),Pontianak (POT),372
+1584,Palembang (PLB),Sandakan (SAN),1338
+1585,Palembang (PLB),Semarang - Tanjung Emas (SRG),500
+1586,Palembang (PLB),Surabaya (SUBY),700
+1587,Palembang (PLB),Tacloban (TAC),1620
+1588,Palembang (PLB),Terengganu (TGG),560
+1589,Palembang (PLB),Tanjung Batu (TJQ),240
+1590,Palembang (PLB),Tanjung Priok (TP),490
+1591,Penang (PNG),Bahodopi (BHDP),1920
+1592,Penang (PNG),Bangkok (BK),1258
+1593,Penang (PNG),Jakarta (JAK),1200
+1594,Penang (PNG),K.K. Kota Kinabalu (KK),1171
+1595,Penang (PNG),Kemaman (KMN),608
+1596,Penang (PNG),Kuantan (KT),612
+1597,Penang (PNG),Kantang (KTG),150
+1598,Penang (PNG),KUM,980
+1599,Penang (PNG),Malacca (MAL),252
+1600,Penang (PNG),Century Harbour (MHI),1256
+1601,Penang (PNG),Manila Habour (MNL),1770
+1602,Penang (PNG),Nunukan (NNX),1555
+1603,Penang (PNG),Pasir Gudang (PAS),453
+1604,Penang (PNG),Port Klang (PKL),170
+1605,Penang (PNG),Palembang (PLB),638
+1606,Penang (PNG),Panjang (PNJ),954
+1607,Penang (PNG),Pontianak (POT),750
+1608,Penang (PNG),Pontianak (POT),728
+1609,Penang (PNG),Yangon (RGN),910
+1610,Penang (PNG),Songkhla (SK),904
+1611,Penang (PNG),Sampit (SMQ),1080
+1612,Penang (PNG),Son Duong (SOD),1567
+1613,Penang (PNG),Semarang - Tanjung Emas (SRG),970
+1614,Penang (PNG),Tacloban (TAC),1840
+1615,Penang (PNG),Terengganu (TGG),680
+1616,Penang (PNG),Tanjung Batu (TJQ),660
+1617,Penang (PNG),Tanjung Priok (TP),918
+1618,Penang (PNG),Tha Sala (TSL),980
+1619,Phnom Penh (PNH),Bangkok (BK),845
+1620,Phnom Penh (PNH),Kuantan (KT),640
+1621,Phnom Penh (PNH),Maptaphut (MAT),733
+1622,Phnom Penh (PNH),Phumy (PHU),225
+1623,Phnom Penh (PNH),Sriracha Harbor (SRC),781
+1624,Phnom Penh (PNH),Vung Tau (VUT),195
+1625,Panjang (PNJ),Bahodopi (BHDP),1345
+1626,Panjang (PNJ),Bangkok (BK),1405
+1627,Panjang (PNJ),Dumai (DMI),1050
+1628,Panjang (PNJ),Futong (FTG),690
+1629,Panjang (PNJ),HO CHI MINH (HCM),1080
+1630,Panjang (PNJ),Kuantan (KT),740
+1631,Panjang (PNJ),Lahad Datu (LDU),1470
+1632,Panjang (PNJ),Malacca (MAL),729
+1633,Panjang (PNJ),Manila Habour (MNL),1935
+1634,Panjang (PNJ),My Tho (MUT),1100
+1635,Panjang (PNJ),Nunukan (NNX),1560
+1636,Panjang (PNJ),Port Klang (PKL),795
+1637,Panjang (PNJ),Penang (PNG),954
+1638,Panjang (PNJ),Semarang - Tanjung Emas (SRG),360
+1639,Panjang (PNJ),Tanjung Batu (TJQ),275
+1640,Poso (POSO),Bintulu (BIN),1375
+1641,Poso (POSO),Bangkok (BK),2170
+1642,Poso (POSO),Kuantan (KT),1850
+1643,Poso (POSO),Sriracha Harbor (SRC),2120
+1644,Poso (POSO),Tawau (TAW),840
+1645,Pontianak (POT),Batam (BAT),336
+1646,Pontianak (POT),Bahodopi (BHDP),1365
+1647,Pontianak (POT),Bintulu (BIN),426
+1648,Pontianak (POT),Bangkok (BK),1075
+1649,Pontianak (POT),Balikpapan (BPN),842
+1650,Pontianak (POT),Belawan (BRW),720
+1651,Pontianak (POT),Dumai (DMI),510
+1652,Pontianak (POT),Futong (FTG),770
+1653,Pontianak (POT),HO CHI MINH (HCM),576
+1654,Pontianak (POT),Jakarta (JAK),430
+1655,Pontianak (POT),Kemaman (KMN),460
+1656,Pontianak (POT),Ko Sichang (KSI),1060
+1657,Pontianak (POT),Kuantan (KT),445
+1658,Pontianak (POT),Kuching (KUC),276
+1659,Pontianak (POT),Labuan (LBN),615
+1660,Pontianak (POT),Lahad Datu (LDU),1130
+1661,Pontianak (POT),Malacca (MAL),500
+1662,Pontianak (POT),Manila Habour (MNL),1245
+1663,Pontianak (POT),My Tho (MUT),710
+1664,Pontianak (POT),Nunukan (NNX),1115
+1665,Pontianak (POT),Pasir Gudang (PAS),352
+1666,Pontianak (POT),Phumy (PHU),590
+1667,Pontianak (POT),Port Klang (PKL),569
+1668,Pontianak (POT),Palembang (PLB),372
+1669,Pontianak (POT),Penang (PNG),750
+1670,Pontianak (POT),Sandakan (SAN),850
+1671,Pontianak (POT),Sandakan (SAN),969
+1672,Pontianak (POT),Sibu (SIB),378
+1673,Pontianak (POT),Songkhla (SK),719
+1674,Pontianak (POT),Semarang - Tanjung Emas (SRG),500
+1675,Pontianak (POT),Tacloban (TAC),1350
+1676,Pontianak (POT),Tawau (TAW),1093
+1677,Pontianak (POT),Terengganu (TGG),540
+1678,Pontianak (POT),Tanjung Batu (TJQ),220
+1679,Pontianak (POT),Tanjung Priok (TP),441
+1680,Pattani (PTN),Ayutthaya - Bangpain (AB),475
+1681,Pattani (PTN),Ayutthaya - Nakorn Luang (ANL),520
+1682,Pusan (PUS),Ningde (NDE),790
+1683,Quy Nhon (QNN),Bangkok (BK),932
+1684,Quy Nhon (QNN),HO CHI MINH (HCM),350
+1685,Quy Nhon (QNN),Kuantan (KT),710
+1686,Quy Nhon (QNN),Sampit (SMQ),1245
+1687,Quy Nhon (QNN),Tanjung Priok (TP),1242
+1688,Yangon (RGN),Bangkok (BK),1968
+1689,Yangon (RGN),Bang Sapan (BS),1810
+1690,Yangon (RGN),Godau port  (GDP),1776
+1691,Yangon (RGN),HO CHI MINH (HCM),1826
+1692,Yangon (RGN),Rayong (IRPC),1815
+1693,Yangon (RGN),Kemaman (KMN),1345
+1694,Yangon (RGN),Kuantan (KT),1326
+1695,Yangon (RGN),Kantang (KTG),668
+1696,Yangon (RGN),Malacca (MAL),996
+1697,Yangon (RGN),Maptaphut (MAT),1874
+1698,Yangon (RGN),Pasir Gudang (PAS),1125
+1699,Yangon (RGN),Phumy (PHU),1789
+1700,Yangon (RGN),Port Klang (PKL),947
+1701,Yangon (RGN),Penang (PNG),910
+1702,Yangon (RGN),Songkhla (SK),1618
+1703,Yangon (RGN),Son Duong (SOD),2285
+1704,Yangon (RGN),Sriracha Harbor (SRC),1944
+1705,Yangon (RGN),Terengganu (TGG),1420
+1706,Yangon (RGN),Ranong (UNN),492
+1707,Yangon (RGN),Vung Tau (VUT),1759
+1708,Sandakan (SAN),Bintulu (BIN),531
+1709,Sandakan (SAN),Bintulu (BIN),531
+1710,Sandakan (SAN),Bangkok (BK),1595
+1711,Sandakan (SAN),Bang Sapan (BS),1465
+1712,Sandakan (SAN),K.K. Kota Kinabalu (KK),223
+1713,Sandakan (SAN),Kuching (KUC),663
+1714,Sandakan (SAN),Lahad Datu (LDU),169
+1715,Sandakan (SAN),Pasir Gudang (PAS),1012
+1716,Sandakan (SAN),Port Klang (PKL),1413
+1717,Sandakan (SAN),Palembang (PLB),1338
+1718,Sandakan (SAN),Pontianak (POT),862
+1719,Sandakan (SAN),Pontianak (POT),969
+1720,Sandakan (SAN),Songkhla (SK),1157
+1721,Sandakan (SAN),Tawau (TAW),265
+1722,Sandakan (SAN),Tawau (TAW),255
+1723,Sattahip (SATP),Kuching (KUC),909
+1724,Singapore (SG),Bangpakong (BAK),825
+1725,Singapore (SG),Bahodopi (BHDP),1585
+1726,Singapore (SG),Bintulu (BIN),600
+1727,Singapore (SG),Bangkok (BK),850
+1728,Singapore (SG),Bang Sapan (BS),720
+1729,Singapore (SG),Dumai (DMI),200
+1730,Singapore (SG),Futong (FTG),260
+1731,Singapore (SG),Godau port  (GDP),630
+1732,Sungai Guntung (SGGT),Bahodopi (BHDP),1530
+1733,Sungai Guntung (SGGT),Bintulu (BIN),600
+1734,Sungai Guntung (SGGT),Bangkok (BK),960
+1735,Sungai Guntung (SGGT),Cigading (CIG),550
+1736,Sungai Guntung (SGGT),Dumai (DMI),20
+1737,Sungai Guntung (SGGT),Futong (FTG),100
+1738,Sungai Guntung (SGGT),Godau port  (GDP),770
+1739,Sungai Guntung (SGGT),HO CHI MINH (HCM),760
+1740,Sungai Guntung (SGGT),K.K. Kota Kinabalu (KK),830
+1741,Sungai Guntung (SGGT),Kemaman (KMN),330
+1742,Sungai Guntung (SGGT),Kuantan (KT),300
+1743,Sungai Guntung (SGGT),Kuching (KUC),360
+1744,Sungai Guntung (SGGT),Labuan (LBN),810
+1745,Sungai Guntung (SGGT),Lahad Datu (LDU),1290
+1746,Sungai Guntung (SGGT),MAP,900
+1747,Sungai Guntung (SGGT),Manila Habour (MNL),1390
+1748,Sungai Guntung (SGGT),My Tho (MUT),710
+1749,Sungai Guntung (SGGT),Nunukan (NNX),1280
+1750,Sungai Guntung (SGGT),Pasir Gudang (PAS),185
+1751,Sungai Guntung (SGGT),Port Klang (PKL),402
+1752,Sungai Guntung (SGGT),Songkhla (SK),600
+1753,Sungai Guntung (SGGT),Son Duong (SOD),1390
+1754,Sungai Guntung (SGGT),Semarang - Tanjung Emas (SRG),695
+1755,Sungai Guntung (SGGT),Tanjung Batu (TJQ),500
+1756,Sungai Guntung (SGGT),Tanjung Priok (TP),540
+1757,Sungai Guntung (SGGT),Tha Sala (TSL),680
+1758,Singapore (SG),Jakarta (JAK),526
+1759,Singapore (SG),Kemaman (KMN),234
+1760,Singapore (SG),Kuantan (KT),220
+1761,Singapore (SG),Kuching (KUC),415
+1762,Singapore (SG),Labuan (LBN),753
+1763,Singapore (SG),Lahad Datu (LDU),1350
+1764,Singapore (SG),Malacca (MAL),135
+1765,Singapore (SG),Maptaphut (MAT),765
+1766,Singapore (SG),Century Harbour (MHI),840
+1767,Singapore (SG),Manila Habour (MNL),1360
+1768,Singapore (SG),My Tho (MUT),645
+1769,Singapore (SG),Nunukan (NNX),1275
+1770,Singapore (SG),Pasir Gudang (PAS),36
+1771,Singapore (SG),Phumy (PHU),640
+1772,Singapore (SG),Port Klang (PKL),208
+1773,Singapore (SG),Songkhla (SK),520
+1774,Singapore (SG),Son Duong (SOD),1180
+1775,Singapore (SG),Semarang - Tanjung Emas (SRG),670
+1776,Singapore (SG),Surabaya (SUBY),760
+1777,Singapore (SG),Tacloban (TAC),1490
+1778,Singapore (SG),Tawau (TAW),1240
+1779,Singapore (SG),Terengganu (TGG),1338
+1780,Singapore (SG),TJM,466
+1781,Singapore (SG),Tanjung Batu (TJQ),360
+1782,Singapore (SG),Tha Sala (TSL),600
+1783,Singapore (SG),Vung Tau (VUT),610
+1784,Steung Hav (SHV),Bangkok (BK),298
+1785,Steung Hav (SHV),Bang Sapan (BS),243
+1786,Steung Hav (SHV),Godau port  (GDP),445
+1787,Steung Hav (SHV),Phumy (PHU),459
+1788,Steung Hav (SHV),Vung Tau (VUT),429
+1789,Sibu (SIB),Bangkok (BK),1134
+1790,Sibu (SIB),Malacca (MAL),657
+1791,Sibu (SIB),Pontianak (POT),378
+1792,Sibu (SIB),Songkhla (SK),789
+1793,Srihanoville (SIH),Bangkok (BK),286
+1794,Srihanoville (SIH),Godau port  (GDP),380
+1795,Srihanoville (SIH),HO CHI MINH (HCM),400
+1796,Srihanoville (SIH),Kuantan (KT),415
+1797,Srihanoville (SIH),Laem Chabang (LCB),235
+1798,Srihanoville (SIH),Maptaphut (MAT),200
+1799,Srihanoville (SIH),Songkhla (SK),278
+1800,Srihanoville (SIH),Surat Thanee (SRT),330
+1801,Sipitang (SIP),Bintulu (BIN),280
+1802,Sipitang (SIP),Bangkok (BK),1352
+1803,Sipitang (SIP),Godau port  (GDP),630
+1804,Sipitang (SIP),HO CHI MINH (HCM),648
+1805,Sipitang (SIP),K.K. Kota Kinabalu (KK),130
+1806,Sipitang (SIP),Kuantan (KT),763
+1807,Sipitang (SIP),Kuching (KUC),441
+1808,Sipitang (SIP),Labuan (LBN),22
+1809,Sipitang (SIP),Malacca (MAL),880
+1810,Sipitang (SIP),Songkhla (SK),909
+1811,Sipitang (SIP),Tanjong Manis (TGM),413
+1812,Songkhla (SK),Ayutthaya - Bangpain (AB),455
+1813,Songkhla (SK),Ayutthaya - Nakorn Luang (ANL),500
+1814,Songkhla (SK),Bangpakong (BAK),297
+1815,Songkhla (SK),Batam (BAT),490
+1816,Songkhla (SK),Bahodopi (BHDP),1955
+1817,Songkhla (SK),Bintulu (BIN),802
+1818,Songkhla (SK),Bangkok (BK),420
+1819,Songkhla (SK),Balikpapan (BPN),1490
+1820,Songkhla (SK),Brunei (BRU),900
+1821,Songkhla (SK),Belawan (BRW),867
+1822,Songkhla (SK),Bang Sapan (BS),250
+1823,Songkhla (SK),Bintan (BTN),527
+1824,Songkhla (SK),Cat Lai (CLI),515
+1825,Songkhla (SK),Cam Pha (CPH),1302
+1826,Songkhla (SK),Danang (DAD),956
+1827,Songkhla (SK),Dumai (DMI),696
+1828,Songkhla (SK),Dung Quat (DQT),855
+1829,Songkhla (SK),Davao (Sasa Wharf) (DVO),1701
+1830,Songkhla (SK),Futong (FTG),690
+1831,Songkhla (SK),Godau port  (GDP),500
+1832,Songkhla (SK),HO CHI MINH (HCM),520
+1833,Songkhla (SK),Halong Bay (HLG),1243
+1834,Songkhla (SK),Hon Gai (HON),1229
+1835,Songkhla (SK),Haiphong (HPH),1254
+1836,Songkhla (SK),Rayong (IRPC),342
+1837,Songkhla (SK),Khanom (KHM),144
+1838,Songkhla (SK),K.K. Kota Kinabalu (KK),1030
+1839,Songkhla (SK),Kedah (KKH),918
+1840,Songkhla (SK),Kelantan (KLT),125
+1841,Songkhla (SK),Kemaman (KMN),305
+1842,Songkhla (SK),Ko Sichang (KSI),365
+1843,Songkhla (SK),Kuantan (KT),310
+1844,Songkhla (SK),Kantang (KTG),1022
+1845,Songkhla (SK),Kuching (KUC),723
+1846,Songkhla (SK),KUM,998
+1847,Songkhla (SK),Labuan (LBN),989
+1848,Songkhla (SK),Laem Chabang (LCB),360
+1849,Songkhla (SK),Lahad Datu (LDU),1400
+1850,Songkhla (SK),Lumut (LUM),760
+1851,Songkhla (SK),Malacca (MAL),637
+1852,Songkhla (SK),Maptaphut (MAT),340
+1853,Songkhla (SK),Century Harbour (MHI),392
+1854,Songkhla (SK),Maeklong (Firesun) (MKG),385
+1855,Songkhla (SK),Manila Habour (MNL),1290
+1856,Songkhla (SK),Muara (MUR),919
+1857,Songkhla (SK),My Tho (MUT),550
+1858,Songkhla (SK),Narathiwat (NAW),110
+1859,Songkhla (SK),Nghi Son (NGH),1170
+1860,Songkhla (SK),Nunukan (NNX),1400
+1861,Songkhla (SK),Pasir Gudang (PAS),512
+1862,Songkhla (SK),Plathong Oil Rig (PATO),160
+1863,Songkhla (SK),Port Klang (PKL),705
+1864,Songkhla (SK),PAKAN Baru (PKRU),730
+1865,Songkhla (SK),Penang (PNG),904
+1866,Songkhla (SK),Pontianak (POT),719
+1867,Songkhla (SK),Yangon (RGN),1618
+1868,Songkhla (SK),Sandakan (SAN),1157
+1869,Songkhla (SK),Singapore (SG),520
+1870,Songkhla (SK),Sungai Guntung (SGGT),600
+1871,Songkhla (SK),Sibu (SIB),789
+1872,Songkhla (SK),Srihanoville (SIH),276
+1873,Songkhla (SK),Sipitang (SIP),909
+1874,Songkhla (SK),Son Duong (SOD),1078
+1875,Songkhla (SK),Semarang - Tanjung Emas (SRG),1090
+1876,Songkhla (SK),Sarekei (SRK),760
+1877,Songkhla (SK),Surat Thanee (SRT),185
+1878,Songkhla (SK),Tacloban (TAC),1590
+1879,Songkhla (SK),Tagbilaran (TAG),1570
+1880,Songkhla (SK),Tawau (TAW),1480
+1881,Songkhla (SK),Terengganu (TGG),215
+1882,Songkhla (SK),Tanjong Manis (TGM),752
+1883,Songkhla (SK),Tanjung Batu (TJQ),790
+1884,Songkhla (SK),Tha Sala (TSL),110
+1885,Songkhla (SK),Ranong (UNN),1196
+1886,Songkhla (SK),Can Tho (VCA),430
+1887,Sampit (SMQ),Bahodopi (BHDP),975
+1888,Sampit (SMQ),Bangkok (BK),1490
+1889,Sampit (SMQ),Dumai (DMI),960
+1890,Sampit (SMQ),Futong (FTG),770
+1891,Sampit (SMQ),HO CHI MINH (HCM),1135
+1892,Sampit (SMQ),Jakarta (JAK),458
+1893,Sampit (SMQ),Ko Sichang (KSI),1500
+1894,Sampit (SMQ),Lahad Datu (LDU),980
+1895,Sampit (SMQ),Malacca (MAL),844
+1896,Sampit (SMQ),Manila Habour (MNL),1685
+1897,Sampit (SMQ),My Tho (MUT),1240
+1898,Sampit (SMQ),Nunukan (NNX),860
+1899,Sampit (SMQ),Pasir Gudang (PAS),730
+1900,Sampit (SMQ),Quy Nhon (QNN),1245
+1901,Sampit (SMQ),Semarang - Tanjung Emas (SRG),330
+1902,Sampit (SMQ),Surabaya (SUBY),285
+1903,Sampit (SMQ),Tacloban (TAC),1450
+1904,Sampit (SMQ),Tanjung Batu (TJQ),450
+1905,Sampit (SMQ),Tanjung Priok (TP),459
+1906,Son Duong (SOD),Bahodopi (BHDP),2460
+1907,Son Duong (SOD),Bangkok (BK),1264
+1908,Son Duong (SOD),Balikpapan (BPN),1580
+1909,Son Duong (SOD),Bang Sapan (BS),1231
+1910,Son Duong (SOD),Cayagan de Oro City (Macabalan wharf) (CDO),1275
+1911,Son Duong (SOD),Cat Lai (CLI),700
+1912,Son Duong (SOD),Cam Pha (CPH),202
+1913,Son Duong (SOD),Dumai (DMI),1480
+1914,Son Duong (SOD),Dung Quat (DQT),215
+1915,Son Duong (SOD),Davao (Sasa Wharf) (DVO),1557
+1916,Son Duong (SOD),Futong (FTG),1430
+1917,Son Duong (SOD),Godau port  (GDP),664
+1918,Son Duong (SOD),Hong Kong (HKG),580
+1919,Son Duong (SOD),Hon Gai (HON),199
+1920,Son Duong (SOD),Haiphong (HPH),194
+1921,Son Duong (SOD),Jakarta (JAK),1546
+1922,Son Duong (SOD),Kuching (KUC),1079
+1923,Son Duong (SOD),KUM,1740
+1924,Son Duong (SOD),Lahad Datu (LDU),1270
+1925,Son Duong (SOD),Lumut (LUM),1660
+1926,Son Duong (SOD),Maptaphut (MAT),1167
+1927,Son Duong (SOD),Manila Habour (MNL),880
+1928,Son Duong (SOD),My Tho (MUT),715
+1929,Son Duong (SOD),Nghi Son (NGH),100
+1930,Son Duong (SOD),Nunukan (NNX),1255
+1931,Son Duong (SOD),Phumy (PHU),677
+1932,Son Duong (SOD),Port Klang (PKL),1395
+1933,Son Duong (SOD),Penang (PNG),1567
+1934,Son Duong (SOD),Yangon (RGN),2285
+1935,Son Duong (SOD),Singapore (SG),1180
+1936,Son Duong (SOD),Sungai Guntung (SGGT),1390
+1937,Son Duong (SOD),Songkhla (SK),1078
+1938,Son Duong (SOD),Semarang - Tanjung Emas (SRG),1820
+1939,Son Duong (SOD),Surabaya (SUBY),1695
+1940,Son Duong (SOD),Tacloban (TAC),1400
+1941,Son Duong (SOD),Tagbilaran (TAG),1353
+1942,Son Duong (SOD),Tanjung Batu (TJQ),1530
+1943,Son Duong (SOD),Vung Ang (VAG),280
+1944,Son Duong (SOD),Can Tho (VCA),884
+1945,Son Duong (SOD),Vung Tau (VUT),647
+1946,Sriracha Harbor (SRC),Bahodopi (BHDP),2130
+1947,Sriracha Harbor (SRC),Bahodopi (BHDP),2260
+1948,Sriracha Harbor (SRC),Bangkok (BK),60
+1949,Sriracha Harbor (SRC),Dumai (DMI),1012
+1950,Sriracha Harbor (SRC),Malacca (MAL),973
+1951,Sriracha Harbor (SRC),Muara (MUR),1202
+1952,Sriracha Harbor (SRC),Phnom Penh (PNH),781
+1953,Sriracha Harbor (SRC),Poso (POSO),2120
+1954,Sriracha Harbor (SRC),Yangon (RGN),1944
+1955,Sriracha Harbor (SRC),Terengganu (TGG),550
+1956,Sriracha Harbor (SRC),Ranong (UNN),1530
+1957,Semarang - Tanjung Emas (SRG),Bangpakong (BAK),1400
+1958,Semarang - Tanjung Emas (SRG),Bintulu (BIN),845
+1959,Semarang - Tanjung Emas (SRG),Bangkok (BK),1420
+1960,Semarang - Tanjung Emas (SRG),Bourbon (BOUR),1125
+1961,Semarang - Tanjung Emas (SRG),Bang Sapan (BS),1390
+1962,Semarang - Tanjung Emas (SRG),Godau port  (GDP),1125
+1963,Semarang - Tanjung Emas (SRG),HO CHI MINH (HCM),1100
+1964,Semarang - Tanjung Emas (SRG),Jakarta (JAK),280
+1965,Semarang - Tanjung Emas (SRG),K.K. Kota Kinabalu (KK),1130
+1966,Semarang - Tanjung Emas (SRG),Kemaman (KMN),800
+1967,Semarang - Tanjung Emas (SRG),Kuantan (KT),790
+1968,Semarang - Tanjung Emas (SRG),Kuching (KUC),720
+1969,Semarang - Tanjung Emas (SRG),Labuan (LBN),1020
+1970,Semarang - Tanjung Emas (SRG),Laem Chabang (LCB),1385
+1971,Semarang - Tanjung Emas (SRG),Malacca (MAL),795
+1972,Semarang - Tanjung Emas (SRG),Maptaphut (MAT),1365
+1973,Semarang - Tanjung Emas (SRG),Century Harbour (MHI),1410
+1974,Semarang - Tanjung Emas (SRG),Pasir Gudang (PAS),665
+1975,Semarang - Tanjung Emas (SRG),Port Klang (PKL),870
+1976,Semarang - Tanjung Emas (SRG),Palembang (PLB),500
+1977,Semarang - Tanjung Emas (SRG),Penang (PNG),970
+1978,Semarang - Tanjung Emas (SRG),Panjang (PNJ),360
+1979,Semarang - Tanjung Emas (SRG),Pontianak (POT),500
+1980,Semarang - Tanjung Emas (SRG),Singapore (SG),670
+1981,Semarang - Tanjung Emas (SRG),Sungai Guntung (SGGT),695
+1982,Semarang - Tanjung Emas (SRG),Songkhla (SK),1090
+1983,Semarang - Tanjung Emas (SRG),Sampit (SMQ),330
+1984,Semarang - Tanjung Emas (SRG),Son Duong (SOD),1820
+1985,Semarang - Tanjung Emas (SRG),Surabaya (SUBY),215
+1986,Semarang - Tanjung Emas (SRG),Tawau (TAW),980
+1987,Semarang - Tanjung Emas (SRG),Terengganu (TGG),990
+1988,Semarang - Tanjung Emas (SRG),Tha Sala (TSL),1155
+1989,Semarang - Tanjung Emas (SRG),Vung Tau (VUT),1075
+1990,Sarekei (SRK),Bintulu (BIN),216
+1991,Sarekei (SRK),Bangkok (BK),1132
+1992,Sarekei (SRK),K.K. Kota Kinabalu (KK),452
+1993,Sarekei (SRK),Kemaman (KMN),512
+1994,Sarekei (SRK),Kuantan (KT),512
+1995,Sarekei (SRK),Songkhla (SK),760
+1996,Sarekei (SRK),Surat Thanee (SRT),904
+1997,Sarekei (SRK),Tawau (TAW),897
+1998,Sarekei (SRK),Tanjong Manis (TGM),28
+1999,Sarekei (SRK),Tha Sala (TSL),836
+2000,Surat Thanee (SRT),Ayutthaya - Bangpain (AB),341
+2001,Surat Thanee (SRT),Ayutthaya - Nakorn Luang (ANL),386
+2002,Surat Thanee (SRT),Bangpakong (BAK),280
+2003,Surat Thanee (SRT),Bangkok (BK),296
+2004,Surat Thanee (SRT),Cayagan de Oro City (Macabalan wharf) (CDO),1751
+2005,Surat Thanee (SRT),Chantaburi LaemSing (CLS),256
+2006,Surat Thanee (SRT),Dung Quat (DQT),940
+2007,Surat Thanee (SRT),Davao (Sasa Wharf) (DVO),1839
+2008,Surat Thanee (SRT),Godau port  (GDP),619
+2009,Surat Thanee (SRT),Jakarta (JAK),1130
+2010,Surat Thanee (SRT),Khanom (KHM),49
+2011,Surat Thanee (SRT),Kemaman (KMN),443
+2012,Surat Thanee (SRT),Kampot (KMP),340
+2013,Surat Thanee (SRT),Ko Sichang (KSI),260
+2014,Surat Thanee (SRT),Kor Samui (KSM),47
+2015,Surat Thanee (SRT),Laem Chabang (LCB),250
+2016,Surat Thanee (SRT),Maptaphut (MAT),235
+2017,Surat Thanee (SRT),Century Harbour (MHI),266
+2018,Surat Thanee (SRT),Maeklong (Firesun) (MKG),265
+2019,Surat Thanee (SRT),Muara (MUR),1046
+2020,Surat Thanee (SRT),Oknha Mong Port (OMP),330
+2021,Surat Thanee (SRT),Phra Chulachomklao Fort (PCF),275
+2022,Surat Thanee (SRT),Srihanoville (SIH),330
+2023,Surat Thanee (SRT),Songkhla (SK),185
+2024,Surat Thanee (SRT),Sarekei (SRK),904
+2025,Surat Thanee (SRT),Surabaya (SUBY),1332
+2026,Surat Thanee (SRT),Terengganu (TGG),363
+2027,Sarawak (SRW),Bangkok (BK),980
+2028,Sarawak (SRW),Kuantan (KT),456
+2029,Sarawak (SRW),Malacca (MAL),583
+2030,Sritama Jetty (STM),Kuantan (KT),410
+2031,Sritama Jetty (STM),Tha Sala (TSL),775
+2032,Surabaya (SUBY),BA,1360
+2033,Surabaya (SUBY),Bintulu (BIN),1360
+2034,Surabaya (SUBY),Bangkok (BK),1545
+2035,Surabaya (SUBY),Bang Sapan (BS),1360
+2036,Surabaya (SUBY),Cigading (CIG),460
+2037,Surabaya (SUBY),Fangcheng (FAN),1880
+2038,Surabaya (SUBY),HO CHI MINH (HCM),1330
+2039,Surabaya (SUBY),Jakarta (JAK),386
+2040,Surabaya (SUBY),KEM ,886
+2041,Surabaya (SUBY),K.K. Kota Kinabalu (KK),1146
+2042,Surabaya (SUBY),Kuantan (KT),874
+2043,Surabaya (SUBY),Kuching (KUC),844
+2044,Surabaya (SUBY),Labuan (LBN),1087
+2045,Surabaya (SUBY),Pasir Gudang (PAS),766
+2046,Surabaya (SUBY),Palembang (PLB),700
+2047,Surabaya (SUBY),Singapore (SG),760
+2048,Surabaya (SUBY),Sampit (SMQ),285
+2049,Surabaya (SUBY),Son Duong (SOD),1695
+2050,Surabaya (SUBY),Semarang - Tanjung Emas (SRG),215
+2051,Surabaya (SUBY),Surat Thanee (SRT),1332
+2052,Surabaya (SUBY),Tawau (TAW),918
+2053,Surabaya (SUBY),Terengganu (TGG),950
+2054,Surabaya (SUBY),Tanjong Manis (TGM),865
+2055,Tacloban (TAC),Bintulu (BIN),970
+2056,Tacloban (TAC),Bangkok (BK),1760
+2057,Tacloban (TAC),Bontang (BXT),930
+2058,Tacloban (TAC),Davao (Sasa Wharf) (DVO),430
+2059,Tacloban (TAC),Godau port  (GDP),1280
+2060,Tacloban (TAC),HO CHI MINH (HCM),1250
+2061,Tacloban (TAC),Haiphong (HPH),1490
+2062,Tacloban (TAC),Jakarta (JAK),1790
+2063,Tacloban (TAC),K.K. Kota Kinabalu (KK),730
+2064,Tacloban (TAC),Kemaman (KMN),1440
+2065,Tacloban (TAC),Kuantan (KT),1455
+2066,Tacloban (TAC),Kuching (KUC),1155
+2067,Tacloban (TAC),Labuan (LBN),815
+2068,Tacloban (TAC),Laem Chabang (LCB),1745
+2069,Tacloban (TAC),Lahad Datu (LDU),630
+2070,Tacloban (TAC),Maptaphut (MAT),1724
+2071,Tacloban (TAC),Century Harbour (MHI),1780
+2072,Tacloban (TAC),Manila Habour (MNL),570
+2073,Tacloban (TAC),Pasir Gudang (PAS),1490
+2074,Tacloban (TAC),Port Klang (PKL),1690
+2075,Tacloban (TAC),Palembang (PLB),1620
+2076,Tacloban (TAC),Penang (PNG),1840
+2077,Tacloban (TAC),Pontianak (POT),1350
+2078,Tacloban (TAC),Singapore (SG),1490
+2079,Tacloban (TAC),Songkhla (SK),1590
+2080,Tacloban (TAC),Sampit (SMQ),1450
+2081,Tacloban (TAC),Son Duong (SOD),1400
+2082,Tacloban (TAC),Tawau (TAW),680
+2083,Tacloban (TAC),Terengganu (TGG),1450
+2084,Tacloban (TAC),Vung Tau (VUT),1230
+2085,Tagbilaran (TAG),Bintulu (BIN),843
+2086,Tagbilaran (TAG),Bangkok (BK),1933
+2087,Tagbilaran (TAG),Cat Lai (CLI),1115
+2088,Tagbilaran (TAG),Cam Pha (CPH),1529
+2089,Tagbilaran (TAG),Dung Quat (DQT),1005
+2090,Tagbilaran (TAG),Hon Gai (HON),1526
+2091,Tagbilaran (TAG),Haiphong (HPH),1379
+2092,Tagbilaran (TAG),Songkhla (SK),1570
+2093,Tagbilaran (TAG),Son Duong (SOD),1353
+2094,Tagbilaran (TAG),Tawau (TAW),544
+2095,Tagbilaran (TAG),Tanjong Manis (TGM),970
+2096,Tagbilaran (TAG),Can Tho (VCA),1138
+2097,Tarjun (TAR),Bahodopi (BHDP),720
+2098,Tarjun (TAR),Bangkok (BK),1630
+2099,Tarjun (TAR),HO CHI MINH (HCM),1320
+2100,Tarjun (TAR),Haiphong (HPH),1950
+2101,Tawau (TAW),Bahodopi (BHDP),850
+2102,Tawau (TAW),Bintulu (BIN),785
+2103,Tawau (TAW),Bangkok (BK),1820
+2104,Tawau (TAW),Balikpapan (BPN),418
+2105,Tawau (TAW),Brunei (BRU),584
+2106,Tawau (TAW),Cayagan de Oro City (Macabalan wharf) (CDO),568
+2107,Tawau (TAW),Cat Lai (CLI),1050
+2108,Tawau (TAW),Cam Pha (CPH),1558
+2109,Tawau (TAW),Dumai (DMI),1610
+2110,Tawau (TAW),Dung Quat (DQT),1000
+2111,Tawau (TAW),Davao (Sasa Wharf) (DVO),575
+2112,Tawau (TAW),Futong (FTG),1340
+2113,Tawau (TAW),HO CHI MINH (HCM),1211
+2114,Tawau (TAW),Hon Gai (HON),1555
+2115,Tawau (TAW),Haiphong (HPH),1405
+2116,Tawau (TAW),Jakarta (JAK),1160
+2117,Tawau (TAW),K.K. Kota Kinabalu (KK),450
+2118,Tawau (TAW),Kuantan (KT),1229
+2119,Tawau (TAW),Laem Chabang (LCB),1485
+2120,Tawau (TAW),Lahad Datu (LDU),150
+2121,Tawau (TAW),Lumut (LUM),1430
+2122,Tawau (TAW),Malacca (MAL),1356
+2123,Tawau (TAW),Manila Habour (MNL),815
+2124,Tawau (TAW),Muara (MUR),543
+2125,Tawau (TAW),My Tho (MUT),1020
+2126,Tawau (TAW),Nghi Son (NGH),1360
+2127,Tawau (TAW),Nunukan (NNX),40
+2128,Tawau (TAW),Pasir Gudang (PAS),1249
+2129,Tawau (TAW),Port Klang (PKL),1691
+2130,Tawau (TAW),Poso (POSO),840
+2131,Tawau (TAW),Pontianak (POT),1093
+2132,Tawau (TAW),Sandakan (SAN),265
+2133,Tawau (TAW),Sandakan (SAN),255
+2134,Tawau (TAW),Singapore (SG),1240
+2135,Tawau (TAW),Songkhla (SK),1480
+2136,Tawau (TAW),Semarang - Tanjung Emas (SRG),980
+2137,Tawau (TAW),Sarekei (SRK),897
+2138,Tawau (TAW),Surabaya (SUBY),865
+2139,Tawau (TAW),Tacloban (TAC),680
+2140,Tawau (TAW),Tagbilaran (TAG),544
+2141,Tawau (TAW),Terengganu (TGG),1254
+2142,Tawau (TAW),Tanjung Batu (TJQ),1240
+2143,Tawau (TAW),Can Tho (VCA),1071
+2144,Terengganu (TGG),Bahodopi (BHDP),1740
+2145,Terengganu (TGG),Bintulu (BIN),628
+2146,Terengganu (TGG),Bangkok (BK),592
+2147,Terengganu (TGG),Balikpapan (BPN),854
+2148,Terengganu (TGG),Bang Sapan (BS),436
+2149,Terengganu (TGG),Danang (DAD),958
+2150,Terengganu (TGG),Dumai (DMI),490
+2151,Terengganu (TGG),Futong (FTG),450
+2152,Terengganu (TGG),Rayong (IRPC),470
+2153,Terengganu (TGG),Jakarta (JAK),745
+2154,Terengganu (TGG),K.K. Kota Kinabalu (KK),833
+2155,Terengganu (TGG),Kemaman (KMN),87
+2156,Terengganu (TGG),Kuantan (KT),102
+2157,Terengganu (TGG),Kuching (KUC),523
+2158,Terengganu (TGG),Labuan (LBN),776
+2159,Terengganu (TGG),Lahad Datu (LDU),1195
+2160,Terengganu (TGG),Lumut (LUM),1587
+2161,Terengganu (TGG),Malacca (MAL),435
+2162,Terengganu (TGG),Maptaphut (MAT),520
+2163,Terengganu (TGG),Century Harbour (MHI),540
+2164,Terengganu (TGG),Manila Habour (MNL),1190
+2165,Terengganu (TGG),My Tho (MUT),450
+2166,Terengganu (TGG),Nunukan (NNX),1225
+2167,Terengganu (TGG),Pasir Gudang (PAS),300
+2168,Terengganu (TGG),Port Klang (PKL),104
+2169,Terengganu (TGG),Palembang (PLB),560
+2170,Terengganu (TGG),Pontianak (POT),540
+2171,Terengganu (TGG),Yangon (RGN),1420
+2172,Terengganu (TGG),Singapore (SG),1338
+2173,Terengganu (TGG),Songkhla (SK),215
+2174,Terengganu (TGG),Sriracha Harbor (SRC),550
+2175,Terengganu (TGG),Semarang - Tanjung Emas (SRG),990
+2176,Terengganu (TGG),Surat Thanee (SRT),363
+2177,Terengganu (TGG),Surabaya (SUBY),950
+2178,Terengganu (TGG),Tacloban (TAC),1450
+2179,Terengganu (TGG),Tawau (TAW),1254
+2180,Terengganu (TGG),Tanjong Manis (TGM),537
+2181,Terengganu (TGG),Tanjung Batu (TJQ),560
+2182,Terengganu (TGG),Vung Ang (VAG),1189
+2183,Tanjong Manis (TGM),Benoa (Bali) (BAO),1045
+2184,Tanjong Manis (TGM),Batam (BAT),450
+2185,Tanjong Manis (TGM),Bangkok (BK),1095
+2186,Tanjong Manis (TGM),Cayagan de Oro City (Macabalan wharf) (CDO),1005
+2187,Tanjong Manis (TGM),Cat Lai (CLI),605
+2188,Tanjong Manis (TGM),Cam Pha (CPH),1250
+2189,Tanjong Manis (TGM),Dung Quat (DQT),815
+2190,Tanjong Manis (TGM),Davao (Sasa Wharf) (DVO),1170
+2191,Tanjong Manis (TGM),Hon Gai (HON),1247
+2192,Tanjong Manis (TGM),Haiphong (HPH),1487
+2193,Tanjong Manis (TGM),Jakarta (JAK),645
+2194,Tanjong Manis (TGM),Jambi (JBI),300
+2195,Tanjong Manis (TGM),Kuantan (KT),498
+2196,Tanjong Manis (TGM),Labuan (LBN),378
+2197,Tanjong Manis (TGM),Laem Chabang (LCB),1055
+2198,Tanjong Manis (TGM),Malacca (MAL),602
+2199,Tanjong Manis (TGM),Muara (MUR),365
+2200,Tanjong Manis (TGM),Sipitang (SIP),413
+2201,Tanjong Manis (TGM),Songkhla (SK),752
+2202,Tanjong Manis (TGM),Sarekei (SRK),28
+2203,Tanjong Manis (TGM),Surabaya (SUBY),788
+2204,Tanjong Manis (TGM),Tagbilaran (TAG),970
+2205,Tanjong Manis (TGM),Terengganu (TGG),537
+2206,Tanjong Manis (TGM),Can Tho (VCA),560
+2207,MAP,Balikpapan (BPN),1090
+2208,MAP,KUM,610
+2209,TJM,Lumut (LUM),768
+2210,TJM,Nghi Son (NGH),1105
+2211,TJM,Singapore (SG),466
+2212,Tanjung Batu (TJQ),Bangpakong (BAK),1080
+2213,Tanjung Batu (TJQ),Bintulu (BIN),570
+2214,Tanjung Batu (TJQ),Bangkok (BK),1100
+2215,Tanjung Batu (TJQ),Bourbon (BOUR),840
+2216,Tanjung Batu (TJQ),Bang Sapan (BS),1070
+2217,Tanjung Batu (TJQ),Godau port  (GDP),840
+2218,Tanjung Batu (TJQ),HO CHI MINH (HCM),810
+2219,Tanjung Batu (TJQ),Jakarta (JAK),200
+2220,Tanjung Batu (TJQ),K.K. Kota Kinabalu (KK),790
+2221,Tanjung Batu (TJQ),Kemaman (KMN),500
+2222,Tanjung Batu (TJQ),Kuantan (KT),480
+2223,Tanjung Batu (TJQ),Kuching (KUC),440
+2224,Tanjung Batu (TJQ),Labuan (LBN),740
+2225,Tanjung Batu (TJQ),Laem Chabang (LCB),1065
+2226,Tanjung Batu (TJQ),Malacca (MAL),490
+2227,Tanjung Batu (TJQ),Maptaphut (MAT),1045
+2228,Tanjung Batu (TJQ),Century Harbour (MHI),1090
+2229,Tanjung Batu (TJQ),Pasir Gudang (PAS),360
+2230,Tanjung Batu (TJQ),Port Klang (PKL),565
+2231,Tanjung Batu (TJQ),Palembang (PLB),240
+2232,Tanjung Batu (TJQ),Penang (PNG),660
+2233,Tanjung Batu (TJQ),Panjang (PNJ),275
+2234,Tanjung Batu (TJQ),Pontianak (POT),220
+2235,Tanjung Batu (TJQ),Singapore (SG),360
+2236,Tanjung Batu (TJQ),Sungai Guntung (SGGT),500
+2237,Tanjung Batu (TJQ),Songkhla (SK),790
+2238,Tanjung Batu (TJQ),Sampit (SMQ),450
+2239,Tanjung Batu (TJQ),Son Duong (SOD),1530
+2240,Tanjung Batu (TJQ),Tawau (TAW),1240
+2241,Tanjung Batu (TJQ),Terengganu (TGG),560
+2242,Tanjung Batu (TJQ),Tha Sala (TSL),855
+2243,Tanjung Batu (TJQ),Vung Tau (VUT),800
+2244,Tanjung Priok (TP),Bintulu (BIN),776
+2245,Tanjung Priok (TP),Bangkok (BK),1320
+2246,Tanjung Priok (TP),Godau port  (GDP),999
+2247,Tanjung Priok (TP),HO CHI MINH (HCM),1021
+2248,Tanjung Priok (TP),Haiphong (HPH),1706
+2249,Tanjung Priok (TP),Kemaman (KMN),695
+2250,Tanjung Priok (TP),Kuantan (KT),670
+2251,Tanjung Priok (TP),Kuching (KUC),639
+2252,Tanjung Priok (TP),Pasir Gudang (PAS),577
+2253,Tanjung Priok (TP),Port Moresby (PGPOM),2592
+2254,Tanjung Priok (TP),Palembang (PLB),490
+2255,Tanjung Priok (TP),Penang (PNG),918
+2256,Tanjung Priok (TP),Pontianak (POT),441
+2257,Tanjung Priok (TP),Quy Nhon (QNN),1242
+2258,Tanjung Priok (TP),Sungai Guntung (SGGT),540
+2259,Tanjung Priok (TP),Sampit (SMQ),459
+2260,Tanjung Priok (TP),Tha Sala (TSL),1028
+2261,Tha Sala (TSL),Bahodopi (BHDP),2020
+2262,Tha Sala (TSL),Bangkok (BK),326
+2263,Tha Sala (TSL),Balikpapan (BPN),1568
+2264,Tha Sala (TSL),Cat Lai (CLI),605
+2265,Tha Sala (TSL),Dumai (DMI),780
+2266,Tha Sala (TSL),Futong (FTG),750
+2267,Tha Sala (TSL),Godau port  (GDP),510
+2268,Tha Sala (TSL),Jakarta (JAK),1028
+2269,Tha Sala (TSL),Khanom (KHM),35
+2270,Tha Sala (TSL),Kuching (KUC),800
+2271,Tha Sala (TSL),KUM,1080
+2272,Tha Sala (TSL),Labuan (LBN),1016
+2273,Tha Sala (TSL),Lahad Datu (LDU),1370
+2274,Tha Sala (TSL),Lumut (LUM),860
+2275,Tha Sala (TSL),Malacca (MAL),663
+2276,Tha Sala (TSL),Maeklong (Firesun) (MKG),289
+2277,Tha Sala (TSL),Manila Habour (MNL),1340
+2278,Tha Sala (TSL),My Tho (MUT),590
+2279,Tha Sala (TSL),Nghi Son (NGH),1200
+2280,Tha Sala (TSL),Nunukan (NNX),1403
+2281,Tha Sala (TSL),Pasir Gudang (PAS),565
+2282,Tha Sala (TSL),Port Klang (PKL),780
+2283,Tha Sala (TSL),Singapore (SG),600
+2284,Tha Sala (TSL),Sungai Guntung (SGGT),680
+2285,Tha Sala (TSL),Songkhla (SK),110
+2286,Tha Sala (TSL),Semarang - Tanjung Emas (SRG),1155
+2287,Tha Sala (TSL),Sarekei (SRK),836
+2288,Tha Sala (TSL),Sritama Jetty (STM),775
+2289,Tha Sala (TSL),Tanjung Batu (TJQ),855
+2290,Tha Sala (TSL),Tanjung Priok (TP),1028
+2291,Tha Sala (TSL),Can Tho (VCA),463
+2292,Tsukumi (TSUM),Bangkok (BK),2710
+2293,Ranong (UNN),Batam (BAT),694
+2294,Ranong (UNN),Bangkok (BK),1550
+2295,Ranong (UNN),Kuantan (KT),892
+2296,Ranong (UNN),Kantang (KTG),255
+2297,Ranong (UNN),Yangon (RGN),502
+2298,Ranong (UNN),Songkhla (SK),1196
+2299,Ranong (UNN),Sriracha Harbor (SRC),1530
+2300,Vung Ang (VAG),Bintulu (BIN),1192
+2301,Vung Ang (VAG),Bangkok (BK),1556
+2302,Vung Ang (VAG),Godau port  (GDP),769
+2303,Vung Ang (VAG),HO CHI MINH (HCM),695
+2304,Vung Ang (VAG),K.K. Kota Kinabalu (KK),1208
+2305,Vung Ang (VAG),Kemaman (KMN),1287
+2306,Vung Ang (VAG),Kuantan (KT),1287
+2307,Vung Ang (VAG),Kuching (KUC),1100
+2308,Vung Ang (VAG),Laem Chabang (LCB),1490
+2309,Vung Ang (VAG),Son Duong (SOD),280
+2310,Vung Ang (VAG),Terengganu (TGG),1189
+2311,Can Tho (VCA),Bangpakong (BAK),590
+2312,Can Tho (VCA),Bintulu (BIN),602
+2313,Can Tho (VCA),Bangkok (BK),605
+2314,Can Tho (VCA),Bang Sapan (BS),537
+2315,Can Tho (VCA),Godau port  (GDP),138
+2316,Can Tho (VCA),Haiphong (HPH),874
+2317,Can Tho (VCA),Kemaman (KMN),410
+2318,Can Tho (VCA),Kuantan (KT),420
+2319,Can Tho (VCA),Kuching (KUC),580
+2320,Can Tho (VCA),Labuan (LBN),648
+2321,Can Tho (VCA),Labuan (LBN),648
+2322,Can Tho (VCA),Maptaphut (MAT),520
+2323,Can Tho (VCA),Century Harbour (MHI),595
+2324,Can Tho (VCA),Pasir Gudang (PAS),588
+2325,Can Tho (VCA),Phumy (PHU),150
+2326,Can Tho (VCA),Port Klang (PKL),798
+2327,Can Tho (VCA),Songkhla (SK),430
+2328,Can Tho (VCA),Son Duong (SOD),884
+2329,Can Tho (VCA),Tagbilaran (TAG),1138
+2330,Can Tho (VCA),Tawau (TAW),1071
+2331,Can Tho (VCA),Tanjong Manis (TGM),560
+2332,Can Tho (VCA),Tha Sala (TSL),463
+2333,Can Tho (VCA),Vung Tau (VUT),120
+2334,Vung Tau (VUT),Bahodopi (BHDP),1920
+2335,Vung Tau (VUT),Bangkok (BK),650
+2336,Vung Tau (VUT),Balikpapan (BPN),1300
+2337,Vung Tau (VUT),Bang Sapan (BS),587
+2338,Vung Tau (VUT),Cat Lai (CLI),43
+2339,Vung Tau (VUT),Cai Lan (CLN),800
+2340,Vung Tau (VUT),Cam Pha (CPH),801
+2341,Vung Tau (VUT),Dung Quat (DQT),407
+2342,Vung Tau (VUT),HO CHI MINH (HCM),41
+2343,Vung Tau (VUT),Hong Kong (HKG),990
+2344,Vung Tau (VUT),Hon Gai (HON),798
+2345,Vung Tau (VUT),Haiphong (HPH),781
+2346,Vung Tau (VUT),Khanom (KHM),560
+2347,Vung Tau (VUT),Kelantan (KLT),394
+2348,Vung Tau (VUT),Laem Chabang (LCB),634
+2349,Vung Tau (VUT),Lahad Datu (LDU),1090
+2350,Vung Tau (VUT),Lhokseumawe (LHOK),1150
+2351,Vung Tau (VUT),Maptaphut (MAT),585
+2352,Vung Tau (VUT),Manila Habour (MNL),920
+2353,Vung Tau (VUT),My Tho (MUT),60
+2354,Vung Tau (VUT),Oknha Mong Port (OMP),429
+2355,Vung Tau (VUT),Pasir Gudang (PAS),669
+2356,Vung Tau (VUT),Phumy (PHU),30
+2357,Vung Tau (VUT),Palembang (PLB),740
+2358,Vung Tau (VUT),Phnom Penh (PNH),195
+2359,Vung Tau (VUT),Pontianak (POT),560
+2360,Vung Tau (VUT),Yangon (RGN),1759
+2361,Vung Tau (VUT),Singapore (SG),610
+2362,Vung Tau (VUT),Steung Hav (SHV),429
+2363,Vung Tau (VUT),Son Duong (SOD),647
+2364,Vung Tau (VUT),Semarang - Tanjung Emas (SRG),1075
+2365,Vung Tau (VUT),Tacloban (TAC),1230
+2366,Vung Tau (VUT),Tanjung Batu (TJQ),800
+2367,Vung Tau (VUT),Can Tho (VCA),120
+2368,Bangkok (BK),Banyuwangi - Tanjung Wangi (BJU),2223
+2369,Banyuwangi - Tanjung Wangi (BJU),Surabaya (SUBY),150
+2370,Padang - Telux Buyur (TBR),Panjang (PNJ),500
+2371,Padang - Telux Buyur (TBR),Palembang (PLB),790
+2372,Padang - Telux Buyur (TBR),Pontianak (POT),917
+2373,Jakarta (JAK),Panjang (PNJ),115
+2374,Bangkok (BK),Padang - Telux Buyur (TBR),2000
+2375,Padang - Telux Buyur (TBR),Surabaya (SUBY),1150
+2376,Padang - Telux Buyur (TBR),Palembang (PLB),847
+2377,Padang - Telux Buyur (TBR),Panjang (PNJ),539
+2378,Padang - Telux Buyur (TBR),Pontianak (POT),1103
+2379,Padang - Telux Buyur (TBR),Port Klang (PKL),1044
+2380,Padang - Telux Buyur (TBR),CX,767
+2381,Penang (PNG),Laem Chabang (LCB),1502
+2382,Banyuwangi - Tanjung Wangi (BJU),Surabaya (SUBY),1502
