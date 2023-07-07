@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, SelectField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SelectField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Distance } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -26,11 +32,25 @@ export default function DistanceUpdateForm(props) {
   const initialValues = {
     sourcePort: "",
     destinationPort: "",
+    port1: "",
+    port2: "",
+    port3: "",
+    port4: "",
+    port5: "",
+    port6: "",
+    cost: "",
   };
   const [sourcePort, setSourcePort] = React.useState(initialValues.sourcePort);
   const [destinationPort, setDestinationPort] = React.useState(
     initialValues.destinationPort
   );
+  const [port1, setPort1] = React.useState(initialValues.port1);
+  const [port2, setPort2] = React.useState(initialValues.port2);
+  const [port3, setPort3] = React.useState(initialValues.port3);
+  const [port4, setPort4] = React.useState(initialValues.port4);
+  const [port5, setPort5] = React.useState(initialValues.port5);
+  const [port6, setPort6] = React.useState(initialValues.port6);
+  const [cost, setCost] = React.useState(initialValues.cost);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = distanceRecord
@@ -38,6 +58,13 @@ export default function DistanceUpdateForm(props) {
       : initialValues;
     setSourcePort(cleanValues.sourcePort);
     setDestinationPort(cleanValues.destinationPort);
+    setPort1(cleanValues.port1);
+    setPort2(cleanValues.port2);
+    setPort3(cleanValues.port3);
+    setPort4(cleanValues.port4);
+    setPort5(cleanValues.port5);
+    setPort6(cleanValues.port6);
+    setCost(cleanValues.cost);
     setErrors({});
   };
   const [distanceRecord, setDistanceRecord] = React.useState(distanceModelProp);
@@ -54,6 +81,13 @@ export default function DistanceUpdateForm(props) {
   const validations = {
     sourcePort: [],
     destinationPort: [],
+    port1: [],
+    port2: [],
+    port3: [],
+    port4: [],
+    port5: [],
+    port6: [],
+    cost: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -83,6 +117,13 @@ export default function DistanceUpdateForm(props) {
         let modelFields = {
           sourcePort,
           destinationPort,
+          port1,
+          port2,
+          port3,
+          port4,
+          port5,
+          port6,
+          cost,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -112,9 +153,18 @@ export default function DistanceUpdateForm(props) {
               modelFields[key] = undefined;
             }
           });
+          const modelFieldsToSave = {
+            port1: modelFields.port1,
+            port2: modelFields.port2,
+            port3: modelFields.port3,
+            port4: modelFields.port4,
+            port5: modelFields.port5,
+            port6: modelFields.port6,
+            cost: modelFields.cost,
+          };
           await DataStore.save(
             Distance.copyOf(distanceRecord, (updated) => {
-              Object.assign(updated, modelFields);
+              Object.assign(updated, modelFieldsToSave);
             })
           );
           if (onSuccess) {
@@ -130,9 +180,8 @@ export default function DistanceUpdateForm(props) {
       {...rest}
     >
       <SelectField
-        label="Source port"
+        label="Label"
         placeholder="Please select an option"
-        isDisabled={false}
         value={sourcePort}
         onChange={(e) => {
           let { value } = e.target;
@@ -140,6 +189,13 @@ export default function DistanceUpdateForm(props) {
             const modelFields = {
               sourcePort: value,
               destinationPort,
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cost,
             };
             const result = onChange(modelFields);
             value = result?.sourcePort ?? value;
@@ -816,9 +872,8 @@ export default function DistanceUpdateForm(props) {
         ></option>
       </SelectField>
       <SelectField
-        label="Destination port"
+        label="Label"
         placeholder="Please select an option"
-        isDisabled={false}
         value={destinationPort}
         onChange={(e) => {
           let { value } = e.target;
@@ -826,6 +881,13 @@ export default function DistanceUpdateForm(props) {
             const modelFields = {
               sourcePort,
               destinationPort: value,
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cost,
             };
             const result = onChange(modelFields);
             value = result?.destinationPort ?? value;
@@ -1501,6 +1563,234 @@ export default function DistanceUpdateForm(props) {
           {...getOverrideProps(overrides, "destinationPortoption131")}
         ></option>
       </SelectField>
+      <TextField
+        label="Port1"
+        isRequired={false}
+        isReadOnly={false}
+        value={port1}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1: value,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port1 ?? value;
+          }
+          if (errors.port1?.hasError) {
+            runValidationTasks("port1", value);
+          }
+          setPort1(value);
+        }}
+        onBlur={() => runValidationTasks("port1", port1)}
+        errorMessage={errors.port1?.errorMessage}
+        hasError={errors.port1?.hasError}
+        {...getOverrideProps(overrides, "port1")}
+      ></TextField>
+      <TextField
+        label="Port2"
+        isRequired={false}
+        isReadOnly={false}
+        value={port2}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2: value,
+              port3,
+              port4,
+              port5,
+              port6,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port2 ?? value;
+          }
+          if (errors.port2?.hasError) {
+            runValidationTasks("port2", value);
+          }
+          setPort2(value);
+        }}
+        onBlur={() => runValidationTasks("port2", port2)}
+        errorMessage={errors.port2?.errorMessage}
+        hasError={errors.port2?.hasError}
+        {...getOverrideProps(overrides, "port2")}
+      ></TextField>
+      <TextField
+        label="Port3"
+        isRequired={false}
+        isReadOnly={false}
+        value={port3}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2,
+              port3: value,
+              port4,
+              port5,
+              port6,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port3 ?? value;
+          }
+          if (errors.port3?.hasError) {
+            runValidationTasks("port3", value);
+          }
+          setPort3(value);
+        }}
+        onBlur={() => runValidationTasks("port3", port3)}
+        errorMessage={errors.port3?.errorMessage}
+        hasError={errors.port3?.hasError}
+        {...getOverrideProps(overrides, "port3")}
+      ></TextField>
+      <TextField
+        label="Port4"
+        isRequired={false}
+        isReadOnly={false}
+        value={port4}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2,
+              port3,
+              port4: value,
+              port5,
+              port6,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port4 ?? value;
+          }
+          if (errors.port4?.hasError) {
+            runValidationTasks("port4", value);
+          }
+          setPort4(value);
+        }}
+        onBlur={() => runValidationTasks("port4", port4)}
+        errorMessage={errors.port4?.errorMessage}
+        hasError={errors.port4?.hasError}
+        {...getOverrideProps(overrides, "port4")}
+      ></TextField>
+      <TextField
+        label="Port5"
+        isRequired={false}
+        isReadOnly={false}
+        value={port5}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2,
+              port3,
+              port4,
+              port5: value,
+              port6,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port5 ?? value;
+          }
+          if (errors.port5?.hasError) {
+            runValidationTasks("port5", value);
+          }
+          setPort5(value);
+        }}
+        onBlur={() => runValidationTasks("port5", port5)}
+        errorMessage={errors.port5?.errorMessage}
+        hasError={errors.port5?.hasError}
+        {...getOverrideProps(overrides, "port5")}
+      ></TextField>
+      <TextField
+        label="Port6"
+        isRequired={false}
+        isReadOnly={false}
+        value={port6}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6: value,
+              cost,
+            };
+            const result = onChange(modelFields);
+            value = result?.port6 ?? value;
+          }
+          if (errors.port6?.hasError) {
+            runValidationTasks("port6", value);
+          }
+          setPort6(value);
+        }}
+        onBlur={() => runValidationTasks("port6", port6)}
+        errorMessage={errors.port6?.errorMessage}
+        hasError={errors.port6?.hasError}
+        {...getOverrideProps(overrides, "port6")}
+      ></TextField>
+      <TextField
+        label="Cost"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={cost}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              sourcePort,
+              destinationPort,
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cost: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.cost ?? value;
+          }
+          if (errors.cost?.hasError) {
+            runValidationTasks("cost", value);
+          }
+          setCost(value);
+        }}
+        onBlur={() => runValidationTasks("cost", cost)}
+        errorMessage={errors.cost?.errorMessage}
+        hasError={errors.cost?.hasError}
+        {...getOverrideProps(overrides, "cost")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

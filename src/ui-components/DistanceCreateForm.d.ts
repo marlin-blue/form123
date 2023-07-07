@@ -19,7 +19,7 @@ export declare type DistanceCreateFormInputValues = {
     port4?: string;
     port5?: string;
     port6?: string;
-    cost?: string;
+    cost?: number;
 };
 export declare type DistanceCreateFormValidationValues = {
     port1?: ValidationFunction<string>;
@@ -28,7 +28,7 @@ export declare type DistanceCreateFormValidationValues = {
     port4?: ValidationFunction<string>;
     port5?: ValidationFunction<string>;
     port6?: ValidationFunction<string>;
-    cost?: ValidationFunction<string>;
+    cost?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DistanceCreateFormOverridesProps = {

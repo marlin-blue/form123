@@ -12,9 +12,13 @@ type EagerDistance = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly sourcePort?: string | null;
-  readonly destinationPort?: string | null;
-  readonly distance?: string | null;
+  readonly port1?: string | null;
+  readonly port2?: string | null;
+  readonly port3?: string | null;
+  readonly port4?: string | null;
+  readonly port5?: string | null;
+  readonly port6?: string | null;
+  readonly cost?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -25,9 +29,13 @@ type LazyDistance = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly sourcePort?: string | null;
-  readonly destinationPort?: string | null;
-  readonly distance?: string | null;
+  readonly port1?: string | null;
+  readonly port2?: string | null;
+  readonly port3?: string | null;
+  readonly port4?: string | null;
+  readonly port5?: string | null;
+  readonly port6?: string | null;
+  readonly cost?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

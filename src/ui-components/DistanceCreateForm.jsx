@@ -126,8 +126,7 @@ export default function DistanceCreateForm(props) {
               modelFields[key] = undefined;
             }
           });
-          const modelFieldsToSave = {};
-          await DataStore.save(new Distance(modelFieldsToSave));
+          await DataStore.save(new Distance(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -146,6 +145,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 1"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port1}
         onChange={(e) => {
           let { value } = e.target;
@@ -846,6 +846,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 2"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port2}
         onChange={(e) => {
           let { value } = e.target;
@@ -1546,6 +1547,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 3"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port3}
         onChange={(e) => {
           let { value } = e.target;
@@ -2246,6 +2248,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 4"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port4}
         onChange={(e) => {
           let { value } = e.target;
@@ -2946,6 +2949,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 5"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port5}
         onChange={(e) => {
           let { value } = e.target;
@@ -3646,6 +3650,7 @@ export default function DistanceCreateForm(props) {
       <SelectField
         label="Port 6"
         placeholder="Please select an option"
+        isDisabled={false}
         value={port6}
         onChange={(e) => {
           let { value } = e.target;
@@ -4345,11 +4350,15 @@ export default function DistanceCreateForm(props) {
       </SelectField>
       <TextField
         label="Cost"
+        isRequired={false}
+        isReadOnly={false}
         type="number"
         step="any"
         value={cost}
         onChange={(e) => {
-          let { value } = e.target;
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
           if (onChange) {
             const modelFields = {
               port1,
