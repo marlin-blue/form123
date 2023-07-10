@@ -52,8 +52,162 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "cost": {
-                    "name": "cost",
+                "cargo1": {
+                    "name": "cargo1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo2": {
+                    "name": "cargo2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo3": {
+                    "name": "cargo3",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo4": {
+                    "name": "cargo4",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo5": {
+                    "name": "cargo5",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo6": {
+                    "name": "cargo6",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "miscCosts": {
+                    "name": "miscCosts",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "craneUsage": {
+                    "name": "craneUsage",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo5_quanity": {
+                    "name": "cargo5_quanity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo6_quantity": {
+                    "name": "cargo6_quantity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo4_quantity": {
+                    "name": "cargo4_quantity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo3_quantity": {
+                    "name": "cargo3_quantity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo2_quantity": {
+                    "name": "cargo2_quantity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo1_quantity": {
+                    "name": "cargo1_quantity",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo3_rate": {
+                    "name": "cargo3_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo4_rate": {
+                    "name": "cargo4_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo5_rate": {
+                    "name": "cargo5_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo6_rate": {
+                    "name": "cargo6_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo1_rate": {
+                    "name": "cargo1_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "cargo2_rate": {
+                    "name": "cargo2_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "portDays": {
+                    "name": "portDays",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "bunker_rate": {
+                    "name": "bunker_rate",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "diesel_rate": {
+                    "name": "diesel_rate",
                     "isArray": false,
                     "type": "Float",
                     "isRequired": false,
@@ -105,5 +259,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "f18370a3c04066012fb961cdfa5600f6"
+    "version": "906c4a240917f2988d545494fcbc3107"
 };

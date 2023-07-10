@@ -1,15 +1,15 @@
 {
-  "staging": {
+  "main": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-distance-staging-15140-authRole",
-      "UnauthRoleArn": "arn:aws:iam::575480496315:role/amplify-distance-staging-15140-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::575480496315:role/amplify-distance-staging-15140-authRole",
+      "AuthRoleName": "amplify-distance-main-75148-authRole",
+      "UnauthRoleArn": "arn:aws:iam::863326107953:role/amplify-distance-main-75148-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::863326107953:role/amplify-distance-main-75148-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-distance-staging-15140-deployment",
-      "UnauthRoleName": "amplify-distance-staging-15140-unauthRole",
-      "StackName": "amplify-distance-staging-15140",
-      "StackId": "arn:aws:cloudformation:us-west-2:575480496315:stack/amplify-distance-staging-15140/a7317390-1b9f-11ee-8e7c-06ff6c6bf9c7",
-      "AmplifyAppId": "d1ztk7modjjjnn"
+      "DeploymentBucketName": "amplify-distance-main-75148-deployment",
+      "UnauthRoleName": "amplify-distance-main-75148-unauthRole",
+      "StackName": "amplify-distance-main-75148",
+      "StackId": "arn:aws:cloudformation:us-west-2:863326107953:stack/amplify-distance-main-75148/a040e660-1ef6-11ee-aba8-0a9f3edecaa1",
+      "AmplifyAppId": "d1ru79rrv25h44"
     }
   }
 }

@@ -6,6 +6,28 @@ type Distance @model @auth(rules: [{allow: public}]) {
   port4: String
   port5: String
   port6: String
-  cost: Float
+  cargo1: String
+  cargo2: String
+  cargo3: String
+  cargo4: String
+  cargo5: String
+  cargo6: String
+  miscCosts: Float
+  craneUsage: Float
+  cargo5_quanity: Float
+  cargo6_quantity: Float
+  cargo4_quantity: Float
+  cargo3_quantity: Float
+  cargo2_quantity: Float
+  cargo1_quantity: Float
+  cargo3_rate: Float
+  cargo4_rate: Float
+  cargo5_rate: Float
+  cargo6_rate: Float
+  cargo1_rate: Float
+  cargo2_rate: Float
+  portDays: Float
+  bunker_rate: Float
+  diesel_rate: Float
 }
  
