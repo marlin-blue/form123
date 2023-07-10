@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DistanceCreateForm } from './ui-components';
-import { fetchDistanceFromAPI } from './api';
+import { fetchDistanceFromAPI } from './api-getDistances';
 import './App.css';
 
 function App() {
