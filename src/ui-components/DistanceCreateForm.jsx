@@ -50,7 +50,7 @@ export default function DistanceCreateForm(props) {
     cargo4_quantity: "",
     cargo4_rate: "",
     cargo5: "",
-    cargo5_quanity: "",
+    cargo5_quantity: "",
     cargo5_rate: "",
     cargo6: "",
     cargo6_quantity: "",
@@ -96,8 +96,8 @@ export default function DistanceCreateForm(props) {
     initialValues.cargo4_rate
   );
   const [cargo5, setCargo5] = React.useState(initialValues.cargo5);
-  const [cargo5_quanity, setCargo5_quanity] = React.useState(
-    initialValues.cargo5_quanity
+  const [cargo5_quantity, setCargo5_quantity] = React.useState(
+    initialValues.cargo5_quantity
   );
   const [cargo5_rate, setCargo5_rate] = React.useState(
     initialValues.cargo5_rate
@@ -139,7 +139,7 @@ export default function DistanceCreateForm(props) {
     setCargo4_quantity(initialValues.cargo4_quantity);
     setCargo4_rate(initialValues.cargo4_rate);
     setCargo5(initialValues.cargo5);
-    setCargo5_quanity(initialValues.cargo5_quanity);
+    setCargo5_quantity(initialValues.cargo5_quantity);
     setCargo5_rate(initialValues.cargo5_rate);
     setCargo6(initialValues.cargo6);
     setCargo6_quantity(initialValues.cargo6_quantity);
@@ -171,7 +171,7 @@ export default function DistanceCreateForm(props) {
     cargo4_quantity: [],
     cargo4_rate: [],
     cargo5: [],
-    cargo5_quanity: [],
+    cargo5_quantity: [],
     cargo5_rate: [],
     cargo6: [],
     cargo6_quantity: [],
@@ -227,7 +227,7 @@ export default function DistanceCreateForm(props) {
           cargo4_quantity,
           cargo4_rate,
           cargo5,
-          cargo5_quanity,
+          cargo5_quantity,
           cargo5_rate,
           cargo6,
           cargo6_quantity,
@@ -266,7 +266,37 @@ export default function DistanceCreateForm(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(new Distance(modelFields));
+          const modelFieldsToSave = {
+            port1: modelFields.port1,
+            port2: modelFields.port2,
+            port3: modelFields.port3,
+            port4: modelFields.port4,
+            port5: modelFields.port5,
+            port6: modelFields.port6,
+            cargo1: modelFields.cargo1,
+            cargo1_quantity: modelFields.cargo1_quantity,
+            cargo1_rate: modelFields.cargo1_rate,
+            cargo2: modelFields.cargo2,
+            cargo2_quantity: modelFields.cargo2_quantity,
+            cargo2_rate: modelFields.cargo2_rate,
+            cargo3: modelFields.cargo3,
+            cargo3_quantity: modelFields.cargo3_quantity,
+            cargo3_rate: modelFields.cargo3_rate,
+            cargo4: modelFields.cargo4,
+            cargo4_quantity: modelFields.cargo4_quantity,
+            cargo4_rate: modelFields.cargo4_rate,
+            cargo5: modelFields.cargo5,
+            cargo5_rate: modelFields.cargo5_rate,
+            cargo6: modelFields.cargo6,
+            cargo6_quantity: modelFields.cargo6_quantity,
+            cargo6_rate: modelFields.cargo6_rate,
+            bunker_rate: modelFields.bunker_rate,
+            diesel_rate: modelFields.diesel_rate,
+            miscCosts: modelFields.miscCosts,
+            craneUsage: modelFields.craneUsage,
+            portDays: modelFields.portDays,
+          };
+          await DataStore.save(new Distance(modelFieldsToSave));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -315,7 +345,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -1023,7 +1053,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -1731,7 +1761,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -2439,7 +2469,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -3147,7 +3177,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -3855,7 +3885,7 @@ export default function DistanceCreateForm(props) {
               cargo4_quantity,
               cargo4_rate,
               cargo5,
-              cargo5_quanity,
+              cargo5_quantity,
               cargo5_rate,
               cargo6,
               cargo6_quantity,
@@ -4577,7 +4607,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -4789,7 +4819,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -4846,7 +4876,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -4910,7 +4940,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5091,7 +5121,7 @@ export default function DistanceCreateForm(props) {
           ></option>
         </SelectField>
         <TextField
-          label="Quanity"
+          label="Quantity"
           isRequired={false}
           isReadOnly={false}
           type="number"
@@ -5122,7 +5152,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5179,7 +5209,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5242,7 +5272,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5454,7 +5484,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5511,7 +5541,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5574,7 +5604,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5786,7 +5816,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity: value,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5843,7 +5873,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate: value,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -5906,7 +5936,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5: value,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -6088,15 +6118,11 @@ export default function DistanceCreateForm(props) {
         </SelectField>
         <TextField
           label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
           type="number"
           step="any"
-          value={cargo5_quanity}
+          value={cargo5_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 port1,
@@ -6118,7 +6144,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity: value,
+                cargo5_quantity: value,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -6130,17 +6156,17 @@ export default function DistanceCreateForm(props) {
                 portDays,
               };
               const result = onChange(modelFields);
-              value = result?.cargo5_quanity ?? value;
+              value = result?.cargo5_quantity ?? value;
             }
-            if (errors.cargo5_quanity?.hasError) {
-              runValidationTasks("cargo5_quanity", value);
+            if (errors.cargo5_quantity?.hasError) {
+              runValidationTasks("cargo5_quantity", value);
             }
-            setCargo5_quanity(value);
+            setCargo5_quantity(value);
           }}
-          onBlur={() => runValidationTasks("cargo5_quanity", cargo5_quanity)}
-          errorMessage={errors.cargo5_quanity?.errorMessage}
-          hasError={errors.cargo5_quanity?.hasError}
-          {...getOverrideProps(overrides, "cargo5_quanity")}
+          onBlur={() => runValidationTasks("cargo5_quantity", cargo5_quantity)}
+          errorMessage={errors.cargo5_quantity?.errorMessage}
+          hasError={errors.cargo5_quantity?.hasError}
+          {...getOverrideProps(overrides, "cargo5_quantity")}
         ></TextField>
         <TextField
           label="Freight Rate"
@@ -6175,7 +6201,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate: value,
                 cargo6,
                 cargo6_quantity,
@@ -6238,7 +6264,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6: value,
                 cargo6_quantity,
@@ -6450,7 +6476,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity: value,
@@ -6507,7 +6533,7 @@ export default function DistanceCreateForm(props) {
                 cargo4_quantity,
                 cargo4_rate,
                 cargo5,
-                cargo5_quanity,
+                cargo5_quantity,
                 cargo5_rate,
                 cargo6,
                 cargo6_quantity,
@@ -6536,286 +6562,300 @@ export default function DistanceCreateForm(props) {
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement7")}
       ></Divider>
-      <TextField
-        label="Bunker Fuel Rate"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={bunker_rate}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              port1,
-              port2,
-              port3,
-              port4,
-              port5,
-              port6,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quanity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate: value,
-              diesel_rate,
-              miscCosts,
-              craneUsage,
-              portDays,
-            };
-            const result = onChange(modelFields);
-            value = result?.bunker_rate ?? value;
-          }
-          if (errors.bunker_rate?.hasError) {
-            runValidationTasks("bunker_rate", value);
-          }
-          setBunker_rate(value);
-        }}
-        onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
-        errorMessage={errors.bunker_rate?.errorMessage}
-        hasError={errors.bunker_rate?.hasError}
-        {...getOverrideProps(overrides, "bunker_rate")}
-      ></TextField>
-      <TextField
-        label="Diesel Fuel Rate"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={diesel_rate}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              port1,
-              port2,
-              port3,
-              port4,
-              port5,
-              port6,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quanity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate: value,
-              miscCosts,
-              craneUsage,
-              portDays,
-            };
-            const result = onChange(modelFields);
-            value = result?.diesel_rate ?? value;
-          }
-          if (errors.diesel_rate?.hasError) {
-            runValidationTasks("diesel_rate", value);
-          }
-          setDiesel_rate(value);
-        }}
-        onBlur={() => runValidationTasks("diesel_rate", diesel_rate)}
-        errorMessage={errors.diesel_rate?.errorMessage}
-        hasError={errors.diesel_rate?.hasError}
-        {...getOverrideProps(overrides, "diesel_rate")}
-      ></TextField>
-      <TextField
-        label="Misc Costs"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={miscCosts}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              port1,
-              port2,
-              port3,
-              port4,
-              port5,
-              port6,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quanity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              miscCosts: value,
-              craneUsage,
-              portDays,
-            };
-            const result = onChange(modelFields);
-            value = result?.miscCosts ?? value;
-          }
-          if (errors.miscCosts?.hasError) {
-            runValidationTasks("miscCosts", value);
-          }
-          setMiscCosts(value);
-        }}
-        onBlur={() => runValidationTasks("miscCosts", miscCosts)}
-        errorMessage={errors.miscCosts?.errorMessage}
-        hasError={errors.miscCosts?.hasError}
-        {...getOverrideProps(overrides, "miscCosts")}
-      ></TextField>
-      <TextField
-        label="Total Crane Usage (Hours)"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={craneUsage}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              port1,
-              port2,
-              port3,
-              port4,
-              port5,
-              port6,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quanity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              miscCosts,
-              craneUsage: value,
-              portDays,
-            };
-            const result = onChange(modelFields);
-            value = result?.craneUsage ?? value;
-          }
-          if (errors.craneUsage?.hasError) {
-            runValidationTasks("craneUsage", value);
-          }
-          setCraneUsage(value);
-        }}
-        onBlur={() => runValidationTasks("craneUsage", craneUsage)}
-        errorMessage={errors.craneUsage?.errorMessage}
-        hasError={errors.craneUsage?.hasError}
-        {...getOverrideProps(overrides, "craneUsage")}
-      ></TextField>
-      <TextField
-        label="Total Port Days"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={portDays}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              port1,
-              port2,
-              port3,
-              port4,
-              port5,
-              port6,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quanity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              miscCosts,
-              craneUsage,
-              portDays: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.portDays ?? value;
-          }
-          if (errors.portDays?.hasError) {
-            runValidationTasks("portDays", value);
-          }
-          setPortDays(value);
-        }}
-        onBlur={() => runValidationTasks("portDays", portDays)}
-        errorMessage={errors.portDays?.errorMessage}
-        hasError={errors.portDays?.hasError}
-        {...getOverrideProps(overrides, "portDays")}
-      ></TextField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid21")}
+      >
+        <TextField
+          label="Bunker Fuel Rate"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={bunker_rate}
+          onChange={(e) => {
+            let value = isNaN(parseFloat(e.target.value))
+              ? e.target.value
+              : parseFloat(e.target.value);
+            if (onChange) {
+              const modelFields = {
+                port1,
+                port2,
+                port3,
+                port4,
+                port5,
+                port6,
+                cargo1,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo2,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo3,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo4,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo5,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo6,
+                cargo6_quantity,
+                cargo6_rate,
+                bunker_rate: value,
+                diesel_rate,
+                miscCosts,
+                craneUsage,
+                portDays,
+              };
+              const result = onChange(modelFields);
+              value = result?.bunker_rate ?? value;
+            }
+            if (errors.bunker_rate?.hasError) {
+              runValidationTasks("bunker_rate", value);
+            }
+            setBunker_rate(value);
+          }}
+          onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
+          errorMessage={errors.bunker_rate?.errorMessage}
+          hasError={errors.bunker_rate?.hasError}
+          {...getOverrideProps(overrides, "bunker_rate")}
+        ></TextField>
+        <TextField
+          label="Diesel Fuel Rate"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={diesel_rate}
+          onChange={(e) => {
+            let value = isNaN(parseFloat(e.target.value))
+              ? e.target.value
+              : parseFloat(e.target.value);
+            if (onChange) {
+              const modelFields = {
+                port1,
+                port2,
+                port3,
+                port4,
+                port5,
+                port6,
+                cargo1,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo2,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo3,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo4,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo5,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo6,
+                cargo6_quantity,
+                cargo6_rate,
+                bunker_rate,
+                diesel_rate: value,
+                miscCosts,
+                craneUsage,
+                portDays,
+              };
+              const result = onChange(modelFields);
+              value = result?.diesel_rate ?? value;
+            }
+            if (errors.diesel_rate?.hasError) {
+              runValidationTasks("diesel_rate", value);
+            }
+            setDiesel_rate(value);
+          }}
+          onBlur={() => runValidationTasks("diesel_rate", diesel_rate)}
+          errorMessage={errors.diesel_rate?.errorMessage}
+          hasError={errors.diesel_rate?.hasError}
+          {...getOverrideProps(overrides, "diesel_rate")}
+        ></TextField>
+        <TextField
+          label="Misc Costs"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={miscCosts}
+          onChange={(e) => {
+            let value = isNaN(parseFloat(e.target.value))
+              ? e.target.value
+              : parseFloat(e.target.value);
+            if (onChange) {
+              const modelFields = {
+                port1,
+                port2,
+                port3,
+                port4,
+                port5,
+                port6,
+                cargo1,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo2,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo3,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo4,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo5,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo6,
+                cargo6_quantity,
+                cargo6_rate,
+                bunker_rate,
+                diesel_rate,
+                miscCosts: value,
+                craneUsage,
+                portDays,
+              };
+              const result = onChange(modelFields);
+              value = result?.miscCosts ?? value;
+            }
+            if (errors.miscCosts?.hasError) {
+              runValidationTasks("miscCosts", value);
+            }
+            setMiscCosts(value);
+          }}
+          onBlur={() => runValidationTasks("miscCosts", miscCosts)}
+          errorMessage={errors.miscCosts?.errorMessage}
+          hasError={errors.miscCosts?.hasError}
+          {...getOverrideProps(overrides, "miscCosts")}
+        ></TextField>
+      </Grid>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(2, auto)"
+        {...getOverrideProps(overrides, "RowGrid22")}
+      >
+        <TextField
+          label="Total Crane Usage (Hours)"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={craneUsage}
+          onChange={(e) => {
+            let value = isNaN(parseFloat(e.target.value))
+              ? e.target.value
+              : parseFloat(e.target.value);
+            if (onChange) {
+              const modelFields = {
+                port1,
+                port2,
+                port3,
+                port4,
+                port5,
+                port6,
+                cargo1,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo2,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo3,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo4,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo5,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo6,
+                cargo6_quantity,
+                cargo6_rate,
+                bunker_rate,
+                diesel_rate,
+                miscCosts,
+                craneUsage: value,
+                portDays,
+              };
+              const result = onChange(modelFields);
+              value = result?.craneUsage ?? value;
+            }
+            if (errors.craneUsage?.hasError) {
+              runValidationTasks("craneUsage", value);
+            }
+            setCraneUsage(value);
+          }}
+          onBlur={() => runValidationTasks("craneUsage", craneUsage)}
+          errorMessage={errors.craneUsage?.errorMessage}
+          hasError={errors.craneUsage?.hasError}
+          {...getOverrideProps(overrides, "craneUsage")}
+        ></TextField>
+        <TextField
+          label="Total Port Days"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={portDays}
+          onChange={(e) => {
+            let value = isNaN(parseFloat(e.target.value))
+              ? e.target.value
+              : parseFloat(e.target.value);
+            if (onChange) {
+              const modelFields = {
+                port1,
+                port2,
+                port3,
+                port4,
+                port5,
+                port6,
+                cargo1,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo2,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo3,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo4,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo5,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo6,
+                cargo6_quantity,
+                cargo6_rate,
+                bunker_rate,
+                diesel_rate,
+                miscCosts,
+                craneUsage,
+                portDays: value,
+              };
+              const result = onChange(modelFields);
+              value = result?.portDays ?? value;
+            }
+            if (errors.portDays?.hasError) {
+              runValidationTasks("portDays", value);
+            }
+            setPortDays(value);
+          }}
+          onBlur={() => runValidationTasks("portDays", portDays)}
+          errorMessage={errors.portDays?.errorMessage}
+          hasError={errors.portDays?.hasError}
+          {...getOverrideProps(overrides, "portDays")}
+        ></TextField>
+      </Grid>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

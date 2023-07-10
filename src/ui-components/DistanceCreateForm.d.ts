@@ -32,7 +32,7 @@ export declare type DistanceCreateFormInputValues = {
     cargo4_quantity?: number;
     cargo4_rate?: number;
     cargo5?: string;
-    cargo5_quanity?: number;
+    cargo5_quantity?: string;
     cargo5_rate?: number;
     cargo6?: string;
     cargo6_quantity?: number;
@@ -63,7 +63,7 @@ export declare type DistanceCreateFormValidationValues = {
     cargo4_quantity?: ValidationFunction<number>;
     cargo4_rate?: ValidationFunction<number>;
     cargo5?: ValidationFunction<string>;
-    cargo5_quanity?: ValidationFunction<number>;
+    cargo5_quantity?: ValidationFunction<string>;
     cargo5_rate?: ValidationFunction<number>;
     cargo6?: ValidationFunction<string>;
     cargo6_quantity?: ValidationFunction<number>;
@@ -108,7 +108,7 @@ export declare type DistanceCreateFormOverridesProps = {
     SectionalElement5?: PrimitiveOverrideProps<HeadingProps>;
     RowGrid17?: PrimitiveOverrideProps<GridProps>;
     cargo5?: PrimitiveOverrideProps<SelectFieldProps>;
-    cargo5_quanity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo5_quantity?: PrimitiveOverrideProps<TextFieldProps>;
     cargo5_rate?: PrimitiveOverrideProps<TextFieldProps>;
     SectionalElement6?: PrimitiveOverrideProps<HeadingProps>;
     RowGrid19?: PrimitiveOverrideProps<GridProps>;
@@ -116,9 +116,11 @@ export declare type DistanceCreateFormOverridesProps = {
     cargo6_quantity?: PrimitiveOverrideProps<TextFieldProps>;
     cargo6_rate?: PrimitiveOverrideProps<TextFieldProps>;
     SectionalElement7?: PrimitiveOverrideProps<DividerProps>;
+    RowGrid21?: PrimitiveOverrideProps<GridProps>;
     bunker_rate?: PrimitiveOverrideProps<TextFieldProps>;
     diesel_rate?: PrimitiveOverrideProps<TextFieldProps>;
     miscCosts?: PrimitiveOverrideProps<TextFieldProps>;
+    RowGrid22?: PrimitiveOverrideProps<GridProps>;
     craneUsage?: PrimitiveOverrideProps<TextFieldProps>;
     portDays?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
