@@ -22,6 +22,7 @@ import { DataStore } from "aws-amplify";
 export default function DistanceCreateForm(props) {
   const {
     clearOnSuccess = true,
+    formData,
     onSuccess,
     onError,
     onSubmit,

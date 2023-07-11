@@ -7,28 +7,28 @@ function App() {
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({
-    Port1: '',
-    Port2: '',
-    Port3: '',
-    Port4: '',
-    Port5: '',
-    Port6: '',
-    cargo1: '',
+    Port1: 'NIL',
+    Port2: 'NIL',
+    Port3: 'NIL',
+    Port4: 'NIL',
+    Port5: 'NIL',
+    Port6: 'NIL',
+    cargo1: 'NIL',
     cargo1_quantity: 0,
     cargo1_rate: 0.0,
-    cargo2: '',
+    cargo2: 'NIL',
     cargo2_quantity: 0,
     cargo2_rate: 0.0,
-    cargo3: '',
+    cargo3: 'NIL',
     cargo3_quantity: 0,
     cargo3_rate: 0.0,
-    cargo4: '',
+    cargo4: 'NIL',
     cargo4_quantity: 0,
     cargo4_rate: 0.0,
-    cargo5: '',
+    cargo5: 'NIL',
     cargo5_quantity: 0,
     cargo5_rate: 0.0,
-    cargo6: '',
+    cargo6: 'NIL',
     cargo6_quantity: 0,
     cargo6_rate: 0.0,
     miscCosts: 0,
@@ -60,7 +60,7 @@ function App() {
       setFormData(response);
   
       // Log the formData to the console
-      console.log("Received formData:", response.formData);
+      console.log("Received formData:", formData);
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -116,7 +116,7 @@ function App() {
     <div>
       <h1>Calculator</h1>
       <DistanceCreateForm
-        formdata={formData}
+        formData={formData}
         onSubmit={handleSubmit}
       />
       {result && <p style={{ color: 'green' }}>Result: {result} </p>}

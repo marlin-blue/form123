@@ -48,7 +48,7 @@ export async function storeFormAPICall(formInputs) {
 export async function updateFormAPICall(formId, formInputs) {
   try {
     const response = await fetch(`https://wyvjgrod85.execute-api.us-west-2.amazonaws.com/prod/form/${formId}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
