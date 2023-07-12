@@ -19,7 +19,7 @@ import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Distance } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function DistanceCreateForm(props) {
+export default function createform(props) {
   const {
     clearOnSuccess = true,
     formData,
@@ -32,15 +32,15 @@ export default function DistanceCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    port1: "Bangkok (BK)",
-    port2: "Batam (BAT)",
-    port3: "Pork Klang (PKL)",
-    port4: "Pontianak (POT)",
-    port5: "Bangkok (BK)",
+    port1: "NIL",
+    port2: "NIL",
+    port3: "NIL",
+    port4: "NIL",
+    port5: "NIL",
     port6: "NIL",
-    cargo1: "Palm Kernel Shell (PKS)",
-    cargo1_quantity: "3000",
-    cargo1_rate: "15",
+    cargo1: "NIL",
+    cargo1_quantity: "0",
+    cargo1_rate: "0",
     cargo2: "NIL",
     cargo2_quantity: "0",
     cargo2_rate: "0",
@@ -56,11 +56,11 @@ export default function DistanceCreateForm(props) {
     cargo6: "NIL",
     cargo6_quantity: "0",
     cargo6_rate: "0",
-    bunker_rate: "22",
-    diesel_rate: "28",
-    miscCosts: "20000",
-    craneUsage: "20",
-    portDays: "10",
+    bunker_rate: "0",
+    diesel_rate: "0",
+    miscCosts: "0",
+    craneUsage: "0",
+    portDays: "0",
   };
   const [port1, setPort1] = React.useState(initialValues.port1);
   const [port2, setPort2] = React.useState(initialValues.port2);
@@ -310,7 +310,7 @@ export default function DistanceCreateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "DistanceCreateForm")}
+      {...getOverrideProps(overrides, "createform")}
       {...rest}
     >
       <Heading

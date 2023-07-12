@@ -7,7 +7,9 @@ function App() {
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({});
-  const [calculationData, setCalculationData] = useState(null);
+  const [calculationData, setCalculationData] = useState(
+
+  );
   const [formId, setFormId] = useState(null); // Add formId state
 
   const handleSubmit = async (formData) => {
@@ -19,6 +21,7 @@ function App() {
 
       const formId = response.id;
       console.log("FormId:", formId);
+
       setFormId(formId); // Set the formId in the state
       await calculateDataAPICall(formId, formData); // Pass the form data for calculation
     } catch (error) {
@@ -32,7 +35,7 @@ function App() {
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await getCalculatedDataAPICall(calculationId);
-      
+
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
       setCalculationData(calculationDataResponse);
@@ -46,18 +49,21 @@ function App() {
     <div>
       <h1>Calculator</h1>
       <DistanceCreateForm onSubmit={handleSubmit} onChange={setFormData} />
-      {result && <p style={{ color: 'green' }}>Result: {result}</p>}
+      {result && <p style={{ color: 'green' }}>Result: {result}. You can now calculate!</p>}
+
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {result && !errorMessage && (
         <div>
-          <button onClick={handleCalculate}>Calculate</button>
-          
+          <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green' }}>Calculate</button>
           {calculationData && (
             <div>
               <h2>Calculation Data:</h2>
-              <p>Revenue: {calculationData.revenue}</p>
-              <p>Costs: {calculationData.costs}</p>
-              {/* Add more calculation data fields as needed */}
+              <p>Revenue: ${calculationData.revenue}</p>
+              <p>Costs: ${calculationData.costs}</p>
+              <p>Profit/Loss: ${calculationData.profit}</p>
+              <p>Margin: {calculationData.marginPercentage.toFixed(2)}%</p>
+              <p>Fuel Costs: ${calculationData.fuelCosts}</p>
+              <p>Percentage Fuel Cost: {calculationData.percentageFuelCost.toFixed(2)}%</p>
             </div>
           )}
         </div>

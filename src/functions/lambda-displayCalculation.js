@@ -4,13 +4,13 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 exports.handler = async (event) => {
   try {
     // Retrieve the form ID from the request path parameters
-    const formId = event.pathParameters.id;
+    const calculationId = event.pathParameters.id;
 
     // Retrieve the calculation data from the DynamoDB table
     const params = {
       TableName: 'calculatedData',
       Key: {
-        id: formId
+        id: calculationId
       }
     };
 

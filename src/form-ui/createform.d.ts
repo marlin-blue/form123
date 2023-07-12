@@ -1,0 +1,137 @@
+/***************************************************************************
+ * The contents of this file were generated with Amplify Studio.           *
+ * Please refrain from making any modifications to this file.              *
+ * Any changes to this file will be overwritten when running amplify pull. *
+ **************************************************************************/
+
+import * as React from "react";
+import { DividerProps, GridProps, HeadingProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+export declare type ValidationResponse = {
+    hasError: boolean;
+    errorMessage?: string;
+};
+export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
+export declare type createformInputValues = {
+    port1?: string;
+    port2?: string;
+    port3?: string;
+    port4?: string;
+    port5?: string;
+    port6?: string;
+    cargo1?: string;
+    cargo1_quantity?: number;
+    cargo1_rate?: number;
+    cargo2?: string;
+    cargo2_quantity?: number;
+    cargo2_rate?: number;
+    cargo3?: string;
+    cargo3_quantity?: number;
+    cargo3_rate?: number;
+    cargo4?: string;
+    cargo4_quantity?: number;
+    cargo4_rate?: number;
+    cargo5?: string;
+    cargo5_quantity?: string;
+    cargo5_rate?: number;
+    cargo6?: string;
+    cargo6_quantity?: number;
+    cargo6_rate?: number;
+    bunker_rate?: number;
+    diesel_rate?: number;
+    miscCosts?: number;
+    craneUsage?: number;
+    portDays?: number;
+};
+export declare type DistanceCreateFormValidationValues = {
+    port1?: ValidationFunction<string>;
+    port2?: ValidationFunction<string>;
+    port3?: ValidationFunction<string>;
+    port4?: ValidationFunction<string>;
+    port5?: ValidationFunction<string>;
+    port6?: ValidationFunction<string>;
+    cargo1?: ValidationFunction<string>;
+    cargo1_quantity?: ValidationFunction<number>;
+    cargo1_rate?: ValidationFunction<number>;
+    cargo2?: ValidationFunction<string>;
+    cargo2_quantity?: ValidationFunction<number>;
+    cargo2_rate?: ValidationFunction<number>;
+    cargo3?: ValidationFunction<string>;
+    cargo3_quantity?: ValidationFunction<number>;
+    cargo3_rate?: ValidationFunction<number>;
+    cargo4?: ValidationFunction<string>;
+    cargo4_quantity?: ValidationFunction<number>;
+    cargo4_rate?: ValidationFunction<number>;
+    cargo5?: ValidationFunction<string>;
+    cargo5_quantity?: ValidationFunction<string>;
+    cargo5_rate?: ValidationFunction<number>;
+    cargo6?: ValidationFunction<string>;
+    cargo6_quantity?: ValidationFunction<number>;
+    cargo6_rate?: ValidationFunction<number>;
+    bunker_rate?: ValidationFunction<number>;
+    diesel_rate?: ValidationFunction<number>;
+    miscCosts?: ValidationFunction<number>;
+    craneUsage?: ValidationFunction<number>;
+    portDays?: ValidationFunction<number>;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type DistanceCreateFormOverridesProps = {
+    DistanceCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    SectionalElement8?: PrimitiveOverrideProps<HeadingProps>;
+    port1?: PrimitiveOverrideProps<SelectFieldProps>;
+    port2?: PrimitiveOverrideProps<SelectFieldProps>;
+    port3?: PrimitiveOverrideProps<SelectFieldProps>;
+    port4?: PrimitiveOverrideProps<SelectFieldProps>;
+    port5?: PrimitiveOverrideProps<SelectFieldProps>;
+    port6?: PrimitiveOverrideProps<SelectFieldProps>;
+    SectionalElement1?: PrimitiveOverrideProps<DividerProps>;
+    SectionalElement0?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid9?: PrimitiveOverrideProps<GridProps>;
+    cargo1?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo1_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo1_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement2?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid11?: PrimitiveOverrideProps<GridProps>;
+    cargo2?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo2_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo2_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement3?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid13?: PrimitiveOverrideProps<GridProps>;
+    cargo3?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo3_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo3_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement4?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid15?: PrimitiveOverrideProps<GridProps>;
+    cargo4?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo4_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo4_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement5?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid17?: PrimitiveOverrideProps<GridProps>;
+    cargo5?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo5_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo5_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement6?: PrimitiveOverrideProps<HeadingProps>;
+    RowGrid19?: PrimitiveOverrideProps<GridProps>;
+    cargo6?: PrimitiveOverrideProps<SelectFieldProps>;
+    cargo6_quantity?: PrimitiveOverrideProps<TextFieldProps>;
+    cargo6_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    SectionalElement7?: PrimitiveOverrideProps<DividerProps>;
+    RowGrid21?: PrimitiveOverrideProps<GridProps>;
+    bunker_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    diesel_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    miscCosts?: PrimitiveOverrideProps<TextFieldProps>;
+    RowGrid22?: PrimitiveOverrideProps<GridProps>;
+    craneUsage?: PrimitiveOverrideProps<TextFieldProps>;
+    portDays?: PrimitiveOverrideProps<TextFieldProps>;
+} & EscapeHatchProps;
+export declare type DistanceCreateFormProps = React.PropsWithChildren<{
+    overrides?: DistanceCreateFormOverridesProps | undefined | null;
+} & {
+    clearOnSuccess?: boolean;
+    onSubmit?: (fields: DistanceCreateFormInputValues) => DistanceCreateFormInputValues;
+    onSuccess?: (fields: DistanceCreateFormInputValues) => void;
+    onError?: (fields: DistanceCreateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: DistanceCreateFormInputValues) => DistanceCreateFormInputValues;
+    onValidate?: DistanceCreateFormValidationValues;
+} & React.CSSProperties>;
+export default function DistanceCreateForm(props: DistanceCreateFormProps): React.ReactElement;
