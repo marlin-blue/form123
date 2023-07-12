@@ -58,7 +58,7 @@ exports.handler = async (event) => {
     }, 0);
 
     // Calculate the costs
-    const costs = (totalDistance * dieselFuelRate) + (totalCraneUsage * form.bunkerFuelRate) + (totalPortDays * dieselFuelRate) + miscCosts;
+    const costs = (totalDistance * dieselFuelRate) + (totalCraneUsage * form.bunkerFuelRate) + (totalPortDays * 24 * dieselFuelRate) + miscCosts;
 
     // Calculate the profit
     const profit = revenue - costs;

@@ -13,7 +13,7 @@ exports.handler = async (event) => {
         id: formId,
       },
     };
-
+    
     const result = await dynamodb.get(params).promise();
 
     // Return the form data in the response with added headers

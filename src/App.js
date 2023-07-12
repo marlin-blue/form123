@@ -57,7 +57,7 @@ function App() {
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green' }}>Calculate</button>
           {calculationData && (
             <div>
-              <h2>Calculation Data:</h2>
+              <h1>Calculation Data:</h1>
               <p>Revenue: ${calculationData.revenue.toLocaleString()}</p>
               <p>Costs: ${calculationData.costs.toLocaleString()}</p>
               <p>Profit/Loss: ${calculationData.profit.toLocaleString()}</p>
