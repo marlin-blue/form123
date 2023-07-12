@@ -5,12 +5,12 @@ export async function storeFormAPICall(formInputs) {
     const formUrl = 'https://xapc7etvo8.execute-api.us-west-2.amazonaws.com/prod/storeform';
 
     const queryStringParameters = {
-      Port1: formInputs.Port1,
-      Port2: formInputs.Port2,
-      Port3: formInputs.Port3,
-      Port4: formInputs.Port4,
-      Port5: formInputs.Port5,
-      Port6: formInputs.Port6,
+      port1: formInputs.port1,
+      port2: formInputs.port2,
+      port3: formInputs.port3,
+      port4: formInputs.port4,
+      port5: formInputs.port5,
+      port6: formInputs.port6,
       cargo1: formInputs.cargo1,
       cargo1_quantity: formInputs.cargo1_quantity,
       cargo1_rate: formInputs.cargo1_rate,
@@ -98,6 +98,19 @@ export async function calculateDataAPICall(formId) {
     return data;
   } catch (error) {
     console.error('Calcuate API call error:', error);
+    throw error;
+  }
+}
+
+export async function getCalculatedDataAPICall(formId) {
+  const apiUrl = `https://4mip1e8tc0.execute-api.us-west-2.amazonaws.com/prod/calculate/${formId}`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Display Calcuation API call error:', error);
     throw error;
   }
 }

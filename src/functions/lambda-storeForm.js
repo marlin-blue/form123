@@ -10,16 +10,17 @@ function generateTimestampId() {
   }
 
 exports.handler = async (event) => {
-  console.log(JSON.stringify(event, null, 2)); // Log the event details
-  
+
   try {
     const ports = [
-      event.queryStringParameters.Port1,
-      event.queryStringParameters.Port2,
-      event.queryStringParameters.Port3,
-      event.queryStringParameters.Port4,
-      event.queryStringParameters.Port5,
-      event.queryStringParameters.Port6
+    {
+      port1: event.queryStringParameters.port1,
+      port2: event.queryStringParameters.port2,
+      port3: event.queryStringParameters.port3,
+      port4: event.queryStringParameters.port4,
+      port5: event.queryStringParameters.port5,
+      port6: event.queryStringParameters.port6
+    }
     ];
     
     const cargos = [
