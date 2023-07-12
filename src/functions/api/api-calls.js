@@ -102,8 +102,8 @@ export async function calculateDataAPICall(formId) {
   }
 }
 
-export async function getCalculatedDataAPICall(formId) {
-  const apiUrl = `https://4mip1e8tc0.execute-api.us-west-2.amazonaws.com/prod/calculate/${formId}`;
+export async function getCalculatedDataAPICall(calculationId) {
+  const apiUrl = `https://4mip1e8tc0.execute-api.us-west-2.amazonaws.com/prod/calculate/${calculationId}`;
 
   try {
     const response = await fetch(apiUrl);
