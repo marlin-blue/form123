@@ -58,11 +58,11 @@ function App() {
           {calculationData && (
             <div>
               <h2>Calculation Data:</h2>
-              <p>Revenue: ${calculationData.revenue}</p>
-              <p>Costs: ${calculationData.costs}</p>
-              <p>Profit/Loss: ${calculationData.profit}</p>
+              <p>Revenue: ${calculationData.revenue.toLocaleString()}</p>
+              <p>Costs: ${calculationData.costs.toLocaleString()}</p>
+              <p>Profit/Loss: ${calculationData.profit.toLocaleString()}</p>
               <p>Margin: {calculationData.marginPercentage.toFixed(2)}%</p>
-              <p>Fuel Costs: ${calculationData.fuelCosts}</p>
+              <p>Fuel Costs: ${calculationData.fuelCosts.toLocaleString()}</p>
               <p>Percentage Fuel Cost: {calculationData.percentageFuelCost.toFixed(2)}%</p>
             </div>
           )}

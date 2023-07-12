@@ -34,7 +34,7 @@ export default function DistanceCreateForm(props) {
   const initialValues = {
     port1: "Bangkok (BK)",
     port2: "Batam (BAT)",
-    port3: "Pork Klang (PKL)",
+    port3: "Port Klang (PKL)",
     port4: "Pontianak (POT)",
     port5: "Bangkok (BK)",
     port6: "NIL",
