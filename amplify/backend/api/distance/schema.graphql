@@ -29,5 +29,36 @@ type Distance @model @auth(rules: [{allow: public}]) {
   portDays: Float
   bunker_rate: Float
   diesel_rate: Float
+  cargo5quantity: Float
+  port1fees: Float
+  port2fees: Float
+  port3fees: Float
+  port6fees: Float
+  port5fees: Float
+  port4fees: Float
+  vesselhn5: Boolean
+  vesselhn7: Boolean
+  vesselhn9: Boolean
+  surveyingfees: Float
+  vesselht1: Boolean
+  vesselhn10: Boolean
+  vesselht20: Boolean
+  vesselht21: Boolean
+  luberate: Float
+  Field4: String
+  port2craneusage: Float
+  port2portcall: Float
+  port1portcall: Float
+  port1craneusage: Float
+  port3portcall: Float
+  port3craneusage: Float
+  port4portcall: Float
+  port4craneusage: Float
+  port5portcall: Float
+  port5craneusage: Float
+  port6portcall: Float
+  port6craneusage: Float
+  brokeragefees: Float
+  voyagetype: String
 }
  

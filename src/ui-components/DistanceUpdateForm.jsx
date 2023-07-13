@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SwitchField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Distance } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -53,6 +59,37 @@ export default function DistanceUpdateForm(props) {
     portDays: "",
     bunker_rate: "",
     diesel_rate: "",
+    cargo5quantity: "",
+    port1fees: "",
+    port2fees: "",
+    port3fees: "",
+    port6fees: "",
+    port5fees: "",
+    port4fees: "",
+    vesselhn5: false,
+    vesselhn7: false,
+    vesselhn9: false,
+    surveyingfees: "",
+    vesselht1: false,
+    vesselhn10: false,
+    vesselht20: false,
+    vesselht21: false,
+    luberate: "",
+    Field4: "",
+    port2craneusage: "",
+    port2portcall: "",
+    port1portcall: "",
+    port1craneusage: "",
+    port3portcall: "",
+    port3craneusage: "",
+    port4portcall: "",
+    port4craneusage: "",
+    port5portcall: "",
+    port5craneusage: "",
+    port6portcall: "",
+    port6craneusage: "",
+    brokeragefees: "",
+    voyagetype: "",
   };
   const [port1, setPort1] = React.useState(initialValues.port1);
   const [port2, setPort2] = React.useState(initialValues.port2);
@@ -111,6 +148,67 @@ export default function DistanceUpdateForm(props) {
   const [diesel_rate, setDiesel_rate] = React.useState(
     initialValues.diesel_rate
   );
+  const [cargo5quantity, setCargo5quantity] = React.useState(
+    initialValues.cargo5quantity
+  );
+  const [port1fees, setPort1fees] = React.useState(initialValues.port1fees);
+  const [port2fees, setPort2fees] = React.useState(initialValues.port2fees);
+  const [port3fees, setPort3fees] = React.useState(initialValues.port3fees);
+  const [port6fees, setPort6fees] = React.useState(initialValues.port6fees);
+  const [port5fees, setPort5fees] = React.useState(initialValues.port5fees);
+  const [port4fees, setPort4fees] = React.useState(initialValues.port4fees);
+  const [vesselhn5, setVesselhn5] = React.useState(initialValues.vesselhn5);
+  const [vesselhn7, setVesselhn7] = React.useState(initialValues.vesselhn7);
+  const [vesselhn9, setVesselhn9] = React.useState(initialValues.vesselhn9);
+  const [surveyingfees, setSurveyingfees] = React.useState(
+    initialValues.surveyingfees
+  );
+  const [vesselht1, setVesselht1] = React.useState(initialValues.vesselht1);
+  const [vesselhn10, setVesselhn10] = React.useState(initialValues.vesselhn10);
+  const [vesselht20, setVesselht20] = React.useState(initialValues.vesselht20);
+  const [vesselht21, setVesselht21] = React.useState(initialValues.vesselht21);
+  const [luberate, setLuberate] = React.useState(initialValues.luberate);
+  const [Field4, setField4] = React.useState(initialValues.Field4);
+  const [port2craneusage, setPort2craneusage] = React.useState(
+    initialValues.port2craneusage
+  );
+  const [port2portcall, setPort2portcall] = React.useState(
+    initialValues.port2portcall
+  );
+  const [port1portcall, setPort1portcall] = React.useState(
+    initialValues.port1portcall
+  );
+  const [port1craneusage, setPort1craneusage] = React.useState(
+    initialValues.port1craneusage
+  );
+  const [port3portcall, setPort3portcall] = React.useState(
+    initialValues.port3portcall
+  );
+  const [port3craneusage, setPort3craneusage] = React.useState(
+    initialValues.port3craneusage
+  );
+  const [port4portcall, setPort4portcall] = React.useState(
+    initialValues.port4portcall
+  );
+  const [port4craneusage, setPort4craneusage] = React.useState(
+    initialValues.port4craneusage
+  );
+  const [port5portcall, setPort5portcall] = React.useState(
+    initialValues.port5portcall
+  );
+  const [port5craneusage, setPort5craneusage] = React.useState(
+    initialValues.port5craneusage
+  );
+  const [port6portcall, setPort6portcall] = React.useState(
+    initialValues.port6portcall
+  );
+  const [port6craneusage, setPort6craneusage] = React.useState(
+    initialValues.port6craneusage
+  );
+  const [brokeragefees, setBrokeragefees] = React.useState(
+    initialValues.brokeragefees
+  );
+  const [voyagetype, setVoyagetype] = React.useState(initialValues.voyagetype);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = distanceRecord
@@ -145,6 +243,37 @@ export default function DistanceUpdateForm(props) {
     setPortDays(cleanValues.portDays);
     setBunker_rate(cleanValues.bunker_rate);
     setDiesel_rate(cleanValues.diesel_rate);
+    setCargo5quantity(cleanValues.cargo5quantity);
+    setPort1fees(cleanValues.port1fees);
+    setPort2fees(cleanValues.port2fees);
+    setPort3fees(cleanValues.port3fees);
+    setPort6fees(cleanValues.port6fees);
+    setPort5fees(cleanValues.port5fees);
+    setPort4fees(cleanValues.port4fees);
+    setVesselhn5(cleanValues.vesselhn5);
+    setVesselhn7(cleanValues.vesselhn7);
+    setVesselhn9(cleanValues.vesselhn9);
+    setSurveyingfees(cleanValues.surveyingfees);
+    setVesselht1(cleanValues.vesselht1);
+    setVesselhn10(cleanValues.vesselhn10);
+    setVesselht20(cleanValues.vesselht20);
+    setVesselht21(cleanValues.vesselht21);
+    setLuberate(cleanValues.luberate);
+    setField4(cleanValues.Field4);
+    setPort2craneusage(cleanValues.port2craneusage);
+    setPort2portcall(cleanValues.port2portcall);
+    setPort1portcall(cleanValues.port1portcall);
+    setPort1craneusage(cleanValues.port1craneusage);
+    setPort3portcall(cleanValues.port3portcall);
+    setPort3craneusage(cleanValues.port3craneusage);
+    setPort4portcall(cleanValues.port4portcall);
+    setPort4craneusage(cleanValues.port4craneusage);
+    setPort5portcall(cleanValues.port5portcall);
+    setPort5craneusage(cleanValues.port5craneusage);
+    setPort6portcall(cleanValues.port6portcall);
+    setPort6craneusage(cleanValues.port6craneusage);
+    setBrokeragefees(cleanValues.brokeragefees);
+    setVoyagetype(cleanValues.voyagetype);
     setErrors({});
   };
   const [distanceRecord, setDistanceRecord] = React.useState(distanceModelProp);
@@ -188,6 +317,37 @@ export default function DistanceUpdateForm(props) {
     portDays: [],
     bunker_rate: [],
     diesel_rate: [],
+    cargo5quantity: [],
+    port1fees: [],
+    port2fees: [],
+    port3fees: [],
+    port6fees: [],
+    port5fees: [],
+    port4fees: [],
+    vesselhn5: [],
+    vesselhn7: [],
+    vesselhn9: [],
+    surveyingfees: [],
+    vesselht1: [],
+    vesselhn10: [],
+    vesselht20: [],
+    vesselht21: [],
+    luberate: [],
+    Field4: [],
+    port2craneusage: [],
+    port2portcall: [],
+    port1portcall: [],
+    port1craneusage: [],
+    port3portcall: [],
+    port3craneusage: [],
+    port4portcall: [],
+    port4craneusage: [],
+    port5portcall: [],
+    port5craneusage: [],
+    port6portcall: [],
+    port6craneusage: [],
+    brokeragefees: [],
+    voyagetype: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -244,6 +404,37 @@ export default function DistanceUpdateForm(props) {
           portDays,
           bunker_rate,
           diesel_rate,
+          cargo5quantity,
+          port1fees,
+          port2fees,
+          port3fees,
+          port6fees,
+          port5fees,
+          port4fees,
+          vesselhn5,
+          vesselhn7,
+          vesselhn9,
+          surveyingfees,
+          vesselht1,
+          vesselhn10,
+          vesselht20,
+          vesselht21,
+          luberate,
+          Field4,
+          port2craneusage,
+          port2portcall,
+          port1portcall,
+          port1craneusage,
+          port3portcall,
+          port3craneusage,
+          port4portcall,
+          port4craneusage,
+          port5portcall,
+          port5craneusage,
+          port6portcall,
+          port6craneusage,
+          brokeragefees,
+          voyagetype,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -328,6 +519,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port1 ?? value;
@@ -380,6 +602,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port2 ?? value;
@@ -432,6 +685,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port3 ?? value;
@@ -484,6 +768,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port4 ?? value;
@@ -536,6 +851,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port5 ?? value;
@@ -588,6 +934,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.port6 ?? value;
@@ -640,6 +1017,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo1 ?? value;
@@ -692,6 +1100,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo2 ?? value;
@@ -744,6 +1183,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo3 ?? value;
@@ -796,6 +1266,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo4 ?? value;
@@ -848,6 +1349,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo5 ?? value;
@@ -900,6 +1432,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo6 ?? value;
@@ -956,6 +1519,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.miscCosts ?? value;
@@ -1012,6 +1606,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.craneUsage ?? value;
@@ -1068,6 +1693,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo5_quanity ?? value;
@@ -1124,6 +1780,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo6_quantity ?? value;
@@ -1180,6 +1867,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo4_quantity ?? value;
@@ -1236,6 +1954,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo3_quantity ?? value;
@@ -1292,6 +2041,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo2_quantity ?? value;
@@ -1348,6 +2128,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo1_quantity ?? value;
@@ -1404,6 +2215,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo3_rate ?? value;
@@ -1460,6 +2302,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo4_rate ?? value;
@@ -1516,6 +2389,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo5_rate ?? value;
@@ -1572,6 +2476,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo6_rate ?? value;
@@ -1628,6 +2563,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo1_rate ?? value;
@@ -1684,6 +2650,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.cargo2_rate ?? value;
@@ -1740,6 +2737,37 @@ export default function DistanceUpdateForm(props) {
               portDays: value,
               bunker_rate,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.portDays ?? value;
@@ -1796,6 +2824,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate: value,
               diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.bunker_rate ?? value;
@@ -1852,6 +2911,37 @@ export default function DistanceUpdateForm(props) {
               portDays,
               bunker_rate,
               diesel_rate: value,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
             };
             const result = onChange(modelFields);
             value = result?.diesel_rate ?? value;
@@ -1865,6 +2955,2667 @@ export default function DistanceUpdateForm(props) {
         errorMessage={errors.diesel_rate?.errorMessage}
         hasError={errors.diesel_rate?.hasError}
         {...getOverrideProps(overrides, "diesel_rate")}
+      ></TextField>
+      <TextField
+        label="Cargo5quantity"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={cargo5quantity}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity: value,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo5quantity ?? value;
+          }
+          if (errors.cargo5quantity?.hasError) {
+            runValidationTasks("cargo5quantity", value);
+          }
+          setCargo5quantity(value);
+        }}
+        onBlur={() => runValidationTasks("cargo5quantity", cargo5quantity)}
+        errorMessage={errors.cargo5quantity?.errorMessage}
+        hasError={errors.cargo5quantity?.hasError}
+        {...getOverrideProps(overrides, "cargo5quantity")}
+      ></TextField>
+      <TextField
+        label="Port1fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port1fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees: value,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port1fees ?? value;
+          }
+          if (errors.port1fees?.hasError) {
+            runValidationTasks("port1fees", value);
+          }
+          setPort1fees(value);
+        }}
+        onBlur={() => runValidationTasks("port1fees", port1fees)}
+        errorMessage={errors.port1fees?.errorMessage}
+        hasError={errors.port1fees?.hasError}
+        {...getOverrideProps(overrides, "port1fees")}
+      ></TextField>
+      <TextField
+        label="Port2fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port2fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees: value,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port2fees ?? value;
+          }
+          if (errors.port2fees?.hasError) {
+            runValidationTasks("port2fees", value);
+          }
+          setPort2fees(value);
+        }}
+        onBlur={() => runValidationTasks("port2fees", port2fees)}
+        errorMessage={errors.port2fees?.errorMessage}
+        hasError={errors.port2fees?.hasError}
+        {...getOverrideProps(overrides, "port2fees")}
+      ></TextField>
+      <TextField
+        label="Port3fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port3fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees: value,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port3fees ?? value;
+          }
+          if (errors.port3fees?.hasError) {
+            runValidationTasks("port3fees", value);
+          }
+          setPort3fees(value);
+        }}
+        onBlur={() => runValidationTasks("port3fees", port3fees)}
+        errorMessage={errors.port3fees?.errorMessage}
+        hasError={errors.port3fees?.hasError}
+        {...getOverrideProps(overrides, "port3fees")}
+      ></TextField>
+      <TextField
+        label="Port6fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port6fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees: value,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port6fees ?? value;
+          }
+          if (errors.port6fees?.hasError) {
+            runValidationTasks("port6fees", value);
+          }
+          setPort6fees(value);
+        }}
+        onBlur={() => runValidationTasks("port6fees", port6fees)}
+        errorMessage={errors.port6fees?.errorMessage}
+        hasError={errors.port6fees?.hasError}
+        {...getOverrideProps(overrides, "port6fees")}
+      ></TextField>
+      <TextField
+        label="Port5fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port5fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees: value,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port5fees ?? value;
+          }
+          if (errors.port5fees?.hasError) {
+            runValidationTasks("port5fees", value);
+          }
+          setPort5fees(value);
+        }}
+        onBlur={() => runValidationTasks("port5fees", port5fees)}
+        errorMessage={errors.port5fees?.errorMessage}
+        hasError={errors.port5fees?.hasError}
+        {...getOverrideProps(overrides, "port5fees")}
+      ></TextField>
+      <TextField
+        label="Port4fees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port4fees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees: value,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port4fees ?? value;
+          }
+          if (errors.port4fees?.hasError) {
+            runValidationTasks("port4fees", value);
+          }
+          setPort4fees(value);
+        }}
+        onBlur={() => runValidationTasks("port4fees", port4fees)}
+        errorMessage={errors.port4fees?.errorMessage}
+        hasError={errors.port4fees?.hasError}
+        {...getOverrideProps(overrides, "port4fees")}
+      ></TextField>
+      <SwitchField
+        label="Vesselhn5"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselhn5}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5: value,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselhn5 ?? value;
+          }
+          if (errors.vesselhn5?.hasError) {
+            runValidationTasks("vesselhn5", value);
+          }
+          setVesselhn5(value);
+        }}
+        onBlur={() => runValidationTasks("vesselhn5", vesselhn5)}
+        errorMessage={errors.vesselhn5?.errorMessage}
+        hasError={errors.vesselhn5?.hasError}
+        {...getOverrideProps(overrides, "vesselhn5")}
+      ></SwitchField>
+      <SwitchField
+        label="Vesselhn7"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselhn7}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7: value,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselhn7 ?? value;
+          }
+          if (errors.vesselhn7?.hasError) {
+            runValidationTasks("vesselhn7", value);
+          }
+          setVesselhn7(value);
+        }}
+        onBlur={() => runValidationTasks("vesselhn7", vesselhn7)}
+        errorMessage={errors.vesselhn7?.errorMessage}
+        hasError={errors.vesselhn7?.hasError}
+        {...getOverrideProps(overrides, "vesselhn7")}
+      ></SwitchField>
+      <SwitchField
+        label="Vesselhn9"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselhn9}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9: value,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselhn9 ?? value;
+          }
+          if (errors.vesselhn9?.hasError) {
+            runValidationTasks("vesselhn9", value);
+          }
+          setVesselhn9(value);
+        }}
+        onBlur={() => runValidationTasks("vesselhn9", vesselhn9)}
+        errorMessage={errors.vesselhn9?.errorMessage}
+        hasError={errors.vesselhn9?.hasError}
+        {...getOverrideProps(overrides, "vesselhn9")}
+      ></SwitchField>
+      <TextField
+        label="Surveyingfees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={surveyingfees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees: value,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.surveyingfees ?? value;
+          }
+          if (errors.surveyingfees?.hasError) {
+            runValidationTasks("surveyingfees", value);
+          }
+          setSurveyingfees(value);
+        }}
+        onBlur={() => runValidationTasks("surveyingfees", surveyingfees)}
+        errorMessage={errors.surveyingfees?.errorMessage}
+        hasError={errors.surveyingfees?.hasError}
+        {...getOverrideProps(overrides, "surveyingfees")}
+      ></TextField>
+      <SwitchField
+        label="Vesselht1"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselht1}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1: value,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselht1 ?? value;
+          }
+          if (errors.vesselht1?.hasError) {
+            runValidationTasks("vesselht1", value);
+          }
+          setVesselht1(value);
+        }}
+        onBlur={() => runValidationTasks("vesselht1", vesselht1)}
+        errorMessage={errors.vesselht1?.errorMessage}
+        hasError={errors.vesselht1?.hasError}
+        {...getOverrideProps(overrides, "vesselht1")}
+      ></SwitchField>
+      <SwitchField
+        label="Vesselhn10"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselhn10}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10: value,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselhn10 ?? value;
+          }
+          if (errors.vesselhn10?.hasError) {
+            runValidationTasks("vesselhn10", value);
+          }
+          setVesselhn10(value);
+        }}
+        onBlur={() => runValidationTasks("vesselhn10", vesselhn10)}
+        errorMessage={errors.vesselhn10?.errorMessage}
+        hasError={errors.vesselhn10?.hasError}
+        {...getOverrideProps(overrides, "vesselhn10")}
+      ></SwitchField>
+      <SwitchField
+        label="Vesselht20"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselht20}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20: value,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselht20 ?? value;
+          }
+          if (errors.vesselht20?.hasError) {
+            runValidationTasks("vesselht20", value);
+          }
+          setVesselht20(value);
+        }}
+        onBlur={() => runValidationTasks("vesselht20", vesselht20)}
+        errorMessage={errors.vesselht20?.errorMessage}
+        hasError={errors.vesselht20?.hasError}
+        {...getOverrideProps(overrides, "vesselht20")}
+      ></SwitchField>
+      <SwitchField
+        label="Vesselht21"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={vesselht21}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21: value,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.vesselht21 ?? value;
+          }
+          if (errors.vesselht21?.hasError) {
+            runValidationTasks("vesselht21", value);
+          }
+          setVesselht21(value);
+        }}
+        onBlur={() => runValidationTasks("vesselht21", vesselht21)}
+        errorMessage={errors.vesselht21?.errorMessage}
+        hasError={errors.vesselht21?.hasError}
+        {...getOverrideProps(overrides, "vesselht21")}
+      ></SwitchField>
+      <TextField
+        label="Luberate"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={luberate}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate: value,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.luberate ?? value;
+          }
+          if (errors.luberate?.hasError) {
+            runValidationTasks("luberate", value);
+          }
+          setLuberate(value);
+        }}
+        onBlur={() => runValidationTasks("luberate", luberate)}
+        errorMessage={errors.luberate?.errorMessage}
+        hasError={errors.luberate?.hasError}
+        {...getOverrideProps(overrides, "luberate")}
+      ></TextField>
+      <TextField
+        label="Field4"
+        isRequired={false}
+        isReadOnly={false}
+        value={Field4}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4: value,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.Field4 ?? value;
+          }
+          if (errors.Field4?.hasError) {
+            runValidationTasks("Field4", value);
+          }
+          setField4(value);
+        }}
+        onBlur={() => runValidationTasks("Field4", Field4)}
+        errorMessage={errors.Field4?.errorMessage}
+        hasError={errors.Field4?.hasError}
+        {...getOverrideProps(overrides, "Field4")}
+      ></TextField>
+      <TextField
+        label="Port2craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port2craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage: value,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port2craneusage ?? value;
+          }
+          if (errors.port2craneusage?.hasError) {
+            runValidationTasks("port2craneusage", value);
+          }
+          setPort2craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port2craneusage", port2craneusage)}
+        errorMessage={errors.port2craneusage?.errorMessage}
+        hasError={errors.port2craneusage?.hasError}
+        {...getOverrideProps(overrides, "port2craneusage")}
+      ></TextField>
+      <TextField
+        label="Port2portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port2portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall: value,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port2portcall ?? value;
+          }
+          if (errors.port2portcall?.hasError) {
+            runValidationTasks("port2portcall", value);
+          }
+          setPort2portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port2portcall", port2portcall)}
+        errorMessage={errors.port2portcall?.errorMessage}
+        hasError={errors.port2portcall?.hasError}
+        {...getOverrideProps(overrides, "port2portcall")}
+      ></TextField>
+      <TextField
+        label="Port1portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port1portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall: value,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port1portcall ?? value;
+          }
+          if (errors.port1portcall?.hasError) {
+            runValidationTasks("port1portcall", value);
+          }
+          setPort1portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port1portcall", port1portcall)}
+        errorMessage={errors.port1portcall?.errorMessage}
+        hasError={errors.port1portcall?.hasError}
+        {...getOverrideProps(overrides, "port1portcall")}
+      ></TextField>
+      <TextField
+        label="Port1craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port1craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage: value,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port1craneusage ?? value;
+          }
+          if (errors.port1craneusage?.hasError) {
+            runValidationTasks("port1craneusage", value);
+          }
+          setPort1craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port1craneusage", port1craneusage)}
+        errorMessage={errors.port1craneusage?.errorMessage}
+        hasError={errors.port1craneusage?.hasError}
+        {...getOverrideProps(overrides, "port1craneusage")}
+      ></TextField>
+      <TextField
+        label="Port3portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port3portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall: value,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port3portcall ?? value;
+          }
+          if (errors.port3portcall?.hasError) {
+            runValidationTasks("port3portcall", value);
+          }
+          setPort3portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port3portcall", port3portcall)}
+        errorMessage={errors.port3portcall?.errorMessage}
+        hasError={errors.port3portcall?.hasError}
+        {...getOverrideProps(overrides, "port3portcall")}
+      ></TextField>
+      <TextField
+        label="Port3craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port3craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage: value,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port3craneusage ?? value;
+          }
+          if (errors.port3craneusage?.hasError) {
+            runValidationTasks("port3craneusage", value);
+          }
+          setPort3craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port3craneusage", port3craneusage)}
+        errorMessage={errors.port3craneusage?.errorMessage}
+        hasError={errors.port3craneusage?.hasError}
+        {...getOverrideProps(overrides, "port3craneusage")}
+      ></TextField>
+      <TextField
+        label="Port4portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port4portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall: value,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port4portcall ?? value;
+          }
+          if (errors.port4portcall?.hasError) {
+            runValidationTasks("port4portcall", value);
+          }
+          setPort4portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port4portcall", port4portcall)}
+        errorMessage={errors.port4portcall?.errorMessage}
+        hasError={errors.port4portcall?.hasError}
+        {...getOverrideProps(overrides, "port4portcall")}
+      ></TextField>
+      <TextField
+        label="Port4craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port4craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage: value,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port4craneusage ?? value;
+          }
+          if (errors.port4craneusage?.hasError) {
+            runValidationTasks("port4craneusage", value);
+          }
+          setPort4craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port4craneusage", port4craneusage)}
+        errorMessage={errors.port4craneusage?.errorMessage}
+        hasError={errors.port4craneusage?.hasError}
+        {...getOverrideProps(overrides, "port4craneusage")}
+      ></TextField>
+      <TextField
+        label="Port5portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port5portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall: value,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port5portcall ?? value;
+          }
+          if (errors.port5portcall?.hasError) {
+            runValidationTasks("port5portcall", value);
+          }
+          setPort5portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port5portcall", port5portcall)}
+        errorMessage={errors.port5portcall?.errorMessage}
+        hasError={errors.port5portcall?.hasError}
+        {...getOverrideProps(overrides, "port5portcall")}
+      ></TextField>
+      <TextField
+        label="Port5craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port5craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage: value,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port5craneusage ?? value;
+          }
+          if (errors.port5craneusage?.hasError) {
+            runValidationTasks("port5craneusage", value);
+          }
+          setPort5craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port5craneusage", port5craneusage)}
+        errorMessage={errors.port5craneusage?.errorMessage}
+        hasError={errors.port5craneusage?.hasError}
+        {...getOverrideProps(overrides, "port5craneusage")}
+      ></TextField>
+      <TextField
+        label="Port6portcall"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port6portcall}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall: value,
+              port6craneusage,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port6portcall ?? value;
+          }
+          if (errors.port6portcall?.hasError) {
+            runValidationTasks("port6portcall", value);
+          }
+          setPort6portcall(value);
+        }}
+        onBlur={() => runValidationTasks("port6portcall", port6portcall)}
+        errorMessage={errors.port6portcall?.errorMessage}
+        hasError={errors.port6portcall?.hasError}
+        {...getOverrideProps(overrides, "port6portcall")}
+      ></TextField>
+      <TextField
+        label="Port6craneusage"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={port6craneusage}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage: value,
+              brokeragefees,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.port6craneusage ?? value;
+          }
+          if (errors.port6craneusage?.hasError) {
+            runValidationTasks("port6craneusage", value);
+          }
+          setPort6craneusage(value);
+        }}
+        onBlur={() => runValidationTasks("port6craneusage", port6craneusage)}
+        errorMessage={errors.port6craneusage?.errorMessage}
+        hasError={errors.port6craneusage?.hasError}
+        {...getOverrideProps(overrides, "port6craneusage")}
+      ></TextField>
+      <TextField
+        label="Brokeragefees"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={brokeragefees}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees: value,
+              voyagetype,
+            };
+            const result = onChange(modelFields);
+            value = result?.brokeragefees ?? value;
+          }
+          if (errors.brokeragefees?.hasError) {
+            runValidationTasks("brokeragefees", value);
+          }
+          setBrokeragefees(value);
+        }}
+        onBlur={() => runValidationTasks("brokeragefees", brokeragefees)}
+        errorMessage={errors.brokeragefees?.errorMessage}
+        hasError={errors.brokeragefees?.hasError}
+        {...getOverrideProps(overrides, "brokeragefees")}
+      ></TextField>
+      <TextField
+        label="Voyagetype"
+        isRequired={false}
+        isReadOnly={false}
+        value={voyagetype}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              port1,
+              port2,
+              port3,
+              port4,
+              port5,
+              port6,
+              cargo1,
+              cargo2,
+              cargo3,
+              cargo4,
+              cargo5,
+              cargo6,
+              miscCosts,
+              craneUsage,
+              cargo5_quanity,
+              cargo6_quantity,
+              cargo4_quantity,
+              cargo3_quantity,
+              cargo2_quantity,
+              cargo1_quantity,
+              cargo3_rate,
+              cargo4_rate,
+              cargo5_rate,
+              cargo6_rate,
+              cargo1_rate,
+              cargo2_rate,
+              portDays,
+              bunker_rate,
+              diesel_rate,
+              cargo5quantity,
+              port1fees,
+              port2fees,
+              port3fees,
+              port6fees,
+              port5fees,
+              port4fees,
+              vesselhn5,
+              vesselhn7,
+              vesselhn9,
+              surveyingfees,
+              vesselht1,
+              vesselhn10,
+              vesselht20,
+              vesselht21,
+              luberate,
+              Field4,
+              port2craneusage,
+              port2portcall,
+              port1portcall,
+              port1craneusage,
+              port3portcall,
+              port3craneusage,
+              port4portcall,
+              port4craneusage,
+              port5portcall,
+              port5craneusage,
+              port6portcall,
+              port6craneusage,
+              brokeragefees,
+              voyagetype: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.voyagetype ?? value;
+          }
+          if (errors.voyagetype?.hasError) {
+            runValidationTasks("voyagetype", value);
+          }
+          setVoyagetype(value);
+        }}
+        onBlur={() => runValidationTasks("voyagetype", voyagetype)}
+        errorMessage={errors.voyagetype?.errorMessage}
+        hasError={errors.voyagetype?.hasError}
+        {...getOverrideProps(overrides, "voyagetype")}
       ></TextField>
       <Flex
         justifyContent="space-between"
