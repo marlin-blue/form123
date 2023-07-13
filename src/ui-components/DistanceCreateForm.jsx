@@ -8,15 +8,11 @@
 import * as React from "react";
 import {
   Button,
-  CheckboxField,
   Divider,
   Flex,
   Grid,
   Heading,
-  Radio,
-  RadioGroupField,
   SelectField,
-  Text,
   TextField,
   useTheme,
 } from "@aws-amplify/ui-react";
@@ -37,15 +33,7 @@ export default function DistanceCreateForm(props) {
   } = props;
   const { tokens } = useTheme();
   const initialValues = {
-    voyage_type: undefined,
     currency_type: "",
-    vessel_ht1: false,
-    vessel_hn5: false,
-    vessel_hn7: false,
-    vessel_hn9: false,
-    vessel_hn10: false,
-    vessel_ht20: false,
-    vessel_ht21: false,
     port1: "",
     port1_fees: "",
     port1_port_call: "",
@@ -95,24 +83,8 @@ export default function DistanceCreateForm(props) {
     surveying_fees: "",
     miscCosts: "",
   };
-  const [voyage_type, setVoyage_type] = React.useState(
-    initialValues.voyage_type
-  );
   const [currency_type, setCurrency_type] = React.useState(
     initialValues.currency_type
-  );
-  const [vessel_ht1, setVessel_ht1] = React.useState(initialValues.vessel_ht1);
-  const [vessel_hn5, setVessel_hn5] = React.useState(initialValues.vessel_hn5);
-  const [vessel_hn7, setVessel_hn7] = React.useState(initialValues.vessel_hn7);
-  const [vessel_hn9, setVessel_hn9] = React.useState(initialValues.vessel_hn9);
-  const [vessel_hn10, setVessel_hn10] = React.useState(
-    initialValues.vessel_hn10
-  );
-  const [vessel_ht20, setVessel_ht20] = React.useState(
-    initialValues.vessel_ht20
-  );
-  const [vessel_ht21, setVessel_ht21] = React.useState(
-    initialValues.vessel_ht21
   );
   const [port1, setPort1] = React.useState(initialValues.port1);
   const [port1_fees, setPort1_fees] = React.useState(initialValues.port1_fees);
@@ -220,15 +192,7 @@ export default function DistanceCreateForm(props) {
   const [miscCosts, setMiscCosts] = React.useState(initialValues.miscCosts);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setVoyage_type(initialValues.voyage_type);
     setCurrency_type(initialValues.currency_type);
-    setVessel_ht1(initialValues.vessel_ht1);
-    setVessel_hn5(initialValues.vessel_hn5);
-    setVessel_hn7(initialValues.vessel_hn7);
-    setVessel_hn9(initialValues.vessel_hn9);
-    setVessel_hn10(initialValues.vessel_hn10);
-    setVessel_ht20(initialValues.vessel_ht20);
-    setVessel_ht21(initialValues.vessel_ht21);
     setPort1(initialValues.port1);
     setPort1_fees(initialValues.port1_fees);
     setPort1_port_call(initialValues.port1_port_call);
@@ -280,15 +244,7 @@ export default function DistanceCreateForm(props) {
     setErrors({});
   };
   const validations = {
-    voyage_type: [],
     currency_type: [],
-    vessel_ht1: [],
-    vessel_hn5: [],
-    vessel_hn7: [],
-    vessel_hn9: [],
-    vessel_hn10: [],
-    vessel_ht20: [],
-    vessel_ht21: [],
     port1: [],
     port1_fees: [],
     port1_port_call: [],
@@ -364,15 +320,7 @@ export default function DistanceCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          voyage_type,
           currency_type,
-          vessel_ht1,
-          vessel_hn5,
-          vessel_hn7,
-          vessel_hn9,
-          vessel_hn10,
-          vessel_ht20,
-          vessel_ht21,
           port1,
           port1_fees,
           port1_port_call,
@@ -499,95 +447,6 @@ export default function DistanceCreateForm(props) {
         children="Voyage Information "
         {...getOverrideProps(overrides, "SectionalElement8")}
       ></Heading>
-      <RadioGroupField
-        label="Voyage Type"
-        name="fieldName"
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              voyage_type: value,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.voyage_type ?? value;
-          }
-          if (errors.voyage_type?.hasError) {
-            runValidationTasks("voyage_type", value);
-          }
-          setVoyage_type(value);
-        }}
-        onBlur={() => runValidationTasks("voyage_type", voyage_type)}
-        errorMessage={errors.voyage_type?.errorMessage}
-        hasError={errors.voyage_type?.hasError}
-        {...getOverrideProps(overrides, "voyage_type")}
-      >
-        <Radio
-          children="International"
-          value="International"
-          {...getOverrideProps(overrides, "voyage_typeRadio0")}
-        ></Radio>
-        <Radio
-          children="Domestic"
-          value="Domestic"
-          {...getOverrideProps(overrides, "voyage_typeRadio1")}
-        ></Radio>
-      </RadioGroupField>
       <SelectField
         label="Currency"
         placeholder="Please select an option"
@@ -596,15 +455,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type: value,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -713,570 +564,6 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "currency_typeoption8")}
         ></option>
       </SelectField>
-      <Text
-        children="Vessels"
-        {...getOverrideProps(overrides, "SectionalElement15")}
-      ></Text>
-      <CheckboxField
-        label="Harin Transport 1"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_ht1}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1: value,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_ht1 ?? value;
-          }
-          if (errors.vessel_ht1?.hasError) {
-            runValidationTasks("vessel_ht1", value);
-          }
-          setVessel_ht1(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_ht1", vessel_ht1)}
-        errorMessage={errors.vessel_ht1?.errorMessage}
-        hasError={errors.vessel_ht1?.hasError}
-        {...getOverrideProps(overrides, "vessel_ht1")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Navee 5"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_hn5}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5: value,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_hn5 ?? value;
-          }
-          if (errors.vessel_hn5?.hasError) {
-            runValidationTasks("vessel_hn5", value);
-          }
-          setVessel_hn5(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_hn5", vessel_hn5)}
-        errorMessage={errors.vessel_hn5?.errorMessage}
-        hasError={errors.vessel_hn5?.hasError}
-        {...getOverrideProps(overrides, "vessel_hn5")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Navee 7"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_hn7}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7: value,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_hn7 ?? value;
-          }
-          if (errors.vessel_hn7?.hasError) {
-            runValidationTasks("vessel_hn7", value);
-          }
-          setVessel_hn7(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_hn7", vessel_hn7)}
-        errorMessage={errors.vessel_hn7?.errorMessage}
-        hasError={errors.vessel_hn7?.hasError}
-        {...getOverrideProps(overrides, "vessel_hn7")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Navee 9"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_hn9}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9: value,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_hn9 ?? value;
-          }
-          if (errors.vessel_hn9?.hasError) {
-            runValidationTasks("vessel_hn9", value);
-          }
-          setVessel_hn9(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_hn9", vessel_hn9)}
-        errorMessage={errors.vessel_hn9?.errorMessage}
-        hasError={errors.vessel_hn9?.hasError}
-        {...getOverrideProps(overrides, "vessel_hn9")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Navee 10"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_hn10}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10: value,
-              vessel_ht20,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_hn10 ?? value;
-          }
-          if (errors.vessel_hn10?.hasError) {
-            runValidationTasks("vessel_hn10", value);
-          }
-          setVessel_hn10(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_hn10", vessel_hn10)}
-        errorMessage={errors.vessel_hn10?.errorMessage}
-        hasError={errors.vessel_hn10?.hasError}
-        {...getOverrideProps(overrides, "vessel_hn10")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Transport 20"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_ht20}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20: value,
-              vessel_ht21,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_ht20 ?? value;
-          }
-          if (errors.vessel_ht20?.hasError) {
-            runValidationTasks("vessel_ht20", value);
-          }
-          setVessel_ht20(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_ht20", vessel_ht20)}
-        errorMessage={errors.vessel_ht20?.errorMessage}
-        hasError={errors.vessel_ht20?.hasError}
-        {...getOverrideProps(overrides, "vessel_ht20")}
-      ></CheckboxField>
-      <CheckboxField
-        label="Harin Transport 21"
-        name="fieldName"
-        value="fieldName"
-        checked={vessel_ht21}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              voyage_type,
-              currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21: value,
-              port1,
-              port1_fees,
-              port1_port_call,
-              port1_crane_usage,
-              port2,
-              port2_fees,
-              port2_port_call,
-              port2_crane_usage,
-              port3,
-              port3_fees,
-              port3_port_call,
-              port3_crane_usage,
-              port4,
-              port4_fees,
-              port4_port_call,
-              port4_crane_usage,
-              port5,
-              port5_fees,
-              port5_port_call,
-              port5_crane_usage,
-              port6,
-              port6_fees,
-              port6_port_call,
-              port6_crane_usage,
-              cargo1,
-              cargo1_quantity,
-              cargo1_rate,
-              cargo2,
-              cargo2_quantity,
-              cargo2_rate,
-              cargo3,
-              cargo3_quantity,
-              cargo3_rate,
-              cargo4,
-              cargo4_quantity,
-              cargo4_rate,
-              cargo5,
-              cargo5_quantity,
-              cargo5_rate,
-              cargo6,
-              cargo6_quantity,
-              cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
-              miscCosts,
-            };
-            const result = onChange(modelFields);
-            value = result?.vessel_ht21 ?? value;
-          }
-          if (errors.vessel_ht21?.hasError) {
-            runValidationTasks("vessel_ht21", value);
-          }
-          setVessel_ht21(value);
-        }}
-        onBlur={() => runValidationTasks("vessel_ht21", vessel_ht21)}
-        errorMessage={errors.vessel_ht21?.errorMessage}
-        hasError={errors.vessel_ht21?.hasError}
-        {...getOverrideProps(overrides, "vessel_ht21")}
-      ></CheckboxField>
       <Divider
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement16")}
@@ -1294,15 +581,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1: value,
               port1_fees,
               port1_port_call,
@@ -2025,7 +1304,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid14")}
+        {...getOverrideProps(overrides, "RowGrid5")}
       >
         <TextField
           label="PDA Fees"
@@ -2036,15 +1315,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees: value,
                 port1_port_call,
@@ -2116,15 +1387,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call: value,
@@ -2196,15 +1459,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -2283,15 +1538,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -3014,7 +2261,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid17")}
+        {...getOverrideProps(overrides, "RowGrid8")}
       >
         <TextField
           label="PDA Fees"
@@ -3025,15 +2272,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -3105,15 +2344,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -3185,15 +2416,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -3272,15 +2495,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -4003,7 +3218,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid20")}
+        {...getOverrideProps(overrides, "RowGrid11")}
       >
         <TextField
           label="PDA Fees"
@@ -4014,15 +3229,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -4094,15 +3301,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -4174,15 +3373,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -4261,15 +3452,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -4992,7 +4175,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid23")}
+        {...getOverrideProps(overrides, "RowGrid14")}
       >
         <TextField
           label="PDA Fees"
@@ -5003,15 +4186,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -5083,15 +4258,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -5163,15 +4330,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -5250,15 +4409,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -5981,7 +5132,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid26")}
+        {...getOverrideProps(overrides, "RowGrid17")}
       >
         <TextField
           label="PDA Fees"
@@ -5992,15 +5143,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -6072,15 +5215,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -6152,15 +5287,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -6239,15 +5366,7 @@ export default function DistanceCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              voyage_type,
               currency_type,
-              vessel_ht1,
-              vessel_hn5,
-              vessel_hn7,
-              vessel_hn9,
-              vessel_hn10,
-              vessel_ht20,
-              vessel_ht21,
               port1,
               port1_fees,
               port1_port_call,
@@ -6970,7 +6089,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid29")}
+        {...getOverrideProps(overrides, "RowGrid20")}
       >
         <TextField
           label="PDA Fees"
@@ -6981,15 +6100,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7061,15 +6172,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7141,15 +6244,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7227,7 +6322,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid32")}
+        {...getOverrideProps(overrides, "RowGrid23")}
       >
         <SelectField
           label="Type"
@@ -7238,15 +6333,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7478,15 +6565,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7563,15 +6642,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7644,7 +6715,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid34")}
+        {...getOverrideProps(overrides, "RowGrid25")}
       >
         <SelectField
           label="Type"
@@ -7655,15 +6726,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7895,15 +6958,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -7980,15 +7035,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8060,7 +7107,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid36")}
+        {...getOverrideProps(overrides, "RowGrid27")}
       >
         <SelectField
           label="Type"
@@ -8071,15 +7118,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8311,15 +7350,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8396,15 +7427,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8476,7 +7499,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid38")}
+        {...getOverrideProps(overrides, "RowGrid29")}
       >
         <SelectField
           label="Type"
@@ -8487,15 +7510,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8727,15 +7742,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8812,15 +7819,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -8892,7 +7891,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid40")}
+        {...getOverrideProps(overrides, "RowGrid31")}
       >
         <SelectField
           label="Type"
@@ -8903,15 +7902,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9139,15 +8130,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9224,15 +8207,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9304,7 +8279,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid42")}
+        {...getOverrideProps(overrides, "RowGrid33")}
       >
         <SelectField
           label="Type"
@@ -9315,15 +8290,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9555,15 +8522,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9640,15 +8599,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9720,7 +8671,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid44")}
+        {...getOverrideProps(overrides, "RowGrid35")}
       >
         <TextField
           label="Bunker Fuel Rate"
@@ -9736,15 +8687,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9821,15 +8764,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9902,15 +8837,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -9978,7 +8905,7 @@ export default function DistanceCreateForm(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid45")}
+        {...getOverrideProps(overrides, "RowGrid36")}
       >
         <TextField
           label="Cargo Brokerage Fees (%)"
@@ -9990,15 +8917,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -10071,15 +8990,7 @@ export default function DistanceCreateForm(props) {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,
@@ -10156,15 +9067,7 @@ export default function DistanceCreateForm(props) {
               : parseFloat(e.target.value);
             if (onChange) {
               const modelFields = {
-                voyage_type,
                 currency_type,
-                vessel_ht1,
-                vessel_hn5,
-                vessel_hn7,
-                vessel_hn9,
-                vessel_hn10,
-                vessel_ht20,
-                vessel_ht21,
                 port1,
                 port1_fees,
                 port1_port_call,

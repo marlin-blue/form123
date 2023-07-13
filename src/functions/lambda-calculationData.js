@@ -8,7 +8,7 @@ const formsTableName = 'formsTable';
 function generateTimestampId() {
   const timestamp = new Date().getTime();
   const random = Math.floor(Math.random() * 1000); // Generate a random number between 0 and 999
-  return `${timestamp}-${random}`;
+  return `${timestamp}${random}`;
 }
 
 exports.handler = async (event) => {
@@ -28,12 +28,15 @@ exports.handler = async (event) => {
     const formResult = await dynamodb.get(formParams).promise();
     const form = formResult.Item;
 
+    const currency_type = form.currency_type;
     const ports = form.ports;
     const cargos = form.cargos;
-    const miscCosts = form.miscCosts;
-    const totalCraneUsage = form.totalCraneUsage;
-    const totalPortDays = form.totalPortDays;
-    const dieselFuelRate = form.dieselFuelRate;
+    const bunkerFuelRate = parseFloat(form.bunker_rate);
+    const dieselFuelRate = parseFloat(form.diesel_rate);
+    const lubeRate = parseFloat(form.lube_rate);
+    const surveying_fees = parseFloat(form.surveying_fees);
+    const brokerage_fees = parseFloat(form.brokerage_fees);
+    const miscCosts = parseFloat(form.miscCosts);
 
     // Calculate the revenue
     const revenue = cargos.reduce((sum, cargo) => {
@@ -53,21 +56,50 @@ exports.handler = async (event) => {
     const distanceItems = distanceResult.Items;
 
     // Calculate the total distance
-    const totalDistance = distanceItems.reduce((sum, item) => {
-      return sum + Number(item.distance);
+    const totalDistance = distanceItems.reduce((sum, port) => {
+      return sum + (port.distance.N);
     }, 0);
 
-    // Calculate the costs
-    const costs = (totalDistance * dieselFuelRate) + (totalCraneUsage * form.bunkerFuelRate) + (totalPortDays * 24 * dieselFuelRate) + miscCosts;
+    // Duration at sea
+    const duration_at_sea = totalDistance / 9; //speed
+
+    // Calculate the total port call duration and crane usage
+    const duration_at_port = ports.reduce((sum, ports) => {
+      return sum + (ports.port_call * 24);
+    }, 0);
+
+    const duration_crane_usage = ports.reduce((sum, ports) => {
+      return sum + (ports.crane_usage);
+    }, 0);
+
+    // Calculate the fuel costs for HN5
+    const main_engine_fuel_cost = duration_at_sea * dieselFuelRate * 195.0; // HN5 no bunker fuel
+    const main_diesel_cost = duration_at_sea * dieselFuelRate * 0; // HN5 NA
+    const winch_diesel_cost = duration_crane_usage * dieselFuelRate * 56.0;
+    const generator_diesel_cost = (duration_at_sea + duration_crane_usage / 24) * dieselFuelRate * 16.0;
+    const lube_cost = duration_at_sea * lubeRate * 2.25;
+
+    const fuelCosts = main_engine_fuel_cost + main_diesel_cost + winch_diesel_cost + generator_diesel_cost + lube_cost;
+
+    // Calculate operating costs (THB to USD)
+    const operatingCosts = (83577 / 35) * (duration_at_sea + (duration_at_port / 24)); // from operating costs table (fixed costs)
+
+    // Sum of port fees
+    const portCosts = ports.reduce((sum, ports) => {
+      return sum + (ports.fees);
+    }, 0);
+
+    // Cargo Brokerage Fees
+    const brokerageCosts = (brokerage_fees / 100) * revenue;
+
+    // Sum of Costs
+    const totalCosts = fuelCosts + portCosts + miscCosts + brokerageCosts + operatingCosts + surveying_fees;
 
     // Calculate the profit
-    const profit = revenue - costs;
+    const profit = revenue - totalCosts;
 
     // Calculate the margin percentage
     const marginPercentage = (profit / revenue) * 100;
-
-    // Calculate the fuel costs
-    const fuelCosts = (totalDistance * dieselFuelRate) + (totalCraneUsage * form.bunkerFuelRate) + (totalPortDays * dieselFuelRate);
 
     // Calculate the percentage fuel costs
     const percentageFuelCost = (fuelCosts / revenue) * 100;
@@ -77,7 +109,7 @@ exports.handler = async (event) => {
 
     // Get the current timestamp for created_at
     const created_at = new Date().toISOString();
-    
+
     // Store the calculation results in the calculated data table
     const calculatedDataParams = {
       TableName: calculatedDataName,
@@ -85,13 +117,12 @@ exports.handler = async (event) => {
         id: id,
         formId: formId,
         revenue: revenue,
-        costs: costs,
+        costs: totalCosts,
         profit: profit,
         marginPercentage: marginPercentage,
         fuelCosts: fuelCosts,
         percentageFuelCost: percentageFuelCost,
         created_at: created_at
-
       }
     };
 
@@ -100,11 +131,11 @@ exports.handler = async (event) => {
     const response = {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
       },
-      body: JSON.stringify({ id, message: "Calculation performed successfully" }),
+      body: JSON.stringify({ id, message: 'Calculation performed successfully' })
     };
     // Prepare the response with the ID and success message
 
@@ -113,11 +144,11 @@ exports.handler = async (event) => {
     const response = {
       statusCode: 500,
       headers: {
-        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
       },
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: error.message })
     };
     // Handle any errors and prepare the error response
 

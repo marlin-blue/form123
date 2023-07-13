@@ -3,6 +3,9 @@ formsTable
 cargoTable
 distanceTable
 calculatedData
+currency?
+fuel costs
+vesselsData - fuel consumption rate
 
 lambda
 lamdba-calculatedData
