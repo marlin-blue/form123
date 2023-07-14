@@ -103,3 +103,20 @@ const initialValues = {
     }
   }
   
+
+main_engine_fuel_cost, main_diesel_cost, winch_diesel_cost, generator_diesel_cost,lube_cost
+id, formId,
+revenue,
+totalCosts,
+profit,
+marginPercentage,
+fuelCosts,
+percentageFuelCost,
+created_at
+
+{\"id\":\"1689242751485480\",\"formId\":\"1689239346638333\",\"fuelCosts\":569641.3333333334,\"portCosts\":10.5,\"miscCosts\":2000,
+\"brokerageCosts\":null,\"operatingCosts\":236085.1257142857,\"message\":\"Calculation performed successfully\"}"
+fuelCosts, portCosts, miscCosts, brokerageCosts, operatingCosts, surveying_fees,
+69641.3333333334 10.5 2000 NaN 236085.1257142857 undefined
+
+currency_type=US%20Dollar%20(USD)&port1=Bangkok%20(BK)&port1_fees=10.5&port1_port_call=3.2&port1_crane_usage=2.8&port2=Batam%20(BAT)&port2_fees=0&port2_port_call=0&port2_crane_usage=0&port3=NIL&port3_fees=0&port3_port_call=0&port3_crane_usage=0&port4=NIL&port4_fees=0&port4_port_call=0&port4_crane_usage=0&port5=NIL&port5_fees=0&port5_port_call=0&port5_crane_usage=0&port6=NIL&port6_fees=0&port6_port_call=0&port6_crane_usage=0&cargo1=Palm%20Kernel%20Shell%20(PKS)&cargo1_quantity=3000&cargo1_rate=22&cargo2=NIL&cargo2_quantity=0&cargo2_rate=0&cargo3=NIL&cargo3_quantity=0&cargo3_rate=0&cargo4=NIL&cargo4_quantity=0&cargo4_rate=0&cargo5=NIL&cargo5_quantity=0&cargo5_rate=0&cargo6=NIL&cargo6_quantity=0&cargo6_rate=0&bunker_rate=22&diesel_rate=28&lube_rate=0&brokerage_fees=3.75&surveying_fees=1000&miscCosts=2000

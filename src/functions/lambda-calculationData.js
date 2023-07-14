@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   console.log(JSON.stringify(event, null, 2)); // Log the event details
 
   try {
-    const formId = event.queryStringParameters.formId;
+    const formId = event.pathParameters.id;
 
     // Retrieve the form details from the forms table
     const formParams = {
@@ -31,34 +31,47 @@ exports.handler = async (event) => {
     const currency_type = form.currency_type;
     const ports = form.ports;
     const cargos = form.cargos;
-    const bunkerFuelRate = parseFloat(form.bunker_rate);
-    const dieselFuelRate = parseFloat(form.diesel_rate);
-    const lubeRate = parseFloat(form.lube_rate);
-    const surveying_fees = parseFloat(form.surveying_fees);
-    const brokerage_fees = parseFloat(form.brokerage_fees);
-    const miscCosts = parseFloat(form.miscCosts);
+    const bunkerFuelRate = form.bunkerFuelRate;
+    const dieselFuelRate = form.dieselFuelRate;
+    const lubeRate = form.lubeRate;
+    const surveying_fees = form.surveyingFees;
+    const brokerage_fees = form.brokerageFees;
+    const miscCosts = form.miscCosts;
+
 
     // Calculate the revenue
     const revenue = cargos.reduce((sum, cargo) => {
       return sum + (cargo.quantity * cargo.rate);
     }, 0);
 
-    // Retrieve the distance from the distances table (assuming source and destination ports are available in the form)
-    const distanceParams = {
-      TableName: distanceTableName,
-      FilterExpression: 'sourcePort IN (:ports) AND destinationPort IN (:ports)',
-      ExpressionAttributeValues: {
-        ':ports': ports
-      },
-    };
+    // Assuming `ports` is the array containing port data
+    let totalDistance = 0;
 
-    const distanceResult = await dynamodb.scan(distanceParams).promise();
-    const distanceItems = distanceResult.Items;
+    for (let i = 0; i < ports.length - 1; i++) {
+      const sourcePort = ports[i].port;
+      const destinationPort = ports[i+1].port;
 
-    // Calculate the total distance
-    const totalDistance = distanceItems.reduce((sum, port) => {
-      return sum + (port.distance.N);
-    }, 0);
+      if (sourcePort === "NIL" || destinationPort === "NIL") {
+        break;
+      }
+    
+      const distanceParams = {
+        TableName: distanceTableName,
+        FilterExpression: 'sourcePort = :source AND destinationPort = :destination',
+        ExpressionAttributeValues: {
+          ':source': sourcePort,
+          ':destination': destinationPort
+        }
+      };
+    
+      const distanceResult = await dynamodb.scan(distanceParams).promise();
+      const distanceItems = distanceResult.Items;
+      
+      const distance = Number(distanceItems[0].distance);
+      totalDistance += (distance);
+      
+    }
+    
 
     // Duration at sea
     const duration_at_sea = totalDistance / 9; //speed
@@ -116,8 +129,9 @@ exports.handler = async (event) => {
       Item: {
         id: id,
         formId: formId,
+        currency_type: currency_type,
         revenue: revenue,
-        costs: totalCosts,
+        totalCosts: totalCosts,
         profit: profit,
         marginPercentage: marginPercentage,
         fuelCosts: fuelCosts,
@@ -125,17 +139,17 @@ exports.handler = async (event) => {
         created_at: created_at
       }
     };
-
-    await dynamodb.put(calculatedDataParams).promise();
-
+    
+  await dynamodb.put(calculatedDataParams).promise();
+    
     const response = {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
       },
-      body: JSON.stringify({ id, message: 'Calculation performed successfully' })
+      body: JSON.stringify({ id, message: "Calculation performed successfully" }),
     };
     // Prepare the response with the ID and success message
 
@@ -144,11 +158,11 @@ exports.handler = async (event) => {
     const response = {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
       },
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: error.message }),
     };
     // Handle any errors and prepare the error response
 

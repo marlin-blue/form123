@@ -21,37 +21,37 @@ exports.handler = async (event) => {
 
         const ports = [
             {
-                port1: event.queryStringParameters.port1,
+                port: event.queryStringParameters.port1,
                 fees: parseFloat(event.queryStringParameters.port1_fees),
                 port_call: parseFloat(event.queryStringParameters.port1_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port1_crane_usage)
             },
             {
-                port2: event.queryStringParameters.port2,
+                port: event.queryStringParameters.port2,
                 fees: parseFloat(event.queryStringParameters.port2_fees),
                 port_call: parseFloat(event.queryStringParameters.port2_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port2_crane_usage)
             },
             {
-                port3: event.queryStringParameters.port3,
+                port: event.queryStringParameters.port3,
                 fees: parseFloat(event.queryStringParameters.port3_fees),
                 port_call: parseFloat(event.queryStringParameters.port3_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port3_crane_usage)
             },
             {
-                port4: event.queryStringParameters.port4,
+                port: event.queryStringParameters.port4,
                 fees: parseFloat(event.queryStringParameters.port4_fees),
                 port_call: parseFloat(event.queryStringParameters.port4_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port4_crane_usage)
             },
             {
-                port5: event.queryStringParameters.port5,
+                port: event.queryStringParameters.port5,
                 fees: parseFloat(event.queryStringParameters.port5_fees),
                 port_call: parseFloat(event.queryStringParameters.port5_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port5_crane_usage)
             },
             {
-                port6: event.queryStringParameters.port6,
+                port: event.queryStringParameters.port6,
                 fees: parseFloat(event.queryStringParameters.port6_fees),
                 port_call: parseFloat(event.queryStringParameters.port6_port_call),
                 crane_usage: parseFloat(event.queryStringParameters.port6_crane_usage)

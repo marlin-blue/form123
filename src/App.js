@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { DistanceCreateForm } from './ui-components';
-import { storeFormAPICall, calculateDataAPICall, getCalculatedDataAPICall } from './functions/api/api-calls';
+import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
+
 
 function App() {
   const [result, setResult] = useState(null);
@@ -34,7 +35,7 @@ function App() {
     try {
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
-      const calculationDataResponse = await getCalculatedDataAPICall(calculationId);
+      const calculationDataResponse = await fetchCalculationAPICall(calculationId);
 
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
@@ -50,26 +51,42 @@ function App() {
       <h1>Calculator</h1>
       <DistanceCreateForm onSubmit={handleSubmit} onChange={setFormData} />
       {result && <p style={{ color: 'green' }}>Result: {result}. You can now calculate!</p>}
-
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {result && !errorMessage && (
         <div>
-          <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green' }}>Calculate</button>
+          <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
+
           {calculationData && (
             <div>
-              <h1>Calculation Data:</h1>
-              <p>Revenue: ${calculationData.revenue.toLocaleString()}</p>
-              <p>Costs: ${calculationData.costs.toLocaleString()}</p>
-              <p>Profit/Loss: ${calculationData.profit.toLocaleString()}</p>
+              <h1>Calculation Data for HN5:</h1>
+              <p>Currency: {calculationData.currency_type}</p>
+              <p>
+                Profit/Loss:{" "}
+                <span
+                  style={{
+                    color: calculationData.profit >= 0 ? "green" : "red",
+                    fontWeight: "bold"
+                  }}
+                >
+                  {formatNumber(Math.round(calculationData.profit))}
+                </span> 
+              </p>
+              <p>Revenue: {formatNumber(calculationData.revenue)}</p>
+              <p>Costs: {formatNumber(Math.round(calculationData.totalCosts))}</p>
               <p>Margin: {calculationData.marginPercentage.toFixed(2)}%</p>
-              <p>Fuel Costs: ${calculationData.fuelCosts.toLocaleString()}</p>
+              <p>Fuel Costs: {formatNumber(calculationData.fuelCosts)}</p>
               <p>Percentage Fuel Cost: {calculationData.percentageFuelCost.toFixed(2)}%</p>
+
             </div>
           )}
         </div>
       )}
     </div>
   );
+}
+
+function formatNumber(number) {
+  return number.toLocaleString();
 }
 
 export default App;
