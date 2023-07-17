@@ -14,78 +14,84 @@ import {
   Heading,
   SelectField,
   TextField,
-  useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Distance } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { DataStore } from "aws-amplify";
-export default function DistanceCreateForm(props) {
-  const {
-    clearOnSuccess = true,
-    onSuccess,
-    onError,
-    onSubmit,
-    onValidate,
-    onChange,
-    overrides,
-    ...rest
-  } = props;
-  const { tokens } = useTheme();
+export default function Calculator(props) {
+  const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
   const initialValues = {
     currency_type: "Thai Bhat (THB)",
+    diesel_rate: "28",
+    bunker_rate: "22",
+    lube_rate: "80",
     port1: "Bangkok (BK)",
     port1_fees: "35000",
     port1_port_call: "5",
     port1_crane_usage: "20",
+    port1_surveying_fees: "35000",
     port2: "Batam (BAT)",
     port2_fees: "0",
     port2_port_call: "0",
     port2_crane_usage: "0",
+    port2_surveying_fees: "0",
     port3: "NIL",
     port3_fees: "0",
     port3_port_call: "0",
     port3_crane_usage: "0",
+    port3_surveying_fees: "0",
     port4: "NIL",
     port4_fees: "0",
     port4_port_call: "0",
     port4_crane_usage: "0",
+    port4_surveying_fees: "0",
     port5: "NIL",
     port5_fees: "0",
     port5_port_call: "0",
     port5_crane_usage: "0",
+    port5_surveying_fees: "0",
     port6: "NIL",
     port6_fees: "0",
     port6_port_call: "0",
     port6_crane_usage: "0",
-    cargo1: "Palm Kernel Expeller (PKE)",
+    port6_surveying_fees: "0",
+    cargo1_type: "Rice",
     cargo1_quantity: "3000",
     cargo1_rate: "910",
-    cargo2: "Rice",
-    cargo2_quantity: "3000",
-    cargo2_rate: "770",
-    cargo3: "NIL",
+    cargo1_brokerage_fees: "0",
+    cargo2_type: "NIL",
+    cargo2_quantity: "0",
+    cargo2_rate: "0",
+    cargo2_brokerage_fees: "0",
+    cargo3_type: "NIL",
     cargo3_quantity: "0",
     cargo3_rate: "0",
-    cargo4: "NIL",
+    cargo3_brokerage_fees: "0",
+    cargo4_type: "NIL",
     cargo4_quantity: "0",
     cargo4_rate: "0",
-    cargo5: "NIL",
+    cargo4_brokerage_fees: "0",
+    cargo5_type: "NIL",
     cargo5_quantity: "0",
     cargo5_rate: "0",
-    cargo6: "NIL",
+    cargo5_brokerage_fees: "0",
+    cargo6_type: "NIL",
     cargo6_quantity: "0",
     cargo6_rate: "0",
-    bunker_rate: "22",
-    diesel_rate: "28",
-    lube_rate: "80",
-    brokerage_fees: "3.75",
-    surveying_fees: "35000",
-    miscCosts: "112000",
+    cargo6_brokerage_fees: "0",
+    voyageBonus: "0",
+    miscCosts: "0"
   };
+  
   const [currency_type, setCurrency_type] = React.useState(
     initialValues.currency_type
   );
+  const [diesel_rate, setDiesel_rate] = React.useState(
+    initialValues.diesel_rate
+  );
+  const [bunker_rate, setBunker_rate] = React.useState(
+    initialValues.bunker_rate
+  );
+  const [lube_rate, setLube_rate] = React.useState(initialValues.lube_rate);
   const [port1, setPort1] = React.useState(initialValues.port1);
   const [port1_fees, setPort1_fees] = React.useState(initialValues.port1_fees);
   const [port1_port_call, setPort1_port_call] = React.useState(
@@ -93,6 +99,9 @@ export default function DistanceCreateForm(props) {
   );
   const [port1_crane_usage, setPort1_crane_usage] = React.useState(
     initialValues.port1_crane_usage
+  );
+  const [port1_surveying_fees, setPort1_surveying_fees] = React.useState(
+    initialValues.port1_surveying_fees
   );
   const [port2, setPort2] = React.useState(initialValues.port2);
   const [port2_fees, setPort2_fees] = React.useState(initialValues.port2_fees);
@@ -102,6 +111,9 @@ export default function DistanceCreateForm(props) {
   const [port2_crane_usage, setPort2_crane_usage] = React.useState(
     initialValues.port2_crane_usage
   );
+  const [port2_surveying_fees, setPort2_surveying_fees] = React.useState(
+    initialValues.port2_surveying_fees
+  );
   const [port3, setPort3] = React.useState(initialValues.port3);
   const [port3_fees, setPort3_fees] = React.useState(initialValues.port3_fees);
   const [port3_port_call, setPort3_port_call] = React.useState(
@@ -109,6 +121,9 @@ export default function DistanceCreateForm(props) {
   );
   const [port3_crane_usage, setPort3_crane_usage] = React.useState(
     initialValues.port3_crane_usage
+  );
+  const [port3_surveying_fees, setPort3_surveying_fees] = React.useState(
+    initialValues.port3_surveying_fees
   );
   const [port4, setPort4] = React.useState(initialValues.port4);
   const [port4_fees, setPort4_fees] = React.useState(initialValues.port4_fees);
@@ -118,6 +133,9 @@ export default function DistanceCreateForm(props) {
   const [port4_crane_usage, setPort4_crane_usage] = React.useState(
     initialValues.port4_crane_usage
   );
+  const [port4_surveying_fees, setPort4_surveying_fees] = React.useState(
+    initialValues.port4_surveying_fees
+  );
   const [port5, setPort5] = React.useState(initialValues.port5);
   const [port5_fees, setPort5_fees] = React.useState(initialValues.port5_fees);
   const [port5_port_call, setPort5_port_call] = React.useState(
@@ -125,6 +143,9 @@ export default function DistanceCreateForm(props) {
   );
   const [port5_crane_usage, setPort5_crane_usage] = React.useState(
     initialValues.port5_crane_usage
+  );
+  const [port5_surveying_fees, setPort5_surveying_fees] = React.useState(
+    initialValues.port5_surveying_fees
   );
   const [port6, setPort6] = React.useState(initialValues.port6);
   const [port6_fees, setPort6_fees] = React.useState(initialValues.port6_fees);
@@ -134,164 +155,209 @@ export default function DistanceCreateForm(props) {
   const [port6_crane_usage, setPort6_crane_usage] = React.useState(
     initialValues.port6_crane_usage
   );
-  const [cargo1, setCargo1] = React.useState(initialValues.cargo1);
+  const [port6_surveying_fees, setPort6_surveying_fees] = React.useState(
+    initialValues.port6_surveying_fees
+  );
+  const [cargo1_type, setCargo1_type] = React.useState(
+    initialValues.cargo1_type
+  );
   const [cargo1_quantity, setCargo1_quantity] = React.useState(
     initialValues.cargo1_quantity
   );
   const [cargo1_rate, setCargo1_rate] = React.useState(
     initialValues.cargo1_rate
   );
-  const [cargo2, setCargo2] = React.useState(initialValues.cargo2);
+  const [cargo1_brokerage_fees, setCargo1_brokerage_fees] = React.useState(
+    initialValues.cargo1_brokerage_fees
+  );
+  const [cargo2_type, setCargo2_type] = React.useState(
+    initialValues.cargo2_type
+  );
   const [cargo2_quantity, setCargo2_quantity] = React.useState(
     initialValues.cargo2_quantity
   );
   const [cargo2_rate, setCargo2_rate] = React.useState(
     initialValues.cargo2_rate
   );
-  const [cargo3, setCargo3] = React.useState(initialValues.cargo3);
+  const [cargo2_brokerage_fees, setCargo2_brokerage_fees] = React.useState(
+    initialValues.cargo2_brokerage_fees
+  );
+  const [cargo3_type, setCargo3_type] = React.useState(
+    initialValues.cargo3_type
+  );
   const [cargo3_quantity, setCargo3_quantity] = React.useState(
     initialValues.cargo3_quantity
   );
   const [cargo3_rate, setCargo3_rate] = React.useState(
     initialValues.cargo3_rate
   );
-  const [cargo4, setCargo4] = React.useState(initialValues.cargo4);
+  const [cargo3_brokerage_fees, setCargo3_brokerage_fees] = React.useState(
+    initialValues.cargo3_brokerage_fees
+  );
+  const [cargo4_type, setCargo4_type] = React.useState(
+    initialValues.cargo4_type
+  );
   const [cargo4_quantity, setCargo4_quantity] = React.useState(
     initialValues.cargo4_quantity
   );
   const [cargo4_rate, setCargo4_rate] = React.useState(
     initialValues.cargo4_rate
   );
-  const [cargo5, setCargo5] = React.useState(initialValues.cargo5);
+  const [cargo4_brokerage_fees, setCargo4_brokerage_fees] = React.useState(
+    initialValues.cargo4_brokerage_fees
+  );
+  const [cargo5_type, setCargo5_type] = React.useState(
+    initialValues.cargo5_type
+  );
   const [cargo5_quantity, setCargo5_quantity] = React.useState(
     initialValues.cargo5_quantity
   );
   const [cargo5_rate, setCargo5_rate] = React.useState(
     initialValues.cargo5_rate
   );
-  const [cargo6, setCargo6] = React.useState(initialValues.cargo6);
+  const [cargo5_brokerage_fees, setCargo5_brokerage_fees] = React.useState(
+    initialValues.cargo5_brokerage_fees
+  );
+  const [cargo6_type, setCargo6_type] = React.useState(
+    initialValues.cargo6_type
+  );
   const [cargo6_quantity, setCargo6_quantity] = React.useState(
     initialValues.cargo6_quantity
   );
   const [cargo6_rate, setCargo6_rate] = React.useState(
     initialValues.cargo6_rate
   );
-  const [bunker_rate, setBunker_rate] = React.useState(
-    initialValues.bunker_rate
+  const [cargo6_brokerage_fees, setCargo6_brokerage_fees] = React.useState(
+    initialValues.cargo6_brokerage_fees
   );
-  const [diesel_rate, setDiesel_rate] = React.useState(
-    initialValues.diesel_rate
-  );
-  const [lube_rate, setLube_rate] = React.useState(initialValues.lube_rate);
-  const [brokerage_fees, setBrokerage_fees] = React.useState(
-    initialValues.brokerage_fees
-  );
-  const [surveying_fees, setSurveying_fees] = React.useState(
-    initialValues.surveying_fees
+  const [voyageBonus, setVoyageBonus] = React.useState(
+    initialValues.voyageBonus
   );
   const [miscCosts, setMiscCosts] = React.useState(initialValues.miscCosts);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setCurrency_type(initialValues.currency_type);
+    setDiesel_rate(initialValues.diesel_rate);
+    setBunker_rate(initialValues.bunker_rate);
+    setLube_rate(initialValues.lube_rate);
     setPort1(initialValues.port1);
     setPort1_fees(initialValues.port1_fees);
     setPort1_port_call(initialValues.port1_port_call);
     setPort1_crane_usage(initialValues.port1_crane_usage);
+    setPort1_surveying_fees(initialValues.port1_surveying_fees);
     setPort2(initialValues.port2);
     setPort2_fees(initialValues.port2_fees);
     setPort2_port_call(initialValues.port2_port_call);
     setPort2_crane_usage(initialValues.port2_crane_usage);
+    setPort2_surveying_fees(initialValues.port2_surveying_fees);
     setPort3(initialValues.port3);
     setPort3_fees(initialValues.port3_fees);
     setPort3_port_call(initialValues.port3_port_call);
     setPort3_crane_usage(initialValues.port3_crane_usage);
+    setPort3_surveying_fees(initialValues.port3_surveying_fees);
     setPort4(initialValues.port4);
     setPort4_fees(initialValues.port4_fees);
     setPort4_port_call(initialValues.port4_port_call);
     setPort4_crane_usage(initialValues.port4_crane_usage);
+    setPort4_surveying_fees(initialValues.port4_surveying_fees);
     setPort5(initialValues.port5);
     setPort5_fees(initialValues.port5_fees);
     setPort5_port_call(initialValues.port5_port_call);
     setPort5_crane_usage(initialValues.port5_crane_usage);
+    setPort5_surveying_fees(initialValues.port5_surveying_fees);
     setPort6(initialValues.port6);
     setPort6_fees(initialValues.port6_fees);
     setPort6_port_call(initialValues.port6_port_call);
     setPort6_crane_usage(initialValues.port6_crane_usage);
-    setCargo1(initialValues.cargo1);
+    setPort6_surveying_fees(initialValues.port6_surveying_fees);
+    setCargo1_type(initialValues.cargo1_type);
     setCargo1_quantity(initialValues.cargo1_quantity);
     setCargo1_rate(initialValues.cargo1_rate);
-    setCargo2(initialValues.cargo2);
+    setCargo1_brokerage_fees(initialValues.cargo1_brokerage_fees);
+    setCargo2_type(initialValues.cargo2_type);
     setCargo2_quantity(initialValues.cargo2_quantity);
     setCargo2_rate(initialValues.cargo2_rate);
-    setCargo3(initialValues.cargo3);
+    setCargo2_brokerage_fees(initialValues.cargo2_brokerage_fees);
+    setCargo3_type(initialValues.cargo3_type);
     setCargo3_quantity(initialValues.cargo3_quantity);
     setCargo3_rate(initialValues.cargo3_rate);
-    setCargo4(initialValues.cargo4);
+    setCargo3_brokerage_fees(initialValues.cargo3_brokerage_fees);
+    setCargo4_type(initialValues.cargo4_type);
     setCargo4_quantity(initialValues.cargo4_quantity);
     setCargo4_rate(initialValues.cargo4_rate);
-    setCargo5(initialValues.cargo5);
+    setCargo4_brokerage_fees(initialValues.cargo4_brokerage_fees);
+    setCargo5_type(initialValues.cargo5_type);
     setCargo5_quantity(initialValues.cargo5_quantity);
     setCargo5_rate(initialValues.cargo5_rate);
-    setCargo6(initialValues.cargo6);
+    setCargo5_brokerage_fees(initialValues.cargo5_brokerage_fees);
+    setCargo6_type(initialValues.cargo6_type);
     setCargo6_quantity(initialValues.cargo6_quantity);
     setCargo6_rate(initialValues.cargo6_rate);
-    setBunker_rate(initialValues.bunker_rate);
-    setDiesel_rate(initialValues.diesel_rate);
-    setLube_rate(initialValues.lube_rate);
-    setBrokerage_fees(initialValues.brokerage_fees);
-    setSurveying_fees(initialValues.surveying_fees);
+    setCargo6_brokerage_fees(initialValues.cargo6_brokerage_fees);
+    setVoyageBonus(initialValues.voyageBonus);
     setMiscCosts(initialValues.miscCosts);
     setErrors({});
   };
   const validations = {
     currency_type: [],
+    diesel_rate: [],
+    bunker_rate: [],
+    lube_rate: [],
     port1: [],
     port1_fees: [],
     port1_port_call: [],
     port1_crane_usage: [],
+    port1_surveying_fees: [],
     port2: [],
     port2_fees: [],
     port2_port_call: [],
     port2_crane_usage: [],
+    port2_surveying_fees: [],
     port3: [],
     port3_fees: [],
     port3_port_call: [],
     port3_crane_usage: [],
+    port3_surveying_fees: [],
     port4: [],
     port4_fees: [],
     port4_port_call: [],
     port4_crane_usage: [],
+    port4_surveying_fees: [],
     port5: [],
     port5_fees: [],
     port5_port_call: [],
     port5_crane_usage: [],
+    port5_surveying_fees: [],
     port6: [],
     port6_fees: [],
     port6_port_call: [],
     port6_crane_usage: [],
-    cargo1: [],
+    port6_surveying_fees: [],
+    cargo1_type: [],
     cargo1_quantity: [],
     cargo1_rate: [],
-    cargo2: [],
+    cargo1_brokerage_fees: [],
+    cargo2_type: [],
     cargo2_quantity: [],
     cargo2_rate: [],
-    cargo3: [],
+    cargo2_brokerage_fees: [],
+    cargo3_type: [],
     cargo3_quantity: [],
     cargo3_rate: [],
-    cargo4: [],
+    cargo3_brokerage_fees: [],
+    cargo4_type: [],
     cargo4_quantity: [],
     cargo4_rate: [],
-    cargo5: [],
+    cargo4_brokerage_fees: [],
+    cargo5_type: [],
     cargo5_quantity: [],
     cargo5_rate: [],
-    cargo6: [],
+    cargo5_brokerage_fees: [],
+    cargo6_type: [],
     cargo6_quantity: [],
     cargo6_rate: [],
-    bunker_rate: [],
-    diesel_rate: [],
-    lube_rate: [],
-    brokerage_fees: [],
-    surveying_fees: [],
+    cargo6_brokerage_fees: [],
+    voyageBonus: [],
     miscCosts: [],
   };
   const runValidationTasks = async (
@@ -314,60 +380,71 @@ export default function DistanceCreateForm(props) {
   return (
     <Grid
       as="form"
-      rowGap={tokens.space.medium.value}
-      columnGap={tokens.space.medium.value}
-      padding={tokens.space.xxl.value}
+      rowGap="15px"
+      columnGap="15px"
+      padding="20px"
       onSubmit={async (event) => {
         event.preventDefault();
-        let modelFields = {
+        const modelFields = {
           currency_type,
+          diesel_rate,
+          bunker_rate,
+          lube_rate,
           port1,
           port1_fees,
           port1_port_call,
           port1_crane_usage,
+          port1_surveying_fees,
           port2,
           port2_fees,
           port2_port_call,
           port2_crane_usage,
+          port2_surveying_fees,
           port3,
           port3_fees,
           port3_port_call,
           port3_crane_usage,
+          port3_surveying_fees,
           port4,
           port4_fees,
           port4_port_call,
           port4_crane_usage,
+          port4_surveying_fees,
           port5,
           port5_fees,
           port5_port_call,
           port5_crane_usage,
+          port5_surveying_fees,
           port6,
           port6_fees,
           port6_port_call,
           port6_crane_usage,
-          cargo1,
+          port6_surveying_fees,
+          cargo1_type,
           cargo1_quantity,
           cargo1_rate,
-          cargo2,
+          cargo1_brokerage_fees,
+          cargo2_type,
           cargo2_quantity,
           cargo2_rate,
-          cargo3,
+          cargo2_brokerage_fees,
+          cargo3_type,
           cargo3_quantity,
           cargo3_rate,
-          cargo4,
+          cargo3_brokerage_fees,
+          cargo4_type,
           cargo4_quantity,
           cargo4_rate,
-          cargo5,
+          cargo4_brokerage_fees,
+          cargo5_type,
           cargo5_quantity,
           cargo5_rate,
-          cargo6,
+          cargo5_brokerage_fees,
+          cargo6_type,
           cargo6_quantity,
           cargo6_rate,
-          bunker_rate,
-          diesel_rate,
-          lube_rate,
-          brokerage_fees,
-          surveying_fees,
+          cargo6_brokerage_fees,
+          voyageBonus,
           miscCosts,
         };
         const validationResponses = await Promise.all(
@@ -389,63 +466,15 @@ export default function DistanceCreateForm(props) {
         if (validationResponses.some((r) => r.hasError)) {
           return;
         }
-        if (onSubmit) {
-          modelFields = onSubmit(modelFields);
-        }
-        try {
-          Object.entries(modelFields).forEach(([key, value]) => {
-            if (typeof value === "string" && value.trim() === "") {
-              modelFields[key] = undefined;
-            }
-          });
-          const modelFieldsToSave = {
-            port1: modelFields.port1,
-            port2: modelFields.port2,
-            port3: modelFields.port3,
-            port4: modelFields.port4,
-            port5: modelFields.port5,
-            port6: modelFields.port6,
-            cargo1: modelFields.cargo1,
-            cargo1_quantity: modelFields.cargo1_quantity,
-            cargo1_rate: modelFields.cargo1_rate,
-            cargo2: modelFields.cargo2,
-            cargo2_quantity: modelFields.cargo2_quantity,
-            cargo2_rate: modelFields.cargo2_rate,
-            cargo3: modelFields.cargo3,
-            cargo3_quantity: modelFields.cargo3_quantity,
-            cargo3_rate: modelFields.cargo3_rate,
-            cargo4: modelFields.cargo4,
-            cargo4_quantity: modelFields.cargo4_quantity,
-            cargo4_rate: modelFields.cargo4_rate,
-            cargo5: modelFields.cargo5,
-            cargo5_rate: modelFields.cargo5_rate,
-            cargo6: modelFields.cargo6,
-            cargo6_quantity: modelFields.cargo6_quantity,
-            cargo6_rate: modelFields.cargo6_rate,
-            bunker_rate: modelFields.bunker_rate,
-            diesel_rate: modelFields.diesel_rate,
-            miscCosts: modelFields.miscCosts,
-          };
-          await DataStore.save(new Distance(modelFieldsToSave));
-          if (onSuccess) {
-            onSuccess(modelFields);
-          }
-          if (clearOnSuccess) {
-            resetStateValues();
-          }
-        } catch (err) {
-          if (onError) {
-            onError(modelFields, err.message);
-          }
-        }
+        await onSubmit(modelFields);
       }}
-      {...getOverrideProps(overrides, "DistanceCreateForm")}
+      {...getOverrideProps(overrides, "Calculator")}
       {...rest}
     >
       <Heading
         level={3}
-        children="Voyage Information "
-        {...getOverrideProps(overrides, "SectionalElement8")}
+        children="Voyage Information"
+        {...getOverrideProps(overrides, "SectionalElement3")}
       ></Heading>
       <SelectField
         label="Currency"
@@ -456,53 +485,64 @@ export default function DistanceCreateForm(props) {
           if (onChange) {
             const modelFields = {
               currency_type: value,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -533,102 +573,334 @@ export default function DistanceCreateForm(props) {
           value="Malaysian Ringgit (MYR)"
           {...getOverrideProps(overrides, "currency_typeoption2")}
         ></option>
-        <option
-          children="Chinese Renminbi (Yuan/CNY)"
-          value="Chinese Renminbi (Yuan/CNY)"
-          {...getOverrideProps(overrides, "currency_typeoption3")}
-        ></option>
-        <option
-          children="Australian Dollar (AUD)"
-          value="Australian Dollar (AUD)"
-          {...getOverrideProps(overrides, "currency_typeoption4")}
-        ></option>
-        <option
-          children="Euro (EUR)"
-          value="Euro (EUR)"
-          {...getOverrideProps(overrides, "currency_typeoption5")}
-        ></option>
-        <option
-          children="Hong Kong Dollar (HKD)"
-          value="Hong Kong Dollar (HKD)"
-          {...getOverrideProps(overrides, "currency_typeoption6")}
-        ></option>
-        <option
-          children="Japanese Yen (JPY)"
-          value="Japanese Yen (JPY)"
-          {...getOverrideProps(overrides, "currency_typeoption7")}
-        ></option>
-        <option
-          children="Singapore Dollar (SGD)"
-          value="Singapore Dollar (SGD)"
-          {...getOverrideProps(overrides, "currency_typeoption8")}
-        ></option>
       </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid2")}
+      >
+        <TextField
+          label="Diesel Fuel Rate"
+          type="number"
+          step="any"
+          value={diesel_rate}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate: value,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.diesel_rate ?? value;
+            }
+            if (errors.diesel_rate?.hasError) {
+              runValidationTasks("diesel_rate", value);
+            }
+            setDiesel_rate(value);
+          }}
+          onBlur={() => runValidationTasks("diesel_rate", diesel_rate)}
+          errorMessage={errors.diesel_rate?.errorMessage}
+          hasError={errors.diesel_rate?.hasError}
+          {...getOverrideProps(overrides, "diesel_rate")}
+        ></TextField>
+        <TextField
+          label="Bunker Fuel Rate"
+          type="number"
+          step="any"
+          value={bunker_rate}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate: value,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.bunker_rate ?? value;
+            }
+            if (errors.bunker_rate?.hasError) {
+              runValidationTasks("bunker_rate", value);
+            }
+            setBunker_rate(value);
+          }}
+          onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
+          errorMessage={errors.bunker_rate?.errorMessage}
+          hasError={errors.bunker_rate?.hasError}
+          {...getOverrideProps(overrides, "bunker_rate")}
+        ></TextField>
+        <TextField
+          label="Lube Rate"
+          type="number"
+          step="any"
+          value={lube_rate}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate: value,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.lube_rate ?? value;
+            }
+            if (errors.lube_rate?.hasError) {
+              runValidationTasks("lube_rate", value);
+            }
+            setLube_rate(value);
+          }}
+          onBlur={() => runValidationTasks("lube_rate", lube_rate)}
+          errorMessage={errors.lube_rate?.errorMessage}
+          hasError={errors.lube_rate?.hasError}
+          {...getOverrideProps(overrides, "lube_rate")}
+        ></TextField>
+      </Grid>
       <Divider
         orientation="horizontal"
-        {...getOverrideProps(overrides, "SectionalElement16")}
+        {...getOverrideProps(overrides, "SectionalElement0")}
       ></Divider>
-      <Heading
-        children="Port 1"
-        {...getOverrideProps(overrides, "SectionalElement9")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 1"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1: value,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -1303,7 +1575,7 @@ export default function DistanceCreateForm(props) {
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
+        templateColumns="repeat(4, auto)"
         {...getOverrideProps(overrides, "RowGrid5")}
       >
         <TextField
@@ -1316,53 +1588,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees: value,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -1379,7 +1662,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port1_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port call (Days)"
           type="number"
           step="any"
           value={port1_port_call}
@@ -1388,53 +1671,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call: value,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -1460,53 +1754,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage: value,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -1524,68 +1829,159 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port1_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port1_crane_usage")}
         ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port1_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees: value,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port1_surveying_fees ?? value;
+            }
+            if (errors.port1_surveying_fees?.hasError) {
+              runValidationTasks("port1_surveying_fees", value);
+            }
+            setPort1_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port1_surveying_fees", port1_surveying_fees)
+          }
+          errorMessage={errors.port1_surveying_fees?.errorMessage}
+          hasError={errors.port1_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port1_surveying_fees")}
+        ></TextField>
       </Grid>
-      <Heading
-        children="Port 2"
-        {...getOverrideProps(overrides, "SectionalElement10")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 2"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2: value,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -2260,8 +2656,8 @@ export default function DistanceCreateForm(props) {
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid8")}
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid7")}
       >
         <TextField
           label="PDA Fees"
@@ -2273,53 +2669,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees: value,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -2336,7 +2743,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port2_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port call (Days)"
           type="number"
           step="any"
           value={port2_port_call}
@@ -2345,53 +2752,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call: value,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -2417,53 +2835,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage: value,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -2481,68 +2910,159 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port2_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port2_crane_usage")}
         ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port2_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees: value,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port2_surveying_fees ?? value;
+            }
+            if (errors.port2_surveying_fees?.hasError) {
+              runValidationTasks("port2_surveying_fees", value);
+            }
+            setPort2_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port2_surveying_fees", port2_surveying_fees)
+          }
+          errorMessage={errors.port2_surveying_fees?.errorMessage}
+          hasError={errors.port2_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port2_surveying_fees")}
+        ></TextField>
       </Grid>
-      <Heading
-        children="Port 3"
-        {...getOverrideProps(overrides, "SectionalElement11")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 3"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3: value,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -2557,668 +3077,12 @@ export default function DistanceCreateForm(props) {
         errorMessage={errors.port3?.errorMessage}
         hasError={errors.port3?.hasError}
         {...getOverrideProps(overrides, "port3")}
-      >
-        <option
-          children="NIL"
-          value="NIL"
-          {...getOverrideProps(overrides, "port3option0")}
-        ></option>
-        <option
-          children="Ayutthaya - Bangpain (AB)"
-          value="Ayutthaya - Bangpain (AB)"
-          {...getOverrideProps(overrides, "port3option1")}
-        ></option>
-        <option
-          children="Ayutthaya - Nakorn Luang (ANL)"
-          value="Ayutthaya - Nakorn Luang (ANL)"
-          {...getOverrideProps(overrides, "port3option2")}
-        ></option>
-        <option
-          children="Bahodopi (BHDP)"
-          value="Bahodopi (BHDP)"
-          {...getOverrideProps(overrides, "port3option3")}
-        ></option>
-        <option
-          children="Balikpapan (BPN)"
-          value="Balikpapan (BPN)"
-          {...getOverrideProps(overrides, "port3option4")}
-        ></option>
-        <option
-          children="Bang Sapan (BS)"
-          value="Bang Sapan (BS)"
-          {...getOverrideProps(overrides, "port3option5")}
-        ></option>
-        <option
-          children="Bangkok (BK)"
-          value="Bangkok (BK)"
-          {...getOverrideProps(overrides, "port3option6")}
-        ></option>
-        <option
-          children="Bangpakong (BAK)"
-          value="Bangpakong (BAK)"
-          {...getOverrideProps(overrides, "port3option7")}
-        ></option>
-        <option
-          children="Banyuwangi - Tanjung Wangi (BJU)"
-          value="Banyuwangi - Tanjung Wangi (BJU)"
-          {...getOverrideProps(overrides, "port3option8")}
-        ></option>
-        <option
-          children="Batam (BAT)"
-          value="Batam (BAT)"
-          {...getOverrideProps(overrides, "port3option9")}
-        ></option>
-        <option
-          children="Beihai (BHY)"
-          value="Beihai (BHY)"
-          {...getOverrideProps(overrides, "port3option10")}
-        ></option>
-        <option
-          children="Belawan (BRW)"
-          value="Belawan (BRW)"
-          {...getOverrideProps(overrides, "port3option11")}
-        ></option>
-        <option
-          children="Benoa (Bali) (BAO)"
-          value="Benoa (Bali) (BAO)"
-          {...getOverrideProps(overrides, "port3option12")}
-        ></option>
-        <option
-          children="Bintan (BTN)"
-          value="Bintan (BTN)"
-          {...getOverrideProps(overrides, "port3option13")}
-        ></option>
-        <option
-          children="Bintulu (BIN)"
-          value="Bintulu (BIN)"
-          {...getOverrideProps(overrides, "port3option14")}
-        ></option>
-        <option
-          children="Bitung (BIT)"
-          value="Bitung (BIT)"
-          {...getOverrideProps(overrides, "port3option15")}
-        ></option>
-        <option
-          children="Bontang (BXT)"
-          value="Bontang (BXT)"
-          {...getOverrideProps(overrides, "port3option16")}
-        ></option>
-        <option
-          children="Bourbon (BOUR)"
-          value="Bourbon (BOUR)"
-          {...getOverrideProps(overrides, "port3option17")}
-        ></option>
-        <option
-          children="Brunei (BRU)"
-          value="Brunei (BRU)"
-          {...getOverrideProps(overrides, "port3option18")}
-        ></option>
-        <option
-          children="Cai Lan (CLN)"
-          value="Cai Lan (CLN)"
-          {...getOverrideProps(overrides, "port3option19")}
-        ></option>
-        <option
-          children="Cam Pha (CPH)"
-          value="Cam Pha (CPH)"
-          {...getOverrideProps(overrides, "port3option20")}
-        ></option>
-        <option
-          children="Can Tho (VCA)"
-          value="Can Tho (VCA)"
-          {...getOverrideProps(overrides, "port3option21")}
-        ></option>
-        <option
-          children="Cat Lai (CLI)"
-          value="Cat Lai (CLI)"
-          {...getOverrideProps(overrides, "port3option22")}
-        ></option>
-        <option
-          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
-          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
-          {...getOverrideProps(overrides, "port3option23")}
-        ></option>
-        <option
-          children="Century Harbour (MHI)"
-          value="Century Harbour (MHI)"
-          {...getOverrideProps(overrides, "port3option24")}
-        ></option>
-        <option
-          children="Chantaburi LaemSing (CLS)"
-          value="Chantaburi LaemSing (CLS)"
-          {...getOverrideProps(overrides, "port3option25")}
-        ></option>
-        <option
-          children="Chittagong (CTG)"
-          value="Chittagong (CTG)"
-          {...getOverrideProps(overrides, "port3option26")}
-        ></option>
-        <option
-          children="Cigading (CIG)"
-          value="Cigading (CIG)"
-          {...getOverrideProps(overrides, "port3option27")}
-        ></option>
-        <option
-          children="Danang (DAD)"
-          value="Danang (DAD)"
-          {...getOverrideProps(overrides, "port3option28")}
-        ></option>
-        <option
-          children="Davao (Sasa Wharf) (DVO)"
-          value="Davao (Sasa Wharf) (DVO)"
-          {...getOverrideProps(overrides, "port3option29")}
-        ></option>
-        <option
-          children="Dhaka (DKA)"
-          value="Dhaka (DKA)"
-          {...getOverrideProps(overrides, "port3option30")}
-        ></option>
-        <option
-          children="Dumai (DMI)"
-          value="Dumai (DMI)"
-          {...getOverrideProps(overrides, "port3option31")}
-        ></option>
-        <option
-          children="Dung Quat (DQT)"
-          value="Dung Quat (DQT)"
-          {...getOverrideProps(overrides, "port3option32")}
-        ></option>
-        <option
-          children="Fangcheng (FAN)"
-          value="Fangcheng (FAN)"
-          {...getOverrideProps(overrides, "port3option33")}
-        ></option>
-        <option
-          children="Futong (FTG)"
-          value="Futong (FTG)"
-          {...getOverrideProps(overrides, "port3option34")}
-        ></option>
-        <option
-          children="Godau port  (GDP)"
-          value="Godau port  (GDP)"
-          {...getOverrideProps(overrides, "port3option35")}
-        ></option>
-        <option
-          children="Haiphong (HPH)"
-          value="Haiphong (HPH)"
-          {...getOverrideProps(overrides, "port3option36")}
-        ></option>
-        <option
-          children="Halong Bay (HLG)"
-          value="Halong Bay (HLG)"
-          {...getOverrideProps(overrides, "port3option37")}
-        ></option>
-        <option
-          children="HO CHI MINH (HCM)"
-          value="HO CHI MINH (HCM)"
-          {...getOverrideProps(overrides, "port3option38")}
-        ></option>
-        <option
-          children="Hon Gai (HON)"
-          value="Hon Gai (HON)"
-          {...getOverrideProps(overrides, "port3option39")}
-        ></option>
-        <option
-          children="Hong Kong (HKG)"
-          value="Hong Kong (HKG)"
-          {...getOverrideProps(overrides, "port3option40")}
-        ></option>
-        <option
-          children="Jakarta (JAK)"
-          value="Jakarta (JAK)"
-          {...getOverrideProps(overrides, "port3option41")}
-        ></option>
-        <option
-          children="Jambi (JBI)"
-          value="Jambi (JBI)"
-          {...getOverrideProps(overrides, "port3option42")}
-        ></option>
-        <option
-          children="K.K. Kota Kinabalu (KK)"
-          value="K.K. Kota Kinabalu (KK)"
-          {...getOverrideProps(overrides, "port3option43")}
-        ></option>
-        <option
-          children="Kampot (KMP)"
-          value="Kampot (KMP)"
-          {...getOverrideProps(overrides, "port3option44")}
-        ></option>
-        <option
-          children="Kantang (KTG)"
-          value="Kantang (KTG)"
-          {...getOverrideProps(overrides, "port3option45")}
-        ></option>
-        <option
-          children="Kedah (KKH)"
-          value="Kedah (KKH)"
-          {...getOverrideProps(overrides, "port3option46")}
-        ></option>
-        <option
-          children="Kelantan (KLT)"
-          value="Kelantan (KLT)"
-          {...getOverrideProps(overrides, "port3option47")}
-        ></option>
-        <option
-          children="Kemaman (KMN)"
-          value="Kemaman (KMN)"
-          {...getOverrideProps(overrides, "port3option48")}
-        ></option>
-        <option
-          children="Khanom (KHM)"
-          value="Khanom (KHM)"
-          {...getOverrideProps(overrides, "port3option49")}
-        ></option>
-        <option
-          children="Ko Sichang (KSI)"
-          value="Ko Sichang (KSI)"
-          {...getOverrideProps(overrides, "port3option50")}
-        ></option>
-        <option
-          children="Kolkata (CCU)"
-          value="Kolkata (CCU)"
-          {...getOverrideProps(overrides, "port3option51")}
-        ></option>
-        <option
-          children="Kor Samui (KSM)"
-          value="Kor Samui (KSM)"
-          {...getOverrideProps(overrides, "port3option52")}
-        ></option>
-        <option
-          children="Kuantan (KT)"
-          value="Kuantan (KT)"
-          {...getOverrideProps(overrides, "port3option53")}
-        ></option>
-        <option
-          children="Kuching (KUC)"
-          value="Kuching (KUC)"
-          {...getOverrideProps(overrides, "port3option54")}
-        ></option>
-        <option
-          children="Labuan (LBN)"
-          value="Labuan (LBN)"
-          {...getOverrideProps(overrides, "port3option55")}
-        ></option>
-        <option
-          children="Laem Chabang (LCB)"
-          value="Laem Chabang (LCB)"
-          {...getOverrideProps(overrides, "port3option56")}
-        ></option>
-        <option
-          children="Lahad Datu (LDU)"
-          value="Lahad Datu (LDU)"
-          {...getOverrideProps(overrides, "port3option57")}
-        ></option>
-        <option
-          children="Lhokseumawe (LHOK)"
-          value="Lhokseumawe (LHOK)"
-          {...getOverrideProps(overrides, "port3option58")}
-        ></option>
-        <option
-          children="Lumut (LUM)"
-          value="Lumut (LUM)"
-          {...getOverrideProps(overrides, "port3option59")}
-        ></option>
-        <option
-          children="Maeklong (Firesun) (MKG)"
-          value="Maeklong (Firesun) (MKG)"
-          {...getOverrideProps(overrides, "port3option60")}
-        ></option>
-        <option
-          children="Mahachai (MHI)"
-          value="Mahachai (MHI)"
-          {...getOverrideProps(overrides, "port3option61")}
-        ></option>
-        <option
-          children="Makassar (MAK)"
-          value="Makassar (MAK)"
-          {...getOverrideProps(overrides, "port3option62")}
-        ></option>
-        <option
-          children="Malacca (MAL)"
-          value="Malacca (MAL)"
-          {...getOverrideProps(overrides, "port3option63")}
-        ></option>
-        <option
-          children="Manila Habour (MNL)"
-          value="Manila Habour (MNL)"
-          {...getOverrideProps(overrides, "port3option64")}
-        ></option>
-        <option
-          children="Maptaphut (MAT)"
-          value="Maptaphut (MAT)"
-          {...getOverrideProps(overrides, "port3option65")}
-        ></option>
-        <option
-          children="Marunda (MRD)"
-          value="Marunda (MRD)"
-          {...getOverrideProps(overrides, "port3option66")}
-        ></option>
-        <option
-          children="Mawei Fuzhou (FOC)"
-          value="Mawei Fuzhou (FOC)"
-          {...getOverrideProps(overrides, "port3option67")}
-        ></option>
-        <option
-          children="Muara (MUR)"
-          value="Muara (MUR)"
-          {...getOverrideProps(overrides, "port3option68")}
-        ></option>
-        <option
-          children="My Tho (MUT)"
-          value="My Tho (MUT)"
-          {...getOverrideProps(overrides, "port3option69")}
-        ></option>
-        <option
-          children="Nan Tong (NTG)"
-          value="Nan Tong (NTG)"
-          {...getOverrideProps(overrides, "port3option70")}
-        ></option>
-        <option
-          children="Narathiwat (NAW)"
-          value="Narathiwat (NAW)"
-          {...getOverrideProps(overrides, "port3option71")}
-        ></option>
-        <option
-          children="Nghi Son (NGH)"
-          value="Nghi Son (NGH)"
-          {...getOverrideProps(overrides, "port3option72")}
-        ></option>
-        <option
-          children="Ningde (NDE)"
-          value="Ningde (NDE)"
-          {...getOverrideProps(overrides, "port3option73")}
-        ></option>
-        <option
-          children="Nunukan (NNX)"
-          value="Nunukan (NNX)"
-          {...getOverrideProps(overrides, "port3option74")}
-        ></option>
-        <option
-          children="Oknha Mong Port (OMP)"
-          value="Oknha Mong Port (OMP)"
-          {...getOverrideProps(overrides, "port3option75")}
-        ></option>
-        <option
-          children="Onomichi (ONO)"
-          value="Onomichi (ONO)"
-          {...getOverrideProps(overrides, "port3option76")}
-        ></option>
-        <option
-          children="Padang - Telux Buyur (TBR)"
-          value="Padang - Telux Buyur (TBR)"
-          {...getOverrideProps(overrides, "port3option77")}
-        ></option>
-        <option
-          children="PAKAN Baru (PKRU)"
-          value="PAKAN Baru (PKRU)"
-          {...getOverrideProps(overrides, "port3option78")}
-        ></option>
-        <option
-          children="Palembang (PLB)"
-          value="Palembang (PLB)"
-          {...getOverrideProps(overrides, "port3option79")}
-        ></option>
-        <option
-          children="Panjang (PNJ)"
-          value="Panjang (PNJ)"
-          {...getOverrideProps(overrides, "port3option80")}
-        ></option>
-        <option
-          children="Pasir Gudang (PAS)"
-          value="Pasir Gudang (PAS)"
-          {...getOverrideProps(overrides, "port3option81")}
-        ></option>
-        <option
-          children="Patimban (PTB)"
-          value="Patimban (PTB)"
-          {...getOverrideProps(overrides, "port3option82")}
-        ></option>
-        <option
-          children="Pattani (PTN)"
-          value="Pattani (PTN)"
-          {...getOverrideProps(overrides, "port3option83")}
-        ></option>
-        <option
-          children="Penang (PNG)"
-          value="Penang (PNG)"
-          {...getOverrideProps(overrides, "port3option84")}
-        ></option>
-        <option
-          children="Phnom Penh (PNH)"
-          value="Phnom Penh (PNH)"
-          {...getOverrideProps(overrides, "port3option85")}
-        ></option>
-        <option
-          children="Phra Chulachomklao Fort (PCF)"
-          value="Phra Chulachomklao Fort (PCF)"
-          {...getOverrideProps(overrides, "port3option86")}
-        ></option>
-        <option
-          children="Phuket (HKT)"
-          value="Phuket (HKT)"
-          {...getOverrideProps(overrides, "port3option87")}
-        ></option>
-        <option
-          children="Phumy (PHU)"
-          value="Phumy (PHU)"
-          {...getOverrideProps(overrides, "port3option88")}
-        ></option>
-        <option
-          children="Plathong Oil Rig (PATO)"
-          value="Plathong Oil Rig (PATO)"
-          {...getOverrideProps(overrides, "port3option89")}
-        ></option>
-        <option
-          children="Pontianak (POT)"
-          value="Pontianak (POT)"
-          {...getOverrideProps(overrides, "port3option90")}
-        ></option>
-        <option
-          children="Port Klang (PKL)"
-          value="Port Klang (PKL)"
-          {...getOverrideProps(overrides, "port3option91")}
-        ></option>
-        <option
-          children="Port Moresby (PGPOM)"
-          value="Port Moresby (PGPOM)"
-          {...getOverrideProps(overrides, "port3option92")}
-        ></option>
-        <option
-          children="Poso (POSO)"
-          value="Poso (POSO)"
-          {...getOverrideProps(overrides, "port3option93")}
-        ></option>
-        <option
-          children="Pusan (PUS)"
-          value="Pusan (PUS)"
-          {...getOverrideProps(overrides, "port3option94")}
-        ></option>
-        <option
-          children="Quinzhou (QZH)"
-          value="Quinzhou (QZH)"
-          {...getOverrideProps(overrides, "port3option95")}
-        ></option>
-        <option
-          children="Quy Nhon (QNN)"
-          value="Quy Nhon (QNN)"
-          {...getOverrideProps(overrides, "port3option96")}
-        ></option>
-        <option
-          children="Ranong (UNN)"
-          value="Ranong (UNN)"
-          {...getOverrideProps(overrides, "port3option97")}
-        ></option>
-        <option
-          children="Rayong (IRPC)"
-          value="Rayong (IRPC)"
-          {...getOverrideProps(overrides, "port3option98")}
-        ></option>
-        <option
-          children="Sampit (SMQ)"
-          value="Sampit (SMQ)"
-          {...getOverrideProps(overrides, "port3option99")}
-        ></option>
-        <option
-          children="Sandakan (SAN)"
-          value="Sandakan (SAN)"
-          {...getOverrideProps(overrides, "port3option100")}
-        ></option>
-        <option
-          children="Sarawak (SRW)"
-          value="Sarawak (SRW)"
-          {...getOverrideProps(overrides, "port3option101")}
-        ></option>
-        <option
-          children="Sarekei (SRK)"
-          value="Sarekei (SRK)"
-          {...getOverrideProps(overrides, "port3option102")}
-        ></option>
-        <option
-          children="Sattahip (SATP)"
-          value="Sattahip (SATP)"
-          {...getOverrideProps(overrides, "port3option103")}
-        ></option>
-        <option
-          children="Semarang - Tanjung Emas (SRG)"
-          value="Semarang - Tanjung Emas (SRG)"
-          {...getOverrideProps(overrides, "port3option104")}
-        ></option>
-        <option
-          children="Semarang (SRG)"
-          value="Semarang (SRG)"
-          {...getOverrideProps(overrides, "port3option105")}
-        ></option>
-        <option
-          children="Sibu (SIB)"
-          value="Sibu (SIB)"
-          {...getOverrideProps(overrides, "port3option106")}
-        ></option>
-        <option
-          children="Singapore (SG)"
-          value="Singapore (SG)"
-          {...getOverrideProps(overrides, "port3option107")}
-        ></option>
-        <option
-          children="Sipitang (SIP)"
-          value="Sipitang (SIP)"
-          {...getOverrideProps(overrides, "port3option108")}
-        ></option>
-        <option
-          children="Son Duong (SOD)"
-          value="Son Duong (SOD)"
-          {...getOverrideProps(overrides, "port3option109")}
-        ></option>
-        <option
-          children="Songkhla (SK)"
-          value="Songkhla (SK)"
-          {...getOverrideProps(overrides, "port3option110")}
-        ></option>
-        <option
-          children="Srihanoville (SIH)"
-          value="Srihanoville (SIH)"
-          {...getOverrideProps(overrides, "port3option111")}
-        ></option>
-        <option
-          children="Sriracha Harbor (SRC)"
-          value="Sriracha Harbor (SRC)"
-          {...getOverrideProps(overrides, "port3option112")}
-        ></option>
-        <option
-          children="Sritama Jetty (STM)"
-          value="Sritama Jetty (STM)"
-          {...getOverrideProps(overrides, "port3option113")}
-        ></option>
-        <option
-          children="Steung Hav (SHV)"
-          value="Steung Hav (SHV)"
-          {...getOverrideProps(overrides, "port3option114")}
-        ></option>
-        <option
-          children="Sungai Guntung (SGGT)"
-          value="Sungai Guntung (SGGT)"
-          {...getOverrideProps(overrides, "port3option115")}
-        ></option>
-        <option
-          children="Surabaya (SUBY)"
-          value="Surabaya (SUBY)"
-          {...getOverrideProps(overrides, "port3option116")}
-        ></option>
-        <option
-          children="Surat Thanee (SRT)"
-          value="Surat Thanee (SRT)"
-          {...getOverrideProps(overrides, "port3option117")}
-        ></option>
-        <option
-          children="Tacloban (TAC)"
-          value="Tacloban (TAC)"
-          {...getOverrideProps(overrides, "port3option118")}
-        ></option>
-        <option
-          children="Tagbilaran (TAG)"
-          value="Tagbilaran (TAG)"
-          {...getOverrideProps(overrides, "port3option119")}
-        ></option>
-        <option
-          children="Tanjong Manis (TGM)"
-          value="Tanjong Manis (TGM)"
-          {...getOverrideProps(overrides, "port3option120")}
-        ></option>
-        <option
-          children="Tanjung Batu (TJQ)"
-          value="Tanjung Batu (TJQ)"
-          {...getOverrideProps(overrides, "port3option121")}
-        ></option>
-        <option
-          children="Tanjung Priok (TP)"
-          value="Tanjung Priok (TP)"
-          {...getOverrideProps(overrides, "port3option122")}
-        ></option>
-        <option
-          children="Tarjun (TAR)"
-          value="Tarjun (TAR)"
-          {...getOverrideProps(overrides, "port3option123")}
-        ></option>
-        <option
-          children="Tawau (TAW)"
-          value="Tawau (TAW)"
-          {...getOverrideProps(overrides, "port3option124")}
-        ></option>
-        <option
-          children="Terengganu (TGG)"
-          value="Terengganu (TGG)"
-          {...getOverrideProps(overrides, "port3option125")}
-        ></option>
-        <option
-          children="Tha Sala (TSL)"
-          value="Tha Sala (TSL)"
-          {...getOverrideProps(overrides, "port3option126")}
-        ></option>
-        <option
-          children="Tsukumi (TSUM)"
-          value="Tsukumi (TSUM)"
-          {...getOverrideProps(overrides, "port3option127")}
-        ></option>
-        <option
-          children="Vung Ang (VAG)"
-          value="Vung Ang (VAG)"
-          {...getOverrideProps(overrides, "port3option128")}
-        ></option>
-        <option
-          children="Vung Tau (VUT)"
-          value="Vung Tau (VUT)"
-          {...getOverrideProps(overrides, "port3option129")}
-        ></option>
-        <option
-          children="Yangon (RGN)"
-          value="Yangon (RGN)"
-          {...getOverrideProps(overrides, "port3option130")}
-        ></option>
-      </SelectField>
+      ></SelectField>
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid11")}
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid9")}
       >
         <TextField
           label="PDA Fees"
@@ -3230,53 +3094,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees: value,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -3293,7 +3168,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port3_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port call (Days)"
           type="number"
           step="any"
           value={port3_port_call}
@@ -3302,53 +3177,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call: value,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -3374,53 +3260,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage: value,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -3438,68 +3335,159 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port3_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port3_crane_usage")}
         ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port3_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees: value,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port3_surveying_fees ?? value;
+            }
+            if (errors.port3_surveying_fees?.hasError) {
+              runValidationTasks("port3_surveying_fees", value);
+            }
+            setPort3_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port3_surveying_fees", port3_surveying_fees)
+          }
+          errorMessage={errors.port3_surveying_fees?.errorMessage}
+          hasError={errors.port3_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port3_surveying_fees")}
+        ></TextField>
       </Grid>
-      <Heading
-        children="Port 4"
-        {...getOverrideProps(overrides, "SectionalElement12")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 4"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port4}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4: value,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -4174,8 +4162,8 @@ export default function DistanceCreateForm(props) {
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid14")}
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid11")}
       >
         <TextField
           label="PDA Fees"
@@ -4187,53 +4175,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees: value,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -4250,7 +4249,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port4_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port call (Days)"
           type="number"
           step="any"
           value={port4_port_call}
@@ -4259,53 +4258,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call: value,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -4331,53 +4341,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage: value,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -4395,68 +4416,159 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port4_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port4_crane_usage")}
         ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port4_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees: value,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port4_surveying_fees ?? value;
+            }
+            if (errors.port4_surveying_fees?.hasError) {
+              runValidationTasks("port4_surveying_fees", value);
+            }
+            setPort4_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port4_surveying_fees", port4_surveying_fees)
+          }
+          errorMessage={errors.port4_surveying_fees?.errorMessage}
+          hasError={errors.port4_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port4_surveying_fees")}
+        ></TextField>
       </Grid>
-      <Heading
-        children="Port 5"
-        {...getOverrideProps(overrides, "SectionalElement13")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 5"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port5}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5: value,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -5131,8 +5243,8 @@ export default function DistanceCreateForm(props) {
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid17")}
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid13")}
       >
         <TextField
           label="PDA Fees"
@@ -5144,53 +5256,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees: value,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -5207,7 +5330,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port5_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port call (Days)"
           type="number"
           step="any"
           value={port5_port_call}
@@ -5216,53 +5339,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call: value,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -5288,53 +5422,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage: value,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -5352,68 +5497,159 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port5_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port5_crane_usage")}
         ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port5_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees: value,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port5_surveying_fees ?? value;
+            }
+            if (errors.port5_surveying_fees?.hasError) {
+              runValidationTasks("port5_surveying_fees", value);
+            }
+            setPort5_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port5_surveying_fees", port5_surveying_fees)
+          }
+          errorMessage={errors.port5_surveying_fees?.errorMessage}
+          hasError={errors.port5_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port5_surveying_fees")}
+        ></TextField>
       </Grid>
-      <Heading
-        children="Port 6"
-        {...getOverrideProps(overrides, "SectionalElement14")}
-      ></Heading>
       <SelectField
-        label="Name"
+        label="Port 6"
         placeholder="Please select an option"
-        isDisabled={false}
         value={port6}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
               port1,
               port1_fees,
               port1_port_call,
               port1_crane_usage,
+              port1_surveying_fees,
               port2,
               port2_fees,
               port2_port_call,
               port2_crane_usage,
+              port2_surveying_fees,
               port3,
               port3_fees,
               port3_port_call,
               port3_crane_usage,
+              port3_surveying_fees,
               port4,
               port4_fees,
               port4_port_call,
               port4_crane_usage,
+              port4_surveying_fees,
               port5,
               port5_fees,
               port5_port_call,
               port5_crane_usage,
+              port5_surveying_fees,
               port6: value,
               port6_fees,
               port6_port_call,
               port6_crane_usage,
-              cargo1,
+              port6_surveying_fees,
+              cargo1_type,
               cargo1_quantity,
               cargo1_rate,
-              cargo2,
+              cargo1_brokerage_fees,
+              cargo2_type,
               cargo2_quantity,
               cargo2_rate,
-              cargo3,
+              cargo2_brokerage_fees,
+              cargo3_type,
               cargo3_quantity,
               cargo3_rate,
-              cargo4,
+              cargo3_brokerage_fees,
+              cargo4_type,
               cargo4_quantity,
               cargo4_rate,
-              cargo5,
+              cargo4_brokerage_fees,
+              cargo5_type,
               cargo5_quantity,
               cargo5_rate,
-              cargo6,
+              cargo5_brokerage_fees,
+              cargo6_type,
               cargo6_quantity,
               cargo6_rate,
-              bunker_rate,
-              diesel_rate,
-              lube_rate,
-              brokerage_fees,
-              surveying_fees,
+              cargo6_brokerage_fees,
+              voyageBonus,
               miscCosts,
             };
             const result = onChange(modelFields);
@@ -6088,8 +6324,8 @@ export default function DistanceCreateForm(props) {
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid20")}
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid15")}
       >
         <TextField
           label="PDA Fees"
@@ -6101,53 +6337,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees: value,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -6164,7 +6411,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "port6_fees")}
         ></TextField>
         <TextField
-          label="Port Call Duration (Days)"
+          label="Port Call (Days)"
           type="number"
           step="any"
           value={port6_port_call}
@@ -6173,53 +6420,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call: value,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -6245,53 +6503,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage: value,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -6309,310 +6578,413 @@ export default function DistanceCreateForm(props) {
           hasError={errors.port6_crane_usage?.hasError}
           {...getOverrideProps(overrides, "port6_crane_usage")}
         ></TextField>
-      </Grid>
-      <Divider
-        orientation="horizontal"
-        {...getOverrideProps(overrides, "SectionalElement1")}
-      ></Divider>
-      <Heading
-        children="Cargo 1"
-        {...getOverrideProps(overrides, "SectionalElement0")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid23")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo1}
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port6_surveying_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1: value,
+                port6_surveying_fees: value,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo1 ?? value;
+              value = result?.port6_surveying_fees ?? value;
             }
-            if (errors.cargo1?.hasError) {
-              runValidationTasks("cargo1", value);
+            if (errors.port6_surveying_fees?.hasError) {
+              runValidationTasks("port6_surveying_fees", value);
             }
-            setCargo1(value);
+            setPort6_surveying_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo1", cargo1)}
-          errorMessage={errors.cargo1?.errorMessage}
-          hasError={errors.cargo1?.hasError}
-          {...getOverrideProps(overrides, "cargo1")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo1option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo1option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo1option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo1option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo1option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo1option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo1option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo1option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo1option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo1option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo1option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo1option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo1option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo1option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo1option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo1option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo1option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo1option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo1option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo1option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo1option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo1option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo1option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo1option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo1option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo1option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo1option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo1option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo1option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo1option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo1option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("port6_surveying_fees", port6_surveying_fees)
+          }
+          errorMessage={errors.port6_surveying_fees?.errorMessage}
+          hasError={errors.port6_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port6_surveying_fees")}
+        ></TextField>
+      </Grid>
+      <Divider
+        orientation="horizontal"
+        {...getOverrideProps(overrides, "SectionalElement2")}
+      ></Divider>
+      <SelectField
+        label="Cargo 1"
+        placeholder="Please select an option"
+        value={cargo1_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type: value,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo1_type ?? value;
+          }
+          if (errors.cargo1_type?.hasError) {
+            runValidationTasks("cargo1_type", value);
+          }
+          setCargo1_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo1_type", cargo1_type)}
+        errorMessage={errors.cargo1_type?.errorMessage}
+        hasError={errors.cargo1_type?.hasError}
+        {...getOverrideProps(overrides, "cargo1_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo1_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid18")}
+      >
         <TextField
-          label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo1_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity: value,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -6630,66 +7002,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo1_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate: value,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -6705,307 +7083,409 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo1_rate?.hasError}
           {...getOverrideProps(overrides, "cargo1_rate")}
         ></TextField>
-      </Grid>
-      <Heading
-        level={6}
-        children="Cargo 2"
-        {...getOverrideProps(overrides, "SectionalElement2")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid25")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo2}
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo1_brokerage_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2: value,
+                cargo1_brokerage_fees: value,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo2 ?? value;
+              value = result?.cargo1_brokerage_fees ?? value;
             }
-            if (errors.cargo2?.hasError) {
-              runValidationTasks("cargo2", value);
+            if (errors.cargo1_brokerage_fees?.hasError) {
+              runValidationTasks("cargo1_brokerage_fees", value);
             }
-            setCargo2(value);
+            setCargo1_brokerage_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo2", cargo2)}
-          errorMessage={errors.cargo2?.errorMessage}
-          hasError={errors.cargo2?.hasError}
-          {...getOverrideProps(overrides, "cargo2")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo2option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo2option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo2option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo2option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo2option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo2option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo2option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo2option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo2option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo2option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo2option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo2option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo2option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo2option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo2option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo2option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo2option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo2option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo2option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo2option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo2option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo2option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo2option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo2option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo2option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo2option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo2option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo2option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo2option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo2option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo2option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("cargo1_brokerage_fees", cargo1_brokerage_fees)
+          }
+          errorMessage={errors.cargo1_brokerage_fees?.errorMessage}
+          hasError={errors.cargo1_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo1_brokerage_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label="Cargo 2"
+        placeholder="Please select an option"
+        value={cargo2_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type: value,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo2_type ?? value;
+          }
+          if (errors.cargo2_type?.hasError) {
+            runValidationTasks("cargo2_type", value);
+          }
+          setCargo2_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo2_type", cargo2_type)}
+        errorMessage={errors.cargo2_type?.errorMessage}
+        hasError={errors.cargo2_type?.hasError}
+        {...getOverrideProps(overrides, "cargo2_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo2_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo2_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo2_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo2_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo2_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo2_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo2_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo2_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo2_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo2_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo2_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo2_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo2_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo2_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo2_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo2_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo2_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo2_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo2_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo2_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo2_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo2_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo2_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo2_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo2_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo2_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo2_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo2_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo2_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo2_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo2_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo2_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid20")}
+      >
         <TextField
-          label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo2_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity: value,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7023,66 +7503,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo2_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate: value,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7098,306 +7584,409 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo2_rate?.hasError}
           {...getOverrideProps(overrides, "cargo2_rate")}
         ></TextField>
-      </Grid>
-      <Heading
-        children="Cargo 3"
-        {...getOverrideProps(overrides, "SectionalElement3")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid27")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo3}
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo2_brokerage_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3: value,
+                cargo2_brokerage_fees: value,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo3 ?? value;
+              value = result?.cargo2_brokerage_fees ?? value;
             }
-            if (errors.cargo3?.hasError) {
-              runValidationTasks("cargo3", value);
+            if (errors.cargo2_brokerage_fees?.hasError) {
+              runValidationTasks("cargo2_brokerage_fees", value);
             }
-            setCargo3(value);
+            setCargo2_brokerage_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo3", cargo3)}
-          errorMessage={errors.cargo3?.errorMessage}
-          hasError={errors.cargo3?.hasError}
-          {...getOverrideProps(overrides, "cargo3")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo3option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo3option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo3option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo3option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo3option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo3option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo3option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo3option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo3option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo3option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo3option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo3option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo3option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo3option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo3option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo3option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo3option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo3option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo3option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo3option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo3option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo3option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo3option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo3option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo3option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo3option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo3option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo3option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo3option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo3option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo3option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("cargo2_brokerage_fees", cargo2_brokerage_fees)
+          }
+          errorMessage={errors.cargo2_brokerage_fees?.errorMessage}
+          hasError={errors.cargo2_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo2_brokerage_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label="Cargo 3"
+        placeholder="Please select an option"
+        value={cargo3_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type: value,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo3_type ?? value;
+          }
+          if (errors.cargo3_type?.hasError) {
+            runValidationTasks("cargo3_type", value);
+          }
+          setCargo3_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo3_type", cargo3_type)}
+        errorMessage={errors.cargo3_type?.errorMessage}
+        hasError={errors.cargo3_type?.hasError}
+        {...getOverrideProps(overrides, "cargo3_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo3_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo3_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo3_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo3_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo3_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo3_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo3_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo3_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo3_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo3_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo3_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo3_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo3_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo3_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo3_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo3_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo3_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo3_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo3_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo3_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo3_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo3_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo3_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo3_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo3_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo3_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo3_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo3_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo3_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo3_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo3_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo3_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid22")}
+      >
         <TextField
-          label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo3_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity: value,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7415,66 +8004,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo3_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate: value,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7490,306 +8085,409 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo3_rate?.hasError}
           {...getOverrideProps(overrides, "cargo3_rate")}
         ></TextField>
-      </Grid>
-      <Heading
-        children="Cargo 4"
-        {...getOverrideProps(overrides, "SectionalElement4")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid29")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo4}
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo3_brokerage_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4: value,
+                cargo3_brokerage_fees: value,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo4 ?? value;
+              value = result?.cargo3_brokerage_fees ?? value;
             }
-            if (errors.cargo4?.hasError) {
-              runValidationTasks("cargo4", value);
+            if (errors.cargo3_brokerage_fees?.hasError) {
+              runValidationTasks("cargo3_brokerage_fees", value);
             }
-            setCargo4(value);
+            setCargo3_brokerage_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo4", cargo4)}
-          errorMessage={errors.cargo4?.errorMessage}
-          hasError={errors.cargo4?.hasError}
-          {...getOverrideProps(overrides, "cargo4")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo4option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo4option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo4option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo4option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo4option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo4option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo4option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo4option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo4option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo4option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo4option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo4option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo4option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo4option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo4option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo4option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo4option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo4option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo4option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo4option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo4option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo4option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo4option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo4option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo4option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo4option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo4option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo4option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo4option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo4option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo4option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("cargo3_brokerage_fees", cargo3_brokerage_fees)
+          }
+          errorMessage={errors.cargo3_brokerage_fees?.errorMessage}
+          hasError={errors.cargo3_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo3_brokerage_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label="Cargo 4"
+        placeholder="Please select an option"
+        value={cargo4_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type: value,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo4_type ?? value;
+          }
+          if (errors.cargo4_type?.hasError) {
+            runValidationTasks("cargo4_type", value);
+          }
+          setCargo4_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo4_type", cargo4_type)}
+        errorMessage={errors.cargo4_type?.errorMessage}
+        hasError={errors.cargo4_type?.hasError}
+        {...getOverrideProps(overrides, "cargo4_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo4_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo4_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo4_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo4_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo4_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo4_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo4_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo4_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo4_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo4_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo4_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo4_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo4_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo4_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo4_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo4_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo4_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo4_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo4_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo4_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo4_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo4_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo4_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo4_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo4_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo4_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo4_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo4_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo4_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo4_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo4_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo4_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid24")}
+      >
         <TextField
-          label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo4_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity: value,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7807,66 +8505,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo4_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate: value,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -7882,247 +8586,343 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo4_rate?.hasError}
           {...getOverrideProps(overrides, "cargo4_rate")}
         ></TextField>
-      </Grid>
-      <Heading
-        children="Cargo 5"
-        {...getOverrideProps(overrides, "SectionalElement5")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid31")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo5}
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo4_brokerage_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5: value,
+                cargo4_brokerage_fees: value,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo5 ?? value;
+              value = result?.cargo4_brokerage_fees ?? value;
             }
-            if (errors.cargo5?.hasError) {
-              runValidationTasks("cargo5", value);
+            if (errors.cargo4_brokerage_fees?.hasError) {
+              runValidationTasks("cargo4_brokerage_fees", value);
             }
-            setCargo5(value);
+            setCargo4_brokerage_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo5", cargo5)}
-          errorMessage={errors.cargo5?.errorMessage}
-          hasError={errors.cargo5?.hasError}
-          {...getOverrideProps(overrides, "cargo5")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo5option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo5option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo5option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo5option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo5option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo5option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo5option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo5option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo5option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo5option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo5option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo5option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo5option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo5option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo5option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo5option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo5option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo5option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo5option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo5option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo5option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo5option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo5option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo5option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo5option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo5option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo5option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo5option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo5option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo5option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo5option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("cargo4_brokerage_fees", cargo4_brokerage_fees)
+          }
+          errorMessage={errors.cargo4_brokerage_fees?.errorMessage}
+          hasError={errors.cargo4_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo4_brokerage_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label="Cargo 5"
+        placeholder="Please select an option"
+        value={cargo5_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type: value,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo5_type ?? value;
+          }
+          if (errors.cargo5_type?.hasError) {
+            runValidationTasks("cargo5_type", value);
+          }
+          setCargo5_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo5_type", cargo5_type)}
+        errorMessage={errors.cargo5_type?.errorMessage}
+        hasError={errors.cargo5_type?.hasError}
+        {...getOverrideProps(overrides, "cargo5_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo5_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo5_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo5_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo5_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo5_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo5_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo5_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo5_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo5_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo5_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo5_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo5_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo5_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo5_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo5_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo5_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo5_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo5_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo5_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo5_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo5_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo5_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo5_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo5_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo5_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo5_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo5_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo5_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo5_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo5_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo5_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo5_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid26")}
+      >
         <TextField
-          label="Quantity"
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo5_quantity}
@@ -8131,53 +8931,64 @@ export default function DistanceCreateForm(props) {
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity: value,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -8195,66 +9006,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo5_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate: value,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -8270,306 +9087,409 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo5_rate?.hasError}
           {...getOverrideProps(overrides, "cargo5_rate")}
         ></TextField>
-      </Grid>
-      <Heading
-        children="Cargo 6"
-        {...getOverrideProps(overrides, "SectionalElement6")}
-      ></Heading>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid33")}
-      >
-        <SelectField
-          label="Type"
-          placeholder="Please select an option"
-          isDisabled={false}
-          value={cargo6}
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo5_brokerage_fees}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6: value,
+                cargo5_brokerage_fees: value,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.cargo6 ?? value;
+              value = result?.cargo5_brokerage_fees ?? value;
             }
-            if (errors.cargo6?.hasError) {
-              runValidationTasks("cargo6", value);
+            if (errors.cargo5_brokerage_fees?.hasError) {
+              runValidationTasks("cargo5_brokerage_fees", value);
             }
-            setCargo6(value);
+            setCargo5_brokerage_fees(value);
           }}
-          onBlur={() => runValidationTasks("cargo6", cargo6)}
-          errorMessage={errors.cargo6?.errorMessage}
-          hasError={errors.cargo6?.hasError}
-          {...getOverrideProps(overrides, "cargo6")}
-        >
-          <option
-            children="NIL"
-            value="NIL"
-            {...getOverrideProps(overrides, "cargo6option0")}
-          ></option>
-          <option
-            children="Barite"
-            value="Barite"
-            {...getOverrideProps(overrides, "cargo6option1")}
-          ></option>
-          <option
-            children="Barley"
-            value="Barley"
-            {...getOverrideProps(overrides, "cargo6option2")}
-          ></option>
-          <option
-            children="Charcoal"
-            value="Charcoal"
-            {...getOverrideProps(overrides, "cargo6option3")}
-          ></option>
-          <option
-            children="Cold Rolled Coil"
-            value="Cold Rolled Coil"
-            {...getOverrideProps(overrides, "cargo6option4")}
-          ></option>
-          <option
-            children="Containers"
-            value="Containers"
-            {...getOverrideProps(overrides, "cargo6option5")}
-          ></option>
-          <option
-            children="Dickite"
-            value="Dickite"
-            {...getOverrideProps(overrides, "cargo6option6")}
-          ></option>
-          <option
-            children="Dolomite"
-            value="Dolomite"
-            {...getOverrideProps(overrides, "cargo6option7")}
-          ></option>
-          <option
-            children="Feldspar"
-            value="Feldspar"
-            {...getOverrideProps(overrides, "cargo6option8")}
-          ></option>
-          <option
-            children="Fertilizer"
-            value="Fertilizer"
-            {...getOverrideProps(overrides, "cargo6option9")}
-          ></option>
-          <option
-            children="Hot Rolled Coil"
-            value="Hot Rolled Coil"
-            {...getOverrideProps(overrides, "cargo6option10")}
-          ></option>
-          <option
-            children="Maize"
-            value="Maize"
-            {...getOverrideProps(overrides, "cargo6option11")}
-          ></option>
-          <option
-            children="Palm Kernel Shell (PKS)"
-            value="Palm Kernel Shell (PKS)"
-            {...getOverrideProps(overrides, "cargo6option12")}
-          ></option>
-          <option
-            children="Palm Kernel Expeller (PKE)"
-            value="Palm Kernel Expeller (PKE)"
-            {...getOverrideProps(overrides, "cargo6option13")}
-          ></option>
-          <option
-            children="Plastic Resin"
-            value="Plastic Resin"
-            {...getOverrideProps(overrides, "cargo6option14")}
-          ></option>
-          <option
-            children="Project Cargo"
-            value="Project Cargo"
-            {...getOverrideProps(overrides, "cargo6option15")}
-          ></option>
-          <option
-            children="Rice"
-            value="Rice"
-            {...getOverrideProps(overrides, "cargo6option16")}
-          ></option>
-          <option
-            children="Salt"
-            value="Salt"
-            {...getOverrideProps(overrides, "cargo6option17")}
-          ></option>
-          <option
-            children="Salt and Flour"
-            value="Salt and Flour"
-            {...getOverrideProps(overrides, "cargo6option18")}
-          ></option>
-          <option
-            children="Silica Sand"
-            value="Silica Sand"
-            {...getOverrideProps(overrides, "cargo6option19")}
-          ></option>
-          <option
-            children="Sodium Sulphate Anhydrous"
-            value="Sodium Sulphate Anhydrous"
-            {...getOverrideProps(overrides, "cargo6option20")}
-          ></option>
-          <option
-            children="Soy Bean Meal"
-            value="Soy Bean Meal"
-            {...getOverrideProps(overrides, "cargo6option21")}
-          ></option>
-          <option
-            children="Steel Coil"
-            value="Steel Coil"
-            {...getOverrideProps(overrides, "cargo6option22")}
-          ></option>
-          <option
-            children="Tapioca"
-            value="Tapioca"
-            {...getOverrideProps(overrides, "cargo6option23")}
-          ></option>
-          <option
-            children="Tapioca (Jumbo)"
-            value="Tapioca (Jumbo)"
-            {...getOverrideProps(overrides, "cargo6option24")}
-          ></option>
-          <option
-            children="Tapioca Pellet"
-            value="Tapioca Pellet"
-            {...getOverrideProps(overrides, "cargo6option25")}
-          ></option>
-          <option
-            children="Timber"
-            value="Timber"
-            {...getOverrideProps(overrides, "cargo6option26")}
-          ></option>
-          <option
-            children="Urea"
-            value="Urea"
-            {...getOverrideProps(overrides, "cargo6option27")}
-          ></option>
-          <option
-            children="Wheat"
-            value="Wheat"
-            {...getOverrideProps(overrides, "cargo6option28")}
-          ></option>
-          <option
-            children="Wood Chips"
-            value="Wood Chips"
-            {...getOverrideProps(overrides, "cargo6option29")}
-          ></option>
-          <option
-            children="Wood Pellets"
-            value="Wood Pellets"
-            {...getOverrideProps(overrides, "cargo6option30")}
-          ></option>
-        </SelectField>
+          onBlur={() =>
+            runValidationTasks("cargo5_brokerage_fees", cargo5_brokerage_fees)
+          }
+          errorMessage={errors.cargo5_brokerage_fees?.errorMessage}
+          hasError={errors.cargo5_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo5_brokerage_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label="Cargo 6"
+        placeholder="Please select an option"
+        value={cargo6_type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type: value,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.cargo6_type ?? value;
+          }
+          if (errors.cargo6_type?.hasError) {
+            runValidationTasks("cargo6_type", value);
+          }
+          setCargo6_type(value);
+        }}
+        onBlur={() => runValidationTasks("cargo6_type", cargo6_type)}
+        errorMessage={errors.cargo6_type?.errorMessage}
+        hasError={errors.cargo6_type?.hasError}
+        {...getOverrideProps(overrides, "cargo6_type")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "cargo6_typeoption0")}
+        ></option>
+        <option
+          children="Barite"
+          value="Barite"
+          {...getOverrideProps(overrides, "cargo6_typeoption1")}
+        ></option>
+        <option
+          children="Barley"
+          value="Barley"
+          {...getOverrideProps(overrides, "cargo6_typeoption2")}
+        ></option>
+        <option
+          children="Charcoal"
+          value="Charcoal"
+          {...getOverrideProps(overrides, "cargo6_typeoption3")}
+        ></option>
+        <option
+          children="Cement"
+          value="Cement"
+          {...getOverrideProps(overrides, "cargo6_typeoption4")}
+        ></option>
+        <option
+          children="Cold Rolled Coil"
+          value="Cold Rolled Coil"
+          {...getOverrideProps(overrides, "cargo6_typeoption5")}
+        ></option>
+        <option
+          children="Containers"
+          value="Containers"
+          {...getOverrideProps(overrides, "cargo6_typeoption6")}
+        ></option>
+        <option
+          children="Dickite"
+          value="Dickite"
+          {...getOverrideProps(overrides, "cargo6_typeoption7")}
+        ></option>
+        <option
+          children="Dolomite"
+          value="Dolomite"
+          {...getOverrideProps(overrides, "cargo6_typeoption8")}
+        ></option>
+        <option
+          children="Feldspar"
+          value="Feldspar"
+          {...getOverrideProps(overrides, "cargo6_typeoption9")}
+        ></option>
+        <option
+          children="Fertilizer"
+          value="Fertilizer"
+          {...getOverrideProps(overrides, "cargo6_typeoption10")}
+        ></option>
+        <option
+          children="Hot Rolled Coil"
+          value="Hot Rolled Coil"
+          {...getOverrideProps(overrides, "cargo6_typeoption11")}
+        ></option>
+        <option
+          children="Maize"
+          value="Maize"
+          {...getOverrideProps(overrides, "cargo6_typeoption12")}
+        ></option>
+        <option
+          children="Palm Kernel Shell (PKS)"
+          value="Palm Kernel Shell (PKS)"
+          {...getOverrideProps(overrides, "cargo6_typeoption13")}
+        ></option>
+        <option
+          children="Palm Kernel Expeller (PKE)"
+          value="Palm Kernel Expeller (PKE)"
+          {...getOverrideProps(overrides, "cargo6_typeoption14")}
+        ></option>
+        <option
+          children="Plastic Resin"
+          value="Plastic Resin"
+          {...getOverrideProps(overrides, "cargo6_typeoption15")}
+        ></option>
+        <option
+          children="Project Cargo"
+          value="Project Cargo"
+          {...getOverrideProps(overrides, "cargo6_typeoption16")}
+        ></option>
+        <option
+          children="Rice"
+          value="Rice"
+          {...getOverrideProps(overrides, "cargo6_typeoption17")}
+        ></option>
+        <option
+          children="Salt"
+          value="Salt"
+          {...getOverrideProps(overrides, "cargo6_typeoption18")}
+        ></option>
+        <option
+          children="Salt and Flour"
+          value="Salt and Flour"
+          {...getOverrideProps(overrides, "cargo6_typeoption19")}
+        ></option>
+        <option
+          children="Silica Sand"
+          value="Silica Sand"
+          {...getOverrideProps(overrides, "cargo6_typeoption20")}
+        ></option>
+        <option
+          children="Sodium Sulphate Anhydrous"
+          value="Sodium Sulphate Anhydrous"
+          {...getOverrideProps(overrides, "cargo6_typeoption21")}
+        ></option>
+        <option
+          children="Soy Bean Meal"
+          value="Soy Bean Meal"
+          {...getOverrideProps(overrides, "cargo6_typeoption22")}
+        ></option>
+        <option
+          children="Steel Coil"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo6_typeoption23")}
+        ></option>
+        <option
+          children="Tapioca"
+          value="Tapioca"
+          {...getOverrideProps(overrides, "cargo6_typeoption24")}
+        ></option>
+        <option
+          children="Tapioca (Jumbo)"
+          value="Tapioca (Jumbo)"
+          {...getOverrideProps(overrides, "cargo6_typeoption25")}
+        ></option>
+        <option
+          children="Tapioca Pellet"
+          value="Tapioca Pellet"
+          {...getOverrideProps(overrides, "cargo6_typeoption26")}
+        ></option>
+        <option
+          children="Timber"
+          value="Timber"
+          {...getOverrideProps(overrides, "cargo6_typeoption27")}
+        ></option>
+        <option
+          children="Urea"
+          value="Urea"
+          {...getOverrideProps(overrides, "cargo6_typeoption28")}
+        ></option>
+        <option
+          children="Wheat"
+          value="Wheat"
+          {...getOverrideProps(overrides, "cargo6_typeoption29")}
+        ></option>
+        <option
+          children="Wood Chips"
+          value="Wood Chips"
+          {...getOverrideProps(overrides, "cargo6_typeoption30")}
+        ></option>
+        <option
+          children="Wood Pellets"
+          value="Wood Pellets"
+          {...getOverrideProps(overrides, "cargo6_typeoption31")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(3, auto)"
+        {...getOverrideProps(overrides, "RowGrid28")}
+      >
         <TextField
-          label="Quantity"
-          isRequired={false}
-          isReadOnly={false}
+          label="Quantity (MT)"
           type="number"
           step="any"
           value={cargo6_quantity}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity: value,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -8587,66 +9507,72 @@ export default function DistanceCreateForm(props) {
         ></TextField>
         <TextField
           label="Freight Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={cargo6_rate}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate: value,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts,
               };
               const result = onChange(modelFields);
@@ -8662,459 +9588,253 @@ export default function DistanceCreateForm(props) {
           hasError={errors.cargo6_rate?.hasError}
           {...getOverrideProps(overrides, "cargo6_rate")}
         ></TextField>
+        <TextField
+          label="Brokerage Fees"
+          type="number"
+          step="any"
+          value={cargo6_brokerage_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees: value,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.cargo6_brokerage_fees ?? value;
+            }
+            if (errors.cargo6_brokerage_fees?.hasError) {
+              runValidationTasks("cargo6_brokerage_fees", value);
+            }
+            setCargo6_brokerage_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("cargo6_brokerage_fees", cargo6_brokerage_fees)
+          }
+          errorMessage={errors.cargo6_brokerage_fees?.errorMessage}
+          hasError={errors.cargo6_brokerage_fees?.hasError}
+          {...getOverrideProps(overrides, "cargo6_brokerage_fees")}
+        ></TextField>
       </Grid>
       <Divider
         orientation="horizontal"
-        {...getOverrideProps(overrides, "SectionalElement7")}
+        {...getOverrideProps(overrides, "SectionalElement1")}
       ></Divider>
       <Grid
         columnGap="inherit"
         rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid35")}
+        templateColumns="repeat(2, auto)"
+        {...getOverrideProps(overrides, "RowGrid30")}
       >
         <TextField
-          label="Bunker Fuel Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
+          label="Voyage Bonus"
           type="number"
           step="any"
-          value={bunker_rate}
-          onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
-            if (onChange) {
-              const modelFields = {
-                currency_type,
-                port1,
-                port1_fees,
-                port1_port_call,
-                port1_crane_usage,
-                port2,
-                port2_fees,
-                port2_port_call,
-                port2_crane_usage,
-                port3,
-                port3_fees,
-                port3_port_call,
-                port3_crane_usage,
-                port4,
-                port4_fees,
-                port4_port_call,
-                port4_crane_usage,
-                port5,
-                port5_fees,
-                port5_port_call,
-                port5_crane_usage,
-                port6,
-                port6_fees,
-                port6_port_call,
-                port6_crane_usage,
-                cargo1,
-                cargo1_quantity,
-                cargo1_rate,
-                cargo2,
-                cargo2_quantity,
-                cargo2_rate,
-                cargo3,
-                cargo3_quantity,
-                cargo3_rate,
-                cargo4,
-                cargo4_quantity,
-                cargo4_rate,
-                cargo5,
-                cargo5_quantity,
-                cargo5_rate,
-                cargo6,
-                cargo6_quantity,
-                cargo6_rate,
-                bunker_rate: value,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
-                miscCosts,
-              };
-              const result = onChange(modelFields);
-              value = result?.bunker_rate ?? value;
-            }
-            if (errors.bunker_rate?.hasError) {
-              runValidationTasks("bunker_rate", value);
-            }
-            setBunker_rate(value);
-          }}
-          onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
-          errorMessage={errors.bunker_rate?.errorMessage}
-          hasError={errors.bunker_rate?.hasError}
-          {...getOverrideProps(overrides, "bunker_rate")}
-        ></TextField>
-        <TextField
-          label="Diesel Fuel Rate"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
-          type="number"
-          step="any"
-          value={diesel_rate}
-          onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
-            if (onChange) {
-              const modelFields = {
-                currency_type,
-                port1,
-                port1_fees,
-                port1_port_call,
-                port1_crane_usage,
-                port2,
-                port2_fees,
-                port2_port_call,
-                port2_crane_usage,
-                port3,
-                port3_fees,
-                port3_port_call,
-                port3_crane_usage,
-                port4,
-                port4_fees,
-                port4_port_call,
-                port4_crane_usage,
-                port5,
-                port5_fees,
-                port5_port_call,
-                port5_crane_usage,
-                port6,
-                port6_fees,
-                port6_port_call,
-                port6_crane_usage,
-                cargo1,
-                cargo1_quantity,
-                cargo1_rate,
-                cargo2,
-                cargo2_quantity,
-                cargo2_rate,
-                cargo3,
-                cargo3_quantity,
-                cargo3_rate,
-                cargo4,
-                cargo4_quantity,
-                cargo4_rate,
-                cargo5,
-                cargo5_quantity,
-                cargo5_rate,
-                cargo6,
-                cargo6_quantity,
-                cargo6_rate,
-                bunker_rate,
-                diesel_rate: value,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
-                miscCosts,
-              };
-              const result = onChange(modelFields);
-              value = result?.diesel_rate ?? value;
-            }
-            if (errors.diesel_rate?.hasError) {
-              runValidationTasks("diesel_rate", value);
-            }
-            setDiesel_rate(value);
-          }}
-          onBlur={() => runValidationTasks("diesel_rate", diesel_rate)}
-          errorMessage={errors.diesel_rate?.errorMessage}
-          hasError={errors.diesel_rate?.hasError}
-          {...getOverrideProps(overrides, "diesel_rate")}
-        ></TextField>
-        <TextField
-          label="Lube Rate"
-          placeholder="$"
-          type="number"
-          step="any"
-          value={lube_rate}
+          value={voyageBonus}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
-                port1,
-                port1_fees,
-                port1_port_call,
-                port1_crane_usage,
-                port2,
-                port2_fees,
-                port2_port_call,
-                port2_crane_usage,
-                port3,
-                port3_fees,
-                port3_port_call,
-                port3_crane_usage,
-                port4,
-                port4_fees,
-                port4_port_call,
-                port4_crane_usage,
-                port5,
-                port5_fees,
-                port5_port_call,
-                port5_crane_usage,
-                port6,
-                port6_fees,
-                port6_port_call,
-                port6_crane_usage,
-                cargo1,
-                cargo1_quantity,
-                cargo1_rate,
-                cargo2,
-                cargo2_quantity,
-                cargo2_rate,
-                cargo3,
-                cargo3_quantity,
-                cargo3_rate,
-                cargo4,
-                cargo4_quantity,
-                cargo4_rate,
-                cargo5,
-                cargo5_quantity,
-                cargo5_rate,
-                cargo6,
-                cargo6_quantity,
-                cargo6_rate,
-                bunker_rate,
                 diesel_rate,
-                lube_rate: value,
-                brokerage_fees,
-                surveying_fees,
-                miscCosts,
-              };
-              const result = onChange(modelFields);
-              value = result?.lube_rate ?? value;
-            }
-            if (errors.lube_rate?.hasError) {
-              runValidationTasks("lube_rate", value);
-            }
-            setLube_rate(value);
-          }}
-          onBlur={() => runValidationTasks("lube_rate", lube_rate)}
-          errorMessage={errors.lube_rate?.errorMessage}
-          hasError={errors.lube_rate?.hasError}
-          {...getOverrideProps(overrides, "lube_rate")}
-        ></TextField>
-      </Grid>
-      <Grid
-        columnGap="inherit"
-        rowGap="inherit"
-        templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid36")}
-      >
-        <TextField
-          label="Cargo Brokerage Fees (%)"
-          placeholder="%"
-          type="number"
-          step="any"
-          value={brokerage_fees}
-          onChange={(e) => {
-            let { value } = e.target;
-            if (onChange) {
-              const modelFields = {
-                currency_type,
-                port1,
-                port1_fees,
-                port1_port_call,
-                port1_crane_usage,
-                port2,
-                port2_fees,
-                port2_port_call,
-                port2_crane_usage,
-                port3,
-                port3_fees,
-                port3_port_call,
-                port3_crane_usage,
-                port4,
-                port4_fees,
-                port4_port_call,
-                port4_crane_usage,
-                port5,
-                port5_fees,
-                port5_port_call,
-                port5_crane_usage,
-                port6,
-                port6_fees,
-                port6_port_call,
-                port6_crane_usage,
-                cargo1,
-                cargo1_quantity,
-                cargo1_rate,
-                cargo2,
-                cargo2_quantity,
-                cargo2_rate,
-                cargo3,
-                cargo3_quantity,
-                cargo3_rate,
-                cargo4,
-                cargo4_quantity,
-                cargo4_rate,
-                cargo5,
-                cargo5_quantity,
-                cargo5_rate,
-                cargo6,
-                cargo6_quantity,
-                cargo6_rate,
                 bunker_rate,
-                diesel_rate,
                 lube_rate,
-                brokerage_fees: value,
-                surveying_fees,
-                miscCosts,
-              };
-              const result = onChange(modelFields);
-              value = result?.brokerage_fees ?? value;
-            }
-            if (errors.brokerage_fees?.hasError) {
-              runValidationTasks("brokerage_fees", value);
-            }
-            setBrokerage_fees(value);
-          }}
-          onBlur={() => runValidationTasks("brokerage_fees", brokerage_fees)}
-          errorMessage={errors.brokerage_fees?.errorMessage}
-          hasError={errors.brokerage_fees?.hasError}
-          {...getOverrideProps(overrides, "brokerage_fees")}
-        ></TextField>
-        <TextField
-          label="Surverying Fees"
-          placeholder="$"
-          type="number"
-          step="any"
-          value={surveying_fees}
-          onChange={(e) => {
-            let { value } = e.target;
-            if (onChange) {
-              const modelFields = {
-                currency_type,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees: value,
+                cargo6_brokerage_fees,
+                voyageBonus: value,
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.surveying_fees ?? value;
+              value = result?.voyageBonus ?? value;
             }
-            if (errors.surveying_fees?.hasError) {
-              runValidationTasks("surveying_fees", value);
+            if (errors.voyageBonus?.hasError) {
+              runValidationTasks("voyageBonus", value);
             }
-            setSurveying_fees(value);
+            setVoyageBonus(value);
           }}
-          onBlur={() => runValidationTasks("surveying_fees", surveying_fees)}
-          errorMessage={errors.surveying_fees?.errorMessage}
-          hasError={errors.surveying_fees?.hasError}
-          {...getOverrideProps(overrides, "surveying_fees")}
+          onBlur={() => runValidationTasks("voyageBonus", voyageBonus)}
+          errorMessage={errors.voyageBonus?.errorMessage}
+          hasError={errors.voyageBonus?.hasError}
+          {...getOverrideProps(overrides, "voyageBonus")}
         ></TextField>
         <TextField
           label="Misc Costs"
-          isRequired={false}
-          isReadOnly={false}
-          placeholder="$"
           type="number"
           step="any"
           value={miscCosts}
           onChange={(e) => {
-            let value = isNaN(parseFloat(e.target.value))
-              ? e.target.value
-              : parseFloat(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
                 port1,
                 port1_fees,
                 port1_port_call,
                 port1_crane_usage,
+                port1_surveying_fees,
                 port2,
                 port2_fees,
                 port2_port_call,
                 port2_crane_usage,
+                port2_surveying_fees,
                 port3,
                 port3_fees,
                 port3_port_call,
                 port3_crane_usage,
+                port3_surveying_fees,
                 port4,
                 port4_fees,
                 port4_port_call,
                 port4_crane_usage,
+                port4_surveying_fees,
                 port5,
                 port5_fees,
                 port5_port_call,
                 port5_crane_usage,
+                port5_surveying_fees,
                 port6,
                 port6_fees,
                 port6_port_call,
                 port6_crane_usage,
-                cargo1,
+                port6_surveying_fees,
+                cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
-                cargo2,
+                cargo1_brokerage_fees,
+                cargo2_type,
                 cargo2_quantity,
                 cargo2_rate,
-                cargo3,
+                cargo2_brokerage_fees,
+                cargo3_type,
                 cargo3_quantity,
                 cargo3_rate,
-                cargo4,
+                cargo3_brokerage_fees,
+                cargo4_type,
                 cargo4_quantity,
                 cargo4_rate,
-                cargo5,
+                cargo4_brokerage_fees,
+                cargo5_type,
                 cargo5_quantity,
                 cargo5_rate,
-                cargo6,
+                cargo5_brokerage_fees,
+                cargo6_type,
                 cargo6_quantity,
                 cargo6_rate,
-                bunker_rate,
-                diesel_rate,
-                lube_rate,
-                brokerage_fees,
-                surveying_fees,
+                cargo6_brokerage_fees,
+                voyageBonus,
                 miscCosts: value,
               };
               const result = onChange(modelFields);
@@ -9145,7 +9865,7 @@ export default function DistanceCreateForm(props) {
           {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
-          gap={tokens.space.medium.value}
+          gap="15px"
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
           <Button

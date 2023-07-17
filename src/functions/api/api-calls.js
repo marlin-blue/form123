@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiUrl = 'https://c6wt2zay38.execute-api.us-west-2.amazonaws.com/prod';
+const apiUrl = 'https://lbguf2ogb0.execute-api.us-west-2.amazonaws.com/prod';
 
 export async function storeFormAPICall(formInputs) {
   try {
@@ -10,49 +10,60 @@ export async function storeFormAPICall(formInputs) {
       port1_fees: formInputs.port1_fees,
       port1_port_call: formInputs.port1_port_call,
       port1_crane_usage: formInputs.port1_crane_usage,
+      port1_surveying_fees: formInputs.port1_surveying_fees,
       port2: formInputs.port2,
       port2_fees: formInputs.port2_fees,
       port2_port_call: formInputs.port2_port_call,
       port2_crane_usage: formInputs.port2_crane_usage,
+      port2_surveying_fees: formInputs.port2_surveying_fees,
       port3: formInputs.port3,
       port3_fees: formInputs.port3_fees,
       port3_port_call: formInputs.port3_port_call,
       port3_crane_usage: formInputs.port3_crane_usage,
+      port3_surveying_fees: formInputs.port3_surveying_fees,
       port4: formInputs.port4,
       port4_fees: formInputs.port4_fees,
       port4_port_call: formInputs.port4_port_call,
       port4_crane_usage: formInputs.port4_crane_usage,
+      port4_surveying_fees: formInputs.port4_surveying_fees,
       port5: formInputs.port5,
       port5_fees: formInputs.port5_fees,
       port5_port_call: formInputs.port5_port_call,
       port5_crane_usage: formInputs.port5_crane_usage,
+      port5_surveying_fees: formInputs.port5_surveying_fees,
       port6: formInputs.port6,
       port6_fees: formInputs.port6_fees,
       port6_port_call: formInputs.port6_port_call,
       port6_crane_usage: formInputs.port6_crane_usage,
-      cargo1: formInputs.cargo1,
+      port6_surveying_fees: formInputs.port6_surveying_fees,
+      cargo1_type: formInputs.cargo1_type,
       cargo1_quantity: formInputs.cargo1_quantity,
       cargo1_rate: formInputs.cargo1_rate,
-      cargo2: formInputs.cargo2,
+      cargo1_brokerage_fees: formInputs.cargo1_brokerage_fees,
+      cargo2_type: formInputs.cargo2_type,
       cargo2_quantity: formInputs.cargo2_quantity,
       cargo2_rate: formInputs.cargo2_rate,
-      cargo3: formInputs.cargo3,
+      cargo2_brokerage_fees: formInputs.cargo2_brokerage_fees,
+      cargo3_type: formInputs.cargo3_type,
       cargo3_quantity: formInputs.cargo3_quantity,
       cargo3_rate: formInputs.cargo3_rate,
-      cargo4: formInputs.cargo4,
+      cargo3_brokerage_fees: formInputs.cargo3_brokerage_fees,
+      cargo4_type: formInputs.cargo4_type,
       cargo4_quantity: formInputs.cargo4_quantity,
       cargo4_rate: formInputs.cargo4_rate,
-      cargo5: formInputs.cargo5,
+      cargo4_brokerage_fees: formInputs.cargo4_brokerage_fees,
+      cargo5_type: formInputs.cargo5_type,
       cargo5_quantity: formInputs.cargo5_quantity,
       cargo5_rate: formInputs.cargo5_rate,
-      cargo6: formInputs.cargo6,
+      cargo5_brokerage_fees: formInputs.cargo5_brokerage_fees,
+      cargo6_type: formInputs.cargo6_type,
       cargo6_quantity: formInputs.cargo6_quantity,
       cargo6_rate: formInputs.cargo6_rate,
+      cargo6_brokerage_fees: formInputs.cargo6_brokerage_fees,
       bunker_rate: formInputs.bunker_rate,
       diesel_rate: formInputs.diesel_rate,
       lube_rate: formInputs.lube_rate,
-      brokerage_fees: formInputs.brokerage_fees,
-      surveying_fees: formInputs.surveying_fees,
+      voyageBonus: formInputs.voyageBonus,
       miscCosts: formInputs.miscCosts,
     };    
 
@@ -114,7 +125,7 @@ export async function storeFormAPICall(formInputs) {
 export async function calculateDataAPICall(formId) {
 
   try {
-    const response = await axios.get(`${apiUrl}/calculate/${formId}`);
+    const response = await axios.get(`${apiUrl}/calculate/execute/${formId}`);
     return response.data;
   } catch (error) {
     console.error('Calcuate API call error:', error);

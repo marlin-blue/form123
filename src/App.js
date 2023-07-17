@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DistanceCreateForm } from './ui-components';
+import { Calculator } from './ui-components';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
 
@@ -36,7 +36,7 @@ function App() {
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
-
+      
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
       setCalculationData(calculationDataResponse);
@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       <h1>Calculator</h1>
-      <DistanceCreateForm onSubmit={handleSubmit} onChange={setFormData} />
+      <Calculator onSubmit={handleSubmit} onChange={setFormData} />
       {result && <p style={{ color: 'green' }}>Result: {result}. You can now calculate!</p>}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {result && !errorMessage && (
@@ -59,7 +59,7 @@ function App() {
           {calculationData && (
             <div>
               <h1>Calculation Data for HN5:</h1>
-              <p>Currency: {calculationData.currency_type}</p>
+              
               <p>
                 Profit/Loss:{" "}
                 <span
@@ -71,11 +71,11 @@ function App() {
                   {formatNumber(Math.round(calculationData.profit))}
                 </span> 
               </p>
-              <p>Revenue: {formatNumber(calculationData.revenue)}</p>
-              <p>Costs: {formatNumber(Math.round(calculationData.totalCosts))}</p>
+              <p>Revenue: {formatNumber(calculationData.revenue)} THB</p>
+              <p>Costs: {formatNumber(Math.round(calculationData.totalCosts))} THB</p>
               <p>Margin: {calculationData.marginPercentage.toFixed(2)}%</p>
-              <p>Fuel Costs: {formatNumber(calculationData.fuelCosts)}</p>
-              <p>Percentage Fuel Cost: {calculationData.percentageFuelCost.toFixed(2)}%</p>
+              <p>Fuel Costs: {formatNumber(calculationData.fuelCosts)} THB</p>
+              <p>Percentage Fuel Cost: {calculationData.fuelCostsPercentage.toFixed(2)}%</p>
 
             </div>
           )}

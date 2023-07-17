@@ -24,78 +24,89 @@ exports.handler = async (event) => {
                 port: event.queryStringParameters.port1,
                 fees: parseFloat(event.queryStringParameters.port1_fees),
                 port_call: parseFloat(event.queryStringParameters.port1_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port1_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port1_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port1_surveying_fees)
             },
             {
                 port: event.queryStringParameters.port2,
                 fees: parseFloat(event.queryStringParameters.port2_fees),
                 port_call: parseFloat(event.queryStringParameters.port2_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port2_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port2_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port2_surveying_fees)
             },
             {
                 port: event.queryStringParameters.port3,
                 fees: parseFloat(event.queryStringParameters.port3_fees),
                 port_call: parseFloat(event.queryStringParameters.port3_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port3_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port3_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port3_surveying_fees)
             },
             {
                 port: event.queryStringParameters.port4,
                 fees: parseFloat(event.queryStringParameters.port4_fees),
                 port_call: parseFloat(event.queryStringParameters.port4_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port4_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port4_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port4_surveying_fees)
             },
             {
                 port: event.queryStringParameters.port5,
                 fees: parseFloat(event.queryStringParameters.port5_fees),
                 port_call: parseFloat(event.queryStringParameters.port5_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port5_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port5_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port5_surveying_fees)
             },
             {
                 port: event.queryStringParameters.port6,
                 fees: parseFloat(event.queryStringParameters.port6_fees),
                 port_call: parseFloat(event.queryStringParameters.port6_port_call),
-                crane_usage: parseFloat(event.queryStringParameters.port6_crane_usage)
+                crane_usage: parseFloat(event.queryStringParameters.port6_crane_usage),
+                surveying_fees: parseFloat(event.queryStringParameters.port6_surveying_fees)
             }
         ];
 
         const cargos = [
             {
-                type: event.queryStringParameters.cargo1,
+                type: event.queryStringParameters.cargo1_type,
                 quantity: parseFloat(event.queryStringParameters.cargo1_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo1_rate)
+                rate: parseFloat(event.queryStringParameters.cargo1_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo1_brokerage_fees)
             },
             {
-                type: event.queryStringParameters.cargo2,
+                type: event.queryStringParameters.cargo2_type,
                 quantity: parseFloat(event.queryStringParameters.cargo2_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo2_rate)
+                rate: parseFloat(event.queryStringParameters.cargo2_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo2_brokerage_fees)
             },
             {
-                type: event.queryStringParameters.cargo3,
+                type: event.queryStringParameters.cargo3_type,
                 quantity: parseFloat(event.queryStringParameters.cargo3_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo3_rate)
+                rate: parseFloat(event.queryStringParameters.cargo3_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo3_brokerage_fees)
             },
             {
-                type: event.queryStringParameters.cargo4,
+                type: event.queryStringParameters.cargo4_type,
                 quantity: parseFloat(event.queryStringParameters.cargo4_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo4_rate)
+                rate: parseFloat(event.queryStringParameters.cargo4_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo4_brokerage_fees)
             },
             {
-                type: event.queryStringParameters.cargo5,
+                type: event.queryStringParameters.cargo5_type,
                 quantity: parseFloat(event.queryStringParameters.cargo5_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo5_rate)
+                rate: parseFloat(event.queryStringParameters.cargo5_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo5_brokerage_fees)
             },
             {
-                type: event.queryStringParameters.cargo6,
+                type: event.queryStringParameters.cargo6_type,
                 quantity: parseFloat(event.queryStringParameters.cargo6_quantity),
-                rate: parseFloat(event.queryStringParameters.cargo6_rate)
+                rate: parseFloat(event.queryStringParameters.cargo6_rate),
+                brokerage_fees: parseFloat(event.queryStringParameters.cargo6_brokerage_fees)
             }
         ];
 
         const bunkerFuelRate = parseFloat(event.queryStringParameters.bunker_rate);
         const dieselFuelRate = parseFloat(event.queryStringParameters.diesel_rate);
         const lubeRate = parseFloat(event.queryStringParameters.lube_rate);
-        const surveyingFees = parseFloat(event.queryStringParameters.surveying_fees);
-        const brokerageFees = parseFloat(event.queryStringParameters.brokerage_fees);
+        const voyageBonus = parseFloat(event.queryStringParameters.voyageBonus);
         const miscCosts = parseFloat(event.queryStringParameters.miscCosts);
 
         // Store the form details in the DynamoDB table
@@ -110,8 +121,7 @@ exports.handler = async (event) => {
                 bunkerFuelRate: bunkerFuelRate,
                 dieselFuelRate: dieselFuelRate,
                 lubeRate: lubeRate,
-                brokerageFees: brokerageFees,
-                surveyingFees: surveyingFees,
+                voyageBonus: voyageBonus,
                 miscCosts: miscCosts
             }
         };
@@ -131,12 +141,12 @@ exports.handler = async (event) => {
 
         return response;
     } catch (error) {
-      let errorMessage = 'An error occurred';
-      if (error.parameter) {
-          errorMessage += `: The parameter '${error.parameter}' cannot be converted to a numeric value`;
-      } else {
-          errorMessage += `: ${error.message}`;
-      }
+        let errorMessage = 'An error occurred';
+        if (error.parameter) {
+            errorMessage += `: The parameter '${error.parameter}' cannot be converted to a numeric value`;
+        } else {
+            errorMessage += `: ${error.message}`;
+        }
         const response = {
             statusCode: 500,
             headers: {

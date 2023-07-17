@@ -15,6 +15,7 @@ exports.handler = async (event) => {
   console.log(JSON.stringify(event, null, 2)); // Log the event details
 
   try {
+
     const formId = event.pathParameters.id;
 
     // Retrieve the form details from the forms table
@@ -29,32 +30,51 @@ exports.handler = async (event) => {
     const form = formResult.Item;
 
     const currency_type = form.currency_type;
+    
+    let exchange_rate = 1; // Default exchange rate
+
+    if (currency_type === "Thai Bhat (THB)") {
+      exchange_rate = 1;
+    } else if (currency_type === "US Dollar (USD)") {
+      exchange_rate = 35;
+    } else if (currency_type === "Malaysian Ringgit (MYR)") {
+      exchange_rate = 7.5;
+    }
+
     const ports = form.ports;
     const cargos = form.cargos;
-    const bunkerFuelRate = form.bunkerFuelRate;
-    const dieselFuelRate = form.dieselFuelRate;
-    const lubeRate = form.lubeRate;
-    const surveying_fees = form.surveyingFees;
-    const brokerage_fees = form.brokerageFees;
-    const miscCosts = form.miscCosts;
-
+    const bunkerFuelRate = form.bunkerFuelRate * exchange_rate;
+    const dieselFuelRate = form.dieselFuelRate  * exchange_rate;
+    const lubeRate = form.lubeRate  * exchange_rate;
+    const voyageBonus = form.voyageBonus  * exchange_rate;
+    const miscCosts = form.miscCosts  * exchange_rate;
 
     // Calculate the revenue
     const revenue = cargos.reduce((sum, cargo) => {
-      return sum + (cargo.quantity * cargo.rate);
+      return sum + (cargo.quantity * cargo.rate * exchange_rate);
     }, 0);
+    
+    // Cargo Brokerage Fees
+    const brokerageCosts = cargos.reduce((sum, cargo) => {
+      return sum + ((cargo.brokerage_fees / 100) * (cargo.quantity * cargo.rate * exchange_rate))
+    }, 0);
+    
+    //Calculate total Surveying Fees
+    const totalSurveyingFees = ports.reduce((sum, ports) => {
+       return sum + (ports.surveying_fees * exchange_rate);
+     }, 0);
 
     // Assuming `ports` is the array containing port data
     let totalDistance = 0;
 
     for (let i = 0; i < ports.length - 1; i++) {
       const sourcePort = ports[i].port;
-      const destinationPort = ports[i+1].port;
+      const destinationPort = ports[i + 1].port;
 
       if (sourcePort === "NIL" || destinationPort === "NIL") {
         break;
       }
-    
+
       const distanceParams = {
         TableName: distanceTableName,
         FilterExpression: 'sourcePort = :source AND destinationPort = :destination',
@@ -63,15 +83,15 @@ exports.handler = async (event) => {
           ':destination': destinationPort
         }
       };
-    
+
       const distanceResult = await dynamodb.scan(distanceParams).promise();
       const distanceItems = distanceResult.Items;
-      
+
       const distance = Number(distanceItems[0].distance);
       totalDistance += (distance);
-      
+
     }
-    
+
 
     // Duration at sea
     const duration_at_sea = totalDistance / 9; //speed
@@ -80,49 +100,88 @@ exports.handler = async (event) => {
     const duration_at_port = ports.reduce((sum, ports) => {
       return sum + (ports.port_call * 24);
     }, 0);
-
+    
     const duration_crane_usage = ports.reduce((sum, ports) => {
       return sum + (ports.crane_usage);
     }, 0);
 
     // Calculate the fuel costs for HN5
-    const main_engine_fuel_cost = duration_at_sea * dieselFuelRate * 195.0; // HN5 no bunker fuel
+    const main_engine_fuel_cost = duration_at_sea * dieselFuelRate * (195.0) + duration_at_sea * bunkerFuelRate; // HN5 no bunker fuel
     const main_diesel_cost = duration_at_sea * dieselFuelRate * 0; // HN5 NA
-    const winch_diesel_cost = duration_crane_usage * dieselFuelRate * 56.0;
-    const generator_diesel_cost = (duration_at_sea + duration_crane_usage / 24) * dieselFuelRate * 16.0;
-    const lube_cost = duration_at_sea * lubeRate * 2.25;
+    const winch_diesel_cost = duration_crane_usage * dieselFuelRate * (56.0);
+    const generator_diesel_cost = (duration_at_sea + (duration_crane_usage / 24)) * dieselFuelRate * (16.0);
+    const lube_cost = duration_at_sea * lubeRate * (2.25 );
 
     const fuelCosts = main_engine_fuel_cost + main_diesel_cost + winch_diesel_cost + generator_diesel_cost + lube_cost;
 
-    // Calculate operating costs (THB to USD)
-    const operatingCosts = (83577 / 35) * (duration_at_sea + (duration_at_port / 24)); // from operating costs table (fixed costs)
+    // Calculate operating costs (THB)
+    const operatingCosts = (83577) * ((duration_at_sea + duration_at_port)/ 24); // from operating costs table (fixed costs)
 
     // Sum of port fees
     const portCosts = ports.reduce((sum, ports) => {
-      return sum + (ports.fees);
+      return sum + (ports.fees * exchange_rate);
     }, 0);
 
-    // Cargo Brokerage Fees
-    const brokerageCosts = (brokerage_fees / 100) * revenue;
+
 
     // Sum of Costs
-    const totalCosts = fuelCosts + portCosts + miscCosts + brokerageCosts + operatingCosts + surveying_fees;
+    const totalCosts = (fuelCosts + portCosts + miscCosts + brokerageCosts + operatingCosts + voyageBonus + totalSurveyingFees);
 
     // Calculate the profit
-    const profit = revenue - totalCosts;
+    const profit = (revenue - totalCosts);
 
     // Calculate the margin percentage
-    const marginPercentage = (profit / revenue) * 100;
+    let marginPercentage;
+
+    if (revenue <= 0) {
+      marginPercentage = 0;
+    } else {
+      marginPercentage = (profit / revenue) * 100;
+    }
+    
 
     // Calculate the percentage fuel costs
-    const percentageFuelCost = (fuelCosts / revenue) * 100;
+    let fuelCostsPercentage;
 
+    if (revenue <= 0) {
+      fuelCostsPercentage = 0;
+    } else {
+      fuelCostsPercentage = (fuelCosts / revenue) * 100;
+    }
+    
     // Generate a unique ID
     const id = generateTimestampId();
 
     // Get the current timestamp for created_at
     const created_at = new Date().toISOString();
-
+    console.log("currency_type:", currency_type) 
+    console.log("exchange_rate:", exchange_rate) 
+    console.log("ports:", ports) 
+    console.log("cargos:", cargos) 
+    console.log("bunkerFuelRate:", bunkerFuelRate) 
+    console.log("dieselFuelRate:", dieselFuelRate) 
+    console.log("lubeRate:", lubeRate) 
+    console.log("voyageBonus:", voyageBonus) 
+    console.log("miscCosts:", miscCosts) 
+    console.log("revenue:", revenue) 
+    console.log("brokerageCosts:", brokerageCosts) 
+    console.log("totalSurveyingFees:", totalSurveyingFees) 
+    console.log("totalDistance:", totalDistance) 
+    console.log("duration_at_sea:", duration_at_sea) 
+    console.log("duration_at_port:", duration_at_port) 
+    console.log("duration_crane_usage:", duration_crane_usage) 
+    console.log("main_engine_fuel_cost:", main_engine_fuel_cost) 
+    console.log("main_diesel_cost:", main_diesel_cost) 
+    console.log("winch_diesel_cost:", winch_diesel_cost) 
+    console.log("generator_diesel_cost:", generator_diesel_cost) 
+    console.log("lube_cost:", lube_cost) 
+    console.log("fuelCosts:", fuelCosts) 
+    console.log("operatingCosts:", operatingCosts) 
+    console.log("portCosts:", portCosts) 
+    console.log("totalCosts:", totalCosts) 
+    console.log("profit:", profit) 
+    console.log("marginPercentage:", marginPercentage) 
+    console.log("fuelCostsPercentage:", fuelCostsPercentage) 
     // Store the calculation results in the calculated data table
     const calculatedDataParams = {
       TableName: calculatedDataName,
@@ -135,13 +194,13 @@ exports.handler = async (event) => {
         profit: profit,
         marginPercentage: marginPercentage,
         fuelCosts: fuelCosts,
-        percentageFuelCost: percentageFuelCost,
+        fuelCostsPercentage: fuelCostsPercentage,
         created_at: created_at
       }
     };
-    
-  await dynamodb.put(calculatedDataParams).promise();
-    
+
+    await dynamodb.put(calculatedDataParams).promise();
+
     const response = {
       statusCode: 200,
       headers: {

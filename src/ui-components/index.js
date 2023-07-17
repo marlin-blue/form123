@@ -5,5 +5,4 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as DistanceCreateForm } from "./DistanceCreateForm";
-export { default as DistanceUpdateForm } from "./DistanceUpdateForm";
+export { default as Calculator } from "./Calculator";
