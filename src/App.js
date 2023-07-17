@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Calculator } from './ui-components';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
@@ -9,6 +9,7 @@ function App() {
   const [formData, setFormData] = useState({});
   const [calculationData, setCalculationData] = useState([]);
   const [formId, setFormId] = useState(null); // Add formId state
+  const tableRef = useRef(null); // Create a ref for the table element
 
   const handleSubmit = async (formData) => {
     try {
@@ -22,6 +23,8 @@ function App() {
 
       setFormId(newFormId); // Set the formId in the state
       await calculateDataAPICall(newFormId, formData); // Pass the form data for calculation
+      // Scroll to the bottom of the page
+      window.scrollTo(0, document.body.scrollHeight);
     } catch (error) {
       setResult(null);
       setErrorMessage(error.message);
@@ -44,11 +47,18 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    // Scroll to the bottom when calculationData updates
+    if (tableRef.current) {
+      tableRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [calculationData]);
+
   return (
     <div>
-      <h1>Calculator</h1>
+      <h1>Freight Calculator</h1>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-      {result && <p style={{ color: 'green' }}>Result: {result}. You can now calculate!</p>}
+      {result && <p style={{ color: 'green', fontWeight: 'bold' }}>Form has been submitted! Please click "Calculate" below.</p>}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {result && !errorMessage && (
         <div>
@@ -58,7 +68,7 @@ function App() {
             <div>
               <h1>Calculation Data for HN5:</h1>
 
-              <table>
+              <table ref={tableRef}>
                 <thead>
                   <tr>
                     <th>Form ID</th>
