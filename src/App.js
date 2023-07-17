@@ -63,11 +63,10 @@ function App() {
       {result && !errorMessage && (
         <div>
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
-
           {calculationData.length > 0 && (
             <div>
-              <h1>Calculation Data for HN5:</h1>
-
+              <h1>Cargo Information:</h1>
+  
               <table ref={tableRef}>
                 <thead>
                   <tr>
@@ -79,43 +78,144 @@ function App() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Profit/Loss:</td>
+                    <td>Cargo 1</td>
+                    <td> </td>    
+                  </tr>
+                  <tr>
+                    <td>Cargo 2</td>
+                    <td> </td>
+                  </tr>
+                  <tr>
+                    <td>Cargo 3</td>
+                    <td> </td>
+                  </tr>
+                  <tr>
+                    <td>Cargo 4</td>
+                    <td> </td>
+                  </tr>
+                  <tr>
+                    <td>Cargo 5</td>
+                    <td> </td>
+                  </tr>
+                  <tr>
+                    <td>Cargo 6</td>
+                    <td> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+          {calculationData.length > 0 && (
+            <div>
+              <h1>Calculation Data for HN5:</h1>
+  
+              <table ref={tableRef}>
+                <thead>
+                  <tr>
+                    <th>Form ID</th>
+                    {calculationData.map((data, index) => (
+                      <th key={index}>Calculation {index + 1}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Profit/Loss</td>
                     {calculationData.map((data, index) => (
                       <td key={index}>
-                        <span style={{ color: data.profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
-                          {formatNumber(Math.round(data.profit))} THB
+                        <span style={{ color: data.hn5_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                          {formatNumber(Math.round(data.hn5_profit))} THB
                         </span>
                       </td>
                     ))}
                   </tr>
                   <tr>
-                    <td>Revenue:</td>
+                    <td>Revenue</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.revenue)} THB</td>
+                      <td key={index}>{formatNumber(data.hn5_revenue)} THB</td>
                     ))}
                   </tr>
                   <tr>
-                    <td>Costs:</td>
+                    <td>Costs</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(Math.round(data.totalCosts))} THB</td>
+                      <td key={index}>{formatNumber(Math.round(data.hn5_totalCosts))} THB</td>
                     ))}
                   </tr>
                   <tr>
-                    <td>Margin:</td>
+                    <td>Margin</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{data.marginPercentage <= 0 ? 'NA' : data.marginPercentage.toFixed(2)}%</td>
+                      <td key={index}>{data.hn5_marginPercentage.toFixed(2)}%</td>
                     ))}
                   </tr>
                   <tr>
-                    <td>Fuel Costs:</td>
+                    <td>Fuel Costs</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.fuelCosts)} THB</td>
+                      <td key={index}>{formatNumber(data.hn5_fuelCosts)} THB</td>
                     ))}
                   </tr>
                   <tr>
-                    <td>Percentage Fuel Cost:</td>
+                    <td>Percentage Fuel Cost</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{data.fuelCostsPercentage.toFixed(2)}%</td>
+                      <td key={index}>{data.hn5_fuelCostsPercentage.toFixed(2)}%</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+  
+          {calculationData.length > 0 && (
+            <div>
+              <h1>Calculation Data for HN9:</h1>
+  
+              <table ref={tableRef}>
+                <thead>
+                  <tr>
+                    <th>Form ID</th>
+                    {calculationData.map((data, index) => (
+                      <th key={index}>Calculation {index + 1}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Profit/Loss</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>
+                        <span style={{ color: data.hn9_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                          {formatNumber(Math.round(data.hn9_profit))} THB
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Revenue</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(data.hn9_revenue)} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Costs</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(Math.round(data.hn9_totalCosts))} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Margin</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{data.hn9_marginPercentage.toFixed(2)}%</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Fuel Costs</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(data.hn9_fuelCosts)} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Percentage Fuel Cost</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{data.hn9_fuelCostsPercentage.toFixed(2)}%</td>
                     ))}
                   </tr>
                 </tbody>
@@ -126,10 +226,14 @@ function App() {
       )}
     </div>
   );
-}
+}  
+
 
 function formatNumber(number) {
-  return number.toLocaleString();
+  if (typeof number === 'number') {
+    return number.toLocaleString();
+  }
+  return '';
 }
 
 export default App;
