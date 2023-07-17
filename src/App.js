@@ -64,48 +64,6 @@ function App() {
         <div>
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
           {calculationData.length > 0 && (
-          //   <div>
-          //     <h1>Cargo Information:</h1>
-  
-          //     <table ref={tableRef}>
-          //       <thead>
-          //         <tr>
-          //           <th>Form ID</th>
-          //           {calculationData.map((data, index) => (
-          //             <th key={index}>Calculation {index + 1}</th>
-          //           ))}
-          //         </tr>
-          //       </thead>
-          //       <tbody>
-          //         <tr>
-          //           <td>Cargo 1</td>
-          //           <td> </td>    
-          //         </tr>
-          //         <tr>
-          //           <td>Cargo 2</td>
-          //           <td> </td>
-          //         </tr>
-          //         <tr>
-          //           <td>Cargo 3</td>
-          //           <td> </td>
-          //         </tr>
-          //         <tr>
-          //           <td>Cargo 4</td>
-          //           <td> </td>
-          //         </tr>
-          //         <tr>
-          //           <td>Cargo 5</td>
-          //           <td> </td>
-          //         </tr>
-          //         <tr>
-          //           <td>Cargo 6</td>
-          //           <td> </td>
-          //         </tr>
-          //       </tbody>
-          //     </table>
-          //   </div>
-          // )}
-          {calculationData.length > 0 && (
             <div>
               <h1>Calculation Data for HN5:</h1>
   
