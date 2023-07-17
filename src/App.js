@@ -3,14 +3,11 @@ import { Calculator } from './ui-components';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
 
-
 function App() {
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({});
-  const [calculationData, setCalculationData] = useState(
-
-  );
+  const [calculationData, setCalculationData] = useState([]);
   const [formId, setFormId] = useState(null); // Add formId state
 
   const handleSubmit = async (formData) => {
@@ -20,11 +17,11 @@ function App() {
       setResult(response.message);
       setErrorMessage(null);
 
-      const formId = response.id;
-      console.log("FormId:", formId);
+      const newFormId = response.id;
+      console.log("FormId:", newFormId);
 
-      setFormId(formId); // Set the formId in the state
-      await calculateDataAPICall(formId, formData); // Pass the form data for calculation
+      setFormId(newFormId); // Set the formId in the state
+      await calculateDataAPICall(newFormId, formData); // Pass the form data for calculation
     } catch (error) {
       setResult(null);
       setErrorMessage(error.message);
@@ -36,11 +33,12 @@ function App() {
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
-      
+
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
-      setCalculationData(calculationDataResponse);
 
+      // Add the new calculation data to the existing array of calculation data
+      setCalculationData((prevCalculationData) => [...prevCalculationData, calculationDataResponse]);
     } catch (error) {
       console.error(error);
     }
@@ -56,27 +54,62 @@ function App() {
         <div>
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
 
-          {calculationData && (
+          {calculationData.length > 0 && (
             <div>
               <h1>Calculation Data for HN5:</h1>
-              
-              <p>
-                Profit/Loss:{" "}
-                <span
-                  style={{
-                    color: calculationData.profit >= 0 ? "green" : "red",
-                    fontWeight: "bold"
-                  }}
-                >
-                  {formatNumber(Math.round(calculationData.profit))}
-                </span> 
-              </p>
-              <p>Revenue: {formatNumber(calculationData.revenue)} THB</p>
-              <p>Costs: {formatNumber(Math.round(calculationData.totalCosts))} THB</p>
-              <p>Margin: {calculationData.marginPercentage.toFixed(2)}%</p>
-              <p>Fuel Costs: {formatNumber(calculationData.fuelCosts)} THB</p>
-              <p>Percentage Fuel Cost: {calculationData.fuelCostsPercentage.toFixed(2)}%</p>
 
+              <table>
+                <thead>
+                  <tr>
+                    <th>Form ID</th>
+                    {calculationData.map((data, index) => (
+                      <th key={index}>Calculation {index + 1}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Profit/Loss:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>
+                        <span style={{ color: data.profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                          {formatNumber(Math.round(data.profit))} THB
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Revenue:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(data.revenue)} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Costs:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(Math.round(data.totalCosts))} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Margin:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{data.marginPercentage <= 0 ? 'NA' : data.marginPercentage.toFixed(2)}%</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Fuel Costs:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{formatNumber(data.fuelCosts)} THB</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td>Percentage Fuel Cost:</td>
+                    {calculationData.map((data, index) => (
+                      <td key={index}>{data.fuelCostsPercentage.toFixed(2)}%</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
             </div>
           )}
         </div>

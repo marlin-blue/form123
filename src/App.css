@@ -42,11 +42,16 @@
 }
 
 h1 {
-  margin-top: 20px; /* Adjust the margin as needed */
-  text-align: center;
+  margin: 20px; /* Adjust the margin as needed */
 }
 
 p {
-  margin-top: 15px; /* Adjust the margin as needed */
-  text-align: center;
+  margin: 15px; /* Adjust the margin as needed */
+}
+
+table {
+  margin: 20px;   
+}
+td{
+  margin: 20px;
 }
