@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Calculator } from './ui-components';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
+import { Button } from "@aws-amplify/ui-react";
 
 function App() {
   const [result, setResult] = useState(null);
@@ -20,7 +21,7 @@ function App() {
 
       console.log(formData);
       const response = await storeFormAPICall(formData);
-    
+
       const newFormId = response.id;
       console.log("FormId:", newFormId);
 
@@ -37,21 +38,31 @@ function App() {
 
   const handleCalculate = async () => {
     try {
+
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
       setSubmittedMessage('Data has been calculated! Please submit another form'); // Reset the submittedMessage state
 
+      // Add the new calculation data to the existing array of calculation data
+      setCalculationData((prevCalculationData) => [...prevCalculationData, calculationDataResponse]);
+      // Check if the calculation limit is reached
+      if (calculationData.length >= 10) {
+        setErrorMessage("Calculation limit reached! Please refresh the page to start again.");
+        throw new Error("Calculation limit reached! Please refresh the page to start again.");
+      }
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
 
-      // Add the new calculation data to the existing array of calculation data
-      setCalculationData((prevCalculationData) => [...prevCalculationData, calculationDataResponse]);
+
+
 
     } catch (error) {
+
       console.error(error);
     }
   };
+
 
   useEffect(() => {
     // Scroll to the bottom when calculationData updates
@@ -70,16 +81,16 @@ function App() {
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
 
       {errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
-      {result && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
+      {result && !errorMessage && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
 
-      {result && (
+      {result && !errorMessage && (
         <div>
-          <button
+          <Button
             onClick={handleCalculate}
             style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}
           >
             Calculate
-          </button>
+          </Button>
         </div>
       )}
       {calculationData.length > 0 && (
