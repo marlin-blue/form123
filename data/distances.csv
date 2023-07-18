@@ -2381,3 +2381,6 @@ id,sourcePort,destinationPort,distance
 2380,Padang - Telux Buyur (TBR),CX,767
 2381,Penang (PNG),Laem Chabang (LCB),1502
 2382,Banyuwangi - Tanjung Wangi (BJU),Surabaya (SUBY),1502
+2383, Phumy (PHU), Cigading (CIG), 372
+2384, Cigading (CIG), Phumy (PHU), 372
+

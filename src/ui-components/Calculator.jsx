@@ -383,7 +383,7 @@ export default function Calculator(props) {
       rowGap="20px"
       columnGap="10px"
       padding="10px"
-      maxWidth="800px"
+      maxWidth="80%"
       margin-top="10px"
       margin-bottom="10px"
       margin="0 auto"
