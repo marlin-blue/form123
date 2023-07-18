@@ -12,28 +12,28 @@ function App() {
   const [formId, setFormId] = useState(null); // Add formId state
   const tableRef = useRef(null); // Create a ref for the table element
 
-const handleSubmit = async (formData) => {
-  try {
-    if (Object.values(formData).some(value => value === "")) {
-      throw new Error("Empty field! Please fill up the form.");
+  const handleSubmit = async (formData) => {
+    try {
+      if (Object.values(formData).some(value => value === "")) {
+        throw new Error("Empty field! Please fill up the form.");
+      }
+
+      console.log(formData);
+      const response = await storeFormAPICall(formData);
+    
+      const newFormId = response.id;
+      console.log("FormId:", newFormId);
+
+      setFormId(newFormId); // Set the formId in the state
+      await calculateDataAPICall(newFormId); // Pass the formId for calculation
+      setResult(response.message);
+      setErrorMessage(null);
+      setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
+    } catch (error) {
+      setResult(null);
+      setErrorMessage(error.response.data.error || "An error occurred.");
     }
-
-    console.log(formData);
-    const response = await storeFormAPICall(formData);
-    setResult(response.message);
-    setErrorMessage(null);
-
-    const newFormId = response.id;
-    console.log("FormId:", newFormId);
-
-    setFormId(newFormId); // Set the formId in the state
-    await calculateDataAPICall(newFormId); // Pass the formId for calculation
-    setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
-  } catch (error) {
-    setResult(null);
-    setErrorMessage(error.response.data.error || "An error occurred.");
-  }
-};
+  };
 
   const handleCalculate = async () => {
     try {
@@ -62,177 +62,181 @@ const handleSubmit = async (formData) => {
 
   return (
     <div>
-      <h1>Freight Calculator</h1> 
-      <p>Welcome to the frieght calculator! Enter the voyage information into this form to calculate the expected profits or loss.
-      Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
-      Results are displayed in the tables below the form. Happy calculating!</p>
+      <h1>Freight Calculator</h1>
+      <p>Welcome to the freight calculator! Enter the voyage information into this form to calculate the expected profits or loss.
+        Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
+        Results are displayed in the tables below the form. Happy calculating!
+      </p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-      
-      {errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center'}}>{errorMessage}</p>}
+
+      {errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
       {result && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
-    
-      {!errorMessage && result && (
+
+      {result && (
         <div>
-          <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
-        </div>)}  
-          {calculationData.length > 0 && (
-            <div>
-              <h1>Cargo Data</h1>
-              <table ref={tableRef}>
-                <thead>
-                  <tr>
-                    <th>Cargo</th>
-                    {calculationData.map((_, index) => (
-                      <th key={index}>Calculation {index + 1}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[...Array(6)].map((_, rowIndex) => (
-                    <tr key={rowIndex}>
-                      <td>Cargo {rowIndex + 1}</td>
-                      {calculationData.map((data, columnIndex) => {
-                        const cargoType = data.cargoData[rowIndex].type;
-                        const cargoQuantity = data.cargoData[rowIndex].quantity;
-                        const cargoRate = data.cargoData[rowIndex].rate;
-                        const currencyCode = data.currency_type.match(/\((.*)\)/)[1];
-                        if (cargoType !== "NIL") {
-                          return (
-                            <td key={columnIndex}>
-                              {cargoType}, {cargoQuantity} MT, {cargoRate} {currencyCode}
-                            </td>
-                          );
-                        } else {
-                          return <td key={columnIndex}>N/A</td>;
-                        }
-                      })}
-                    </tr>
-                  ))}
-                </tbody>
-
-              </table>
-            </div>
-          )}
-
-          {calculationData.length > 0 && (
-            <div>
-              <h1>Calculation Data for HN5</h1>
-              <table ref={tableRef}>
-                <thead>
-                  <tr>
-                    <th>Data</th>
-                    {calculationData.map((_, index) => (
-                      <th key={index}>Calculation {index + 1}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Profit/Loss</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>
-                        <span style={{ color: data.hn5_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
-                          {formatNumber(Math.round(data.hn5_profit))} THB
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Revenue</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.revenue)} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Costs</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(Math.round(data.hn5_totalCosts))} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Margin</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{data.hn5_marginPercentage.toFixed(2)}%</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Fuel Costs</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.hn5_fuelCosts)} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Percentage Fuel Cost</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{data.hn5_fuelCostsPercentage.toFixed(2)}%</td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          )}
-
-          {calculationData.length > 0 && (
-            <div>
-              <h1>Calculation Data for HN9</h1>
-              <table ref={tableRef}>
-                <thead>
-                  <tr>
-                    <th>Data</th>
-                    {calculationData.map((_, index) => (
-                      <th key={index}>Calculation {index + 1}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Profit/Loss</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>
-                        <span style={{ color: data.hn9_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
-                          {formatNumber(Math.round(data.hn9_profit))} THB
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Revenue</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.revenue)} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Costs</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(Math.round(data.hn9_totalCosts))} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Margin</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{data.hn9_marginPercentage.toFixed(2)}%</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Fuel Costs</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.hn9_fuelCosts)} THB</td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td>Percentage Fuel Cost</td>
-                    {calculationData.map((data, index) => (
-                      <td key={index}>{data.hn9_fuelCostsPercentage.toFixed(2)}%</td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-          )}
+          <button
+            onClick={handleCalculate}
+            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}
+          >
+            Calculate
+          </button>
         </div>
-      
-    
+      )}
+      {calculationData.length > 0 && (
+        <div>
+          <h1>Cargo Data</h1>
+          <table ref={tableRef}>
+            <thead>
+              <tr>
+                <th>Cargo</th>
+                {calculationData.map((_, index) => (
+                  <th key={index}>Calculation {index + 1}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[...Array(6)].map((_, rowIndex) => (
+                <tr key={rowIndex}>
+                  <td>Cargo {rowIndex + 1}</td>
+                  {calculationData.map((data, columnIndex) => {
+                    const cargoType = data.cargoData[rowIndex].type;
+                    const cargoQuantity = data.cargoData[rowIndex].quantity;
+                    const cargoRate = data.cargoData[rowIndex].rate;
+                    const currencyCode = data.currency_type.match(/\((.*)\)/)[1];
+                    if (cargoType !== "NIL") {
+                      return (
+                        <td key={columnIndex}>
+                          {cargoType}, {cargoQuantity} MT, {cargoRate} {currencyCode}
+                        </td>
+                      );
+                    } else {
+                      return <td key={columnIndex}>N/A</td>;
+                    }
+                  })}
+                </tr>
+              ))}
+            </tbody>
+
+          </table>
+        </div>
+      )}
+
+      {calculationData.length > 0 && (
+        <div>
+          <h1>Calculation Data for HN5</h1>
+          <table ref={tableRef}>
+            <thead>
+              <tr>
+                <th>Data</th>
+                {calculationData.map((_, index) => (
+                  <th key={index}>Calculation {index + 1}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Profit/Loss</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>
+                    <span style={{ color: data.hn5_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                      {formatNumber(Math.round(data.hn5_profit))} THB
+                    </span>
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td>Revenue</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(data.revenue)} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Costs</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(Math.round(data.hn5_totalCosts))} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Margin</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{data.hn5_marginPercentage.toFixed(2)}%</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Fuel Costs</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(data.hn5_fuelCosts)} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Percentage Fuel Cost</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{data.hn5_fuelCostsPercentage.toFixed(2)}%</td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {calculationData.length > 0 && (
+        <div>
+          <h1>Calculation Data for HN9</h1>
+          <table ref={tableRef}>
+            <thead>
+              <tr>
+                <th>Data</th>
+                {calculationData.map((_, index) => (
+                  <th key={index}>Calculation {index + 1}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Profit/Loss</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>
+                    <span style={{ color: data.hn9_profit >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                      {formatNumber(Math.round(data.hn9_profit))} THB
+                    </span>
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td>Revenue</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(data.revenue)} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Costs</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(Math.round(data.hn9_totalCosts))} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Margin</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{data.hn9_marginPercentage.toFixed(2)}%</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Fuel Costs</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(data.hn9_fuelCosts)} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Percentage Fuel Cost</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{data.hn9_fuelCostsPercentage.toFixed(2)}%</td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
   );
 }
 
