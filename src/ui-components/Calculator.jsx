@@ -24,12 +24,12 @@ export default function Calculator(props) {
     diesel_rate: "0.7",
     exchange_rate: "35",
     lube_rate: "2.33",
-    port1: "Batam (BAT)",
+    port1: "Bangkok (BK)",
     port1_fees: "1000",
     port1_port_call: "5",
     port1_crane_usage: "20",
     port1_surveying_fees: "1000",
-    port2: "Vung Ang (VAG)",
+    port2: "Batam (BAT)",
     port2_fees: "0",
     port2_port_call: "0",
     port2_crane_usage: "0",
@@ -380,11 +380,14 @@ export default function Calculator(props) {
   return (
     <Grid
       as="form"
-      rowGap="15px"
-      columnGap="15px"
-      padding="20px"
+      rowGap="20px"
+      columnGap="10px"
+      padding="10px"
       maxWidth="800px"
+      margin-top="10px"
+      margin-bottom="10px"
       margin="0 auto"
+      
       
       onSubmit={async (event) => {
         event.preventDefault();
@@ -584,7 +587,7 @@ export default function Calculator(props) {
         {...getOverrideProps(overrides, "RowGrid2")}
       >
         <TextField
-          label="Diesel Fuel Rate"
+          label="Diesel Rate"
           type="number"
           step="any"
           value={diesel_rate}
@@ -10360,7 +10363,7 @@ export default function Calculator(props) {
         {...getOverrideProps(overrides, "RowGrid30")}
       >
         <TextField
-          label="Voyage Bonus"
+          label="Voyage Bonus (Hatch Opening/ Hull Cleaning)"
           type="number"
           step="any"
           value={voyageBonus}
@@ -10443,7 +10446,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "voyageBonus")}
         ></TextField>
         <TextField
-          label="Misc Costs"
+          label="Miscellaneous Costs"
           type="number"
           step="any"
           value={miscCosts}
