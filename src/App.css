@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin: 200 auto;
+  margin: 200px auto;
   max-width: 450px;
   padding: 0 20px;
   box-sizing: border-box;
@@ -42,65 +42,12 @@
 }
 
 h1 {
-  margin-top: 20px; /* Adjust the margin as needed */
-  text-align: left;
-}
-
-p {
-  margin-top: 15px; /* Adjust the margin as needed */
-  text-align: center;
-}
-
-.App {
-  text-align: center;
-  margin: 200 auto;
-  max-width: 450px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-h1 {
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px;
   text-align: center;
 }
 
 p {
-  margin-top: 15px; /* Adjust the margin as needed */
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -135,4 +82,33 @@ tbody tr:hover {
 
 span {
   font-weight: bold;
+}
+
+/* Restyled Tables */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
 }

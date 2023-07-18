@@ -20,15 +20,15 @@ import { fetchByPath, validateField } from "./utils";
 export default function Calculator(props) {
   const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
   const initialValues = {
-    currency_type: "Thai Bhat (THB)",
-    diesel_rate: "28",
-    bunker_rate: "22",
-    lube_rate: "80",
+    currency_type: "US Dollar (USD)",
+    diesel_rate: "0.7",
+    exchange_rate: "35",
+    lube_rate: "2.33",
     port1: "Bangkok (BK)",
-    port1_fees: "35000",
+    port1_fees: "1000",
     port1_port_call: "5",
     port1_crane_usage: "20",
-    port1_surveying_fees: "35000",
+    port1_surveying_fees: "1000",
     port2: "Batam (BAT)",
     port2_fees: "0",
     port2_port_call: "0",
@@ -54,9 +54,9 @@ export default function Calculator(props) {
     port6_port_call: "0",
     port6_crane_usage: "0",
     port6_surveying_fees: "0",
-    cargo1_type: "NIL",
-    cargo1_quantity: "0",
-    cargo1_rate: "0",
+    cargo1_type: "Rice",
+    cargo1_quantity: "3000",
+    cargo1_rate: "18",
     cargo1_brokerage_fees: "0",
     cargo2_type: "NIL",
     cargo2_quantity: "0",
@@ -88,8 +88,8 @@ export default function Calculator(props) {
   const [diesel_rate, setDiesel_rate] = React.useState(
     initialValues.diesel_rate
   );
-  const [bunker_rate, setBunker_rate] = React.useState(
-    initialValues.bunker_rate
+  const [exchange_rate, setExchange_rate] = React.useState(
+    initialValues.exchange_rate
   );
   const [lube_rate, setLube_rate] = React.useState(initialValues.lube_rate);
   const [port1, setPort1] = React.useState(initialValues.port1);
@@ -238,7 +238,7 @@ export default function Calculator(props) {
   const resetStateValues = () => {
     setCurrency_type(initialValues.currency_type);
     setDiesel_rate(initialValues.diesel_rate);
-    setBunker_rate(initialValues.bunker_rate);
+    setExchange_rate(initialValues.exchange_rate);
     setLube_rate(initialValues.lube_rate);
     setPort1(initialValues.port1);
     setPort1_fees(initialValues.port1_fees);
@@ -301,7 +301,7 @@ export default function Calculator(props) {
   const validations = {
     currency_type: [],
     diesel_rate: [],
-    bunker_rate: [],
+    exchange_rate: [],
     lube_rate: [],
     port1: [],
     port1_fees: [],
@@ -388,7 +388,7 @@ export default function Calculator(props) {
         const modelFields = {
           currency_type,
           diesel_rate,
-          bunker_rate,
+          exchange_rate,
           lube_rate,
           port1,
           port1_fees,
@@ -486,7 +486,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type: value,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -591,7 +591,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate: value,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -664,17 +664,17 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "diesel_rate")}
         ></TextField>
         <TextField
-          label="Bunker Fuel Rate"
+          label="Exchange Rate"
           type="number"
           step="any"
-          value={bunker_rate}
+          value={exchange_rate}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate: value,
+                exchange_rate: value,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -734,17 +734,17 @@ export default function Calculator(props) {
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.bunker_rate ?? value;
+              value = result?.exchange_rate ?? value;
             }
-            if (errors.bunker_rate?.hasError) {
-              runValidationTasks("bunker_rate", value);
+            if (errors.exchange_rate?.hasError) {
+              runValidationTasks("exchange_rate", value);
             }
-            setBunker_rate(value);
+            setExchange_rate(value);
           }}
-          onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
-          errorMessage={errors.bunker_rate?.errorMessage}
-          hasError={errors.bunker_rate?.hasError}
-          {...getOverrideProps(overrides, "bunker_rate")}
+          onBlur={() => runValidationTasks("exchange_rate", exchange_rate)}
+          errorMessage={errors.exchange_rate?.errorMessage}
+          hasError={errors.exchange_rate?.hasError}
+          {...getOverrideProps(overrides, "exchange_rate")}
         ></TextField>
         <TextField
           label="Lube Rate"
@@ -757,7 +757,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate: value,
                 port1,
                 port1_fees,
@@ -844,7 +844,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1: value,
               port1_fees,
@@ -1589,7 +1589,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees: value,
@@ -1672,7 +1672,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1755,7 +1755,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1840,7 +1840,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1925,7 +1925,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -2670,7 +2670,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2753,7 +2753,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2836,7 +2836,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2921,7 +2921,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3006,7 +3006,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -3077,7 +3077,664 @@ export default function Calculator(props) {
         errorMessage={errors.port3?.errorMessage}
         hasError={errors.port3?.hasError}
         {...getOverrideProps(overrides, "port3")}
-      ></SelectField>
+
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "port3option0")}
+        ></option>
+        <option
+          children="Ayutthaya - Bangpain (AB)"
+          value="Ayutthaya - Bangpain (AB)"
+          {...getOverrideProps(overrides, "port3option1")}
+        ></option>
+        <option
+          children="Ayutthaya - Nakorn Luang (ANL)"
+          value="Ayutthaya - Nakorn Luang (ANL)"
+          {...getOverrideProps(overrides, "port3option2")}
+        ></option>
+        <option
+          children="Bahodopi (BHDP)"
+          value="Bahodopi (BHDP)"
+          {...getOverrideProps(overrides, "port3option3")}
+        ></option>
+        <option
+          children="Balikpapan (BPN)"
+          value="Balikpapan (BPN)"
+          {...getOverrideProps(overrides, "port3option4")}
+        ></option>
+        <option
+          children="Bang Sapan (BS)"
+          value="Bang Sapan (BS)"
+          {...getOverrideProps(overrides, "port3option5")}
+        ></option>
+        <option
+          children="Bangkok (BK)"
+          value="Bangkok (BK)"
+          {...getOverrideProps(overrides, "port3option6")}
+        ></option>
+        <option
+          children="Bangpakong (BAK)"
+          value="Bangpakong (BAK)"
+          {...getOverrideProps(overrides, "port3option7")}
+        ></option>
+        <option
+          children="Banyuwangi - Tanjung Wangi (BJU)"
+          value="Banyuwangi - Tanjung Wangi (BJU)"
+          {...getOverrideProps(overrides, "port3option8")}
+        ></option>
+        <option
+          children="Batam (BAT)"
+          value="Batam (BAT)"
+          {...getOverrideProps(overrides, "port3option9")}
+        ></option>
+        <option
+          children="Beihai (BHY)"
+          value="Beihai (BHY)"
+          {...getOverrideProps(overrides, "port3option10")}
+        ></option>
+        <option
+          children="Belawan (BRW)"
+          value="Belawan (BRW)"
+          {...getOverrideProps(overrides, "port3option11")}
+        ></option>
+        <option
+          children="Benoa (Bali) (BAO)"
+          value="Benoa (Bali) (BAO)"
+          {...getOverrideProps(overrides, "port3option12")}
+        ></option>
+        <option
+          children="Bintan (BTN)"
+          value="Bintan (BTN)"
+          {...getOverrideProps(overrides, "port3option13")}
+        ></option>
+        <option
+          children="Bintulu (BIN)"
+          value="Bintulu (BIN)"
+          {...getOverrideProps(overrides, "port3option14")}
+        ></option>
+        <option
+          children="Bitung (BIT)"
+          value="Bitung (BIT)"
+          {...getOverrideProps(overrides, "port3option15")}
+        ></option>
+        <option
+          children="Bontang (BXT)"
+          value="Bontang (BXT)"
+          {...getOverrideProps(overrides, "port3option16")}
+        ></option>
+        <option
+          children="Bourbon (BOUR)"
+          value="Bourbon (BOUR)"
+          {...getOverrideProps(overrides, "port3option17")}
+        ></option>
+        <option
+          children="Brunei (BRU)"
+          value="Brunei (BRU)"
+          {...getOverrideProps(overrides, "port3option18")}
+        ></option>
+        <option
+          children="Cai Lan (CLN)"
+          value="Cai Lan (CLN)"
+          {...getOverrideProps(overrides, "port3option19")}
+        ></option>
+        <option
+          children="Cam Pha (CPH)"
+          value="Cam Pha (CPH)"
+          {...getOverrideProps(overrides, "port3option20")}
+        ></option>
+        <option
+          children="Can Tho (VCA)"
+          value="Can Tho (VCA)"
+          {...getOverrideProps(overrides, "port3option21")}
+        ></option>
+        <option
+          children="Cat Lai (CLI)"
+          value="Cat Lai (CLI)"
+          {...getOverrideProps(overrides, "port3option22")}
+        ></option>
+        <option
+          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          {...getOverrideProps(overrides, "port3option23")}
+        ></option>
+        <option
+          children="Century Harbour (MHI)"
+          value="Century Harbour (MHI)"
+          {...getOverrideProps(overrides, "port3option24")}
+        ></option>
+        <option
+          children="Chantaburi LaemSing (CLS)"
+          value="Chantaburi LaemSing (CLS)"
+          {...getOverrideProps(overrides, "port3option25")}
+        ></option>
+        <option
+          children="Chittagong (CTG)"
+          value="Chittagong (CTG)"
+          {...getOverrideProps(overrides, "port3option26")}
+        ></option>
+        <option
+          children="Cigading (CIG)"
+          value="Cigading (CIG)"
+          {...getOverrideProps(overrides, "port3option27")}
+        ></option>
+        <option
+          children="Danang (DAD)"
+          value="Danang (DAD)"
+          {...getOverrideProps(overrides, "port3option28")}
+        ></option>
+        <option
+          children="Davao (Sasa Wharf) (DVO)"
+          value="Davao (Sasa Wharf) (DVO)"
+          {...getOverrideProps(overrides, "port3option29")}
+        ></option>
+        <option
+          children="Dhaka (DKA)"
+          value="Dhaka (DKA)"
+          {...getOverrideProps(overrides, "port3option30")}
+        ></option>
+        <option
+          children="Dumai (DMI)"
+          value="Dumai (DMI)"
+          {...getOverrideProps(overrides, "port3option31")}
+        ></option>
+        <option
+          children="Dung Quat (DQT)"
+          value="Dung Quat (DQT)"
+          {...getOverrideProps(overrides, "port3option32")}
+        ></option>
+        <option
+          children="Fangcheng (FAN)"
+          value="Fangcheng (FAN)"
+          {...getOverrideProps(overrides, "port3option33")}
+        ></option>
+        <option
+          children="Futong (FTG)"
+          value="Futong (FTG)"
+          {...getOverrideProps(overrides, "port3option34")}
+        ></option>
+        <option
+          children="Godau port  (GDP)"
+          value="Godau port  (GDP)"
+          {...getOverrideProps(overrides, "port3option35")}
+        ></option>
+        <option
+          children="Haiphong (HPH)"
+          value="Haiphong (HPH)"
+          {...getOverrideProps(overrides, "port3option36")}
+        ></option>
+        <option
+          children="Halong Bay (HLG)"
+          value="Halong Bay (HLG)"
+          {...getOverrideProps(overrides, "port3option37")}
+        ></option>
+        <option
+          children="HO CHI MINH (HCM)"
+          value="HO CHI MINH (HCM)"
+          {...getOverrideProps(overrides, "port3option38")}
+        ></option>
+        <option
+          children="Hon Gai (HON)"
+          value="Hon Gai (HON)"
+          {...getOverrideProps(overrides, "port3option39")}
+        ></option>
+        <option
+          children="Hong Kong (HKG)"
+          value="Hong Kong (HKG)"
+          {...getOverrideProps(overrides, "port3option40")}
+        ></option>
+        <option
+          children="Jakarta (JAK)"
+          value="Jakarta (JAK)"
+          {...getOverrideProps(overrides, "port3option41")}
+        ></option>
+        <option
+          children="Jambi (JBI)"
+          value="Jambi (JBI)"
+          {...getOverrideProps(overrides, "port3option42")}
+        ></option>
+        <option
+          children="K.K. Kota Kinabalu (KK)"
+          value="K.K. Kota Kinabalu (KK)"
+          {...getOverrideProps(overrides, "port3option43")}
+        ></option>
+        <option
+          children="Kampot (KMP)"
+          value="Kampot (KMP)"
+          {...getOverrideProps(overrides, "port3option44")}
+        ></option>
+        <option
+          children="Kantang (KTG)"
+          value="Kantang (KTG)"
+          {...getOverrideProps(overrides, "port3option45")}
+        ></option>
+        <option
+          children="Kedah (KKH)"
+          value="Kedah (KKH)"
+          {...getOverrideProps(overrides, "port3option46")}
+        ></option>
+        <option
+          children="Kelantan (KLT)"
+          value="Kelantan (KLT)"
+          {...getOverrideProps(overrides, "port3option47")}
+        ></option>
+        <option
+          children="Kemaman (KMN)"
+          value="Kemaman (KMN)"
+          {...getOverrideProps(overrides, "port3option48")}
+        ></option>
+        <option
+          children="Khanom (KHM)"
+          value="Khanom (KHM)"
+          {...getOverrideProps(overrides, "port3option49")}
+        ></option>
+        <option
+          children="Ko Sichang (KSI)"
+          value="Ko Sichang (KSI)"
+          {...getOverrideProps(overrides, "port3option50")}
+        ></option>
+        <option
+          children="Kolkata (CCU)"
+          value="Kolkata (CCU)"
+          {...getOverrideProps(overrides, "port3option51")}
+        ></option>
+        <option
+          children="Kor Samui (KSM)"
+          value="Kor Samui (KSM)"
+          {...getOverrideProps(overrides, "port3option52")}
+        ></option>
+        <option
+          children="Kuantan (KT)"
+          value="Kuantan (KT)"
+          {...getOverrideProps(overrides, "port3option53")}
+        ></option>
+        <option
+          children="Kuching (KUC)"
+          value="Kuching (KUC)"
+          {...getOverrideProps(overrides, "port3option54")}
+        ></option>
+        <option
+          children="Labuan (LBN)"
+          value="Labuan (LBN)"
+          {...getOverrideProps(overrides, "port3option55")}
+        ></option>
+        <option
+          children="Laem Chabang (LCB)"
+          value="Laem Chabang (LCB)"
+          {...getOverrideProps(overrides, "port3option56")}
+        ></option>
+        <option
+          children="Lahad Datu (LDU)"
+          value="Lahad Datu (LDU)"
+          {...getOverrideProps(overrides, "port3option57")}
+        ></option>
+        <option
+          children="Lhokseumawe (LHOK)"
+          value="Lhokseumawe (LHOK)"
+          {...getOverrideProps(overrides, "port3option58")}
+        ></option>
+        <option
+          children="Lumut (LUM)"
+          value="Lumut (LUM)"
+          {...getOverrideProps(overrides, "port3option59")}
+        ></option>
+        <option
+          children="Maeklong (Firesun) (MKG)"
+          value="Maeklong (Firesun) (MKG)"
+          {...getOverrideProps(overrides, "port3option60")}
+        ></option>
+        <option
+          children="Mahachai (MHI)"
+          value="Mahachai (MHI)"
+          {...getOverrideProps(overrides, "port3option61")}
+        ></option>
+        <option
+          children="Makassar (MAK)"
+          value="Makassar (MAK)"
+          {...getOverrideProps(overrides, "port3option62")}
+        ></option>
+        <option
+          children="Malacca (MAL)"
+          value="Malacca (MAL)"
+          {...getOverrideProps(overrides, "port3option63")}
+        ></option>
+        <option
+          children="Manila Habour (MNL)"
+          value="Manila Habour (MNL)"
+          {...getOverrideProps(overrides, "port3option64")}
+        ></option>
+        <option
+          children="Maptaphut (MAT)"
+          value="Maptaphut (MAT)"
+          {...getOverrideProps(overrides, "port3option65")}
+        ></option>
+        <option
+          children="Marunda (MRD)"
+          value="Marunda (MRD)"
+          {...getOverrideProps(overrides, "port3option66")}
+        ></option>
+        <option
+          children="Mawei Fuzhou (FOC)"
+          value="Mawei Fuzhou (FOC)"
+          {...getOverrideProps(overrides, "port3option67")}
+        ></option>
+        <option
+          children="Muara (MUR)"
+          value="Muara (MUR)"
+          {...getOverrideProps(overrides, "port3option68")}
+        ></option>
+        <option
+          children="My Tho (MUT)"
+          value="My Tho (MUT)"
+          {...getOverrideProps(overrides, "port3option69")}
+        ></option>
+        <option
+          children="Nan Tong (NTG)"
+          value="Nan Tong (NTG)"
+          {...getOverrideProps(overrides, "port3option70")}
+        ></option>
+        <option
+          children="Narathiwat (NAW)"
+          value="Narathiwat (NAW)"
+          {...getOverrideProps(overrides, "port3option71")}
+        ></option>
+        <option
+          children="Nghi Son (NGH)"
+          value="Nghi Son (NGH)"
+          {...getOverrideProps(overrides, "port3option72")}
+        ></option>
+        <option
+          children="Ningde (NDE)"
+          value="Ningde (NDE)"
+          {...getOverrideProps(overrides, "port3option73")}
+        ></option>
+        <option
+          children="Nunukan (NNX)"
+          value="Nunukan (NNX)"
+          {...getOverrideProps(overrides, "port3option74")}
+        ></option>
+        <option
+          children="Oknha Mong Port (OMP)"
+          value="Oknha Mong Port (OMP)"
+          {...getOverrideProps(overrides, "port3option75")}
+        ></option>
+        <option
+          children="Onomichi (ONO)"
+          value="Onomichi (ONO)"
+          {...getOverrideProps(overrides, "port3option76")}
+        ></option>
+        <option
+          children="Padang - Telux Buyur (TBR)"
+          value="Padang - Telux Buyur (TBR)"
+          {...getOverrideProps(overrides, "port3option77")}
+        ></option>
+        <option
+          children="PAKAN Baru (PKRU)"
+          value="PAKAN Baru (PKRU)"
+          {...getOverrideProps(overrides, "port3option78")}
+        ></option>
+        <option
+          children="Palembang (PLB)"
+          value="Palembang (PLB)"
+          {...getOverrideProps(overrides, "port3option79")}
+        ></option>
+        <option
+          children="Panjang (PNJ)"
+          value="Panjang (PNJ)"
+          {...getOverrideProps(overrides, "port3option80")}
+        ></option>
+        <option
+          children="Pasir Gudang (PAS)"
+          value="Pasir Gudang (PAS)"
+          {...getOverrideProps(overrides, "port3option81")}
+        ></option>
+        <option
+          children="Patimban (PTB)"
+          value="Patimban (PTB)"
+          {...getOverrideProps(overrides, "port3option82")}
+        ></option>
+        <option
+          children="Pattani (PTN)"
+          value="Pattani (PTN)"
+          {...getOverrideProps(overrides, "port3option83")}
+        ></option>
+        <option
+          children="Penang (PNG)"
+          value="Penang (PNG)"
+          {...getOverrideProps(overrides, "port3option84")}
+        ></option>
+        <option
+          children="Phnom Penh (PNH)"
+          value="Phnom Penh (PNH)"
+          {...getOverrideProps(overrides, "port3option85")}
+        ></option>
+        <option
+          children="Phra Chulachomklao Fort (PCF)"
+          value="Phra Chulachomklao Fort (PCF)"
+          {...getOverrideProps(overrides, "port3option86")}
+        ></option>
+        <option
+          children="Phuket (HKT)"
+          value="Phuket (HKT)"
+          {...getOverrideProps(overrides, "port3option87")}
+        ></option>
+        <option
+          children="Phumy (PHU)"
+          value="Phumy (PHU)"
+          {...getOverrideProps(overrides, "port3option88")}
+        ></option>
+        <option
+          children="Plathong Oil Rig (PATO)"
+          value="Plathong Oil Rig (PATO)"
+          {...getOverrideProps(overrides, "port3option89")}
+        ></option>
+        <option
+          children="Pontianak (POT)"
+          value="Pontianak (POT)"
+          {...getOverrideProps(overrides, "port3option90")}
+        ></option>
+        <option
+          children="Port Klang (PKL)"
+          value="Port Klang (PKL)"
+          {...getOverrideProps(overrides, "port3option91")}
+        ></option>
+        <option
+          children="Port Moresby (PGPOM)"
+          value="Port Moresby (PGPOM)"
+          {...getOverrideProps(overrides, "port3option92")}
+        ></option>
+        <option
+          children="Poso (POSO)"
+          value="Poso (POSO)"
+          {...getOverrideProps(overrides, "port3option93")}
+        ></option>
+        <option
+          children="Pusan (PUS)"
+          value="Pusan (PUS)"
+          {...getOverrideProps(overrides, "port3option94")}
+        ></option>
+        <option
+          children="Quinzhou (QZH)"
+          value="Quinzhou (QZH)"
+          {...getOverrideProps(overrides, "port3option95")}
+        ></option>
+        <option
+          children="Quy Nhon (QNN)"
+          value="Quy Nhon (QNN)"
+          {...getOverrideProps(overrides, "port3option96")}
+        ></option>
+        <option
+          children="Ranong (UNN)"
+          value="Ranong (UNN)"
+          {...getOverrideProps(overrides, "port3option97")}
+        ></option>
+        <option
+          children="Rayong (IRPC)"
+          value="Rayong (IRPC)"
+          {...getOverrideProps(overrides, "port3option98")}
+        ></option>
+        <option
+          children="Sampit (SMQ)"
+          value="Sampit (SMQ)"
+          {...getOverrideProps(overrides, "port3option99")}
+        ></option>
+        <option
+          children="Sandakan (SAN)"
+          value="Sandakan (SAN)"
+          {...getOverrideProps(overrides, "port3option100")}
+        ></option>
+        <option
+          children="Sarawak (SRW)"
+          value="Sarawak (SRW)"
+          {...getOverrideProps(overrides, "port3option101")}
+        ></option>
+        <option
+          children="Sarekei (SRK)"
+          value="Sarekei (SRK)"
+          {...getOverrideProps(overrides, "port3option102")}
+        ></option>
+        <option
+          children="Sattahip (SATP)"
+          value="Sattahip (SATP)"
+          {...getOverrideProps(overrides, "port3option103")}
+        ></option>
+        <option
+          children="Semarang - Tanjung Emas (SRG)"
+          value="Semarang - Tanjung Emas (SRG)"
+          {...getOverrideProps(overrides, "port3option104")}
+        ></option>
+        <option
+          children="Semarang (SRG)"
+          value="Semarang (SRG)"
+          {...getOverrideProps(overrides, "port3option105")}
+        ></option>
+        <option
+          children="Sibu (SIB)"
+          value="Sibu (SIB)"
+          {...getOverrideProps(overrides, "port3option106")}
+        ></option>
+        <option
+          children="Singapore (SG)"
+          value="Singapore (SG)"
+          {...getOverrideProps(overrides, "port3option107")}
+        ></option>
+        <option
+          children="Sipitang (SIP)"
+          value="Sipitang (SIP)"
+          {...getOverrideProps(overrides, "port3option108")}
+        ></option>
+        <option
+          children="Son Duong (SOD)"
+          value="Son Duong (SOD)"
+          {...getOverrideProps(overrides, "port3option109")}
+        ></option>
+        <option
+          children="Songkhla (SK)"
+          value="Songkhla (SK)"
+          {...getOverrideProps(overrides, "port3option110")}
+        ></option>
+        <option
+          children="Srihanoville (SIH)"
+          value="Srihanoville (SIH)"
+          {...getOverrideProps(overrides, "port3option111")}
+        ></option>
+        <option
+          children="Sriracha Harbor (SRC)"
+          value="Sriracha Harbor (SRC)"
+          {...getOverrideProps(overrides, "port3option112")}
+        ></option>
+        <option
+          children="Sritama Jetty (STM)"
+          value="Sritama Jetty (STM)"
+          {...getOverrideProps(overrides, "port3option113")}
+        ></option>
+        <option
+          children="Steung Hav (SHV)"
+          value="Steung Hav (SHV)"
+          {...getOverrideProps(overrides, "port3option114")}
+        ></option>
+        <option
+          children="Sungai Guntung (SGGT)"
+          value="Sungai Guntung (SGGT)"
+          {...getOverrideProps(overrides, "port3option115")}
+        ></option>
+        <option
+          children="Surabaya (SUBY)"
+          value="Surabaya (SUBY)"
+          {...getOverrideProps(overrides, "port3option116")}
+        ></option>
+        <option
+          children="Surat Thanee (SRT)"
+          value="Surat Thanee (SRT)"
+          {...getOverrideProps(overrides, "port3option117")}
+        ></option>
+        <option
+          children="Tacloban (TAC)"
+          value="Tacloban (TAC)"
+          {...getOverrideProps(overrides, "port3option118")}
+        ></option>
+        <option
+          children="Tagbilaran (TAG)"
+          value="Tagbilaran (TAG)"
+          {...getOverrideProps(overrides, "port3option119")}
+        ></option>
+        <option
+          children="Tanjong Manis (TGM)"
+          value="Tanjong Manis (TGM)"
+          {...getOverrideProps(overrides, "port3option120")}
+        ></option>
+        <option
+          children="Tanjung Batu (TJQ)"
+          value="Tanjung Batu (TJQ)"
+          {...getOverrideProps(overrides, "port3option121")}
+        ></option>
+        <option
+          children="Tanjung Priok (TP)"
+          value="Tanjung Priok (TP)"
+          {...getOverrideProps(overrides, "port3option122")}
+        ></option>
+        <option
+          children="Tarjun (TAR)"
+          value="Tarjun (TAR)"
+          {...getOverrideProps(overrides, "port3option123")}
+        ></option>
+        <option
+          children="Tawau (TAW)"
+          value="Tawau (TAW)"
+          {...getOverrideProps(overrides, "port3option124")}
+        ></option>
+        <option
+          children="Terengganu (TGG)"
+          value="Terengganu (TGG)"
+          {...getOverrideProps(overrides, "port3option125")}
+        ></option>
+        <option
+          children="Tha Sala (TSL)"
+          value="Tha Sala (TSL)"
+          {...getOverrideProps(overrides, "port3option126")}
+        ></option>
+        <option
+          children="Tsukumi (TSUM)"
+          value="Tsukumi (TSUM)"
+          {...getOverrideProps(overrides, "port3option127")}
+        ></option>
+        <option
+          children="Vung Ang (VAG)"
+          value="Vung Ang (VAG)"
+          {...getOverrideProps(overrides, "port3option128")}
+        ></option>
+        <option
+          children="Vung Tau (VUT)"
+          value="Vung Tau (VUT)"
+          {...getOverrideProps(overrides, "port3option129")}
+        ></option>
+        <option
+          children="Yangon (RGN)"
+          value="Yangon (RGN)"
+          {...getOverrideProps(overrides, "port3option130")}
+        ></option>
+      </SelectField>
       <Grid
         columnGap="inherit"
         rowGap="inherit"
@@ -3095,7 +3752,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3178,7 +3835,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3261,7 +3918,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3346,7 +4003,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3431,7 +4088,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -4176,7 +4833,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4259,7 +4916,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4342,7 +4999,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4427,7 +5084,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4512,7 +5169,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -5257,7 +5914,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5340,7 +5997,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5423,7 +6080,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5508,7 +6165,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5593,7 +6250,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -6338,7 +6995,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6421,7 +7078,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6504,7 +7161,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6589,7 +7246,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6678,7 +7335,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -6928,7 +7585,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7011,7 +7668,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7094,7 +7751,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7179,7 +7836,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -7429,7 +8086,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7512,7 +8169,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7595,7 +8252,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7680,7 +8337,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -7930,7 +8587,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8013,7 +8670,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8096,7 +8753,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8181,7 +8838,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -8431,7 +9088,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8514,7 +9171,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8597,7 +9254,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8682,7 +9339,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -8932,7 +9589,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9015,7 +9672,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9098,7 +9755,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9183,7 +9840,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -9433,7 +10090,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9516,7 +10173,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9599,7 +10256,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9695,7 +10352,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9778,7 +10435,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
