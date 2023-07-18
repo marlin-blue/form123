@@ -77,6 +77,9 @@ function App() {
       <p>Welcome to the freight calculator! Enter the voyage information into this form to calculate the expected profits or loss.
         Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
         Results are displayed in the tables below the form. Happy calculating!
+      </p><p>
+        Note:   There is a limit of 10 calculation attempts. Refresh the page to reset. 
+        If you encounter the "Distance not available" error. Please contact the admin to add the distance. 
       </p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
 
