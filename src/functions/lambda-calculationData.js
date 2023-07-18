@@ -56,6 +56,7 @@ exports.handler = async (event) => {
 
     // Assuming `ports` is the array containing port data
     let totalDistance = 0;
+    let errorMessage = ''; // Initialize the error message variable
 
     for (let i = 0; i < ports.length - 1; i++) {
       const sourcePort = ports[i].port;
@@ -64,23 +65,37 @@ exports.handler = async (event) => {
       if (sourcePort === "NIL" || destinationPort === "NIL") {
         break;
       }
+      if (sourcePort === destinationPort) {
+        totalDistance += 0; // Add distance = 0
+      } else {
+        const distanceParams = {
+          TableName: distanceTableName,
+          FilterExpression: 'sourcePort = :source AND destinationPort = :destination',
+          ExpressionAttributeValues: {
+            ':source': sourcePort,
+            ':destination': destinationPort
+          }
+        };
 
-      const distanceParams = {
-        TableName: distanceTableName,
-        FilterExpression: 'sourcePort = :source AND destinationPort = :destination',
-        ExpressionAttributeValues: {
-          ':source': sourcePort,
-          ':destination': destinationPort
+        try {
+          const distanceResult = await dynamodb.scan(distanceParams).promise();
+          const distanceItems = distanceResult.Items;
+        
+          if (distanceItems.length === 0) {
+            errorMessage = `Distance between ${sourcePort} and ${destinationPort} not available!`;
+            throw new Error(errorMessage);
+          }
+        
+          const distance = Number(distanceItems[0].distance);
+          totalDistance += distance;
+        } catch (error) {
+          console.error(error);
+          errorMessage = `Distance between ${sourcePort} and ${destinationPort} not available!`;
+          throw new Error(errorMessage);
         }
-      };
-
-      const distanceResult = await dynamodb.scan(distanceParams).promise();
-      const distanceItems = distanceResult.Items;
-
-      const distance = Number(distanceItems[0].distance);
-      totalDistance += (distance);
-
+      }
     }
+
 
 
     // Duration at sea
@@ -251,7 +266,7 @@ exports.handler = async (event) => {
     return response;
   } catch (error) {
     const response = {
-      statusCode: 500,
+      statusCode: 404,
       headers: {
         "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
         "Access-Control-Allow-Origin": "*",

@@ -65,7 +65,7 @@ export async function storeFormAPICall(formInputs) {
       lube_rate: formInputs.lube_rate,
       voyageBonus: formInputs.voyageBonus,
       miscCosts: formInputs.miscCosts,
-    };    
+    };
 
     const response = await axios.get(`${apiUrl}/form`, {
       params: queryStringParameters,
@@ -123,15 +123,21 @@ export async function storeFormAPICall(formInputs) {
 
 
 export async function calculateDataAPICall(formId) {
-
   try {
     const response = await axios.get(`${apiUrl}/calculate/execute/${formId}`);
+
+    // Check if the response contains an error message
+    if (response.data.error) {
+      throw new Error(response.data.error);
+    }
+
     return response.data;
   } catch (error) {
-    console.error('Calcuate API call error:', error);
+    console.error('Calculate API call error:', error);
     throw error;
   }
 }
+
 
 export async function fetchCalculationAPICall(calculationId) {
   try {

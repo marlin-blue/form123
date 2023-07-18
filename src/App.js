@@ -12,24 +12,28 @@ function App() {
   const [formId, setFormId] = useState(null); // Add formId state
   const tableRef = useRef(null); // Create a ref for the table element
 
-  const handleSubmit = async (formData) => {
-    try {
-      console.log(formData);
-      const response = await storeFormAPICall(formData);
-      setResult(response.message);
-      setErrorMessage(null);
-
-      const newFormId = response.id;
-      console.log("FormId:", newFormId);
-
-      setFormId(newFormId); // Set the formId in the state
-      await calculateDataAPICall(newFormId, formData); // Pass the form data for calculation
-      setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
-    } catch (error) {
-      setResult(null);
-      setErrorMessage(error.message);
+const handleSubmit = async (formData) => {
+  try {
+    if (Object.values(formData).some(value => value === "")) {
+      throw new Error("Empty field! Please fill up the form.");
     }
-  };
+
+    console.log(formData);
+    const response = await storeFormAPICall(formData);
+    setResult(response.message);
+    setErrorMessage(null);
+
+    const newFormId = response.id;
+    console.log("FormId:", newFormId);
+
+    setFormId(newFormId); // Set the formId in the state
+    await calculateDataAPICall(newFormId); // Pass the formId for calculation
+    setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
+  } catch (error) {
+    setResult(null);
+    setErrorMessage(error.response.data.error || "An error occurred.");
+  }
+};
 
   const handleCalculate = async () => {
     try {
@@ -58,14 +62,19 @@ function App() {
 
   return (
     <div>
-      <h1>Freight Calculator</h1>
+      <h1>Freight Calculator</h1> 
+      <p>Welcome to the frieght calculator! Enter the voyage information into this form to calculate the expected profits or loss.
+      Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
+      Results are displayed in the tables below the form. Happy calculating!</p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-      {result && <p style={{ color: 'green', fontWeight: 'bold' }}>{submittedMessage}</p>}
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      {result && !errorMessage && (
+      
+      {errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center'}}>{errorMessage}</p>}
+      {result && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
+    
+      {!errorMessage && result && (
         <div>
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
-
+        </div>)}  
           {calculationData.length > 0 && (
             <div>
               <h1>Cargo Data</h1>
@@ -107,7 +116,7 @@ function App() {
 
           {calculationData.length > 0 && (
             <div>
-              <h1>Calculation Data for HN5:</h1>
+              <h1>Calculation Data for HN5</h1>
               <table ref={tableRef}>
                 <thead>
                   <tr>
@@ -165,7 +174,7 @@ function App() {
 
           {calculationData.length > 0 && (
             <div>
-              <h1>Calculation Data for HN9:</h1>
+              <h1>Calculation Data for HN9</h1>
               <table ref={tableRef}>
                 <thead>
                   <tr>
@@ -219,10 +228,11 @@ function App() {
                 </tbody>
               </table>
             </div>
+            
           )}
         </div>
-      )}
-    </div>
+      
+    
   );
 }
 

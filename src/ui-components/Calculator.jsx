@@ -24,12 +24,12 @@ export default function Calculator(props) {
     diesel_rate: "0.7",
     exchange_rate: "35",
     lube_rate: "2.33",
-    port1: "Bangkok (BK)",
+    port1: "Batam (BAT)",
     port1_fees: "1000",
     port1_port_call: "5",
     port1_crane_usage: "20",
     port1_surveying_fees: "1000",
-    port2: "Batam (BAT)",
+    port2: "Vung Ang (VAG)",
     port2_fees: "0",
     port2_port_call: "0",
     port2_crane_usage: "0",
@@ -383,6 +383,9 @@ export default function Calculator(props) {
       rowGap="15px"
       columnGap="15px"
       padding="20px"
+      maxWidth="800px"
+      margin="0 auto"
+      
       onSubmit={async (event) => {
         event.preventDefault();
         const modelFields = {
@@ -834,8 +837,13 @@ export default function Calculator(props) {
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement0")}
       ></Divider>
+      <Heading
+        level={3}
+        children="Port Information"
+        {...getOverrideProps(overrides, "SectionalElement3")}
+      ></Heading>
       <SelectField
-        label="Port 1"
+        label={<span style={{ fontWeight: 'bold' }}>Port 1</span>}
         placeholder="Please select an option"
         value={port1}
         onChange={(e) => {
@@ -1916,7 +1924,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Port 2"
+        label={<span style={{ fontWeight: 'bold' }}>Port 2</span>}
         placeholder="Please select an option"
         value={port2}
         onChange={(e) => {
@@ -2997,7 +3005,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Port 3"
+        label={<span style={{ fontWeight: 'bold' }}>Port 3</span>}
         placeholder="Please select an option"
         value={port3}
         onChange={(e) => {
@@ -4079,7 +4087,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Port 4"
+        label={<span style={{ fontWeight: 'bold' }}>Port 4</span>}
         placeholder="Please select an option"
         value={port4}
         onChange={(e) => {
@@ -5160,7 +5168,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Port 5"
+        label={<span style={{ fontWeight: 'bold' }}>Port 5</span>}
         placeholder="Please select an option"
         value={port5}
         onChange={(e) => {
@@ -6241,7 +6249,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Port 6"
+        label={<span style={{ fontWeight: 'bold' }}>Port 6</span>}
         placeholder="Please select an option"
         value={port6}
         onChange={(e) => {
@@ -7325,8 +7333,13 @@ export default function Calculator(props) {
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement2")}
       ></Divider>
+      <Heading
+        level={3}
+        children="Cargo Information"
+        {...getOverrideProps(overrides, "SectionalElement3")}
+      ></Heading>
       <SelectField
-        label="Cargo 1"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 1</span>}
         placeholder="Please select an option"
         value={cargo1_type}
         onChange={(e) => {
@@ -7827,7 +7840,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Cargo 2"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 2</span>}
         placeholder="Please select an option"
         value={cargo2_type}
         onChange={(e) => {
@@ -8328,7 +8341,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Cargo 3"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 3</span>}
         placeholder="Please select an option"
         value={cargo3_type}
         onChange={(e) => {
@@ -8829,7 +8842,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Cargo 4"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 4</span>}
         placeholder="Please select an option"
         value={cargo4_type}
         onChange={(e) => {
@@ -9330,7 +9343,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Cargo 5"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 5</span>}
         placeholder="Please select an option"
         value={cargo5_type}
         onChange={(e) => {
@@ -9831,7 +9844,7 @@ export default function Calculator(props) {
         ></TextField>
       </Grid>
       <SelectField
-        label="Cargo 6"
+        label={<span style={{ fontWeight: 'bold' }}>Cargo 6</span>}
         placeholder="Please select an option"
         value={cargo6_type}
         onChange={(e) => {
@@ -10335,6 +10348,11 @@ export default function Calculator(props) {
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement1")}
       ></Divider>
+      <Heading
+        level={3}
+        children="Other Expenses"
+        {...getOverrideProps(overrides, "SectionalElement3")}
+      ></Heading>
       <Grid
         columnGap="inherit"
         rowGap="inherit"
