@@ -8,6 +8,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({});
   const [calculationData, setCalculationData] = useState([]);
+  const [submittedMessage, setSubmittedMessage] = useState('');
   const [formId, setFormId] = useState(null); // Add formId state
   const tableRef = useRef(null); // Create a ref for the table element
 
@@ -23,8 +24,7 @@ function App() {
 
       setFormId(newFormId); // Set the formId in the state
       await calculateDataAPICall(newFormId, formData); // Pass the form data for calculation
-      // Scroll to the bottom of the page
-      window.scrollTo(0, document.body.scrollHeight);
+      setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
     } catch (error) {
       setResult(null);
       setErrorMessage(error.message);
@@ -36,12 +36,14 @@ function App() {
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
+      setSubmittedMessage('Data has been calculated! Please submit another form'); // Reset the submittedMessage state
 
       console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
 
       // Add the new calculation data to the existing array of calculation data
       setCalculationData((prevCalculationData) => [...prevCalculationData, calculationDataResponse]);
+
     } catch (error) {
       console.error(error);
     }
@@ -50,7 +52,7 @@ function App() {
   useEffect(() => {
     // Scroll to the bottom when calculationData updates
     if (tableRef.current) {
-      tableRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      tableRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [calculationData]);
 
@@ -58,20 +60,59 @@ function App() {
     <div>
       <h1>Freight Calculator</h1>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-      {result && <p style={{ color: 'green', fontWeight: 'bold' }}>Form has been submitted! Please click "Calculate" below.</p>}
+      {result && <p style={{ color: 'green', fontWeight: 'bold' }}>{submittedMessage}</p>}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {result && !errorMessage && (
         <div>
           <button onClick={handleCalculate} style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}>Calculate</button>
+
           {calculationData.length > 0 && (
             <div>
-              <h1>Calculation Data for HN5:</h1>
-  
+              <h1>Cargo Data</h1>
               <table ref={tableRef}>
                 <thead>
                   <tr>
-                    <th>Form ID</th>
-                    {calculationData.map((data, index) => (
+                    <th>Cargo</th>
+                    {calculationData.map((_, index) => (
+                      <th key={index}>Calculation {index + 1}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(6)].map((_, rowIndex) => (
+                    <tr key={rowIndex}>
+                      <td>Cargo {rowIndex + 1}</td>
+                      {calculationData.map((data, columnIndex) => {
+                        const cargoType = data.cargoData[rowIndex].type;
+                        const cargoQuantity = data.cargoData[rowIndex].quantity;
+                        const cargoRate = data.cargoData[rowIndex].rate;
+                        const currencyCode = data.currency_type.match(/\((.*)\)/)[1];
+                        if (cargoType !== "NIL") {
+                          return (
+                            <td key={columnIndex}>
+                              {cargoType}, {cargoQuantity} MT, {cargoRate} {currencyCode}
+                            </td>
+                          );
+                        } else {
+                          return <td key={columnIndex}>N/A</td>;
+                        }
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+
+              </table>
+            </div>
+          )}
+
+          {calculationData.length > 0 && (
+            <div>
+              <h1>Calculation Data for HN5:</h1>
+              <table ref={tableRef}>
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    {calculationData.map((_, index) => (
                       <th key={index}>Calculation {index + 1}</th>
                     ))}
                   </tr>
@@ -90,7 +131,7 @@ function App() {
                   <tr>
                     <td>Revenue</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.hn5_revenue)} THB</td>
+                      <td key={index}>{formatNumber(data.revenue)} THB</td>
                     ))}
                   </tr>
                   <tr>
@@ -121,16 +162,15 @@ function App() {
               </table>
             </div>
           )}
-  
+
           {calculationData.length > 0 && (
             <div>
               <h1>Calculation Data for HN9:</h1>
-  
               <table ref={tableRef}>
                 <thead>
                   <tr>
-                    <th>Form ID</th>
-                    {calculationData.map((data, index) => (
+                    <th>Data</th>
+                    {calculationData.map((_, index) => (
                       <th key={index}>Calculation {index + 1}</th>
                     ))}
                   </tr>
@@ -149,7 +189,7 @@ function App() {
                   <tr>
                     <td>Revenue</td>
                     {calculationData.map((data, index) => (
-                      <td key={index}>{formatNumber(data.hn9_revenue)} THB</td>
+                      <td key={index}>{formatNumber(data.revenue)} THB</td>
                     ))}
                   </tr>
                   <tr>
@@ -184,7 +224,7 @@ function App() {
       )}
     </div>
   );
-}  
+}
 
 
 function formatNumber(number) {

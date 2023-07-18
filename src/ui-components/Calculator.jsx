@@ -20,15 +20,15 @@ import { fetchByPath, validateField } from "./utils";
 export default function Calculator(props) {
   const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
   const initialValues = {
-    currency_type: "Thai Bhat (THB)",
-    diesel_rate: "28",
-    bunker_rate: "22",
-    lube_rate: "80",
+    currency_type: "US Dollar (USD)",
+    diesel_rate: "0.7",
+    exchange_rate: "35",
+    lube_rate: "2.33",
     port1: "Bangkok (BK)",
-    port1_fees: "35000",
+    port1_fees: "1000",
     port1_port_call: "5",
     port1_crane_usage: "20",
-    port1_surveying_fees: "35000",
+    port1_surveying_fees: "1000",
     port2: "Batam (BAT)",
     port2_fees: "0",
     port2_port_call: "0",
@@ -56,7 +56,7 @@ export default function Calculator(props) {
     port6_surveying_fees: "0",
     cargo1_type: "Rice",
     cargo1_quantity: "3000",
-    cargo1_rate: "910",
+    cargo1_rate: "18",
     cargo1_brokerage_fees: "0",
     cargo2_type: "NIL",
     cargo2_quantity: "0",
@@ -88,8 +88,8 @@ export default function Calculator(props) {
   const [diesel_rate, setDiesel_rate] = React.useState(
     initialValues.diesel_rate
   );
-  const [bunker_rate, setBunker_rate] = React.useState(
-    initialValues.bunker_rate
+  const [exchange_rate, setExchange_rate] = React.useState(
+    initialValues.exchange_rate
   );
   const [lube_rate, setLube_rate] = React.useState(initialValues.lube_rate);
   const [port1, setPort1] = React.useState(initialValues.port1);
@@ -238,7 +238,7 @@ export default function Calculator(props) {
   const resetStateValues = () => {
     setCurrency_type(initialValues.currency_type);
     setDiesel_rate(initialValues.diesel_rate);
-    setBunker_rate(initialValues.bunker_rate);
+    setExchange_rate(initialValues.exchange_rate);
     setLube_rate(initialValues.lube_rate);
     setPort1(initialValues.port1);
     setPort1_fees(initialValues.port1_fees);
@@ -301,7 +301,7 @@ export default function Calculator(props) {
   const validations = {
     currency_type: [],
     diesel_rate: [],
-    bunker_rate: [],
+    exchange_rate: [],
     lube_rate: [],
     port1: [],
     port1_fees: [],
@@ -388,7 +388,7 @@ export default function Calculator(props) {
         const modelFields = {
           currency_type,
           diesel_rate,
-          bunker_rate,
+          exchange_rate,
           lube_rate,
           port1,
           port1_fees,
@@ -486,7 +486,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type: value,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -591,7 +591,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate: value,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -664,17 +664,17 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "diesel_rate")}
         ></TextField>
         <TextField
-          label="Bunker Fuel Rate"
+          label="Exchange Rate"
           type="number"
           step="any"
-          value={bunker_rate}
+          value={exchange_rate}
           onChange={(e) => {
             let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate: value,
+                exchange_rate: value,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -734,17 +734,17 @@ export default function Calculator(props) {
                 miscCosts,
               };
               const result = onChange(modelFields);
-              value = result?.bunker_rate ?? value;
+              value = result?.exchange_rate ?? value;
             }
-            if (errors.bunker_rate?.hasError) {
-              runValidationTasks("bunker_rate", value);
+            if (errors.exchange_rate?.hasError) {
+              runValidationTasks("exchange_rate", value);
             }
-            setBunker_rate(value);
+            setExchange_rate(value);
           }}
-          onBlur={() => runValidationTasks("bunker_rate", bunker_rate)}
-          errorMessage={errors.bunker_rate?.errorMessage}
-          hasError={errors.bunker_rate?.hasError}
-          {...getOverrideProps(overrides, "bunker_rate")}
+          onBlur={() => runValidationTasks("exchange_rate", exchange_rate)}
+          errorMessage={errors.exchange_rate?.errorMessage}
+          hasError={errors.exchange_rate?.hasError}
+          {...getOverrideProps(overrides, "exchange_rate")}
         ></TextField>
         <TextField
           label="Lube Rate"
@@ -757,7 +757,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate: value,
                 port1,
                 port1_fees,
@@ -844,7 +844,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1: value,
               port1_fees,
@@ -1589,7 +1589,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees: value,
@@ -1672,7 +1672,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1755,7 +1755,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1840,7 +1840,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -1925,7 +1925,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -2670,7 +2670,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2753,7 +2753,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2836,7 +2836,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -2921,7 +2921,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3006,7 +3006,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -3752,7 +3752,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3835,7 +3835,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -3918,7 +3918,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4003,7 +4003,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4088,7 +4088,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -4833,7 +4833,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4916,7 +4916,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -4999,7 +4999,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5084,7 +5084,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5169,7 +5169,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -5914,7 +5914,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -5997,7 +5997,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6080,7 +6080,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6165,7 +6165,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -6250,7 +6250,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -6995,7 +6995,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7078,7 +7078,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7161,7 +7161,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7246,7 +7246,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7335,7 +7335,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -7585,7 +7585,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7668,7 +7668,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7751,7 +7751,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -7836,7 +7836,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -8086,7 +8086,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8169,7 +8169,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8252,7 +8252,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8337,7 +8337,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -8587,7 +8587,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8670,7 +8670,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8753,7 +8753,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -8838,7 +8838,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -9088,7 +9088,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9171,7 +9171,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9254,7 +9254,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9339,7 +9339,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -9589,7 +9589,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9672,7 +9672,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9755,7 +9755,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -9840,7 +9840,7 @@ export default function Calculator(props) {
             const modelFields = {
               currency_type,
               diesel_rate,
-              bunker_rate,
+              exchange_rate,
               lube_rate,
               port1,
               port1_fees,
@@ -10090,7 +10090,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -10173,7 +10173,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -10256,7 +10256,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -10352,7 +10352,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
@@ -10435,7 +10435,7 @@ export default function Calculator(props) {
               const modelFields = {
                 currency_type,
                 diesel_rate,
-                bunker_rate,
+                exchange_rate,
                 lube_rate,
                 port1,
                 port1_fees,
