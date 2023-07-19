@@ -228,7 +228,7 @@ function App() {
               <tr>
                 <td>Revenue</td>
                 {calculationData.map((data, index) => (
-                  <td key={index}>{formatNumber(data.revenue)} THB</td>
+                  <td key={index}>{formatNumber(Math.round(data.revenue))} THB</td>
                 ))}
               </tr>
               <tr>
@@ -246,7 +246,7 @@ function App() {
               <tr>
                 <td>Fuel Costs</td>
                 {calculationData.map((data, index) => (
-                  <td key={index}>{formatNumber(data.hn9_fuelCosts)} THB</td>
+                  <td key={index}>{formatNumber(Math.round(data.hn9_fuelCosts))} THB</td>
                 ))}
               </tr>
               <tr>
