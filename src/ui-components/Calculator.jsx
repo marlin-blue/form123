@@ -758,7 +758,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "diesel_rate")}
         ></TextField>
         <TextField
-          label="Bunker Rate"
+          label="Bunker Rate (Low Sulphur Fuel)"
           type="number"
           step="any"
           value={bunker_rate}

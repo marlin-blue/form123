@@ -248,17 +248,28 @@ exports.handler = async (event) => {
         currency_type: currency_type,
         revenue: revenue,
 
+        duration_at_sea: duration_at_sea,
+        duration_at_port: duration_at_port,
+        duration_crane_usage: duration_crane_usage,
+
+        totalSurveyingFees: totalSurveyingFees,
+        brokerageCosts: brokerageCosts,
+        miscCosts: miscCosts,
+        voyageBonus: voyageBonus, 
+
         hn5_totalCosts: hn5_totalCosts,
         hn5_profit: hn5_profit,
         hn5_marginPercentage: hn5_marginPercentage,
         hn5_fuelCosts: hn5_fuelCosts,
         hn5_fuelCostsPercentage: hn5_fuelCostsPercentage,
+        hn5_operatingCosts: hn5_operatingCosts,
 
         hn9_totalCosts: hn9_totalCosts,
         hn9_profit: hn9_profit,
         hn9_marginPercentage: hn9_marginPercentage,
         hn9_fuelCosts: hn9_fuelCosts,
         hn9_fuelCostsPercentage: hn9_fuelCostsPercentage,
+        hn9_operatingCosts: hn9_operatingCosts,
 
         cargoData: cargoData,
         created_at: created_at
