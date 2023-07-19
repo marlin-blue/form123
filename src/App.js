@@ -12,29 +12,37 @@ function App() {
   const [submittedMessage, setSubmittedMessage] = useState('');
   const [formId, setFormId] = useState(null); // Add formId state
   const tableRef = useRef(null); // Create a ref for the table element
-
   const handleSubmit = async (formData) => {
     try {
       if (Object.values(formData).some(value => value === "")) {
-        throw new Error("Empty field! Please fill up the form.");
+        const emptyField = Object.keys(formData).find(key => formData[key] === "");
+        throw new Error(`Empty field at ${emptyField}! Please fill up the form.`);
       }
-
+      if (Object.values(formData).some(value => value < 0)) {
+        const negativeField = Object.keys(formData).find(key => formData[key] < 0);
+        throw new Error(`Negative value at ${negativeField}! Please modify it.`);
+      }
       console.log(formData);
       const response = await storeFormAPICall(formData);
-
+  
       const newFormId = response.id;
       console.log("FormId:", newFormId);
-
+  
       setFormId(newFormId); // Set the formId in the state
-      await calculateDataAPICall(newFormId); // Pass the formId for calculation
-      setResult(response.message);
-      setErrorMessage(null);
-      setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
+      try {
+        await calculateDataAPICall(newFormId); // Pass the formId for calculation
+        setResult(response.message);
+        setErrorMessage(null);
+        setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
+      } catch (error) {
+        setResult(null);
+        setErrorMessage(error.response.data.error || "An error occurred.");
+      }
     } catch (error) {
       setResult(null);
-      setErrorMessage(error.response.data.error || "An error occurred.");
+      setErrorMessage(error.message || "An error occurred.");
     }
-  };
+  }
 
   const handleCalculate = async () => {
     try {
@@ -80,6 +88,7 @@ function App() {
       </p><p>
         Note:   There is a limit of 10 calculation attempts. Refresh the page to reset. 
         If you encounter the "Distance not available" error. Please contact the admin to add the distance. 
+        Results are displayed in THB. If "Currency" is THB, please change exchange rate to "1".
       </p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
 

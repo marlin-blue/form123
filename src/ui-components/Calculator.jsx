@@ -582,11 +582,6 @@ export default function Calculator(props) {
           value="Thai Bhat (THB)"
           {...getOverrideProps(overrides, "currency_typeoption1")}
         ></option>
-        <option
-          children="Malaysian Ringgit (MYR)"
-          value="Malaysian Ringgit (MYR)"
-          {...getOverrideProps(overrides, "currency_typeoption2")}
-        ></option>
       </SelectField>
       <TextField
         label="Exchange Rate"
