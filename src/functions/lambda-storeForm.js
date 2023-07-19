@@ -105,10 +105,12 @@ exports.handler = async (event) => {
 
         const exchangeRate = parseFloat(event.queryStringParameters.exchange_rate);
         const dieselFuelRate = parseFloat(event.queryStringParameters.diesel_rate);
+        const bunkerFuelRate = parseFloat(event.queryStringParameters.bunker_rate);
         const lubeRate = parseFloat(event.queryStringParameters.lube_rate);
         const voyageBonus = parseFloat(event.queryStringParameters.voyageBonus);
         const miscCosts = parseFloat(event.queryStringParameters.miscCosts);
         console.log(exchangeRate)
+
         // Store the form details in the DynamoDB table
         const formParams = {
             TableName: formsTableName,
@@ -120,6 +122,7 @@ exports.handler = async (event) => {
                 cargos: cargos,
                 exchangeRate: exchangeRate,
                 dieselFuelRate: dieselFuelRate,
+                bunkerFuelRate: bunkerFuelRate,
                 lubeRate: lubeRate,
                 voyageBonus: voyageBonus,
                 miscCosts: miscCosts

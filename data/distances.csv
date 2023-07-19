@@ -2383,4 +2383,5 @@ id,sourcePort,destinationPort,distance
 2382,Banyuwangi - Tanjung Wangi (BJU),Surabaya (SUBY),1502
 2383, Phumy (PHU), Cigading (CIG), 372
 2384, Cigading (CIG), Phumy (PHU), 372
-
+2385, Cigading (CIG), HO CHI MINH (HCM), 304 
+2386, HO CHI MINH (HCM), Cigading (CIG), 304 

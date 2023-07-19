@@ -62,6 +62,7 @@ export async function storeFormAPICall(formInputs) {
       cargo6_brokerage_fees: formInputs.cargo6_brokerage_fees,
       exchange_rate: formInputs.exchange_rate,
       diesel_rate: formInputs.diesel_rate,
+      bunker_rate: formInputs.bunker_rate,
       lube_rate: formInputs.lube_rate,
       voyageBonus: formInputs.voyageBonus,
       miscCosts: formInputs.miscCosts,

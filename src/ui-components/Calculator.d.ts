@@ -14,8 +14,9 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type CalculatorInputValues = {
     currency_type?: string;
-    diesel_rate?: string;
     exchange_rate?: string;
+    diesel_rate?: string;
+    bunker_rate?: string;
     lube_rate?: string;
     port1?: string;
     port1_fees?: string;
@@ -76,8 +77,9 @@ export declare type CalculatorInputValues = {
 };
 export declare type CalculatorValidationValues = {
     currency_type?: ValidationFunction<string>;
-    diesel_rate?: ValidationFunction<string>;
     exchange_rate?: ValidationFunction<string>;
+    diesel_rate?: ValidationFunction<string>;
+    bunker_rate?: ValidationFunction<string>;
     lube_rate?: ValidationFunction<string>;
     port1?: ValidationFunction<string>;
     port1_fees?: ValidationFunction<string>;
@@ -141,9 +143,10 @@ export declare type CalculatorOverridesProps = {
     CalculatorGrid?: PrimitiveOverrideProps<GridProps>;
     SectionalElement3?: PrimitiveOverrideProps<HeadingProps>;
     currency_type?: PrimitiveOverrideProps<SelectFieldProps>;
+    exchange_rate?: PrimitiveOverrideProps<TextFieldProps>;
     RowGrid2?: PrimitiveOverrideProps<GridProps>;
     diesel_rate?: PrimitiveOverrideProps<TextFieldProps>;
-    exchange_rate?: PrimitiveOverrideProps<TextFieldProps>;
+    bunker_rate?: PrimitiveOverrideProps<TextFieldProps>;
     lube_rate?: PrimitiveOverrideProps<TextFieldProps>;
     SectionalElement0?: PrimitiveOverrideProps<DividerProps>;
     port1?: PrimitiveOverrideProps<SelectFieldProps>;

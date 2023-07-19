@@ -33,8 +33,9 @@ exports.handler = async (event) => {
     const ports = form.ports;
     const cargos = form.cargos;
     const exchange_rate = form.exchangeRate
-    const dieselFuelRate = form.dieselFuelRate * exchange_rate;
-    const lubeRate = form.lubeRate * exchange_rate;
+    const diesel_rate = form.dieselFuelRate * exchange_rate;
+    const bunker_rate = form.bunkerFuelRate * exchange_rate;
+    const lube_rate = form.lubeRate * exchange_rate;
     const voyageBonus = form.voyageBonus * exchange_rate;
     const miscCosts = form.miscCosts * exchange_rate;
     const cargoData = form.cargos;
@@ -111,18 +112,19 @@ exports.handler = async (event) => {
     }, 0);
 
     // Calculate the fuel costs for HN5
-    const hn5_main_engine_fuel_cost = duration_at_sea * dieselFuelRate * (195.0); // HN5 no bunker fuel
-    const hn5_main_diesel_cost = duration_at_sea * dieselFuelRate * 0; // HN5 NA
-    const hn5_winch_diesel_cost = duration_crane_usage * dieselFuelRate * (56.0);
-    const hn5_generator_diesel_cost = (duration_at_sea + (duration_crane_usage / 24)) * dieselFuelRate * (16.0);
-    const hn5_lube_cost = duration_at_sea * lubeRate * (2.25);
+    const hn5_main_engine_fuel_cost = duration_at_sea * bunker_rate * (195.0); // HN5 no bunker fuel
+    const hn5_main_diesel_cost = duration_at_sea * diesel_rate * 0; // HN5 NA
+    const hn5_winch_diesel_cost = duration_crane_usage * diesel_rate * (56.0);
+    const hn5_generator_diesel_cost = (duration_at_sea + duration_at_port) * diesel_rate * (16.0);
+    const hn5_lube_cost = duration_at_sea * lube_rate * (2.25);
+
 
     // Calculate the fuel costs for HN9
-    const hn9_main_engine_fuel_cost = duration_at_sea * dieselFuelRate * (162.6); // HN5 no bunker fuel
-    const hn9_main_diesel_cost = duration_at_sea * dieselFuelRate * 0; // HN5 NA
-    const hn9_winch_diesel_cost = duration_crane_usage * dieselFuelRate * (56.0);
-    const hn9_generator_diesel_cost = (duration_at_sea + (duration_crane_usage / 24)) * dieselFuelRate * (16.0);
-    const hn9_lube_cost = duration_at_sea * lubeRate * (2.25);
+    const hn9_main_engine_fuel_cost = duration_at_sea * bunker_rate * (162.6); // HN9 no bunker fuel
+    const hn9_main_diesel_cost = duration_at_sea * diesel_rate * 0; // HN9 NA
+    const hn9_winch_diesel_cost = duration_crane_usage * diesel_rate * (56.0);
+    const hn9_generator_diesel_cost = (duration_at_sea + duration_crane_usage) * diesel_rate * (16.0);
+    const hn9_lube_cost = duration_at_sea * lube_rate * (2.25);
 
     const hn5_fuelCosts =
       hn5_main_engine_fuel_cost +
@@ -196,15 +198,28 @@ exports.handler = async (event) => {
 
     // Get the current timestamp for created_at
     const created_at = new Date().toISOString();
+    
+    
+    console.log( "duration_at_port:", duration_at_port)
+    console.log( "duration_crane_usage:", duration_crane_usage)
+    console.log("hn5:", hn5_main_engine_fuel_cost)
+    console.log("hn5:", hn5_main_diesel_cost)
+    console.log("hn5:", hn5_winch_diesel_cost) 
+    console.log("hn5:", hn5_generator_diesel_cost) 
+    console.log("hn5:", hn5_lube_cost)
+    
+    
     console.log("currency_type:", currency_type)
     console.log("exchange_rate:", exchange_rate)
     console.log("ports:", ports)
     console.log("cargos:", cargos)
-    console.log("exchangeRate:", exchange_rate)
-    console.log("dieselFuelRate:", dieselFuelRate)
-    console.log("lubeRate:", lubeRate)
+
+    console.log("dieselFuelRate:", diesel_rate)
+    console.log("bunkerRate:", bunker_rate)
+    console.log("lubeRate:", lube_rate)
     console.log("voyageBonus:", voyageBonus)
     console.log("miscCosts:", miscCosts)
+
     console.log("revenue:", revenue)
     console.log("brokerageCosts:", brokerageCosts)
     console.log("totalSurveyingFees:", totalSurveyingFees)
