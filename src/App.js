@@ -297,7 +297,7 @@ function App() {
                 <td>Margin</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>
-                    <span style={{ color: data.hn5_marginPercentage >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
+                    <span style={{ color: data.hn9_marginPercentage >= 0 ? 'green' : 'red', fontWeight: 'bold' }}>
                       {data.hn9_marginPercentage.toFixed(2)}%
                     </span>
                   </td>
@@ -314,7 +314,7 @@ function App() {
                 <td>Percentage Fuel Cost</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>
-                    <span style={{ color: data.hn5_fuelCostsPercentage <= 30 ? 'green' : 'red', fontWeight: 'bold' }}>
+                    <span style={{ color: data.hn9_fuelCostsPercentage <= 30 ? 'green' : 'red', fontWeight: 'bold' }}>
                       {data.hn9_fuelCostsPercentage.toFixed(2)}%
                     </span>
                   </td>
