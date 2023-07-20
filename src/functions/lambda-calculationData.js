@@ -202,15 +202,22 @@ exports.handler = async (event) => {
     
     console.log( "duration_at_port:", duration_at_port)
     console.log( "duration_crane_usage:", duration_crane_usage)
+    
     console.log("hn5:", hn5_main_engine_fuel_cost)
     console.log("hn5:", hn5_main_diesel_cost)
     console.log("hn5:", hn5_winch_diesel_cost) 
     console.log("hn5:", hn5_generator_diesel_cost) 
     console.log("hn5:", hn5_lube_cost)
     
+        
+    console.log( "duration_at_port:", duration_at_port)
+    console.log( "duration_crane_usage:", duration_crane_usage)
+    console.log("hn9:", hn9_main_engine_fuel_cost)
+    console.log("hn9:", hn9_main_diesel_cost)
+    console.log("hn9:", hn9_winch_diesel_cost) 
+    console.log("hn9:", hn9_generator_diesel_cost) 
+    console.log("hn9:", hn9_lube_cost)
     
-    console.log("currency_type:", currency_type)
-    console.log("exchange_rate:", exchange_rate)
     console.log("ports:", ports)
     console.log("cargos:", cargos)
 
@@ -220,25 +227,7 @@ exports.handler = async (event) => {
     console.log("voyageBonus:", voyageBonus)
     console.log("miscCosts:", miscCosts)
 
-    console.log("revenue:", revenue)
-    console.log("brokerageCosts:", brokerageCosts)
-    console.log("totalSurveyingFees:", totalSurveyingFees)
-    console.log("totalDistance:", totalDistance)
-    console.log("duration_at_sea:", duration_at_sea)
-    console.log("duration_at_port:", duration_at_port)
-    console.log("duration_crane_usage:", duration_crane_usage)
-    console.log("fuelCosts:", hn5_fuelCosts)
-    console.log("fuelCosts:", hn9_fuelCosts)
-    console.log("hn5 operatingCosts:", hn5_operatingCosts)
-    console.log("hn9 operatingCosts:", hn9_operatingCosts)
-    console.log("portCosts:", portCosts)
-    console.log("profit:", hn5_profit)
-    console.log("profit:", hn9_profit)
-    console.log("marginPercentage:", hn5_marginPercentage)
-    console.log("fuelCostsPercentage:", hn5_fuelCostsPercentage)
-    console.log("marginPercentage:", hn9_marginPercentage)
-    console.log("fuelCostsPercentage:", hn9_fuelCostsPercentage)
-    console.log("cargos:", cargos)
+
     // Store the calculation results in the calculated data table
     const calculatedDataParams = {
       TableName: calculatedDataName,
