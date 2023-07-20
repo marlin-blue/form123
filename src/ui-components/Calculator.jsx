@@ -35,26 +35,46 @@ export default function Calculator(props) {
     port2_port_call: "0",
     port2_crane_usage: "0",
     port2_surveying_fees: "0",
-    port3: "NIL",
+    port3: "Bangkok (BK)",
     port3_fees: "0",
     port3_port_call: "0",
     port3_crane_usage: "0",
     port3_surveying_fees: "0",
-    port4: "NIL",
+    port4: "Batam (BAT)",
     port4_fees: "0",
     port4_port_call: "0",
     port4_crane_usage: "0",
     port4_surveying_fees: "0",
-    port5: "NIL",
+    port5: "Bangkok (BK)",
     port5_fees: "0",
     port5_port_call: "0",
     port5_crane_usage: "0",
     port5_surveying_fees: "0",
-    port6: "NIL",
+    port6: "Batam (BAT)",
     port6_fees: "0",
     port6_port_call: "0",
     port6_crane_usage: "0",
     port6_surveying_fees: "0",
+    port7: "Bangkok (BK)",
+    port7_fees: "0",
+    port7_port_call: "0",
+    port7_crane_usage: "0",
+    port7_surveying_fees: "0",
+    port8: "Batam (BAT)",
+    port8_fees: "0",
+    port8_port_call: "0",
+    port8_crane_usage: "0",
+    port8_surveying_fees: "0",
+    port9: "Bangkok (BK)",
+    port9_fees: "0",
+    port9_port_call: "0",
+    port9_crane_usage: "0",
+    port9_surveying_fees: "0",
+    port10: "Batam (BAT)",
+    port10_fees: "0",
+    port10_port_call: "0",
+    port10_crane_usage: "0",
+    port10_surveying_fees: "0",
     cargo1_type: "Rice",
     cargo1_quantity: "3000",
     cargo1_rate: "18",
@@ -162,6 +182,55 @@ export default function Calculator(props) {
   const [port6_surveying_fees, setPort6_surveying_fees] = React.useState(
     initialValues.port6_surveying_fees
   );
+
+  const [port7, setPort7] = React.useState(initialValues.port7);
+  const [port7_fees, setPort7_fees] = React.useState(initialValues.port7_fees);
+  const [port7_port_call, setPort7_port_call] = React.useState(
+    initialValues.port7_port_call
+  );
+  const [port7_crane_usage, setPort7_crane_usage] = React.useState(
+    initialValues.port7_crane_usage
+  );
+  const [port7_surveying_fees, setPort7_surveying_fees] = React.useState(
+    initialValues.port7_surveying_fees
+  );
+
+  const [port8, setPort8] = React.useState(initialValues.port8);
+  const [port8_fees, setPort8_fees] = React.useState(initialValues.port8_fees);
+  const [port8_port_call, setPort8_port_call] = React.useState(
+    initialValues.port8_port_call
+  );
+  const [port8_crane_usage, setPort8_crane_usage] = React.useState(
+    initialValues.port8_crane_usage
+  );
+  const [port8_surveying_fees, setPort8_surveying_fees] = React.useState(
+    initialValues.port8_surveying_fees
+  );
+
+  const [port9, setPort9] = React.useState(initialValues.port9);
+  const [port9_fees, setPort9_fees] = React.useState(initialValues.port9_fees);
+  const [port9_port_call, setPort9_port_call] = React.useState(
+    initialValues.port9_port_call
+  );
+  const [port9_crane_usage, setPort9_crane_usage] = React.useState(
+    initialValues.port9_crane_usage
+  );
+  const [port9_surveying_fees, setPort9_surveying_fees] = React.useState(
+    initialValues.port9_surveying_fees
+  );
+
+  const [port10, setPort10] = React.useState(initialValues.port10);
+  const [port10_fees, setPort10_fees] = React.useState(initialValues.port10_fees);
+  const [port10_port_call, setPort10_port_call] = React.useState(
+    initialValues.port10_port_call
+  );
+  const [port10_crane_usage, setPort10_crane_usage] = React.useState(
+    initialValues.port10_crane_usage
+  );
+  const [port10_surveying_fees, setPort10_surveying_fees] = React.useState(
+    initialValues.port10_surveying_fees
+  );
+
   const [cargo1_type, setCargo1_type] = React.useState(
     initialValues.cargo1_type
   );
@@ -275,6 +344,26 @@ export default function Calculator(props) {
     setPort6_port_call(initialValues.port6_port_call);
     setPort6_crane_usage(initialValues.port6_crane_usage);
     setPort6_surveying_fees(initialValues.port6_surveying_fees);
+    setPort7(initialValues.port7);
+    setPort7_fees(initialValues.port7_fees);
+    setPort7_port_call(initialValues.port7_port_call);
+    setPort7_crane_usage(initialValues.port7_crane_usage);
+    setPort7_surveying_fees(initialValues.port7_surveying_fees);
+    setPort8(initialValues.port8);
+    setPort8_fees(initialValues.port8_fees);
+    setPort8_port_call(initialValues.port8_port_call);
+    setPort8_crane_usage(initialValues.port8_crane_usage);
+    setPort8_surveying_fees(initialValues.port8_surveying_fees);
+    setPort9(initialValues.port9);
+    setPort9_fees(initialValues.port9_fees);
+    setPort9_port_call(initialValues.port9_port_call);
+    setPort9_crane_usage(initialValues.port9_crane_usage);
+    setPort9_surveying_fees(initialValues.port9_surveying_fees);
+    setPort10(initialValues.port10);
+    setPort10_fees(initialValues.port10_fees);
+    setPort10_port_call(initialValues.port10_port_call);
+    setPort10_crane_usage(initialValues.port10_crane_usage);
+    setPort10_surveying_fees(initialValues.port10_surveying_fees);
     setCargo1_type(initialValues.cargo1_type);
     setCargo1_quantity(initialValues.cargo1_quantity);
     setCargo1_rate(initialValues.cargo1_rate);
@@ -339,6 +428,26 @@ export default function Calculator(props) {
     port6_port_call: [],
     port6_crane_usage: [],
     port6_surveying_fees: [],
+    port7: [],
+    port7_fees: [],
+    port7_port_call: [],
+    port7_crane_usage: [],
+    port7_surveying_fees: [],
+    port8: [],
+    port8_fees: [],
+    port8_port_call: [],
+    port8_crane_usage: [],
+    port8_surveying_fees: [],
+    port9: [],
+    port9_fees: [],
+    port9_port_call: [],
+    port9_crane_usage: [],
+    port9_surveying_fees: [],
+    port10: [],
+    port10_fees: [],
+    port10_port_call: [],
+    port10_crane_usage: [],
+    port10_surveying_fees: [],
     cargo1_type: [],
     cargo1_quantity: [],
     cargo1_rate: [],
@@ -433,6 +542,26 @@ export default function Calculator(props) {
           port6_port_call,
           port6_crane_usage,
           port6_surveying_fees,
+          port7,
+          port7_fees,
+          port7_port_call,
+          port7_crane_usage,
+          port7_surveying_fees,
+          port8,
+          port8_fees,
+          port8_port_call,
+          port8_crane_usage,
+          port8_surveying_fees,
+          port9,
+          port9_fees,
+          port9_port_call,
+          port9_crane_usage,
+          port9_surveying_fees,
+          port10,
+          port10_fees,
+          port10_port_call,
+          port10_crane_usage,
+          port10_surveying_fees,
           cargo1_type,
           cargo1_quantity,
           cargo1_rate,
@@ -532,6 +661,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -627,6 +776,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -717,6 +886,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -801,6 +990,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -885,6 +1094,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -978,6 +1207,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -1724,6 +1973,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -1808,6 +2077,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -1892,6 +2181,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -1978,6 +2287,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -2064,6 +2393,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -2810,6 +3159,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -2894,6 +3263,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -2978,6 +3367,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -3064,6 +3473,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -3150,6 +3579,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -3897,6 +4346,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -3981,6 +4450,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -4065,6 +4554,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -4151,6 +4660,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -4237,6 +4766,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -4983,6 +5532,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -5067,6 +5636,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -5151,6 +5740,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -5237,6 +5846,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -5323,6 +5952,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -6069,6 +6718,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -6153,6 +6822,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -6237,6 +6926,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -6323,6 +7032,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -6409,6 +7138,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -7155,6 +7904,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -7239,6 +8008,26 @@ export default function Calculator(props) {
                 port6_port_call: value,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -7323,6 +8112,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage: value,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -7409,6 +8218,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees: value,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -7452,6 +8281,4753 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "port6_surveying_fees")}
         ></TextField>
       </Grid>
+      <SelectField
+        label={<span style={{ fontWeight: 'bold' }}>Port 7</span>}
+        placeholder="Please select an option"
+        value={port7}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              exchange_rate,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              port7: value,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.port7 ?? value;
+          }
+          if (errors.port7?.hasError) {
+            runValidationTasks("port7", value);
+          }
+          setport7(value);
+        }}
+        onBlur={() => runValidationTasks("port7", port7)}
+        errorMessage={errors.port7?.errorMessage}
+        hasError={errors.port7?.hasError}
+        {...getOverrideProps(overrides, "port7")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "port7option0")}
+        ></option>
+        <option
+          children="Ayutthaya - Bangpain (AB)"
+          value="Ayutthaya - Bangpain (AB)"
+          {...getOverrideProps(overrides, "port7option1")}
+        ></option>
+        <option
+          children="Ayutthaya - Nakorn Luang (ANL)"
+          value="Ayutthaya - Nakorn Luang (ANL)"
+          {...getOverrideProps(overrides, "port7option2")}
+        ></option>
+        <option
+          children="Bahodopi (BHDP)"
+          value="Bahodopi (BHDP)"
+          {...getOverrideProps(overrides, "port7option3")}
+        ></option>
+        <option
+          children="Balikpapan (BPN)"
+          value="Balikpapan (BPN)"
+          {...getOverrideProps(overrides, "port7option4")}
+        ></option>
+        <option
+          children="Bang Sapan (BS)"
+          value="Bang Sapan (BS)"
+          {...getOverrideProps(overrides, "port7option5")}
+        ></option>
+        <option
+          children="Bangkok (BK)"
+          value="Bangkok (BK)"
+          {...getOverrideProps(overrides, "port7option6")}
+        ></option>
+        <option
+          children="Bangpakong (BAK)"
+          value="Bangpakong (BAK)"
+          {...getOverrideProps(overrides, "port7option7")}
+        ></option>
+        <option
+          children="Banyuwangi - Tanjung Wangi (BJU)"
+          value="Banyuwangi - Tanjung Wangi (BJU)"
+          {...getOverrideProps(overrides, "port7option8")}
+        ></option>
+        <option
+          children="Batam (BAT)"
+          value="Batam (BAT)"
+          {...getOverrideProps(overrides, "port7option9")}
+        ></option>
+        <option
+          children="Beihai (BHY)"
+          value="Beihai (BHY)"
+          {...getOverrideProps(overrides, "port7option10")}
+        ></option>
+        <option
+          children="Belawan (BRW)"
+          value="Belawan (BRW)"
+          {...getOverrideProps(overrides, "port7option11")}
+        ></option>
+        <option
+          children="Benoa (Bali) (BAO)"
+          value="Benoa (Bali) (BAO)"
+          {...getOverrideProps(overrides, "port7option12")}
+        ></option>
+        <option
+          children="Bintan (BTN)"
+          value="Bintan (BTN)"
+          {...getOverrideProps(overrides, "port7option13")}
+        ></option>
+        <option
+          children="Bintulu (BIN)"
+          value="Bintulu (BIN)"
+          {...getOverrideProps(overrides, "port7option14")}
+        ></option>
+        <option
+          children="Bitung (BIT)"
+          value="Bitung (BIT)"
+          {...getOverrideProps(overrides, "port7option15")}
+        ></option>
+        <option
+          children="Bontang (BXT)"
+          value="Bontang (BXT)"
+          {...getOverrideProps(overrides, "port7option16")}
+        ></option>
+        <option
+          children="Bourbon (BOUR)"
+          value="Bourbon (BOUR)"
+          {...getOverrideProps(overrides, "port7option17")}
+        ></option>
+        <option
+          children="Brunei (BRU)"
+          value="Brunei (BRU)"
+          {...getOverrideProps(overrides, "port7option18")}
+        ></option>
+        <option
+          children="Cai Lan (CLN)"
+          value="Cai Lan (CLN)"
+          {...getOverrideProps(overrides, "port7option19")}
+        ></option>
+        <option
+          children="Cam Pha (CPH)"
+          value="Cam Pha (CPH)"
+          {...getOverrideProps(overrides, "port7option20")}
+        ></option>
+        <option
+          children="Can Tho (VCA)"
+          value="Can Tho (VCA)"
+          {...getOverrideProps(overrides, "port7option21")}
+        ></option>
+        <option
+          children="Cat Lai (CLI)"
+          value="Cat Lai (CLI)"
+          {...getOverrideProps(overrides, "port7option22")}
+        ></option>
+        <option
+          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          {...getOverrideProps(overrides, "port7option23")}
+        ></option>
+        <option
+          children="Century Harbour (MHI)"
+          value="Century Harbour (MHI)"
+          {...getOverrideProps(overrides, "port7option24")}
+        ></option>
+        <option
+          children="Chantaburi LaemSing (CLS)"
+          value="Chantaburi LaemSing (CLS)"
+          {...getOverrideProps(overrides, "port7option25")}
+        ></option>
+        <option
+          children="Chittagong (CTG)"
+          value="Chittagong (CTG)"
+          {...getOverrideProps(overrides, "port7option26")}
+        ></option>
+        <option
+          children="Cigading (CIG)"
+          value="Cigading (CIG)"
+          {...getOverrideProps(overrides, "port7option27")}
+        ></option>
+        <option
+          children="Danang (DAD)"
+          value="Danang (DAD)"
+          {...getOverrideProps(overrides, "port7option28")}
+        ></option>
+        <option
+          children="Davao (Sasa Wharf) (DVO)"
+          value="Davao (Sasa Wharf) (DVO)"
+          {...getOverrideProps(overrides, "port7option29")}
+        ></option>
+        <option
+          children="Dhaka (DKA)"
+          value="Dhaka (DKA)"
+          {...getOverrideProps(overrides, "port7option30")}
+        ></option>
+        <option
+          children="Dumai (DMI)"
+          value="Dumai (DMI)"
+          {...getOverrideProps(overrides, "port7option31")}
+        ></option>
+        <option
+          children="Dung Quat (DQT)"
+          value="Dung Quat (DQT)"
+          {...getOverrideProps(overrides, "port7option32")}
+        ></option>
+        <option
+          children="Fangcheng (FAN)"
+          value="Fangcheng (FAN)"
+          {...getOverrideProps(overrides, "port7option33")}
+        ></option>
+        <option
+          children="Futong (FTG)"
+          value="Futong (FTG)"
+          {...getOverrideProps(overrides, "port7option34")}
+        ></option>
+        <option
+          children="Godau port  (GDP)"
+          value="Godau port  (GDP)"
+          {...getOverrideProps(overrides, "port7option35")}
+        ></option>
+        <option
+          children="Haiphong (HPH)"
+          value="Haiphong (HPH)"
+          {...getOverrideProps(overrides, "port7option36")}
+        ></option>
+        <option
+          children="Halong Bay (HLG)"
+          value="Halong Bay (HLG)"
+          {...getOverrideProps(overrides, "port7option37")}
+        ></option>
+        <option
+          children="HO CHI MINH (HCM)"
+          value="HO CHI MINH (HCM)"
+          {...getOverrideProps(overrides, "port7option38")}
+        ></option>
+        <option
+          children="Hon Gai (HON)"
+          value="Hon Gai (HON)"
+          {...getOverrideProps(overrides, "port7option39")}
+        ></option>
+        <option
+          children="Hong Kong (HKG)"
+          value="Hong Kong (HKG)"
+          {...getOverrideProps(overrides, "port7option40")}
+        ></option>
+        <option
+          children="Jakarta (JAK)"
+          value="Jakarta (JAK)"
+          {...getOverrideProps(overrides, "port7option41")}
+        ></option>
+        <option
+          children="Jambi (JBI)"
+          value="Jambi (JBI)"
+          {...getOverrideProps(overrides, "port7option42")}
+        ></option>
+        <option
+          children="K.K. Kota Kinabalu (KK)"
+          value="K.K. Kota Kinabalu (KK)"
+          {...getOverrideProps(overrides, "port7option43")}
+        ></option>
+        <option
+          children="Kampot (KMP)"
+          value="Kampot (KMP)"
+          {...getOverrideProps(overrides, "port7option44")}
+        ></option>
+        <option
+          children="Kantang (KTG)"
+          value="Kantang (KTG)"
+          {...getOverrideProps(overrides, "port7option45")}
+        ></option>
+        <option
+          children="Kedah (KKH)"
+          value="Kedah (KKH)"
+          {...getOverrideProps(overrides, "port7option46")}
+        ></option>
+        <option
+          children="Kelantan (KLT)"
+          value="Kelantan (KLT)"
+          {...getOverrideProps(overrides, "port7option47")}
+        ></option>
+        <option
+          children="Kemaman (KMN)"
+          value="Kemaman (KMN)"
+          {...getOverrideProps(overrides, "port7option48")}
+        ></option>
+        <option
+          children="Khanom (KHM)"
+          value="Khanom (KHM)"
+          {...getOverrideProps(overrides, "port7option49")}
+        ></option>
+        <option
+          children="Ko Sichang (KSI)"
+          value="Ko Sichang (KSI)"
+          {...getOverrideProps(overrides, "port7option50")}
+        ></option>
+        <option
+          children="Kolkata (CCU)"
+          value="Kolkata (CCU)"
+          {...getOverrideProps(overrides, "port7option51")}
+        ></option>
+        <option
+          children="Kor Samui (KSM)"
+          value="Kor Samui (KSM)"
+          {...getOverrideProps(overrides, "port7option52")}
+        ></option>
+        <option
+          children="Kuantan (KT)"
+          value="Kuantan (KT)"
+          {...getOverrideProps(overrides, "port7option53")}
+        ></option>
+        <option
+          children="Kuching (KUC)"
+          value="Kuching (KUC)"
+          {...getOverrideProps(overrides, "port7option54")}
+        ></option>
+        <option
+          children="Labuan (LBN)"
+          value="Labuan (LBN)"
+          {...getOverrideProps(overrides, "port7option55")}
+        ></option>
+        <option
+          children="Laem Chabang (LCB)"
+          value="Laem Chabang (LCB)"
+          {...getOverrideProps(overrides, "port7option56")}
+        ></option>
+        <option
+          children="Lahad Datu (LDU)"
+          value="Lahad Datu (LDU)"
+          {...getOverrideProps(overrides, "port7option57")}
+        ></option>
+        <option
+          children="Lhokseumawe (LHOK)"
+          value="Lhokseumawe (LHOK)"
+          {...getOverrideProps(overrides, "port7option58")}
+        ></option>
+        <option
+          children="Lumut (LUM)"
+          value="Lumut (LUM)"
+          {...getOverrideProps(overrides, "port7option59")}
+        ></option>
+        <option
+          children="Maeklong (Firesun) (MKG)"
+          value="Maeklong (Firesun) (MKG)"
+          {...getOverrideProps(overrides, "port7option60")}
+        ></option>
+        <option
+          children="Mahachai (MHI)"
+          value="Mahachai (MHI)"
+          {...getOverrideProps(overrides, "port7option61")}
+        ></option>
+        <option
+          children="Makassar (MAK)"
+          value="Makassar (MAK)"
+          {...getOverrideProps(overrides, "port7option62")}
+        ></option>
+        <option
+          children="Malacca (MAL)"
+          value="Malacca (MAL)"
+          {...getOverrideProps(overrides, "port7option63")}
+        ></option>
+        <option
+          children="Manila Habour (MNL)"
+          value="Manila Habour (MNL)"
+          {...getOverrideProps(overrides, "port7option64")}
+        ></option>
+        <option
+          children="Maptaphut (MAT)"
+          value="Maptaphut (MAT)"
+          {...getOverrideProps(overrides, "port7option65")}
+        ></option>
+        <option
+          children="Marunda (MRD)"
+          value="Marunda (MRD)"
+          {...getOverrideProps(overrides, "port7option66")}
+        ></option>
+        <option
+          children="Mawei Fuzhou (FOC)"
+          value="Mawei Fuzhou (FOC)"
+          {...getOverrideProps(overrides, "port7option67")}
+        ></option>
+        <option
+          children="Muara (MUR)"
+          value="Muara (MUR)"
+          {...getOverrideProps(overrides, "port7option68")}
+        ></option>
+        <option
+          children="My Tho (MUT)"
+          value="My Tho (MUT)"
+          {...getOverrideProps(overrides, "port7option69")}
+        ></option>
+        <option
+          children="Nan Tong (NTG)"
+          value="Nan Tong (NTG)"
+          {...getOverrideProps(overrides, "port7option70")}
+        ></option>
+        <option
+          children="Narathiwat (NAW)"
+          value="Narathiwat (NAW)"
+          {...getOverrideProps(overrides, "port7option71")}
+        ></option>
+        <option
+          children="Nghi Son (NGH)"
+          value="Nghi Son (NGH)"
+          {...getOverrideProps(overrides, "port7option72")}
+        ></option>
+        <option
+          children="Ningde (NDE)"
+          value="Ningde (NDE)"
+          {...getOverrideProps(overrides, "port7option73")}
+        ></option>
+        <option
+          children="Nunukan (NNX)"
+          value="Nunukan (NNX)"
+          {...getOverrideProps(overrides, "port7option74")}
+        ></option>
+        <option
+          children="Oknha Mong Port (OMP)"
+          value="Oknha Mong Port (OMP)"
+          {...getOverrideProps(overrides, "port7option75")}
+        ></option>
+        <option
+          children="Onomichi (ONO)"
+          value="Onomichi (ONO)"
+          {...getOverrideProps(overrides, "port7option76")}
+        ></option>
+        <option
+          children="Padang - Telux Buyur (TBR)"
+          value="Padang - Telux Buyur (TBR)"
+          {...getOverrideProps(overrides, "port7option77")}
+        ></option>
+        <option
+          children="PAKAN Baru (PKRU)"
+          value="PAKAN Baru (PKRU)"
+          {...getOverrideProps(overrides, "port7option78")}
+        ></option>
+        <option
+          children="Palembang (PLB)"
+          value="Palembang (PLB)"
+          {...getOverrideProps(overrides, "port7option79")}
+        ></option>
+        <option
+          children="Panjang (PNJ)"
+          value="Panjang (PNJ)"
+          {...getOverrideProps(overrides, "port7option80")}
+        ></option>
+        <option
+          children="Pasir Gudang (PAS)"
+          value="Pasir Gudang (PAS)"
+          {...getOverrideProps(overrides, "port7option81")}
+        ></option>
+        <option
+          children="Patimban (PTB)"
+          value="Patimban (PTB)"
+          {...getOverrideProps(overrides, "port7option82")}
+        ></option>
+        <option
+          children="Pattani (PTN)"
+          value="Pattani (PTN)"
+          {...getOverrideProps(overrides, "port7option83")}
+        ></option>
+        <option
+          children="Penang (PNG)"
+          value="Penang (PNG)"
+          {...getOverrideProps(overrides, "port7option84")}
+        ></option>
+        <option
+          children="Phnom Penh (PNH)"
+          value="Phnom Penh (PNH)"
+          {...getOverrideProps(overrides, "port7option85")}
+        ></option>
+        <option
+          children="Phra Chulachomklao Fort (PCF)"
+          value="Phra Chulachomklao Fort (PCF)"
+          {...getOverrideProps(overrides, "port7option86")}
+        ></option>
+        <option
+          children="Phuket (HKT)"
+          value="Phuket (HKT)"
+          {...getOverrideProps(overrides, "port7option87")}
+        ></option>
+        <option
+          children="Phumy (PHU)"
+          value="Phumy (PHU)"
+          {...getOverrideProps(overrides, "port7option88")}
+        ></option>
+        <option
+          children="Plathong Oil Rig (PATO)"
+          value="Plathong Oil Rig (PATO)"
+          {...getOverrideProps(overrides, "port7option89")}
+        ></option>
+        <option
+          children="Pontianak (POT)"
+          value="Pontianak (POT)"
+          {...getOverrideProps(overrides, "port7option90")}
+        ></option>
+        <option
+          children="Port Klang (PKL)"
+          value="Port Klang (PKL)"
+          {...getOverrideProps(overrides, "port7option91")}
+        ></option>
+        <option
+          children="Port Moresby (PGPOM)"
+          value="Port Moresby (PGPOM)"
+          {...getOverrideProps(overrides, "port7option92")}
+        ></option>
+        <option
+          children="Poso (POSO)"
+          value="Poso (POSO)"
+          {...getOverrideProps(overrides, "port7option93")}
+        ></option>
+        <option
+          children="Pusan (PUS)"
+          value="Pusan (PUS)"
+          {...getOverrideProps(overrides, "port7option94")}
+        ></option>
+        <option
+          children="Quinzhou (QZH)"
+          value="Quinzhou (QZH)"
+          {...getOverrideProps(overrides, "port7option95")}
+        ></option>
+        <option
+          children="Quy Nhon (QNN)"
+          value="Quy Nhon (QNN)"
+          {...getOverrideProps(overrides, "port7option96")}
+        ></option>
+        <option
+          children="Ranong (UNN)"
+          value="Ranong (UNN)"
+          {...getOverrideProps(overrides, "port7option97")}
+        ></option>
+        <option
+          children="Rayong (IRPC)"
+          value="Rayong (IRPC)"
+          {...getOverrideProps(overrides, "port7option98")}
+        ></option>
+        <option
+          children="Sampit (SMQ)"
+          value="Sampit (SMQ)"
+          {...getOverrideProps(overrides, "port7option99")}
+        ></option>
+        <option
+          children="Sandakan (SAN)"
+          value="Sandakan (SAN)"
+          {...getOverrideProps(overrides, "port7option100")}
+        ></option>
+        <option
+          children="Sarawak (SRW)"
+          value="Sarawak (SRW)"
+          {...getOverrideProps(overrides, "port7option101")}
+        ></option>
+        <option
+          children="Sarekei (SRK)"
+          value="Sarekei (SRK)"
+          {...getOverrideProps(overrides, "port7option102")}
+        ></option>
+        <option
+          children="Sattahip (SATP)"
+          value="Sattahip (SATP)"
+          {...getOverrideProps(overrides, "port7option103")}
+        ></option>
+        <option
+          children="Semarang - Tanjung Emas (SRG)"
+          value="Semarang - Tanjung Emas (SRG)"
+          {...getOverrideProps(overrides, "port7option104")}
+        ></option>
+        <option
+          children="Semarang (SRG)"
+          value="Semarang (SRG)"
+          {...getOverrideProps(overrides, "port7option105")}
+        ></option>
+        <option
+          children="Sibu (SIB)"
+          value="Sibu (SIB)"
+          {...getOverrideProps(overrides, "port7option106")}
+        ></option>
+        <option
+          children="Singapore (SG)"
+          value="Singapore (SG)"
+          {...getOverrideProps(overrides, "port7option107")}
+        ></option>
+        <option
+          children="Sipitang (SIP)"
+          value="Sipitang (SIP)"
+          {...getOverrideProps(overrides, "port7option108")}
+        ></option>
+        <option
+          children="Son Duong (SOD)"
+          value="Son Duong (SOD)"
+          {...getOverrideProps(overrides, "port7option109")}
+        ></option>
+        <option
+          children="Songkhla (SK)"
+          value="Songkhla (SK)"
+          {...getOverrideProps(overrides, "port7option110")}
+        ></option>
+        <option
+          children="Srihanoville (SIH)"
+          value="Srihanoville (SIH)"
+          {...getOverrideProps(overrides, "port7option111")}
+        ></option>
+        <option
+          children="Sriracha Harbor (SRC)"
+          value="Sriracha Harbor (SRC)"
+          {...getOverrideProps(overrides, "port7option112")}
+        ></option>
+        <option
+          children="Sritama Jetty (STM)"
+          value="Sritama Jetty (STM)"
+          {...getOverrideProps(overrides, "port7option113")}
+        ></option>
+        <option
+          children="Steung Hav (SHV)"
+          value="Steung Hav (SHV)"
+          {...getOverrideProps(overrides, "port7option114")}
+        ></option>
+        <option
+          children="Sungai Guntung (SGGT)"
+          value="Sungai Guntung (SGGT)"
+          {...getOverrideProps(overrides, "port7option115")}
+        ></option>
+        <option
+          children="Surabaya (SUBY)"
+          value="Surabaya (SUBY)"
+          {...getOverrideProps(overrides, "port7option116")}
+        ></option>
+        <option
+          children="Surat Thanee (SRT)"
+          value="Surat Thanee (SRT)"
+          {...getOverrideProps(overrides, "port7option117")}
+        ></option>
+        <option
+          children="Tacloban (TAC)"
+          value="Tacloban (TAC)"
+          {...getOverrideProps(overrides, "port7option118")}
+        ></option>
+        <option
+          children="Tagbilaran (TAG)"
+          value="Tagbilaran (TAG)"
+          {...getOverrideProps(overrides, "port7option119")}
+        ></option>
+        <option
+          children="Tanjong Manis (TGM)"
+          value="Tanjong Manis (TGM)"
+          {...getOverrideProps(overrides, "port7option120")}
+        ></option>
+        <option
+          children="Tanjung Batu (TJQ)"
+          value="Tanjung Batu (TJQ)"
+          {...getOverrideProps(overrides, "port7option121")}
+        ></option>
+        <option
+          children="Tanjung Priok (TP)"
+          value="Tanjung Priok (TP)"
+          {...getOverrideProps(overrides, "port7option122")}
+        ></option>
+        <option
+          children="Tarjun (TAR)"
+          value="Tarjun (TAR)"
+          {...getOverrideProps(overrides, "port7option123")}
+        ></option>
+        <option
+          children="Tawau (TAW)"
+          value="Tawau (TAW)"
+          {...getOverrideProps(overrides, "port7option124")}
+        ></option>
+        <option
+          children="Terengganu (TGG)"
+          value="Terengganu (TGG)"
+          {...getOverrideProps(overrides, "port7option125")}
+        ></option>
+        <option
+          children="Tha Sala (TSL)"
+          value="Tha Sala (TSL)"
+          {...getOverrideProps(overrides, "port7option126")}
+        ></option>
+        <option
+          children="Tsukumi (TSUM)"
+          value="Tsukumi (TSUM)"
+          {...getOverrideProps(overrides, "port7option127")}
+        ></option>
+        <option
+          children="Vung Ang (VAG)"
+          value="Vung Ang (VAG)"
+          {...getOverrideProps(overrides, "port7option128")}
+        ></option>
+        <option
+          children="Vung Tau (VUT)"
+          value="Vung Tau (VUT)"
+          {...getOverrideProps(overrides, "port7option129")}
+        ></option>
+        <option
+          children="Yangon (RGN)"
+          value="Yangon (RGN)"
+          {...getOverrideProps(overrides, "port7option130")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid17")}
+      >
+        <TextField
+          label="PDA Fees"
+          type="number"
+          step="any"
+          value={port7_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees: value,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees: value,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port7_fees ?? value;
+            }
+            if (errors.port7_fees?.hasError) {
+              runValidationTasks("port7_fees", value);
+            }
+            setport7_fees(value);
+          }}
+          onBlur={() => runValidationTasks("port7_fees", port7_fees)}
+          errorMessage={errors.port7_fees?.errorMessage}
+          hasError={errors.port7_fees?.hasError}
+          {...getOverrideProps(overrides, "port7_fees")}
+        ></TextField>
+        <TextField
+          label="Port Call (Days)"
+          type="number"
+          step="any"
+          value={port7_port_call}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call: value,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call: value,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port7_port_call ?? value;
+            }
+            if (errors.port7_port_call?.hasError) {
+              runValidationTasks("port7_port_call", value);
+            }
+            setport7_port_call(value);
+          }}
+          onBlur={() => runValidationTasks("port7_port_call", port7_port_call)}
+          errorMessage={errors.port7_port_call?.errorMessage}
+          hasError={errors.port7_port_call?.hasError}
+          {...getOverrideProps(overrides, "port7_port_call")}
+        ></TextField>
+        <TextField
+          label="Crane Usage (Hours)"
+          type="number"
+          step="any"
+          value={port7_crane_usage}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage: value,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port7_crane_usage ?? value;
+            }
+            if (errors.port7_crane_usage?.hasError) {
+              runValidationTasks("port7_crane_usage", value);
+            }
+            setport7_crane_usage(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port7_crane_usage", port7_crane_usage)
+          }
+          errorMessage={errors.port7_crane_usage?.errorMessage}
+          hasError={errors.port7_crane_usage?.hasError}
+          {...getOverrideProps(overrides, "port7_crane_usage")}
+        ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port7_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees: value,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port7_surveying_fees ?? value;
+            }
+            if (errors.port7_surveying_fees?.hasError) {
+              runValidationTasks("port7_surveying_fees", value);
+            }
+            setport7_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port7_surveying_fees", port7_surveying_fees)
+          }
+          errorMessage={errors.port7_surveying_fees?.errorMessage}
+          hasError={errors.port7_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port7_surveying_fees")}
+        ></TextField>
+      </Grid>
+      <SelectField
+        label={<span style={{ fontWeight: 'bold' }}>Port 8</span>}
+        placeholder="Please select an option"
+        value={port8}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              exchange_rate,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8: value,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.port8 ?? value;
+          }
+          if (errors.port8?.hasError) {
+            runValidationTasks("port8", value);
+          }
+          setport8(value);
+        }}
+        onBlur={() => runValidationTasks("port8", port8)}
+        errorMessage={errors.port8?.errorMessage}
+        hasError={errors.port8?.hasError}
+        {...getOverrideProps(overrides, "port8")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "port8option0")}
+        ></option>
+        <option
+          children="Ayutthaya - Bangpain (AB)"
+          value="Ayutthaya - Bangpain (AB)"
+          {...getOverrideProps(overrides, "port8option1")}
+        ></option>
+        <option
+          children="Ayutthaya - Nakorn Luang (ANL)"
+          value="Ayutthaya - Nakorn Luang (ANL)"
+          {...getOverrideProps(overrides, "port8option2")}
+        ></option>
+        <option
+          children="Bahodopi (BHDP)"
+          value="Bahodopi (BHDP)"
+          {...getOverrideProps(overrides, "port8option3")}
+        ></option>
+        <option
+          children="Balikpapan (BPN)"
+          value="Balikpapan (BPN)"
+          {...getOverrideProps(overrides, "port8option4")}
+        ></option>
+        <option
+          children="Bang Sapan (BS)"
+          value="Bang Sapan (BS)"
+          {...getOverrideProps(overrides, "port8option5")}
+        ></option>
+        <option
+          children="Bangkok (BK)"
+          value="Bangkok (BK)"
+          {...getOverrideProps(overrides, "port8option6")}
+        ></option>
+        <option
+          children="Bangpakong (BAK)"
+          value="Bangpakong (BAK)"
+          {...getOverrideProps(overrides, "port8option7")}
+        ></option>
+        <option
+          children="Banyuwangi - Tanjung Wangi (BJU)"
+          value="Banyuwangi - Tanjung Wangi (BJU)"
+          {...getOverrideProps(overrides, "port8option8")}
+        ></option>
+        <option
+          children="Batam (BAT)"
+          value="Batam (BAT)"
+          {...getOverrideProps(overrides, "port8option9")}
+        ></option>
+        <option
+          children="Beihai (BHY)"
+          value="Beihai (BHY)"
+          {...getOverrideProps(overrides, "port8option10")}
+        ></option>
+        <option
+          children="Belawan (BRW)"
+          value="Belawan (BRW)"
+          {...getOverrideProps(overrides, "port8option11")}
+        ></option>
+        <option
+          children="Benoa (Bali) (BAO)"
+          value="Benoa (Bali) (BAO)"
+          {...getOverrideProps(overrides, "port8option12")}
+        ></option>
+        <option
+          children="Bintan (BTN)"
+          value="Bintan (BTN)"
+          {...getOverrideProps(overrides, "port8option13")}
+        ></option>
+        <option
+          children="Bintulu (BIN)"
+          value="Bintulu (BIN)"
+          {...getOverrideProps(overrides, "port8option14")}
+        ></option>
+        <option
+          children="Bitung (BIT)"
+          value="Bitung (BIT)"
+          {...getOverrideProps(overrides, "port8option15")}
+        ></option>
+        <option
+          children="Bontang (BXT)"
+          value="Bontang (BXT)"
+          {...getOverrideProps(overrides, "port8option16")}
+        ></option>
+        <option
+          children="Bourbon (BOUR)"
+          value="Bourbon (BOUR)"
+          {...getOverrideProps(overrides, "port8option17")}
+        ></option>
+        <option
+          children="Brunei (BRU)"
+          value="Brunei (BRU)"
+          {...getOverrideProps(overrides, "port8option18")}
+        ></option>
+        <option
+          children="Cai Lan (CLN)"
+          value="Cai Lan (CLN)"
+          {...getOverrideProps(overrides, "port8option19")}
+        ></option>
+        <option
+          children="Cam Pha (CPH)"
+          value="Cam Pha (CPH)"
+          {...getOverrideProps(overrides, "port8option20")}
+        ></option>
+        <option
+          children="Can Tho (VCA)"
+          value="Can Tho (VCA)"
+          {...getOverrideProps(overrides, "port8option21")}
+        ></option>
+        <option
+          children="Cat Lai (CLI)"
+          value="Cat Lai (CLI)"
+          {...getOverrideProps(overrides, "port8option22")}
+        ></option>
+        <option
+          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          {...getOverrideProps(overrides, "port8option23")}
+        ></option>
+        <option
+          children="Century Harbour (MHI)"
+          value="Century Harbour (MHI)"
+          {...getOverrideProps(overrides, "port8option24")}
+        ></option>
+        <option
+          children="Chantaburi LaemSing (CLS)"
+          value="Chantaburi LaemSing (CLS)"
+          {...getOverrideProps(overrides, "port8option25")}
+        ></option>
+        <option
+          children="Chittagong (CTG)"
+          value="Chittagong (CTG)"
+          {...getOverrideProps(overrides, "port8option26")}
+        ></option>
+        <option
+          children="Cigading (CIG)"
+          value="Cigading (CIG)"
+          {...getOverrideProps(overrides, "port8option27")}
+        ></option>
+        <option
+          children="Danang (DAD)"
+          value="Danang (DAD)"
+          {...getOverrideProps(overrides, "port8option28")}
+        ></option>
+        <option
+          children="Davao (Sasa Wharf) (DVO)"
+          value="Davao (Sasa Wharf) (DVO)"
+          {...getOverrideProps(overrides, "port8option29")}
+        ></option>
+        <option
+          children="Dhaka (DKA)"
+          value="Dhaka (DKA)"
+          {...getOverrideProps(overrides, "port8option30")}
+        ></option>
+        <option
+          children="Dumai (DMI)"
+          value="Dumai (DMI)"
+          {...getOverrideProps(overrides, "port8option31")}
+        ></option>
+        <option
+          children="Dung Quat (DQT)"
+          value="Dung Quat (DQT)"
+          {...getOverrideProps(overrides, "port8option32")}
+        ></option>
+        <option
+          children="Fangcheng (FAN)"
+          value="Fangcheng (FAN)"
+          {...getOverrideProps(overrides, "port8option33")}
+        ></option>
+        <option
+          children="Futong (FTG)"
+          value="Futong (FTG)"
+          {...getOverrideProps(overrides, "port8option34")}
+        ></option>
+        <option
+          children="Godau port  (GDP)"
+          value="Godau port  (GDP)"
+          {...getOverrideProps(overrides, "port8option35")}
+        ></option>
+        <option
+          children="Haiphong (HPH)"
+          value="Haiphong (HPH)"
+          {...getOverrideProps(overrides, "port8option36")}
+        ></option>
+        <option
+          children="Halong Bay (HLG)"
+          value="Halong Bay (HLG)"
+          {...getOverrideProps(overrides, "port8option37")}
+        ></option>
+        <option
+          children="HO CHI MINH (HCM)"
+          value="HO CHI MINH (HCM)"
+          {...getOverrideProps(overrides, "port8option38")}
+        ></option>
+        <option
+          children="Hon Gai (HON)"
+          value="Hon Gai (HON)"
+          {...getOverrideProps(overrides, "port8option39")}
+        ></option>
+        <option
+          children="Hong Kong (HKG)"
+          value="Hong Kong (HKG)"
+          {...getOverrideProps(overrides, "port8option40")}
+        ></option>
+        <option
+          children="Jakarta (JAK)"
+          value="Jakarta (JAK)"
+          {...getOverrideProps(overrides, "port8option41")}
+        ></option>
+        <option
+          children="Jambi (JBI)"
+          value="Jambi (JBI)"
+          {...getOverrideProps(overrides, "port8option42")}
+        ></option>
+        <option
+          children="K.K. Kota Kinabalu (KK)"
+          value="K.K. Kota Kinabalu (KK)"
+          {...getOverrideProps(overrides, "port8option43")}
+        ></option>
+        <option
+          children="Kampot (KMP)"
+          value="Kampot (KMP)"
+          {...getOverrideProps(overrides, "port8option44")}
+        ></option>
+        <option
+          children="Kantang (KTG)"
+          value="Kantang (KTG)"
+          {...getOverrideProps(overrides, "port8option45")}
+        ></option>
+        <option
+          children="Kedah (KKH)"
+          value="Kedah (KKH)"
+          {...getOverrideProps(overrides, "port8option46")}
+        ></option>
+        <option
+          children="Kelantan (KLT)"
+          value="Kelantan (KLT)"
+          {...getOverrideProps(overrides, "port8option47")}
+        ></option>
+        <option
+          children="Kemaman (KMN)"
+          value="Kemaman (KMN)"
+          {...getOverrideProps(overrides, "port8option48")}
+        ></option>
+        <option
+          children="Khanom (KHM)"
+          value="Khanom (KHM)"
+          {...getOverrideProps(overrides, "port8option49")}
+        ></option>
+        <option
+          children="Ko Sichang (KSI)"
+          value="Ko Sichang (KSI)"
+          {...getOverrideProps(overrides, "port8option50")}
+        ></option>
+        <option
+          children="Kolkata (CCU)"
+          value="Kolkata (CCU)"
+          {...getOverrideProps(overrides, "port8option51")}
+        ></option>
+        <option
+          children="Kor Samui (KSM)"
+          value="Kor Samui (KSM)"
+          {...getOverrideProps(overrides, "port8option52")}
+        ></option>
+        <option
+          children="Kuantan (KT)"
+          value="Kuantan (KT)"
+          {...getOverrideProps(overrides, "port8option53")}
+        ></option>
+        <option
+          children="Kuching (KUC)"
+          value="Kuching (KUC)"
+          {...getOverrideProps(overrides, "port8option54")}
+        ></option>
+        <option
+          children="Labuan (LBN)"
+          value="Labuan (LBN)"
+          {...getOverrideProps(overrides, "port8option55")}
+        ></option>
+        <option
+          children="Laem Chabang (LCB)"
+          value="Laem Chabang (LCB)"
+          {...getOverrideProps(overrides, "port8option56")}
+        ></option>
+        <option
+          children="Lahad Datu (LDU)"
+          value="Lahad Datu (LDU)"
+          {...getOverrideProps(overrides, "port8option57")}
+        ></option>
+        <option
+          children="Lhokseumawe (LHOK)"
+          value="Lhokseumawe (LHOK)"
+          {...getOverrideProps(overrides, "port8option58")}
+        ></option>
+        <option
+          children="Lumut (LUM)"
+          value="Lumut (LUM)"
+          {...getOverrideProps(overrides, "port8option59")}
+        ></option>
+        <option
+          children="Maeklong (Firesun) (MKG)"
+          value="Maeklong (Firesun) (MKG)"
+          {...getOverrideProps(overrides, "port8option60")}
+        ></option>
+        <option
+          children="Mahachai (MHI)"
+          value="Mahachai (MHI)"
+          {...getOverrideProps(overrides, "port8option61")}
+        ></option>
+        <option
+          children="Makassar (MAK)"
+          value="Makassar (MAK)"
+          {...getOverrideProps(overrides, "port8option62")}
+        ></option>
+        <option
+          children="Malacca (MAL)"
+          value="Malacca (MAL)"
+          {...getOverrideProps(overrides, "port8option63")}
+        ></option>
+        <option
+          children="Manila Habour (MNL)"
+          value="Manila Habour (MNL)"
+          {...getOverrideProps(overrides, "port8option64")}
+        ></option>
+        <option
+          children="Maptaphut (MAT)"
+          value="Maptaphut (MAT)"
+          {...getOverrideProps(overrides, "port8option65")}
+        ></option>
+        <option
+          children="Marunda (MRD)"
+          value="Marunda (MRD)"
+          {...getOverrideProps(overrides, "port8option66")}
+        ></option>
+        <option
+          children="Mawei Fuzhou (FOC)"
+          value="Mawei Fuzhou (FOC)"
+          {...getOverrideProps(overrides, "port8option67")}
+        ></option>
+        <option
+          children="Muara (MUR)"
+          value="Muara (MUR)"
+          {...getOverrideProps(overrides, "port8option68")}
+        ></option>
+        <option
+          children="My Tho (MUT)"
+          value="My Tho (MUT)"
+          {...getOverrideProps(overrides, "port8option69")}
+        ></option>
+        <option
+          children="Nan Tong (NTG)"
+          value="Nan Tong (NTG)"
+          {...getOverrideProps(overrides, "port8option70")}
+        ></option>
+        <option
+          children="Narathiwat (NAW)"
+          value="Narathiwat (NAW)"
+          {...getOverrideProps(overrides, "port8option71")}
+        ></option>
+        <option
+          children="Nghi Son (NGH)"
+          value="Nghi Son (NGH)"
+          {...getOverrideProps(overrides, "port8option72")}
+        ></option>
+        <option
+          children="Ningde (NDE)"
+          value="Ningde (NDE)"
+          {...getOverrideProps(overrides, "port8option73")}
+        ></option>
+        <option
+          children="Nunukan (NNX)"
+          value="Nunukan (NNX)"
+          {...getOverrideProps(overrides, "port8option74")}
+        ></option>
+        <option
+          children="Oknha Mong Port (OMP)"
+          value="Oknha Mong Port (OMP)"
+          {...getOverrideProps(overrides, "port8option75")}
+        ></option>
+        <option
+          children="Onomichi (ONO)"
+          value="Onomichi (ONO)"
+          {...getOverrideProps(overrides, "port8option76")}
+        ></option>
+        <option
+          children="Padang - Telux Buyur (TBR)"
+          value="Padang - Telux Buyur (TBR)"
+          {...getOverrideProps(overrides, "port8option77")}
+        ></option>
+        <option
+          children="PAKAN Baru (PKRU)"
+          value="PAKAN Baru (PKRU)"
+          {...getOverrideProps(overrides, "port8option78")}
+        ></option>
+        <option
+          children="Palembang (PLB)"
+          value="Palembang (PLB)"
+          {...getOverrideProps(overrides, "port8option79")}
+        ></option>
+        <option
+          children="Panjang (PNJ)"
+          value="Panjang (PNJ)"
+          {...getOverrideProps(overrides, "port8option80")}
+        ></option>
+        <option
+          children="Pasir Gudang (PAS)"
+          value="Pasir Gudang (PAS)"
+          {...getOverrideProps(overrides, "port8option81")}
+        ></option>
+        <option
+          children="Patimban (PTB)"
+          value="Patimban (PTB)"
+          {...getOverrideProps(overrides, "port8option82")}
+        ></option>
+        <option
+          children="Pattani (PTN)"
+          value="Pattani (PTN)"
+          {...getOverrideProps(overrides, "port8option83")}
+        ></option>
+        <option
+          children="Penang (PNG)"
+          value="Penang (PNG)"
+          {...getOverrideProps(overrides, "port8option84")}
+        ></option>
+        <option
+          children="Phnom Penh (PNH)"
+          value="Phnom Penh (PNH)"
+          {...getOverrideProps(overrides, "port8option85")}
+        ></option>
+        <option
+          children="Phra Chulachomklao Fort (PCF)"
+          value="Phra Chulachomklao Fort (PCF)"
+          {...getOverrideProps(overrides, "port8option86")}
+        ></option>
+        <option
+          children="Phuket (HKT)"
+          value="Phuket (HKT)"
+          {...getOverrideProps(overrides, "port8option87")}
+        ></option>
+        <option
+          children="Phumy (PHU)"
+          value="Phumy (PHU)"
+          {...getOverrideProps(overrides, "port8option88")}
+        ></option>
+        <option
+          children="Plathong Oil Rig (PATO)"
+          value="Plathong Oil Rig (PATO)"
+          {...getOverrideProps(overrides, "port8option89")}
+        ></option>
+        <option
+          children="Pontianak (POT)"
+          value="Pontianak (POT)"
+          {...getOverrideProps(overrides, "port8option90")}
+        ></option>
+        <option
+          children="Port Klang (PKL)"
+          value="Port Klang (PKL)"
+          {...getOverrideProps(overrides, "port8option91")}
+        ></option>
+        <option
+          children="Port Moresby (PGPOM)"
+          value="Port Moresby (PGPOM)"
+          {...getOverrideProps(overrides, "port8option92")}
+        ></option>
+        <option
+          children="Poso (POSO)"
+          value="Poso (POSO)"
+          {...getOverrideProps(overrides, "port8option93")}
+        ></option>
+        <option
+          children="Pusan (PUS)"
+          value="Pusan (PUS)"
+          {...getOverrideProps(overrides, "port8option94")}
+        ></option>
+        <option
+          children="Quinzhou (QZH)"
+          value="Quinzhou (QZH)"
+          {...getOverrideProps(overrides, "port8option95")}
+        ></option>
+        <option
+          children="Quy Nhon (QNN)"
+          value="Quy Nhon (QNN)"
+          {...getOverrideProps(overrides, "port8option96")}
+        ></option>
+        <option
+          children="Ranong (UNN)"
+          value="Ranong (UNN)"
+          {...getOverrideProps(overrides, "port8option97")}
+        ></option>
+        <option
+          children="Rayong (IRPC)"
+          value="Rayong (IRPC)"
+          {...getOverrideProps(overrides, "port8option98")}
+        ></option>
+        <option
+          children="Sampit (SMQ)"
+          value="Sampit (SMQ)"
+          {...getOverrideProps(overrides, "port8option99")}
+        ></option>
+        <option
+          children="Sandakan (SAN)"
+          value="Sandakan (SAN)"
+          {...getOverrideProps(overrides, "port8option100")}
+        ></option>
+        <option
+          children="Sarawak (SRW)"
+          value="Sarawak (SRW)"
+          {...getOverrideProps(overrides, "port8option101")}
+        ></option>
+        <option
+          children="Sarekei (SRK)"
+          value="Sarekei (SRK)"
+          {...getOverrideProps(overrides, "port8option102")}
+        ></option>
+        <option
+          children="Sattahip (SATP)"
+          value="Sattahip (SATP)"
+          {...getOverrideProps(overrides, "port8option103")}
+        ></option>
+        <option
+          children="Semarang - Tanjung Emas (SRG)"
+          value="Semarang - Tanjung Emas (SRG)"
+          {...getOverrideProps(overrides, "port8option104")}
+        ></option>
+        <option
+          children="Semarang (SRG)"
+          value="Semarang (SRG)"
+          {...getOverrideProps(overrides, "port8option105")}
+        ></option>
+        <option
+          children="Sibu (SIB)"
+          value="Sibu (SIB)"
+          {...getOverrideProps(overrides, "port8option106")}
+        ></option>
+        <option
+          children="Singapore (SG)"
+          value="Singapore (SG)"
+          {...getOverrideProps(overrides, "port8option107")}
+        ></option>
+        <option
+          children="Sipitang (SIP)"
+          value="Sipitang (SIP)"
+          {...getOverrideProps(overrides, "port8option108")}
+        ></option>
+        <option
+          children="Son Duong (SOD)"
+          value="Son Duong (SOD)"
+          {...getOverrideProps(overrides, "port8option109")}
+        ></option>
+        <option
+          children="Songkhla (SK)"
+          value="Songkhla (SK)"
+          {...getOverrideProps(overrides, "port8option110")}
+        ></option>
+        <option
+          children="Srihanoville (SIH)"
+          value="Srihanoville (SIH)"
+          {...getOverrideProps(overrides, "port8option111")}
+        ></option>
+        <option
+          children="Sriracha Harbor (SRC)"
+          value="Sriracha Harbor (SRC)"
+          {...getOverrideProps(overrides, "port8option112")}
+        ></option>
+        <option
+          children="Sritama Jetty (STM)"
+          value="Sritama Jetty (STM)"
+          {...getOverrideProps(overrides, "port8option113")}
+        ></option>
+        <option
+          children="Steung Hav (SHV)"
+          value="Steung Hav (SHV)"
+          {...getOverrideProps(overrides, "port8option114")}
+        ></option>
+        <option
+          children="Sungai Guntung (SGGT)"
+          value="Sungai Guntung (SGGT)"
+          {...getOverrideProps(overrides, "port8option115")}
+        ></option>
+        <option
+          children="Surabaya (SUBY)"
+          value="Surabaya (SUBY)"
+          {...getOverrideProps(overrides, "port8option116")}
+        ></option>
+        <option
+          children="Surat Thanee (SRT)"
+          value="Surat Thanee (SRT)"
+          {...getOverrideProps(overrides, "port8option117")}
+        ></option>
+        <option
+          children="Tacloban (TAC)"
+          value="Tacloban (TAC)"
+          {...getOverrideProps(overrides, "port8option118")}
+        ></option>
+        <option
+          children="Tagbilaran (TAG)"
+          value="Tagbilaran (TAG)"
+          {...getOverrideProps(overrides, "port8option119")}
+        ></option>
+        <option
+          children="Tanjong Manis (TGM)"
+          value="Tanjong Manis (TGM)"
+          {...getOverrideProps(overrides, "port8option120")}
+        ></option>
+        <option
+          children="Tanjung Batu (TJQ)"
+          value="Tanjung Batu (TJQ)"
+          {...getOverrideProps(overrides, "port8option121")}
+        ></option>
+        <option
+          children="Tanjung Priok (TP)"
+          value="Tanjung Priok (TP)"
+          {...getOverrideProps(overrides, "port8option122")}
+        ></option>
+        <option
+          children="Tarjun (TAR)"
+          value="Tarjun (TAR)"
+          {...getOverrideProps(overrides, "port8option123")}
+        ></option>
+        <option
+          children="Tawau (TAW)"
+          value="Tawau (TAW)"
+          {...getOverrideProps(overrides, "port8option124")}
+        ></option>
+        <option
+          children="Terengganu (TGG)"
+          value="Terengganu (TGG)"
+          {...getOverrideProps(overrides, "port8option125")}
+        ></option>
+        <option
+          children="Tha Sala (TSL)"
+          value="Tha Sala (TSL)"
+          {...getOverrideProps(overrides, "port8option126")}
+        ></option>
+        <option
+          children="Tsukumi (TSUM)"
+          value="Tsukumi (TSUM)"
+          {...getOverrideProps(overrides, "port8option127")}
+        ></option>
+        <option
+          children="Vung Ang (VAG)"
+          value="Vung Ang (VAG)"
+          {...getOverrideProps(overrides, "port8option128")}
+        ></option>
+        <option
+          children="Vung Tau (VUT)"
+          value="Vung Tau (VUT)"
+          {...getOverrideProps(overrides, "port8option129")}
+        ></option>
+        <option
+          children="Yangon (RGN)"
+          value="Yangon (RGN)"
+          {...getOverrideProps(overrides, "port8option130")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid19")}
+      >
+        <TextField
+          label="PDA Fees"
+          type="number"
+          step="any"
+          value={port8_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees: value,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port8_fees ?? value;
+            }
+            if (errors.port8_fees?.hasError) {
+              runValidationTasks("port8_fees", value);
+            }
+            setport8_fees(value);
+          }}
+          onBlur={() => runValidationTasks("port8_fees", port8_fees)}
+          errorMessage={errors.port8_fees?.errorMessage}
+          hasError={errors.port8_fees?.hasError}
+          {...getOverrideProps(overrides, "port8_fees")}
+        ></TextField>
+        <TextField
+          label="Port Call (Days)"
+          type="number"
+          step="any"
+          value={port8_port_call}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call: value,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call: value,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port8_port_call ?? value;
+            }
+            if (errors.port8_port_call?.hasError) {
+              runValidationTasks("port8_port_call", value);
+            }
+            setport8_port_call(value);
+          }}
+          onBlur={() => runValidationTasks("port8_port_call", port8_port_call)}
+          errorMessage={errors.port8_port_call?.errorMessage}
+          hasError={errors.port8_port_call?.hasError}
+          {...getOverrideProps(overrides, "port8_port_call")}
+        ></TextField>
+        <TextField
+          label="Crane Usage (Hours)"
+          type="number"
+          step="any"
+          value={port8_crane_usage}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage: value,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port8_crane_usage ?? value;
+            }
+            if (errors.port8_crane_usage?.hasError) {
+              runValidationTasks("port8_crane_usage", value);
+            }
+            setport8_crane_usage(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port8_crane_usage", port8_crane_usage)
+          }
+          errorMessage={errors.port8_crane_usage?.errorMessage}
+          hasError={errors.port8_crane_usage?.hasError}
+          {...getOverrideProps(overrides, "port8_crane_usage")}
+        ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port8_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees: value,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port8_surveying_fees ?? value;
+            }
+            if (errors.port8_surveying_fees?.hasError) {
+              runValidationTasks("port8_surveying_fees", value);
+            }
+            setport8_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port8_surveying_fees", port8_surveying_fees)
+          }
+          errorMessage={errors.port8_surveying_fees?.errorMessage}
+          hasError={errors.port8_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port8_surveying_fees")}
+        ></TextField>
+      </Grid>
+
+      <SelectField
+        label={<span style={{ fontWeight: 'bold' }}>Port 9</span>}
+        placeholder="Please select an option"
+        value={port9}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              exchange_rate,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9: value,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.port9 ?? value;
+          }
+          if (errors.port9?.hasError) {
+            runValidationTasks("port9", value);
+          }
+          setport9(value);
+        }}
+        onBlur={() => runValidationTasks("port9", port9)}
+        errorMessage={errors.port9?.errorMessage}
+        hasError={errors.port9?.hasError}
+        {...getOverrideProps(overrides, "port9")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "port9option0")}
+        ></option>
+        <option
+          children="Ayutthaya - Bangpain (AB)"
+          value="Ayutthaya - Bangpain (AB)"
+          {...getOverrideProps(overrides, "port9option1")}
+        ></option>
+        <option
+          children="Ayutthaya - Nakorn Luang (ANL)"
+          value="Ayutthaya - Nakorn Luang (ANL)"
+          {...getOverrideProps(overrides, "port9option2")}
+        ></option>
+        <option
+          children="Bahodopi (BHDP)"
+          value="Bahodopi (BHDP)"
+          {...getOverrideProps(overrides, "port9option3")}
+        ></option>
+        <option
+          children="Balikpapan (BPN)"
+          value="Balikpapan (BPN)"
+          {...getOverrideProps(overrides, "port9option4")}
+        ></option>
+        <option
+          children="Bang Sapan (BS)"
+          value="Bang Sapan (BS)"
+          {...getOverrideProps(overrides, "port9option5")}
+        ></option>
+        <option
+          children="Bangkok (BK)"
+          value="Bangkok (BK)"
+          {...getOverrideProps(overrides, "port9option6")}
+        ></option>
+        <option
+          children="Bangpakong (BAK)"
+          value="Bangpakong (BAK)"
+          {...getOverrideProps(overrides, "port9option7")}
+        ></option>
+        <option
+          children="Banyuwangi - Tanjung Wangi (BJU)"
+          value="Banyuwangi - Tanjung Wangi (BJU)"
+          {...getOverrideProps(overrides, "port9option8")}
+        ></option>
+        <option
+          children="Batam (BAT)"
+          value="Batam (BAT)"
+          {...getOverrideProps(overrides, "port9option9")}
+        ></option>
+        <option
+          children="Beihai (BHY)"
+          value="Beihai (BHY)"
+          {...getOverrideProps(overrides, "port9option10")}
+        ></option>
+        <option
+          children="Belawan (BRW)"
+          value="Belawan (BRW)"
+          {...getOverrideProps(overrides, "port9option11")}
+        ></option>
+        <option
+          children="Benoa (Bali) (BAO)"
+          value="Benoa (Bali) (BAO)"
+          {...getOverrideProps(overrides, "port9option12")}
+        ></option>
+        <option
+          children="Bintan (BTN)"
+          value="Bintan (BTN)"
+          {...getOverrideProps(overrides, "port9option13")}
+        ></option>
+        <option
+          children="Bintulu (BIN)"
+          value="Bintulu (BIN)"
+          {...getOverrideProps(overrides, "port9option14")}
+        ></option>
+        <option
+          children="Bitung (BIT)"
+          value="Bitung (BIT)"
+          {...getOverrideProps(overrides, "port9option15")}
+        ></option>
+        <option
+          children="Bontang (BXT)"
+          value="Bontang (BXT)"
+          {...getOverrideProps(overrides, "port9option16")}
+        ></option>
+        <option
+          children="Bourbon (BOUR)"
+          value="Bourbon (BOUR)"
+          {...getOverrideProps(overrides, "port9option17")}
+        ></option>
+        <option
+          children="Brunei (BRU)"
+          value="Brunei (BRU)"
+          {...getOverrideProps(overrides, "port9option18")}
+        ></option>
+        <option
+          children="Cai Lan (CLN)"
+          value="Cai Lan (CLN)"
+          {...getOverrideProps(overrides, "port9option19")}
+        ></option>
+        <option
+          children="Cam Pha (CPH)"
+          value="Cam Pha (CPH)"
+          {...getOverrideProps(overrides, "port9option20")}
+        ></option>
+        <option
+          children="Can Tho (VCA)"
+          value="Can Tho (VCA)"
+          {...getOverrideProps(overrides, "port9option21")}
+        ></option>
+        <option
+          children="Cat Lai (CLI)"
+          value="Cat Lai (CLI)"
+          {...getOverrideProps(overrides, "port9option22")}
+        ></option>
+        <option
+          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          {...getOverrideProps(overrides, "port9option23")}
+        ></option>
+        <option
+          children="Century Harbour (MHI)"
+          value="Century Harbour (MHI)"
+          {...getOverrideProps(overrides, "port9option24")}
+        ></option>
+        <option
+          children="Chantaburi LaemSing (CLS)"
+          value="Chantaburi LaemSing (CLS)"
+          {...getOverrideProps(overrides, "port9option25")}
+        ></option>
+        <option
+          children="Chittagong (CTG)"
+          value="Chittagong (CTG)"
+          {...getOverrideProps(overrides, "port9option26")}
+        ></option>
+        <option
+          children="Cigading (CIG)"
+          value="Cigading (CIG)"
+          {...getOverrideProps(overrides, "port9option27")}
+        ></option>
+        <option
+          children="Danang (DAD)"
+          value="Danang (DAD)"
+          {...getOverrideProps(overrides, "port9option28")}
+        ></option>
+        <option
+          children="Davao (Sasa Wharf) (DVO)"
+          value="Davao (Sasa Wharf) (DVO)"
+          {...getOverrideProps(overrides, "port9option29")}
+        ></option>
+        <option
+          children="Dhaka (DKA)"
+          value="Dhaka (DKA)"
+          {...getOverrideProps(overrides, "port9option30")}
+        ></option>
+        <option
+          children="Dumai (DMI)"
+          value="Dumai (DMI)"
+          {...getOverrideProps(overrides, "port9option31")}
+        ></option>
+        <option
+          children="Dung Quat (DQT)"
+          value="Dung Quat (DQT)"
+          {...getOverrideProps(overrides, "port9option32")}
+        ></option>
+        <option
+          children="Fangcheng (FAN)"
+          value="Fangcheng (FAN)"
+          {...getOverrideProps(overrides, "port9option33")}
+        ></option>
+        <option
+          children="Futong (FTG)"
+          value="Futong (FTG)"
+          {...getOverrideProps(overrides, "port9option34")}
+        ></option>
+        <option
+          children="Godau port  (GDP)"
+          value="Godau port  (GDP)"
+          {...getOverrideProps(overrides, "port9option35")}
+        ></option>
+        <option
+          children="Haiphong (HPH)"
+          value="Haiphong (HPH)"
+          {...getOverrideProps(overrides, "port9option36")}
+        ></option>
+        <option
+          children="Halong Bay (HLG)"
+          value="Halong Bay (HLG)"
+          {...getOverrideProps(overrides, "port9option37")}
+        ></option>
+        <option
+          children="HO CHI MINH (HCM)"
+          value="HO CHI MINH (HCM)"
+          {...getOverrideProps(overrides, "port9option38")}
+        ></option>
+        <option
+          children="Hon Gai (HON)"
+          value="Hon Gai (HON)"
+          {...getOverrideProps(overrides, "port9option39")}
+        ></option>
+        <option
+          children="Hong Kong (HKG)"
+          value="Hong Kong (HKG)"
+          {...getOverrideProps(overrides, "port9option40")}
+        ></option>
+        <option
+          children="Jakarta (JAK)"
+          value="Jakarta (JAK)"
+          {...getOverrideProps(overrides, "port9option41")}
+        ></option>
+        <option
+          children="Jambi (JBI)"
+          value="Jambi (JBI)"
+          {...getOverrideProps(overrides, "port9option42")}
+        ></option>
+        <option
+          children="K.K. Kota Kinabalu (KK)"
+          value="K.K. Kota Kinabalu (KK)"
+          {...getOverrideProps(overrides, "port9option43")}
+        ></option>
+        <option
+          children="Kampot (KMP)"
+          value="Kampot (KMP)"
+          {...getOverrideProps(overrides, "port9option44")}
+        ></option>
+        <option
+          children="Kantang (KTG)"
+          value="Kantang (KTG)"
+          {...getOverrideProps(overrides, "port9option45")}
+        ></option>
+        <option
+          children="Kedah (KKH)"
+          value="Kedah (KKH)"
+          {...getOverrideProps(overrides, "port9option46")}
+        ></option>
+        <option
+          children="Kelantan (KLT)"
+          value="Kelantan (KLT)"
+          {...getOverrideProps(overrides, "port9option47")}
+        ></option>
+        <option
+          children="Kemaman (KMN)"
+          value="Kemaman (KMN)"
+          {...getOverrideProps(overrides, "port9option48")}
+        ></option>
+        <option
+          children="Khanom (KHM)"
+          value="Khanom (KHM)"
+          {...getOverrideProps(overrides, "port9option49")}
+        ></option>
+        <option
+          children="Ko Sichang (KSI)"
+          value="Ko Sichang (KSI)"
+          {...getOverrideProps(overrides, "port9option50")}
+        ></option>
+        <option
+          children="Kolkata (CCU)"
+          value="Kolkata (CCU)"
+          {...getOverrideProps(overrides, "port9option51")}
+        ></option>
+        <option
+          children="Kor Samui (KSM)"
+          value="Kor Samui (KSM)"
+          {...getOverrideProps(overrides, "port9option52")}
+        ></option>
+        <option
+          children="Kuantan (KT)"
+          value="Kuantan (KT)"
+          {...getOverrideProps(overrides, "port9option53")}
+        ></option>
+        <option
+          children="Kuching (KUC)"
+          value="Kuching (KUC)"
+          {...getOverrideProps(overrides, "port9option54")}
+        ></option>
+        <option
+          children="Labuan (LBN)"
+          value="Labuan (LBN)"
+          {...getOverrideProps(overrides, "port9option55")}
+        ></option>
+        <option
+          children="Laem Chabang (LCB)"
+          value="Laem Chabang (LCB)"
+          {...getOverrideProps(overrides, "port9option56")}
+        ></option>
+        <option
+          children="Lahad Datu (LDU)"
+          value="Lahad Datu (LDU)"
+          {...getOverrideProps(overrides, "port9option57")}
+        ></option>
+        <option
+          children="Lhokseumawe (LHOK)"
+          value="Lhokseumawe (LHOK)"
+          {...getOverrideProps(overrides, "port9option58")}
+        ></option>
+        <option
+          children="Lumut (LUM)"
+          value="Lumut (LUM)"
+          {...getOverrideProps(overrides, "port9option59")}
+        ></option>
+        <option
+          children="Maeklong (Firesun) (MKG)"
+          value="Maeklong (Firesun) (MKG)"
+          {...getOverrideProps(overrides, "port9option60")}
+        ></option>
+        <option
+          children="Mahachai (MHI)"
+          value="Mahachai (MHI)"
+          {...getOverrideProps(overrides, "port9option61")}
+        ></option>
+        <option
+          children="Makassar (MAK)"
+          value="Makassar (MAK)"
+          {...getOverrideProps(overrides, "port9option62")}
+        ></option>
+        <option
+          children="Malacca (MAL)"
+          value="Malacca (MAL)"
+          {...getOverrideProps(overrides, "port9option63")}
+        ></option>
+        <option
+          children="Manila Habour (MNL)"
+          value="Manila Habour (MNL)"
+          {...getOverrideProps(overrides, "port9option64")}
+        ></option>
+        <option
+          children="Maptaphut (MAT)"
+          value="Maptaphut (MAT)"
+          {...getOverrideProps(overrides, "port9option65")}
+        ></option>
+        <option
+          children="Marunda (MRD)"
+          value="Marunda (MRD)"
+          {...getOverrideProps(overrides, "port9option66")}
+        ></option>
+        <option
+          children="Mawei Fuzhou (FOC)"
+          value="Mawei Fuzhou (FOC)"
+          {...getOverrideProps(overrides, "port9option67")}
+        ></option>
+        <option
+          children="Muara (MUR)"
+          value="Muara (MUR)"
+          {...getOverrideProps(overrides, "port9option68")}
+        ></option>
+        <option
+          children="My Tho (MUT)"
+          value="My Tho (MUT)"
+          {...getOverrideProps(overrides, "port9option69")}
+        ></option>
+        <option
+          children="Nan Tong (NTG)"
+          value="Nan Tong (NTG)"
+          {...getOverrideProps(overrides, "port9option70")}
+        ></option>
+        <option
+          children="Narathiwat (NAW)"
+          value="Narathiwat (NAW)"
+          {...getOverrideProps(overrides, "port9option71")}
+        ></option>
+        <option
+          children="Nghi Son (NGH)"
+          value="Nghi Son (NGH)"
+          {...getOverrideProps(overrides, "port9option72")}
+        ></option>
+        <option
+          children="Ningde (NDE)"
+          value="Ningde (NDE)"
+          {...getOverrideProps(overrides, "port9option73")}
+        ></option>
+        <option
+          children="Nunukan (NNX)"
+          value="Nunukan (NNX)"
+          {...getOverrideProps(overrides, "port9option74")}
+        ></option>
+        <option
+          children="Oknha Mong Port (OMP)"
+          value="Oknha Mong Port (OMP)"
+          {...getOverrideProps(overrides, "port9option75")}
+        ></option>
+        <option
+          children="Onomichi (ONO)"
+          value="Onomichi (ONO)"
+          {...getOverrideProps(overrides, "port9option76")}
+        ></option>
+        <option
+          children="Padang - Telux Buyur (TBR)"
+          value="Padang - Telux Buyur (TBR)"
+          {...getOverrideProps(overrides, "port9option77")}
+        ></option>
+        <option
+          children="PAKAN Baru (PKRU)"
+          value="PAKAN Baru (PKRU)"
+          {...getOverrideProps(overrides, "port9option78")}
+        ></option>
+        <option
+          children="Palembang (PLB)"
+          value="Palembang (PLB)"
+          {...getOverrideProps(overrides, "port9option79")}
+        ></option>
+        <option
+          children="Panjang (PNJ)"
+          value="Panjang (PNJ)"
+          {...getOverrideProps(overrides, "port9option80")}
+        ></option>
+        <option
+          children="Pasir Gudang (PAS)"
+          value="Pasir Gudang (PAS)"
+          {...getOverrideProps(overrides, "port9option81")}
+        ></option>
+        <option
+          children="Patimban (PTB)"
+          value="Patimban (PTB)"
+          {...getOverrideProps(overrides, "port9option82")}
+        ></option>
+        <option
+          children="Pattani (PTN)"
+          value="Pattani (PTN)"
+          {...getOverrideProps(overrides, "port9option83")}
+        ></option>
+        <option
+          children="Penang (PNG)"
+          value="Penang (PNG)"
+          {...getOverrideProps(overrides, "port9option84")}
+        ></option>
+        <option
+          children="Phnom Penh (PNH)"
+          value="Phnom Penh (PNH)"
+          {...getOverrideProps(overrides, "port9option85")}
+        ></option>
+        <option
+          children="Phra Chulachomklao Fort (PCF)"
+          value="Phra Chulachomklao Fort (PCF)"
+          {...getOverrideProps(overrides, "port9option86")}
+        ></option>
+        <option
+          children="Phuket (HKT)"
+          value="Phuket (HKT)"
+          {...getOverrideProps(overrides, "port9option87")}
+        ></option>
+        <option
+          children="Phumy (PHU)"
+          value="Phumy (PHU)"
+          {...getOverrideProps(overrides, "port9option88")}
+        ></option>
+        <option
+          children="Plathong Oil Rig (PATO)"
+          value="Plathong Oil Rig (PATO)"
+          {...getOverrideProps(overrides, "port9option89")}
+        ></option>
+        <option
+          children="Pontianak (POT)"
+          value="Pontianak (POT)"
+          {...getOverrideProps(overrides, "port9option90")}
+        ></option>
+        <option
+          children="Port Klang (PKL)"
+          value="Port Klang (PKL)"
+          {...getOverrideProps(overrides, "port9option91")}
+        ></option>
+        <option
+          children="Port Moresby (PGPOM)"
+          value="Port Moresby (PGPOM)"
+          {...getOverrideProps(overrides, "port9option92")}
+        ></option>
+        <option
+          children="Poso (POSO)"
+          value="Poso (POSO)"
+          {...getOverrideProps(overrides, "port9option93")}
+        ></option>
+        <option
+          children="Pusan (PUS)"
+          value="Pusan (PUS)"
+          {...getOverrideProps(overrides, "port9option94")}
+        ></option>
+        <option
+          children="Quinzhou (QZH)"
+          value="Quinzhou (QZH)"
+          {...getOverrideProps(overrides, "port9option95")}
+        ></option>
+        <option
+          children="Quy Nhon (QNN)"
+          value="Quy Nhon (QNN)"
+          {...getOverrideProps(overrides, "port9option96")}
+        ></option>
+        <option
+          children="Ranong (UNN)"
+          value="Ranong (UNN)"
+          {...getOverrideProps(overrides, "port9option97")}
+        ></option>
+        <option
+          children="Rayong (IRPC)"
+          value="Rayong (IRPC)"
+          {...getOverrideProps(overrides, "port9option98")}
+        ></option>
+        <option
+          children="Sampit (SMQ)"
+          value="Sampit (SMQ)"
+          {...getOverrideProps(overrides, "port9option99")}
+        ></option>
+        <option
+          children="Sandakan (SAN)"
+          value="Sandakan (SAN)"
+          {...getOverrideProps(overrides, "port9option100")}
+        ></option>
+        <option
+          children="Sarawak (SRW)"
+          value="Sarawak (SRW)"
+          {...getOverrideProps(overrides, "port9option101")}
+        ></option>
+        <option
+          children="Sarekei (SRK)"
+          value="Sarekei (SRK)"
+          {...getOverrideProps(overrides, "port9option102")}
+        ></option>
+        <option
+          children="Sattahip (SATP)"
+          value="Sattahip (SATP)"
+          {...getOverrideProps(overrides, "port9option103")}
+        ></option>
+        <option
+          children="Semarang - Tanjung Emas (SRG)"
+          value="Semarang - Tanjung Emas (SRG)"
+          {...getOverrideProps(overrides, "port9option104")}
+        ></option>
+        <option
+          children="Semarang (SRG)"
+          value="Semarang (SRG)"
+          {...getOverrideProps(overrides, "port9option105")}
+        ></option>
+        <option
+          children="Sibu (SIB)"
+          value="Sibu (SIB)"
+          {...getOverrideProps(overrides, "port9option106")}
+        ></option>
+        <option
+          children="Singapore (SG)"
+          value="Singapore (SG)"
+          {...getOverrideProps(overrides, "port9option107")}
+        ></option>
+        <option
+          children="Sipitang (SIP)"
+          value="Sipitang (SIP)"
+          {...getOverrideProps(overrides, "port9option108")}
+        ></option>
+        <option
+          children="Son Duong (SOD)"
+          value="Son Duong (SOD)"
+          {...getOverrideProps(overrides, "port9option109")}
+        ></option>
+        <option
+          children="Songkhla (SK)"
+          value="Songkhla (SK)"
+          {...getOverrideProps(overrides, "port9option110")}
+        ></option>
+        <option
+          children="Srihanoville (SIH)"
+          value="Srihanoville (SIH)"
+          {...getOverrideProps(overrides, "port9option111")}
+        ></option>
+        <option
+          children="Sriracha Harbor (SRC)"
+          value="Sriracha Harbor (SRC)"
+          {...getOverrideProps(overrides, "port9option112")}
+        ></option>
+        <option
+          children="Sritama Jetty (STM)"
+          value="Sritama Jetty (STM)"
+          {...getOverrideProps(overrides, "port9option113")}
+        ></option>
+        <option
+          children="Steung Hav (SHV)"
+          value="Steung Hav (SHV)"
+          {...getOverrideProps(overrides, "port9option114")}
+        ></option>
+        <option
+          children="Sungai Guntung (SGGT)"
+          value="Sungai Guntung (SGGT)"
+          {...getOverrideProps(overrides, "port9option115")}
+        ></option>
+        <option
+          children="Surabaya (SUBY)"
+          value="Surabaya (SUBY)"
+          {...getOverrideProps(overrides, "port9option116")}
+        ></option>
+        <option
+          children="Surat Thanee (SRT)"
+          value="Surat Thanee (SRT)"
+          {...getOverrideProps(overrides, "port9option117")}
+        ></option>
+        <option
+          children="Tacloban (TAC)"
+          value="Tacloban (TAC)"
+          {...getOverrideProps(overrides, "port9option118")}
+        ></option>
+        <option
+          children="Tagbilaran (TAG)"
+          value="Tagbilaran (TAG)"
+          {...getOverrideProps(overrides, "port9option119")}
+        ></option>
+        <option
+          children="Tanjong Manis (TGM)"
+          value="Tanjong Manis (TGM)"
+          {...getOverrideProps(overrides, "port9option120")}
+        ></option>
+        <option
+          children="Tanjung Batu (TJQ)"
+          value="Tanjung Batu (TJQ)"
+          {...getOverrideProps(overrides, "port9option121")}
+        ></option>
+        <option
+          children="Tanjung Priok (TP)"
+          value="Tanjung Priok (TP)"
+          {...getOverrideProps(overrides, "port9option122")}
+        ></option>
+        <option
+          children="Tarjun (TAR)"
+          value="Tarjun (TAR)"
+          {...getOverrideProps(overrides, "port9option123")}
+        ></option>
+        <option
+          children="Tawau (TAW)"
+          value="Tawau (TAW)"
+          {...getOverrideProps(overrides, "port9option124")}
+        ></option>
+        <option
+          children="Terengganu (TGG)"
+          value="Terengganu (TGG)"
+          {...getOverrideProps(overrides, "port9option125")}
+        ></option>
+        <option
+          children="Tha Sala (TSL)"
+          value="Tha Sala (TSL)"
+          {...getOverrideProps(overrides, "port9option126")}
+        ></option>
+        <option
+          children="Tsukumi (TSUM)"
+          value="Tsukumi (TSUM)"
+          {...getOverrideProps(overrides, "port9option127")}
+        ></option>
+        <option
+          children="Vung Ang (VAG)"
+          value="Vung Ang (VAG)"
+          {...getOverrideProps(overrides, "port9option128")}
+        ></option>
+        <option
+          children="Vung Tau (VUT)"
+          value="Vung Tau (VUT)"
+          {...getOverrideProps(overrides, "port9option129")}
+        ></option>
+        <option
+          children="Yangon (RGN)"
+          value="Yangon (RGN)"
+          {...getOverrideProps(overrides, "port9option130")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid21")}
+      >
+        <TextField
+          label="PDA Fees"
+          type="number"
+          step="any"
+          value={port9_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees: value,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port9_fees ?? value;
+            }
+            if (errors.port9_fees?.hasError) {
+              runValidationTasks("port9_fees", value);
+            }
+            setport9_fees(value);
+          }}
+          onBlur={() => runValidationTasks("port9_fees", port9_fees)}
+          errorMessage={errors.port9_fees?.errorMessage}
+          hasError={errors.port9_fees?.hasError}
+          {...getOverrideProps(overrides, "port9_fees")}
+        ></TextField>
+        <TextField
+          label="Port Call (Days)"
+          type="number"
+          step="any"
+          value={port9_port_call}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call: value,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call: value,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port9_port_call ?? value;
+            }
+            if (errors.port9_port_call?.hasError) {
+              runValidationTasks("port9_port_call", value);
+            }
+            setport9_port_call(value);
+          }}
+          onBlur={() => runValidationTasks("port9_port_call", port9_port_call)}
+          errorMessage={errors.port9_port_call?.errorMessage}
+          hasError={errors.port9_port_call?.hasError}
+          {...getOverrideProps(overrides, "port9_port_call")}
+        ></TextField>
+        <TextField
+          label="Crane Usage (Hours)"
+          type="number"
+          step="any"
+          value={port9_crane_usage}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage: value,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port9_crane_usage ?? value;
+            }
+            if (errors.port9_crane_usage?.hasError) {
+              runValidationTasks("port9_crane_usage", value);
+            }
+            setport9_crane_usage(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port9_crane_usage", port9_crane_usage)
+          }
+          errorMessage={errors.port9_crane_usage?.errorMessage}
+          hasError={errors.port9_crane_usage?.hasError}
+          {...getOverrideProps(overrides, "port9_crane_usage")}
+        ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port9_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees: value,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port9_surveying_fees ?? value;
+            }
+            if (errors.port9_surveying_fees?.hasError) {
+              runValidationTasks("port9_surveying_fees", value);
+            }
+            setport9_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port9_surveying_fees", port9_surveying_fees)
+          }
+          errorMessage={errors.port9_surveying_fees?.errorMessage}
+          hasError={errors.port9_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port9_surveying_fees")}
+        ></TextField>
+      </Grid>
+
+      <SelectField
+        label={<span style={{ fontWeight: 'bold' }}>Port 10</span>}
+        placeholder="Please select an option"
+        value={port10}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              currency_type,
+              exchange_rate,
+              diesel_rate,
+              bunker_rate,
+              lube_rate,
+              port1,
+              port1_fees,
+              port1_port_call,
+              port1_crane_usage,
+              port1_surveying_fees,
+              port2,
+              port2_fees,
+              port2_port_call,
+              port2_crane_usage,
+              port2_surveying_fees,
+              port3,
+              port3_fees,
+              port3_port_call,
+              port3_crane_usage,
+              port3_surveying_fees,
+              port4,
+              port4_fees,
+              port4_port_call,
+              port4_crane_usage,
+              port4_surveying_fees,
+              port5,
+              port5_fees,
+              port5_port_call,
+              port5_crane_usage,
+              port5_surveying_fees,
+              port6,
+              port6_fees,
+              port6_port_call,
+              port6_crane_usage,
+              port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10: value,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
+              cargo1_type,
+              cargo1_quantity,
+              cargo1_rate,
+              cargo1_brokerage_fees,
+              cargo2_type,
+              cargo2_quantity,
+              cargo2_rate,
+              cargo2_brokerage_fees,
+              cargo3_type,
+              cargo3_quantity,
+              cargo3_rate,
+              cargo3_brokerage_fees,
+              cargo4_type,
+              cargo4_quantity,
+              cargo4_rate,
+              cargo4_brokerage_fees,
+              cargo5_type,
+              cargo5_quantity,
+              cargo5_rate,
+              cargo5_brokerage_fees,
+              cargo6_type,
+              cargo6_quantity,
+              cargo6_rate,
+              cargo6_brokerage_fees,
+              voyageBonus,
+              miscCosts,
+            };
+            const result = onChange(modelFields);
+            value = result?.port10 ?? value;
+          }
+          if (errors.port10?.hasError) {
+            runValidationTasks("port10", value);
+          }
+          setport10(value);
+        }}
+        onBlur={() => runValidationTasks("port10", port10)}
+        errorMessage={errors.port10?.errorMessage}
+        hasError={errors.port10?.hasError}
+        {...getOverrideProps(overrides, "port10")}
+      >
+        <option
+          children="NIL"
+          value="NIL"
+          {...getOverrideProps(overrides, "port10option0")}
+        ></option>
+        <option
+          children="Ayutthaya - Bangpain (AB)"
+          value="Ayutthaya - Bangpain (AB)"
+          {...getOverrideProps(overrides, "port10option1")}
+        ></option>
+        <option
+          children="Ayutthaya - Nakorn Luang (ANL)"
+          value="Ayutthaya - Nakorn Luang (ANL)"
+          {...getOverrideProps(overrides, "port10option2")}
+        ></option>
+        <option
+          children="Bahodopi (BHDP)"
+          value="Bahodopi (BHDP)"
+          {...getOverrideProps(overrides, "port10option3")}
+        ></option>
+        <option
+          children="Balikpapan (BPN)"
+          value="Balikpapan (BPN)"
+          {...getOverrideProps(overrides, "port10option4")}
+        ></option>
+        <option
+          children="Bang Sapan (BS)"
+          value="Bang Sapan (BS)"
+          {...getOverrideProps(overrides, "port10option5")}
+        ></option>
+        <option
+          children="Bangkok (BK)"
+          value="Bangkok (BK)"
+          {...getOverrideProps(overrides, "port10option6")}
+        ></option>
+        <option
+          children="Bangpakong (BAK)"
+          value="Bangpakong (BAK)"
+          {...getOverrideProps(overrides, "port10option7")}
+        ></option>
+        <option
+          children="Banyuwangi - Tanjung Wangi (BJU)"
+          value="Banyuwangi - Tanjung Wangi (BJU)"
+          {...getOverrideProps(overrides, "port10option8")}
+        ></option>
+        <option
+          children="Batam (BAT)"
+          value="Batam (BAT)"
+          {...getOverrideProps(overrides, "port10option9")}
+        ></option>
+        <option
+          children="Beihai (BHY)"
+          value="Beihai (BHY)"
+          {...getOverrideProps(overrides, "port10option10")}
+        ></option>
+        <option
+          children="Belawan (BRW)"
+          value="Belawan (BRW)"
+          {...getOverrideProps(overrides, "port10option11")}
+        ></option>
+        <option
+          children="Benoa (Bali) (BAO)"
+          value="Benoa (Bali) (BAO)"
+          {...getOverrideProps(overrides, "port10option12")}
+        ></option>
+        <option
+          children="Bintan (BTN)"
+          value="Bintan (BTN)"
+          {...getOverrideProps(overrides, "port10option13")}
+        ></option>
+        <option
+          children="Bintulu (BIN)"
+          value="Bintulu (BIN)"
+          {...getOverrideProps(overrides, "port10option14")}
+        ></option>
+        <option
+          children="Bitung (BIT)"
+          value="Bitung (BIT)"
+          {...getOverrideProps(overrides, "port10option15")}
+        ></option>
+        <option
+          children="Bontang (BXT)"
+          value="Bontang (BXT)"
+          {...getOverrideProps(overrides, "port10option16")}
+        ></option>
+        <option
+          children="Bourbon (BOUR)"
+          value="Bourbon (BOUR)"
+          {...getOverrideProps(overrides, "port10option17")}
+        ></option>
+        <option
+          children="Brunei (BRU)"
+          value="Brunei (BRU)"
+          {...getOverrideProps(overrides, "port10option18")}
+        ></option>
+        <option
+          children="Cai Lan (CLN)"
+          value="Cai Lan (CLN)"
+          {...getOverrideProps(overrides, "port10option19")}
+        ></option>
+        <option
+          children="Cam Pha (CPH)"
+          value="Cam Pha (CPH)"
+          {...getOverrideProps(overrides, "port10option20")}
+        ></option>
+        <option
+          children="Can Tho (VCA)"
+          value="Can Tho (VCA)"
+          {...getOverrideProps(overrides, "port10option21")}
+        ></option>
+        <option
+          children="Cat Lai (CLI)"
+          value="Cat Lai (CLI)"
+          {...getOverrideProps(overrides, "port10option22")}
+        ></option>
+        <option
+          children="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          value="Cayagan de Oro City (Macabalan wharf) (CDO)"
+          {...getOverrideProps(overrides, "port10option23")}
+        ></option>
+        <option
+          children="Century Harbour (MHI)"
+          value="Century Harbour (MHI)"
+          {...getOverrideProps(overrides, "port10option24")}
+        ></option>
+        <option
+          children="Chantaburi LaemSing (CLS)"
+          value="Chantaburi LaemSing (CLS)"
+          {...getOverrideProps(overrides, "port10option25")}
+        ></option>
+        <option
+          children="Chittagong (CTG)"
+          value="Chittagong (CTG)"
+          {...getOverrideProps(overrides, "port10option26")}
+        ></option>
+        <option
+          children="Cigading (CIG)"
+          value="Cigading (CIG)"
+          {...getOverrideProps(overrides, "port10option27")}
+        ></option>
+        <option
+          children="Danang (DAD)"
+          value="Danang (DAD)"
+          {...getOverrideProps(overrides, "port10option28")}
+        ></option>
+        <option
+          children="Davao (Sasa Wharf) (DVO)"
+          value="Davao (Sasa Wharf) (DVO)"
+          {...getOverrideProps(overrides, "port10option29")}
+        ></option>
+        <option
+          children="Dhaka (DKA)"
+          value="Dhaka (DKA)"
+          {...getOverrideProps(overrides, "port10option30")}
+        ></option>
+        <option
+          children="Dumai (DMI)"
+          value="Dumai (DMI)"
+          {...getOverrideProps(overrides, "port10option31")}
+        ></option>
+        <option
+          children="Dung Quat (DQT)"
+          value="Dung Quat (DQT)"
+          {...getOverrideProps(overrides, "port10option32")}
+        ></option>
+        <option
+          children="Fangcheng (FAN)"
+          value="Fangcheng (FAN)"
+          {...getOverrideProps(overrides, "port10option33")}
+        ></option>
+        <option
+          children="Futong (FTG)"
+          value="Futong (FTG)"
+          {...getOverrideProps(overrides, "port10option34")}
+        ></option>
+        <option
+          children="Godau port  (GDP)"
+          value="Godau port  (GDP)"
+          {...getOverrideProps(overrides, "port10option35")}
+        ></option>
+        <option
+          children="Haiphong (HPH)"
+          value="Haiphong (HPH)"
+          {...getOverrideProps(overrides, "port10option36")}
+        ></option>
+        <option
+          children="Halong Bay (HLG)"
+          value="Halong Bay (HLG)"
+          {...getOverrideProps(overrides, "port10option37")}
+        ></option>
+        <option
+          children="HO CHI MINH (HCM)"
+          value="HO CHI MINH (HCM)"
+          {...getOverrideProps(overrides, "port10option38")}
+        ></option>
+        <option
+          children="Hon Gai (HON)"
+          value="Hon Gai (HON)"
+          {...getOverrideProps(overrides, "port10option39")}
+        ></option>
+        <option
+          children="Hong Kong (HKG)"
+          value="Hong Kong (HKG)"
+          {...getOverrideProps(overrides, "port10option40")}
+        ></option>
+        <option
+          children="Jakarta (JAK)"
+          value="Jakarta (JAK)"
+          {...getOverrideProps(overrides, "port10option41")}
+        ></option>
+        <option
+          children="Jambi (JBI)"
+          value="Jambi (JBI)"
+          {...getOverrideProps(overrides, "port10option42")}
+        ></option>
+        <option
+          children="K.K. Kota Kinabalu (KK)"
+          value="K.K. Kota Kinabalu (KK)"
+          {...getOverrideProps(overrides, "port10option43")}
+        ></option>
+        <option
+          children="Kampot (KMP)"
+          value="Kampot (KMP)"
+          {...getOverrideProps(overrides, "port10option44")}
+        ></option>
+        <option
+          children="Kantang (KTG)"
+          value="Kantang (KTG)"
+          {...getOverrideProps(overrides, "port10option45")}
+        ></option>
+        <option
+          children="Kedah (KKH)"
+          value="Kedah (KKH)"
+          {...getOverrideProps(overrides, "port10option46")}
+        ></option>
+        <option
+          children="Kelantan (KLT)"
+          value="Kelantan (KLT)"
+          {...getOverrideProps(overrides, "port10option47")}
+        ></option>
+        <option
+          children="Kemaman (KMN)"
+          value="Kemaman (KMN)"
+          {...getOverrideProps(overrides, "port10option48")}
+        ></option>
+        <option
+          children="Khanom (KHM)"
+          value="Khanom (KHM)"
+          {...getOverrideProps(overrides, "port10option49")}
+        ></option>
+        <option
+          children="Ko Sichang (KSI)"
+          value="Ko Sichang (KSI)"
+          {...getOverrideProps(overrides, "port10option50")}
+        ></option>
+        <option
+          children="Kolkata (CCU)"
+          value="Kolkata (CCU)"
+          {...getOverrideProps(overrides, "port10option51")}
+        ></option>
+        <option
+          children="Kor Samui (KSM)"
+          value="Kor Samui (KSM)"
+          {...getOverrideProps(overrides, "port10option52")}
+        ></option>
+        <option
+          children="Kuantan (KT)"
+          value="Kuantan (KT)"
+          {...getOverrideProps(overrides, "port10option53")}
+        ></option>
+        <option
+          children="Kuching (KUC)"
+          value="Kuching (KUC)"
+          {...getOverrideProps(overrides, "port10option54")}
+        ></option>
+        <option
+          children="Labuan (LBN)"
+          value="Labuan (LBN)"
+          {...getOverrideProps(overrides, "port10option55")}
+        ></option>
+        <option
+          children="Laem Chabang (LCB)"
+          value="Laem Chabang (LCB)"
+          {...getOverrideProps(overrides, "port10option56")}
+        ></option>
+        <option
+          children="Lahad Datu (LDU)"
+          value="Lahad Datu (LDU)"
+          {...getOverrideProps(overrides, "port10option57")}
+        ></option>
+        <option
+          children="Lhokseumawe (LHOK)"
+          value="Lhokseumawe (LHOK)"
+          {...getOverrideProps(overrides, "port10option58")}
+        ></option>
+        <option
+          children="Lumut (LUM)"
+          value="Lumut (LUM)"
+          {...getOverrideProps(overrides, "port10option59")}
+        ></option>
+        <option
+          children="Maeklong (Firesun) (MKG)"
+          value="Maeklong (Firesun) (MKG)"
+          {...getOverrideProps(overrides, "port10option60")}
+        ></option>
+        <option
+          children="Mahachai (MHI)"
+          value="Mahachai (MHI)"
+          {...getOverrideProps(overrides, "port10option61")}
+        ></option>
+        <option
+          children="Makassar (MAK)"
+          value="Makassar (MAK)"
+          {...getOverrideProps(overrides, "port10option62")}
+        ></option>
+        <option
+          children="Malacca (MAL)"
+          value="Malacca (MAL)"
+          {...getOverrideProps(overrides, "port10option63")}
+        ></option>
+        <option
+          children="Manila Habour (MNL)"
+          value="Manila Habour (MNL)"
+          {...getOverrideProps(overrides, "port10option64")}
+        ></option>
+        <option
+          children="Maptaphut (MAT)"
+          value="Maptaphut (MAT)"
+          {...getOverrideProps(overrides, "port10option65")}
+        ></option>
+        <option
+          children="Marunda (MRD)"
+          value="Marunda (MRD)"
+          {...getOverrideProps(overrides, "port10option66")}
+        ></option>
+        <option
+          children="Mawei Fuzhou (FOC)"
+          value="Mawei Fuzhou (FOC)"
+          {...getOverrideProps(overrides, "port10option67")}
+        ></option>
+        <option
+          children="Muara (MUR)"
+          value="Muara (MUR)"
+          {...getOverrideProps(overrides, "port10option68")}
+        ></option>
+        <option
+          children="My Tho (MUT)"
+          value="My Tho (MUT)"
+          {...getOverrideProps(overrides, "port10option69")}
+        ></option>
+        <option
+          children="Nan Tong (NTG)"
+          value="Nan Tong (NTG)"
+          {...getOverrideProps(overrides, "port10option70")}
+        ></option>
+        <option
+          children="Narathiwat (NAW)"
+          value="Narathiwat (NAW)"
+          {...getOverrideProps(overrides, "port10option71")}
+        ></option>
+        <option
+          children="Nghi Son (NGH)"
+          value="Nghi Son (NGH)"
+          {...getOverrideProps(overrides, "port10option72")}
+        ></option>
+        <option
+          children="Ningde (NDE)"
+          value="Ningde (NDE)"
+          {...getOverrideProps(overrides, "port10option73")}
+        ></option>
+        <option
+          children="Nunukan (NNX)"
+          value="Nunukan (NNX)"
+          {...getOverrideProps(overrides, "port10option74")}
+        ></option>
+        <option
+          children="Oknha Mong Port (OMP)"
+          value="Oknha Mong Port (OMP)"
+          {...getOverrideProps(overrides, "port10option75")}
+        ></option>
+        <option
+          children="Onomichi (ONO)"
+          value="Onomichi (ONO)"
+          {...getOverrideProps(overrides, "port10option76")}
+        ></option>
+        <option
+          children="Padang - Telux Buyur (TBR)"
+          value="Padang - Telux Buyur (TBR)"
+          {...getOverrideProps(overrides, "port10option77")}
+        ></option>
+        <option
+          children="PAKAN Baru (PKRU)"
+          value="PAKAN Baru (PKRU)"
+          {...getOverrideProps(overrides, "port10option78")}
+        ></option>
+        <option
+          children="Palembang (PLB)"
+          value="Palembang (PLB)"
+          {...getOverrideProps(overrides, "port10option79")}
+        ></option>
+        <option
+          children="Panjang (PNJ)"
+          value="Panjang (PNJ)"
+          {...getOverrideProps(overrides, "port10option80")}
+        ></option>
+        <option
+          children="Pasir Gudang (PAS)"
+          value="Pasir Gudang (PAS)"
+          {...getOverrideProps(overrides, "port10option81")}
+        ></option>
+        <option
+          children="Patimban (PTB)"
+          value="Patimban (PTB)"
+          {...getOverrideProps(overrides, "port10option82")}
+        ></option>
+        <option
+          children="Pattani (PTN)"
+          value="Pattani (PTN)"
+          {...getOverrideProps(overrides, "port10option83")}
+        ></option>
+        <option
+          children="Penang (PNG)"
+          value="Penang (PNG)"
+          {...getOverrideProps(overrides, "port10option84")}
+        ></option>
+        <option
+          children="Phnom Penh (PNH)"
+          value="Phnom Penh (PNH)"
+          {...getOverrideProps(overrides, "port10option85")}
+        ></option>
+        <option
+          children="Phra Chulachomklao Fort (PCF)"
+          value="Phra Chulachomklao Fort (PCF)"
+          {...getOverrideProps(overrides, "port10option86")}
+        ></option>
+        <option
+          children="Phuket (HKT)"
+          value="Phuket (HKT)"
+          {...getOverrideProps(overrides, "port10option87")}
+        ></option>
+        <option
+          children="Phumy (PHU)"
+          value="Phumy (PHU)"
+          {...getOverrideProps(overrides, "port10option88")}
+        ></option>
+        <option
+          children="Plathong Oil Rig (PATO)"
+          value="Plathong Oil Rig (PATO)"
+          {...getOverrideProps(overrides, "port10option89")}
+        ></option>
+        <option
+          children="Pontianak (POT)"
+          value="Pontianak (POT)"
+          {...getOverrideProps(overrides, "port10option90")}
+        ></option>
+        <option
+          children="Port Klang (PKL)"
+          value="Port Klang (PKL)"
+          {...getOverrideProps(overrides, "port10option91")}
+        ></option>
+        <option
+          children="Port Moresby (PGPOM)"
+          value="Port Moresby (PGPOM)"
+          {...getOverrideProps(overrides, "port10option92")}
+        ></option>
+        <option
+          children="Poso (POSO)"
+          value="Poso (POSO)"
+          {...getOverrideProps(overrides, "port10option93")}
+        ></option>
+        <option
+          children="Pusan (PUS)"
+          value="Pusan (PUS)"
+          {...getOverrideProps(overrides, "port10option94")}
+        ></option>
+        <option
+          children="Quinzhou (QZH)"
+          value="Quinzhou (QZH)"
+          {...getOverrideProps(overrides, "port10option95")}
+        ></option>
+        <option
+          children="Quy Nhon (QNN)"
+          value="Quy Nhon (QNN)"
+          {...getOverrideProps(overrides, "port10option96")}
+        ></option>
+        <option
+          children="Ranong (UNN)"
+          value="Ranong (UNN)"
+          {...getOverrideProps(overrides, "port10option97")}
+        ></option>
+        <option
+          children="Rayong (IRPC)"
+          value="Rayong (IRPC)"
+          {...getOverrideProps(overrides, "port10option98")}
+        ></option>
+        <option
+          children="Sampit (SMQ)"
+          value="Sampit (SMQ)"
+          {...getOverrideProps(overrides, "port10option99")}
+        ></option>
+        <option
+          children="Sandakan (SAN)"
+          value="Sandakan (SAN)"
+          {...getOverrideProps(overrides, "port10option100")}
+        ></option>
+        <option
+          children="Sarawak (SRW)"
+          value="Sarawak (SRW)"
+          {...getOverrideProps(overrides, "port10option101")}
+        ></option>
+        <option
+          children="Sarekei (SRK)"
+          value="Sarekei (SRK)"
+          {...getOverrideProps(overrides, "port10option102")}
+        ></option>
+        <option
+          children="Sattahip (SATP)"
+          value="Sattahip (SATP)"
+          {...getOverrideProps(overrides, "port10option103")}
+        ></option>
+        <option
+          children="Semarang - Tanjung Emas (SRG)"
+          value="Semarang - Tanjung Emas (SRG)"
+          {...getOverrideProps(overrides, "port10option104")}
+        ></option>
+        <option
+          children="Semarang (SRG)"
+          value="Semarang (SRG)"
+          {...getOverrideProps(overrides, "port10option105")}
+        ></option>
+        <option
+          children="Sibu (SIB)"
+          value="Sibu (SIB)"
+          {...getOverrideProps(overrides, "port10option106")}
+        ></option>
+        <option
+          children="Singapore (SG)"
+          value="Singapore (SG)"
+          {...getOverrideProps(overrides, "port10option107")}
+        ></option>
+        <option
+          children="Sipitang (SIP)"
+          value="Sipitang (SIP)"
+          {...getOverrideProps(overrides, "port10option108")}
+        ></option>
+        <option
+          children="Son Duong (SOD)"
+          value="Son Duong (SOD)"
+          {...getOverrideProps(overrides, "port10option109")}
+        ></option>
+        <option
+          children="Songkhla (SK)"
+          value="Songkhla (SK)"
+          {...getOverrideProps(overrides, "port10option110")}
+        ></option>
+        <option
+          children="Srihanoville (SIH)"
+          value="Srihanoville (SIH)"
+          {...getOverrideProps(overrides, "port10option111")}
+        ></option>
+        <option
+          children="Sriracha Harbor (SRC)"
+          value="Sriracha Harbor (SRC)"
+          {...getOverrideProps(overrides, "port10option112")}
+        ></option>
+        <option
+          children="Sritama Jetty (STM)"
+          value="Sritama Jetty (STM)"
+          {...getOverrideProps(overrides, "port10option113")}
+        ></option>
+        <option
+          children="Steung Hav (SHV)"
+          value="Steung Hav (SHV)"
+          {...getOverrideProps(overrides, "port10option114")}
+        ></option>
+        <option
+          children="Sungai Guntung (SGGT)"
+          value="Sungai Guntung (SGGT)"
+          {...getOverrideProps(overrides, "port10option115")}
+        ></option>
+        <option
+          children="Surabaya (SUBY)"
+          value="Surabaya (SUBY)"
+          {...getOverrideProps(overrides, "port10option116")}
+        ></option>
+        <option
+          children="Surat Thanee (SRT)"
+          value="Surat Thanee (SRT)"
+          {...getOverrideProps(overrides, "port10option117")}
+        ></option>
+        <option
+          children="Tacloban (TAC)"
+          value="Tacloban (TAC)"
+          {...getOverrideProps(overrides, "port10option118")}
+        ></option>
+        <option
+          children="Tagbilaran (TAG)"
+          value="Tagbilaran (TAG)"
+          {...getOverrideProps(overrides, "port10option119")}
+        ></option>
+        <option
+          children="Tanjong Manis (TGM)"
+          value="Tanjong Manis (TGM)"
+          {...getOverrideProps(overrides, "port10option120")}
+        ></option>
+        <option
+          children="Tanjung Batu (TJQ)"
+          value="Tanjung Batu (TJQ)"
+          {...getOverrideProps(overrides, "port10option121")}
+        ></option>
+        <option
+          children="Tanjung Priok (TP)"
+          value="Tanjung Priok (TP)"
+          {...getOverrideProps(overrides, "port10option122")}
+        ></option>
+        <option
+          children="Tarjun (TAR)"
+          value="Tarjun (TAR)"
+          {...getOverrideProps(overrides, "port10option123")}
+        ></option>
+        <option
+          children="Tawau (TAW)"
+          value="Tawau (TAW)"
+          {...getOverrideProps(overrides, "port10option124")}
+        ></option>
+        <option
+          children="Terengganu (TGG)"
+          value="Terengganu (TGG)"
+          {...getOverrideProps(overrides, "port10option125")}
+        ></option>
+        <option
+          children="Tha Sala (TSL)"
+          value="Tha Sala (TSL)"
+          {...getOverrideProps(overrides, "port10option126")}
+        ></option>
+        <option
+          children="Tsukumi (TSUM)"
+          value="Tsukumi (TSUM)"
+          {...getOverrideProps(overrides, "port10option127")}
+        ></option>
+        <option
+          children="Vung Ang (VAG)"
+          value="Vung Ang (VAG)"
+          {...getOverrideProps(overrides, "port10option128")}
+        ></option>
+        <option
+          children="Vung Tau (VUT)"
+          value="Vung Tau (VUT)"
+          {...getOverrideProps(overrides, "port10option129")}
+        ></option>
+        <option
+          children="Yangon (RGN)"
+          value="Yangon (RGN)"
+          {...getOverrideProps(overrides, "port10option130")}
+        ></option>
+      </SelectField>
+      <Grid
+        columnGap="inherit"
+        rowGap="inherit"
+        templateColumns="repeat(4, auto)"
+        {...getOverrideProps(overrides, "RowGrid22")}
+      >
+        <TextField
+          label="PDA Fees"
+          type="number"
+          step="any"
+          value={port10_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees: value,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port10_fees ?? value;
+            }
+            if (errors.port10_fees?.hasError) {
+              runValidationTasks("port10_fees", value);
+            }
+            setport10_fees(value);
+          }}
+          onBlur={() => runValidationTasks("port10_fees", port10_fees)}
+          errorMessage={errors.port10_fees?.errorMessage}
+          hasError={errors.port10_fees?.hasError}
+          {...getOverrideProps(overrides, "port10_fees")}
+        ></TextField>
+        <TextField
+          label="Port Call (Days)"
+          type="number"
+          step="any"
+          value={port10_port_call}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call: value,
+                port10_crane_usage,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port10_port_call ?? value;
+            }
+            if (errors.port10_port_call?.hasError) {
+              runValidationTasks("port10_port_call", value);
+            }
+            setport10_port_call(value);
+          }}
+          onBlur={() => runValidationTasks("port10_port_call", port10_port_call)}
+          errorMessage={errors.port10_port_call?.errorMessage}
+          hasError={errors.port10_port_call?.hasError}
+          {...getOverrideProps(overrides, "port10_port_call")}
+        ></TextField>
+        <TextField
+          label="Crane Usage (Hours)"
+          type="number"
+          step="any"
+          value={port10_crane_usage}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage: value,
+                port10_surveying_fees,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port10_crane_usage ?? value;
+            }
+            if (errors.port10_crane_usage?.hasError) {
+              runValidationTasks("port10_crane_usage", value);
+            }
+            setport10_crane_usage(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port10_crane_usage", port10_crane_usage)
+          }
+          errorMessage={errors.port10_crane_usage?.errorMessage}
+          hasError={errors.port10_crane_usage?.hasError}
+          {...getOverrideProps(overrides, "port10_crane_usage")}
+        ></TextField>
+        <TextField
+          label="Surveying Fees"
+          type="number"
+          step="any"
+          value={port10_surveying_fees}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (onChange) {
+              const modelFields = {
+                currency_type,
+                exchange_rate,
+                diesel_rate,
+                bunker_rate,
+                lube_rate,
+                port1,
+                port1_fees,
+                port1_port_call,
+                port1_crane_usage,
+                port1_surveying_fees,
+                port2,
+                port2_fees,
+                port2_port_call,
+                port2_crane_usage,
+                port2_surveying_fees,
+                port3,
+                port3_fees,
+                port3_port_call,
+                port3_crane_usage,
+                port3_surveying_fees,
+                port4,
+                port4_fees,
+                port4_port_call,
+                port4_crane_usage,
+                port4_surveying_fees,
+                port5,
+                port5_fees,
+                port5_port_call,
+                port5_crane_usage,
+                port5_surveying_fees,
+                port6,
+                port6_fees,
+                port6_port_call,
+                port6_crane_usage,
+                port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees: value,
+                cargo1_type,
+                cargo1_quantity,
+                cargo1_rate,
+                cargo1_brokerage_fees,
+                cargo2_type,
+                cargo2_quantity,
+                cargo2_rate,
+                cargo2_brokerage_fees,
+                cargo3_type,
+                cargo3_quantity,
+                cargo3_rate,
+                cargo3_brokerage_fees,
+                cargo4_type,
+                cargo4_quantity,
+                cargo4_rate,
+                cargo4_brokerage_fees,
+                cargo5_type,
+                cargo5_quantity,
+                cargo5_rate,
+                cargo5_brokerage_fees,
+                cargo6_type,
+                cargo6_quantity,
+                cargo6_rate,
+                cargo6_brokerage_fees,
+                voyageBonus,
+                miscCosts,
+              };
+              const result = onChange(modelFields);
+              value = result?.port10_surveying_fees ?? value;
+            }
+            if (errors.port10_surveying_fees?.hasError) {
+              runValidationTasks("port10_surveying_fees", value);
+            }
+            setport10_surveying_fees(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("port10_surveying_fees", port10_surveying_fees)
+          }
+          errorMessage={errors.port10_surveying_fees?.errorMessage}
+          hasError={errors.port10_surveying_fees?.hasError}
+          {...getOverrideProps(overrides, "port10_surveying_fees")}
+        ></TextField>
+      </Grid>
+
       <Divider
         orientation="horizontal"
         {...getOverrideProps(overrides, "SectionalElement2")}
@@ -7504,6 +13080,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type: value,
               cargo1_quantity,
               cargo1_rate,
@@ -7709,7 +13305,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid18")}
+        {...getOverrideProps(overrides, "RowGrid23")}
       >
         <TextField
           label="Quantity (MT)"
@@ -7755,6 +13351,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity: value,
                 cargo1_rate,
@@ -7839,6 +13455,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate: value,
@@ -7923,6 +13559,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8009,6 +13665,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -8214,7 +13890,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid20")}
+        {...getOverrideProps(overrides, "RowGrid25")}
       >
         <TextField
           label="Quantity (MT)"
@@ -8260,6 +13936,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8344,6 +14040,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8428,6 +14144,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8514,6 +14250,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -8719,7 +14475,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid22")}
+        {...getOverrideProps(overrides, "RowGrid27")}
       >
         <TextField
           label="Quantity (MT)"
@@ -8765,6 +14521,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8849,6 +14625,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -8933,6 +14729,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9019,6 +14835,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -9224,7 +15060,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid24")}
+        {...getOverrideProps(overrides, "RowGrid29")}
       >
         <TextField
           label="Quantity (MT)"
@@ -9270,6 +15106,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9354,6 +15210,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9438,6 +15314,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9524,6 +15420,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -9729,7 +15645,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid26")}
+        {...getOverrideProps(overrides, "RowGrid31")}
       >
         <TextField
           label="Quantity (MT)"
@@ -9775,6 +15691,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9859,6 +15795,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -9943,6 +15899,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -10029,6 +16005,26 @@ export default function Calculator(props) {
               port6_port_call,
               port6_crane_usage,
               port6_surveying_fees,
+              port7,
+              port7_fees,
+              port7_port_call,
+              port7_crane_usage,
+              port7_surveying_fees,
+              port8,
+              port8_fees,
+              port8_port_call,
+              port8_crane_usage,
+              port8_surveying_fees,
+              port9,
+              port9_fees,
+              port9_port_call,
+              port9_crane_usage,
+              port9_surveying_fees,
+              port10,
+              port10_fees,
+              port10_port_call,
+              port10_crane_usage,
+              port10_surveying_fees,
               cargo1_type,
               cargo1_quantity,
               cargo1_rate,
@@ -10234,7 +16230,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(3, auto)"
-        {...getOverrideProps(overrides, "RowGrid28")}
+        {...getOverrideProps(overrides, "RowGrid33")}
       >
         <TextField
           label="Quantity (MT)"
@@ -10280,6 +16276,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -10364,6 +16380,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -10448,6 +16484,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -10504,7 +16560,7 @@ export default function Calculator(props) {
         columnGap="inherit"
         rowGap="inherit"
         templateColumns="repeat(2, auto)"
-        {...getOverrideProps(overrides, "RowGrid30")}
+        {...getOverrideProps(overrides, "RowGrid35")}
       >
         <TextField
           label="Voyage Bonus (Hatch Opening/ Hull Cleaning)"
@@ -10550,6 +16606,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,
@@ -10634,6 +16710,26 @@ export default function Calculator(props) {
                 port6_port_call,
                 port6_crane_usage,
                 port6_surveying_fees,
+                port7,
+                port7_fees,
+                port7_port_call,
+                port7_crane_usage,
+                port7_surveying_fees,
+                port8,
+                port8_fees,
+                port8_port_call,
+                port8_crane_usage,
+                port8_surveying_fees,
+                port9,
+                port9_fees,
+                port9_port_call,
+                port9_crane_usage,
+                port9_surveying_fees,
+                port10,
+                port10_fees,
+                port10_port_call,
+                port10_crane_usage,
+                port10_surveying_fees,
                 cargo1_type,
                 cargo1_quantity,
                 cargo1_rate,

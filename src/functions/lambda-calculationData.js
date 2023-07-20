@@ -112,7 +112,7 @@ exports.handler = async (event) => {
     }, 0);
 
     // Calculate the fuel costs for HN5
-    const hn5_main_engine_fuel_cost = duration_at_sea * bunker_rate * (195.0); // HN5 no bunker fuel
+    const hn5_main_engine_fuel_cost = duration_at_sea * bunker_rate * (195.0); 
     const hn5_main_diesel_cost = duration_at_sea * diesel_rate * 0; // HN5 NA
     const hn5_winch_diesel_cost = duration_crane_usage * diesel_rate * (56.0);
     const hn5_generator_diesel_cost = (duration_at_sea + duration_at_port) * diesel_rate * (16.0);
@@ -120,10 +120,10 @@ exports.handler = async (event) => {
 
 
     // Calculate the fuel costs for HN9
-    const hn9_main_engine_fuel_cost = duration_at_sea * bunker_rate * (162.6); // HN9 no bunker fuel
+    const hn9_main_engine_fuel_cost = duration_at_sea * bunker_rate * (162.6);
     const hn9_main_diesel_cost = duration_at_sea * diesel_rate * 0; // HN9 NA
     const hn9_winch_diesel_cost = duration_crane_usage * diesel_rate * (56.0);
-    const hn9_generator_diesel_cost = (duration_at_sea + duration_crane_usage) * diesel_rate * (16.0);
+    const hn9_generator_diesel_cost = (duration_at_sea + duration_at_port) * diesel_rate * (16.0);
     const hn9_lube_cost = duration_at_sea * lube_rate * (2.25);
 
     const hn5_fuelCosts =
@@ -141,10 +141,10 @@ exports.handler = async (event) => {
       hn9_lube_cost;
 
     // Calculate operating costs for HN5
-    const hn5_operatingCosts = (83577) * ((duration_at_sea + duration_at_port) / 24); // from operating costs table (fixed costs)
+    const hn5_operatingCosts = (83630.6039623607) * ((duration_at_sea + duration_at_port) / 24); // from operating costs table (fixed costs)
 
     // Calculate operating costs for HN9
-    const hn9_operatingCosts = (73757) * ((duration_at_sea + duration_at_port) / 24); // from operating costs table (fixed costs)
+    const hn9_operatingCosts = (73803.5818451258) * ((duration_at_sea + duration_at_port) / 24); // from operating costs table (fixed costs)
 
     // Sum of port fees
     const portCosts = ports.reduce((sum, ports) => {

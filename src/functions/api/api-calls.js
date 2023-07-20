@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiUrl = 'https://lbguf2ogb0.execute-api.us-west-2.amazonaws.com/prod';
+const apiUrl = 'https://mms8hsgh9g.execute-api.ap-southeast-2.amazonaws.com/prod';
 
 export async function storeFormAPICall(formInputs) {
   try {
@@ -36,6 +36,26 @@ export async function storeFormAPICall(formInputs) {
       port6_port_call: formInputs.port6_port_call,
       port6_crane_usage: formInputs.port6_crane_usage,
       port6_surveying_fees: formInputs.port6_surveying_fees,
+      port7: formInputs.port6,
+      port7_fees: formInputs.port6_fees,
+      port7_port_call: formInputs.port6_port_call,
+      port7_crane_usage: formInputs.port6_crane_usage,
+      port7_surveying_fees: formInputs.port6_surveying_fees,
+      port8: formInputs.port6,
+      port8_fees: formInputs.port6_fees,
+      port8_port_call: formInputs.port6_port_call,
+      port8_crane_usage: formInputs.port6_crane_usage,
+      port8_surveying_fees: formInputs.port6_surveying_fees,
+      port9: formInputs.port6,
+      port9_fees: formInputs.port6_fees,
+      port9_port_call: formInputs.port6_port_call,
+      port9_crane_usage: formInputs.port6_crane_usage,
+      port9_surveying_fees: formInputs.port6_surveying_fees,
+      port10: formInputs.port6,
+      port10_fees: formInputs.port6_fees,
+      port10_port_call: formInputs.port6_port_call,
+      port10_crane_usage: formInputs.port6_crane_usage,
+      port10_surveying_fees: formInputs.port6_surveying_fees,
       cargo1_type: formInputs.cargo1_type,
       cargo1_quantity: formInputs.cargo1_quantity,
       cargo1_rate: formInputs.cargo1_rate,
