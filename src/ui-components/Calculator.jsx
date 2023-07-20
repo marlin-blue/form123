@@ -26,66 +26,66 @@ export default function Calculator(props) {
     lube_rate: "2.33",
     bunker_rate: "0.6",
     port1: "Bangkok (BK)",
-    port1_fees: "1000",
-    port1_port_call: "5",
-    port1_crane_usage: "20",
-    port1_surveying_fees: "1000",
-    port2: "Batam (BAT)",
+    port1_fees: "8000",
+    port1_port_call: "0",
+    port1_crane_usage: "0",
+    port1_surveying_fees: "0",
+    port2: "Songkhla (SK)",
     port2_fees: "0",
-    port2_port_call: "0",
-    port2_crane_usage: "0",
+    port2_port_call: "8",
+    port2_crane_usage: "40",
     port2_surveying_fees: "0",
-    port3: "Bangkok (BK)",
+    port3: "Penang (PNG)",
     port3_fees: "0",
     port3_port_call: "0",
     port3_crane_usage: "0",
     port3_surveying_fees: "0",
-    port4: "Batam (BAT)",
+    port4: "Kuching (KUC)",
     port4_fees: "0",
-    port4_port_call: "0",
-    port4_crane_usage: "0",
+    port4_port_call: "15",
+    port4_crane_usage: "75",
     port4_surveying_fees: "0",
-    port5: "Bangkok (BK)",
+    port5: "Bintulu (BIN)",
     port5_fees: "0",
     port5_port_call: "0",
     port5_crane_usage: "0",
     port5_surveying_fees: "0",
-    port6: "Batam (BAT)",
-    port6_fees: "0",
-    port6_port_call: "0",
+    port6: "Bangkok (BK)",
+    port6_fees: " 1,771.43",
+    port6_port_call: "6",
     port6_crane_usage: "0",
     port6_surveying_fees: "0",
-    port7: "Bangkok (BK)",
+    port7: "NIL",
     port7_fees: "0",
     port7_port_call: "0",
     port7_crane_usage: "0",
     port7_surveying_fees: "0",
-    port8: "Batam (BAT)",
+    port8: "NIL",
     port8_fees: "0",
     port8_port_call: "0",
     port8_crane_usage: "0",
     port8_surveying_fees: "0",
-    port9: "Bangkok (BK)",
+    port9: "NIL",
     port9_fees: "0",
     port9_port_call: "0",
     port9_crane_usage: "0",
     port9_surveying_fees: "0",
-    port10: "Batam (BAT)",
+    port10: "NIL",
     port10_fees: "0",
     port10_port_call: "0",
     port10_crane_usage: "0",
     port10_surveying_fees: "0",
-    cargo1_type: "Rice",
-    cargo1_quantity: "3000",
-    cargo1_rate: "18",
+    cargo1_type: "Soy Bean Meal",
+    cargo1_quantity: "3600",
+    cargo1_rate: " 20.26",
     cargo1_brokerage_fees: "0",
-    cargo2_type: "NIL",
-    cargo2_quantity: "0",
-    cargo2_rate: "0",
-    cargo2_brokerage_fees: "0",
-    cargo3_type: "NIL",
-    cargo3_quantity: "0",
-    cargo3_rate: "0",
+    cargo2_type: "Titimas Bleaching Earth",
+    cargo2_quantity: "3000",
+    cargo2_rate: "30",
+    cargo2_brokerage_fees: "2.5",
+    cargo3_type: "Timber",
+    cargo3_quantity: "700",
+    cargo3_rate: "52",
     cargo3_brokerage_fees: "0",
     cargo4_type: "NIL",
     cargo4_quantity: "0",
@@ -99,8 +99,8 @@ export default function Calculator(props) {
     cargo6_quantity: "0",
     cargo6_rate: "0",
     cargo6_brokerage_fees: "0",
-    voyageBonus: "0",
-    miscCosts: "0"
+    voyageBonus: "300",
+    miscCosts: "3000"
   };
 
   const [currency_type, setCurrency_type] = React.useState(
@@ -13422,7 +13422,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo1_rate}
@@ -13526,7 +13526,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo1_brokerage_fees}
@@ -14017,7 +14017,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo2_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo2_rate}
@@ -14121,7 +14121,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo2_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo2_brokerage_fees}
@@ -14612,7 +14612,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo3_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo3_rate}
@@ -14716,7 +14716,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo3_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo3_brokerage_fees}
@@ -15207,7 +15207,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo4_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo4_rate}
@@ -15311,7 +15311,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo4_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo4_brokerage_fees}
@@ -15802,7 +15802,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo5_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo5_rate}
@@ -15906,7 +15906,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo5_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo5_brokerage_fees}
@@ -16397,7 +16397,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo6_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate (%)"
+          label="Freight Rate"
           type="number"
           step="any"
           value={cargo6_rate}
@@ -16501,7 +16501,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo6_rate")}
         ></TextField>
         <TextField
-          label="Brokerage Fees"
+          label="Brokerage Fees (%)"
           type="number"
           step="any"
           value={cargo6_brokerage_fees}
