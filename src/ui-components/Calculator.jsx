@@ -11937,7 +11937,7 @@ export default function Calculator(props) {
           if (errors.port10?.hasError) {
             runValidationTasks("port10", value);
           }
-          setPort10(value);
+          setport10(value);
         }}
         onBlur={() => runValidationTasks("port10", port10)}
         errorMessage={errors.port10?.errorMessage}
@@ -12703,7 +12703,7 @@ export default function Calculator(props) {
             if (errors.port10_fees?.hasError) {
               runValidationTasks("port10_fees", value);
             }
-            setPort10_fees(value);
+            setport10_fees(value);
           }}
           onBlur={() => runValidationTasks("port10_fees", port10_fees)}
           errorMessage={errors.port10_fees?.errorMessage}
@@ -12807,7 +12807,7 @@ export default function Calculator(props) {
             if (errors.port10_port_call?.hasError) {
               runValidationTasks("port10_port_call", value);
             }
-            setPort10_port_call(value);
+            setport10_port_call(value);
           }}
           onBlur={() => runValidationTasks("port10_port_call", port10_port_call)}
           errorMessage={errors.port10_port_call?.errorMessage}
@@ -12911,7 +12911,7 @@ export default function Calculator(props) {
             if (errors.port10_crane_usage?.hasError) {
               runValidationTasks("port10_crane_usage", value);
             }
-            setPort10_crane_usage(value);
+            setport10_crane_usage(value);
           }}
           onBlur={() =>
             runValidationTasks("port10_crane_usage", port10_crane_usage)
@@ -13017,7 +13017,7 @@ export default function Calculator(props) {
             if (errors.port10_surveying_fees?.hasError) {
               runValidationTasks("port10_surveying_fees", value);
             }
-            setPort10_surveying_fees(value);
+            setport10_surveying_fees(value);
           }}
           onBlur={() =>
             runValidationTasks("port10_surveying_fees", port10_surveying_fees)
@@ -13261,44 +13261,54 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption23")}
         ></option>
         <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
+        ></option>
+        <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo1_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo1_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo1_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo1_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo1_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo1_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo1_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -13412,7 +13422,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo1_rate}
@@ -13728,162 +13738,172 @@ export default function Calculator(props) {
         <option
           children="NIL"
           value="NIL"
-          {...getOverrideProps(overrides, "cargo2_typeoption0")}
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
         ></option>
         <option
           children="Barite"
           value="Barite"
-          {...getOverrideProps(overrides, "cargo2_typeoption1")}
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
         ></option>
         <option
           children="Barley"
           value="Barley"
-          {...getOverrideProps(overrides, "cargo2_typeoption2")}
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
         ></option>
         <option
           children="Charcoal"
           value="Charcoal"
-          {...getOverrideProps(overrides, "cargo2_typeoption3")}
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
         ></option>
         <option
           children="Cement"
           value="Cement"
-          {...getOverrideProps(overrides, "cargo2_typeoption4")}
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
         ></option>
         <option
           children="Cold Rolled Coil"
           value="Cold Rolled Coil"
-          {...getOverrideProps(overrides, "cargo2_typeoption5")}
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
         ></option>
         <option
           children="Containers"
           value="Containers"
-          {...getOverrideProps(overrides, "cargo2_typeoption6")}
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
         ></option>
         <option
           children="Dickite"
           value="Dickite"
-          {...getOverrideProps(overrides, "cargo2_typeoption7")}
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
         ></option>
         <option
           children="Dolomite"
           value="Dolomite"
-          {...getOverrideProps(overrides, "cargo2_typeoption8")}
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
         ></option>
         <option
           children="Feldspar"
           value="Feldspar"
-          {...getOverrideProps(overrides, "cargo2_typeoption9")}
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
         ></option>
         <option
           children="Fertilizer"
           value="Fertilizer"
-          {...getOverrideProps(overrides, "cargo2_typeoption10")}
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
         ></option>
         <option
           children="Hot Rolled Coil"
           value="Hot Rolled Coil"
-          {...getOverrideProps(overrides, "cargo2_typeoption11")}
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
         ></option>
         <option
           children="Maize"
           value="Maize"
-          {...getOverrideProps(overrides, "cargo2_typeoption12")}
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
         ></option>
         <option
           children="Palm Kernel Shell (PKS)"
           value="Palm Kernel Shell (PKS)"
-          {...getOverrideProps(overrides, "cargo2_typeoption13")}
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
         ></option>
         <option
           children="Palm Kernel Expeller (PKE)"
           value="Palm Kernel Expeller (PKE)"
-          {...getOverrideProps(overrides, "cargo2_typeoption14")}
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
         ></option>
         <option
           children="Plastic Resin"
           value="Plastic Resin"
-          {...getOverrideProps(overrides, "cargo2_typeoption15")}
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
         ></option>
         <option
           children="Project Cargo"
           value="Project Cargo"
-          {...getOverrideProps(overrides, "cargo2_typeoption16")}
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
         ></option>
         <option
           children="Rice"
           value="Rice"
-          {...getOverrideProps(overrides, "cargo2_typeoption17")}
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
         ></option>
         <option
           children="Salt"
           value="Salt"
-          {...getOverrideProps(overrides, "cargo2_typeoption18")}
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
         ></option>
         <option
           children="Salt and Flour"
           value="Salt and Flour"
-          {...getOverrideProps(overrides, "cargo2_typeoption19")}
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
         ></option>
         <option
           children="Silica Sand"
           value="Silica Sand"
-          {...getOverrideProps(overrides, "cargo2_typeoption20")}
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
         ></option>
         <option
           children="Sodium Sulphate Anhydrous"
           value="Sodium Sulphate Anhydrous"
-          {...getOverrideProps(overrides, "cargo2_typeoption21")}
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
         ></option>
         <option
           children="Soy Bean Meal"
           value="Soy Bean Meal"
-          {...getOverrideProps(overrides, "cargo2_typeoption22")}
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
         ></option>
         <option
           children="Steel Coil"
           value="Steel Coil"
-          {...getOverrideProps(overrides, "cargo2_typeoption23")}
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
         ></option>
         <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo2_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo2_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo2_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo2_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo2_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo2_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo2_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo2_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -13997,7 +14017,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo2_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo2_rate}
@@ -14313,162 +14333,172 @@ export default function Calculator(props) {
         <option
           children="NIL"
           value="NIL"
-          {...getOverrideProps(overrides, "cargo3_typeoption0")}
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
         ></option>
         <option
           children="Barite"
           value="Barite"
-          {...getOverrideProps(overrides, "cargo3_typeoption1")}
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
         ></option>
         <option
           children="Barley"
           value="Barley"
-          {...getOverrideProps(overrides, "cargo3_typeoption2")}
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
         ></option>
         <option
           children="Charcoal"
           value="Charcoal"
-          {...getOverrideProps(overrides, "cargo3_typeoption3")}
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
         ></option>
         <option
           children="Cement"
           value="Cement"
-          {...getOverrideProps(overrides, "cargo3_typeoption4")}
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
         ></option>
         <option
           children="Cold Rolled Coil"
           value="Cold Rolled Coil"
-          {...getOverrideProps(overrides, "cargo3_typeoption5")}
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
         ></option>
         <option
           children="Containers"
           value="Containers"
-          {...getOverrideProps(overrides, "cargo3_typeoption6")}
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
         ></option>
         <option
           children="Dickite"
           value="Dickite"
-          {...getOverrideProps(overrides, "cargo3_typeoption7")}
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
         ></option>
         <option
           children="Dolomite"
           value="Dolomite"
-          {...getOverrideProps(overrides, "cargo3_typeoption8")}
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
         ></option>
         <option
           children="Feldspar"
           value="Feldspar"
-          {...getOverrideProps(overrides, "cargo3_typeoption9")}
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
         ></option>
         <option
           children="Fertilizer"
           value="Fertilizer"
-          {...getOverrideProps(overrides, "cargo3_typeoption10")}
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
         ></option>
         <option
           children="Hot Rolled Coil"
           value="Hot Rolled Coil"
-          {...getOverrideProps(overrides, "cargo3_typeoption11")}
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
         ></option>
         <option
           children="Maize"
           value="Maize"
-          {...getOverrideProps(overrides, "cargo3_typeoption12")}
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
         ></option>
         <option
           children="Palm Kernel Shell (PKS)"
           value="Palm Kernel Shell (PKS)"
-          {...getOverrideProps(overrides, "cargo3_typeoption13")}
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
         ></option>
         <option
           children="Palm Kernel Expeller (PKE)"
           value="Palm Kernel Expeller (PKE)"
-          {...getOverrideProps(overrides, "cargo3_typeoption14")}
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
         ></option>
         <option
           children="Plastic Resin"
           value="Plastic Resin"
-          {...getOverrideProps(overrides, "cargo3_typeoption15")}
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
         ></option>
         <option
           children="Project Cargo"
           value="Project Cargo"
-          {...getOverrideProps(overrides, "cargo3_typeoption16")}
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
         ></option>
         <option
           children="Rice"
           value="Rice"
-          {...getOverrideProps(overrides, "cargo3_typeoption17")}
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
         ></option>
         <option
           children="Salt"
           value="Salt"
-          {...getOverrideProps(overrides, "cargo3_typeoption18")}
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
         ></option>
         <option
           children="Salt and Flour"
           value="Salt and Flour"
-          {...getOverrideProps(overrides, "cargo3_typeoption19")}
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
         ></option>
         <option
           children="Silica Sand"
           value="Silica Sand"
-          {...getOverrideProps(overrides, "cargo3_typeoption20")}
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
         ></option>
         <option
           children="Sodium Sulphate Anhydrous"
           value="Sodium Sulphate Anhydrous"
-          {...getOverrideProps(overrides, "cargo3_typeoption21")}
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
         ></option>
         <option
           children="Soy Bean Meal"
           value="Soy Bean Meal"
-          {...getOverrideProps(overrides, "cargo3_typeoption22")}
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
         ></option>
         <option
           children="Steel Coil"
           value="Steel Coil"
-          {...getOverrideProps(overrides, "cargo3_typeoption23")}
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
         ></option>
         <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo3_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo3_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo3_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo3_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo3_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo3_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo3_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo3_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -14582,7 +14612,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo3_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo3_rate}
@@ -14898,162 +14928,172 @@ export default function Calculator(props) {
         <option
           children="NIL"
           value="NIL"
-          {...getOverrideProps(overrides, "cargo4_typeoption0")}
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
         ></option>
         <option
           children="Barite"
           value="Barite"
-          {...getOverrideProps(overrides, "cargo4_typeoption1")}
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
         ></option>
         <option
           children="Barley"
           value="Barley"
-          {...getOverrideProps(overrides, "cargo4_typeoption2")}
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
         ></option>
         <option
           children="Charcoal"
           value="Charcoal"
-          {...getOverrideProps(overrides, "cargo4_typeoption3")}
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
         ></option>
         <option
           children="Cement"
           value="Cement"
-          {...getOverrideProps(overrides, "cargo4_typeoption4")}
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
         ></option>
         <option
           children="Cold Rolled Coil"
           value="Cold Rolled Coil"
-          {...getOverrideProps(overrides, "cargo4_typeoption5")}
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
         ></option>
         <option
           children="Containers"
           value="Containers"
-          {...getOverrideProps(overrides, "cargo4_typeoption6")}
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
         ></option>
         <option
           children="Dickite"
           value="Dickite"
-          {...getOverrideProps(overrides, "cargo4_typeoption7")}
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
         ></option>
         <option
           children="Dolomite"
           value="Dolomite"
-          {...getOverrideProps(overrides, "cargo4_typeoption8")}
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
         ></option>
         <option
           children="Feldspar"
           value="Feldspar"
-          {...getOverrideProps(overrides, "cargo4_typeoption9")}
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
         ></option>
         <option
           children="Fertilizer"
           value="Fertilizer"
-          {...getOverrideProps(overrides, "cargo4_typeoption10")}
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
         ></option>
         <option
           children="Hot Rolled Coil"
           value="Hot Rolled Coil"
-          {...getOverrideProps(overrides, "cargo4_typeoption11")}
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
         ></option>
         <option
           children="Maize"
           value="Maize"
-          {...getOverrideProps(overrides, "cargo4_typeoption12")}
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
         ></option>
         <option
           children="Palm Kernel Shell (PKS)"
           value="Palm Kernel Shell (PKS)"
-          {...getOverrideProps(overrides, "cargo4_typeoption13")}
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
         ></option>
         <option
           children="Palm Kernel Expeller (PKE)"
           value="Palm Kernel Expeller (PKE)"
-          {...getOverrideProps(overrides, "cargo4_typeoption14")}
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
         ></option>
         <option
           children="Plastic Resin"
           value="Plastic Resin"
-          {...getOverrideProps(overrides, "cargo4_typeoption15")}
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
         ></option>
         <option
           children="Project Cargo"
           value="Project Cargo"
-          {...getOverrideProps(overrides, "cargo4_typeoption16")}
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
         ></option>
         <option
           children="Rice"
           value="Rice"
-          {...getOverrideProps(overrides, "cargo4_typeoption17")}
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
         ></option>
         <option
           children="Salt"
           value="Salt"
-          {...getOverrideProps(overrides, "cargo4_typeoption18")}
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
         ></option>
         <option
           children="Salt and Flour"
           value="Salt and Flour"
-          {...getOverrideProps(overrides, "cargo4_typeoption19")}
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
         ></option>
         <option
           children="Silica Sand"
           value="Silica Sand"
-          {...getOverrideProps(overrides, "cargo4_typeoption20")}
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
         ></option>
         <option
           children="Sodium Sulphate Anhydrous"
           value="Sodium Sulphate Anhydrous"
-          {...getOverrideProps(overrides, "cargo4_typeoption21")}
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
         ></option>
         <option
           children="Soy Bean Meal"
           value="Soy Bean Meal"
-          {...getOverrideProps(overrides, "cargo4_typeoption22")}
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
         ></option>
         <option
           children="Steel Coil"
           value="Steel Coil"
-          {...getOverrideProps(overrides, "cargo4_typeoption23")}
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
         ></option>
         <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo4_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo4_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo4_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo4_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo4_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo4_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo4_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo4_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -15167,7 +15207,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo4_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo4_rate}
@@ -15483,162 +15523,172 @@ export default function Calculator(props) {
         <option
           children="NIL"
           value="NIL"
-          {...getOverrideProps(overrides, "cargo5_typeoption0")}
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
         ></option>
         <option
           children="Barite"
           value="Barite"
-          {...getOverrideProps(overrides, "cargo5_typeoption1")}
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
         ></option>
         <option
           children="Barley"
           value="Barley"
-          {...getOverrideProps(overrides, "cargo5_typeoption2")}
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
         ></option>
         <option
           children="Charcoal"
           value="Charcoal"
-          {...getOverrideProps(overrides, "cargo5_typeoption3")}
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
         ></option>
         <option
           children="Cement"
           value="Cement"
-          {...getOverrideProps(overrides, "cargo5_typeoption4")}
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
         ></option>
         <option
           children="Cold Rolled Coil"
           value="Cold Rolled Coil"
-          {...getOverrideProps(overrides, "cargo5_typeoption5")}
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
         ></option>
         <option
           children="Containers"
           value="Containers"
-          {...getOverrideProps(overrides, "cargo5_typeoption6")}
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
         ></option>
         <option
           children="Dickite"
           value="Dickite"
-          {...getOverrideProps(overrides, "cargo5_typeoption7")}
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
         ></option>
         <option
           children="Dolomite"
           value="Dolomite"
-          {...getOverrideProps(overrides, "cargo5_typeoption8")}
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
         ></option>
         <option
           children="Feldspar"
           value="Feldspar"
-          {...getOverrideProps(overrides, "cargo5_typeoption9")}
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
         ></option>
         <option
           children="Fertilizer"
           value="Fertilizer"
-          {...getOverrideProps(overrides, "cargo5_typeoption10")}
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
         ></option>
         <option
           children="Hot Rolled Coil"
           value="Hot Rolled Coil"
-          {...getOverrideProps(overrides, "cargo5_typeoption11")}
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
         ></option>
         <option
           children="Maize"
           value="Maize"
-          {...getOverrideProps(overrides, "cargo5_typeoption12")}
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
         ></option>
         <option
           children="Palm Kernel Shell (PKS)"
           value="Palm Kernel Shell (PKS)"
-          {...getOverrideProps(overrides, "cargo5_typeoption13")}
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
         ></option>
         <option
           children="Palm Kernel Expeller (PKE)"
           value="Palm Kernel Expeller (PKE)"
-          {...getOverrideProps(overrides, "cargo5_typeoption14")}
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
         ></option>
         <option
           children="Plastic Resin"
           value="Plastic Resin"
-          {...getOverrideProps(overrides, "cargo5_typeoption15")}
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
         ></option>
         <option
           children="Project Cargo"
           value="Project Cargo"
-          {...getOverrideProps(overrides, "cargo5_typeoption16")}
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
         ></option>
         <option
           children="Rice"
           value="Rice"
-          {...getOverrideProps(overrides, "cargo5_typeoption17")}
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
         ></option>
         <option
           children="Salt"
           value="Salt"
-          {...getOverrideProps(overrides, "cargo5_typeoption18")}
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
         ></option>
         <option
           children="Salt and Flour"
           value="Salt and Flour"
-          {...getOverrideProps(overrides, "cargo5_typeoption19")}
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
         ></option>
         <option
           children="Silica Sand"
           value="Silica Sand"
-          {...getOverrideProps(overrides, "cargo5_typeoption20")}
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
         ></option>
         <option
           children="Sodium Sulphate Anhydrous"
           value="Sodium Sulphate Anhydrous"
-          {...getOverrideProps(overrides, "cargo5_typeoption21")}
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
         ></option>
         <option
           children="Soy Bean Meal"
           value="Soy Bean Meal"
-          {...getOverrideProps(overrides, "cargo5_typeoption22")}
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
         ></option>
         <option
           children="Steel Coil"
           value="Steel Coil"
-          {...getOverrideProps(overrides, "cargo5_typeoption23")}
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
         ></option>
         <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo5_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo5_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo5_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo5_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo5_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo5_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo5_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo5_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -15752,7 +15802,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo5_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo5_rate}
@@ -16068,162 +16118,172 @@ export default function Calculator(props) {
         <option
           children="NIL"
           value="NIL"
-          {...getOverrideProps(overrides, "cargo6_typeoption0")}
+          {...getOverrideProps(overrides, "cargo1_typeoption0")}
         ></option>
         <option
           children="Barite"
           value="Barite"
-          {...getOverrideProps(overrides, "cargo6_typeoption1")}
+          {...getOverrideProps(overrides, "cargo1_typeoption1")}
         ></option>
         <option
           children="Barley"
           value="Barley"
-          {...getOverrideProps(overrides, "cargo6_typeoption2")}
+          {...getOverrideProps(overrides, "cargo1_typeoption2")}
         ></option>
         <option
           children="Charcoal"
           value="Charcoal"
-          {...getOverrideProps(overrides, "cargo6_typeoption3")}
+          {...getOverrideProps(overrides, "cargo1_typeoption3")}
         ></option>
         <option
           children="Cement"
           value="Cement"
-          {...getOverrideProps(overrides, "cargo6_typeoption4")}
+          {...getOverrideProps(overrides, "cargo1_typeoption4")}
         ></option>
         <option
           children="Cold Rolled Coil"
           value="Cold Rolled Coil"
-          {...getOverrideProps(overrides, "cargo6_typeoption5")}
+          {...getOverrideProps(overrides, "cargo1_typeoption5")}
         ></option>
         <option
           children="Containers"
           value="Containers"
-          {...getOverrideProps(overrides, "cargo6_typeoption6")}
+          {...getOverrideProps(overrides, "cargo1_typeoption6")}
         ></option>
         <option
           children="Dickite"
           value="Dickite"
-          {...getOverrideProps(overrides, "cargo6_typeoption7")}
+          {...getOverrideProps(overrides, "cargo1_typeoption7")}
         ></option>
         <option
           children="Dolomite"
           value="Dolomite"
-          {...getOverrideProps(overrides, "cargo6_typeoption8")}
+          {...getOverrideProps(overrides, "cargo1_typeoption8")}
         ></option>
         <option
           children="Feldspar"
           value="Feldspar"
-          {...getOverrideProps(overrides, "cargo6_typeoption9")}
+          {...getOverrideProps(overrides, "cargo1_typeoption9")}
         ></option>
         <option
           children="Fertilizer"
           value="Fertilizer"
-          {...getOverrideProps(overrides, "cargo6_typeoption10")}
+          {...getOverrideProps(overrides, "cargo1_typeoption10")}
         ></option>
         <option
           children="Hot Rolled Coil"
           value="Hot Rolled Coil"
-          {...getOverrideProps(overrides, "cargo6_typeoption11")}
+          {...getOverrideProps(overrides, "cargo1_typeoption11")}
         ></option>
         <option
           children="Maize"
           value="Maize"
-          {...getOverrideProps(overrides, "cargo6_typeoption12")}
+          {...getOverrideProps(overrides, "cargo1_typeoption12")}
         ></option>
         <option
           children="Palm Kernel Shell (PKS)"
           value="Palm Kernel Shell (PKS)"
-          {...getOverrideProps(overrides, "cargo6_typeoption13")}
+          {...getOverrideProps(overrides, "cargo1_typeoption13")}
         ></option>
         <option
           children="Palm Kernel Expeller (PKE)"
           value="Palm Kernel Expeller (PKE)"
-          {...getOverrideProps(overrides, "cargo6_typeoption14")}
+          {...getOverrideProps(overrides, "cargo1_typeoption14")}
         ></option>
         <option
           children="Plastic Resin"
           value="Plastic Resin"
-          {...getOverrideProps(overrides, "cargo6_typeoption15")}
+          {...getOverrideProps(overrides, "cargo1_typeoption15")}
         ></option>
         <option
           children="Project Cargo"
           value="Project Cargo"
-          {...getOverrideProps(overrides, "cargo6_typeoption16")}
+          {...getOverrideProps(overrides, "cargo1_typeoption16")}
         ></option>
         <option
           children="Rice"
           value="Rice"
-          {...getOverrideProps(overrides, "cargo6_typeoption17")}
+          {...getOverrideProps(overrides, "cargo1_typeoption17")}
         ></option>
         <option
           children="Salt"
           value="Salt"
-          {...getOverrideProps(overrides, "cargo6_typeoption18")}
+          {...getOverrideProps(overrides, "cargo1_typeoption18")}
         ></option>
         <option
           children="Salt and Flour"
           value="Salt and Flour"
-          {...getOverrideProps(overrides, "cargo6_typeoption19")}
+          {...getOverrideProps(overrides, "cargo1_typeoption19")}
         ></option>
         <option
           children="Silica Sand"
           value="Silica Sand"
-          {...getOverrideProps(overrides, "cargo6_typeoption20")}
+          {...getOverrideProps(overrides, "cargo1_typeoption20")}
         ></option>
         <option
           children="Sodium Sulphate Anhydrous"
           value="Sodium Sulphate Anhydrous"
-          {...getOverrideProps(overrides, "cargo6_typeoption21")}
+          {...getOverrideProps(overrides, "cargo1_typeoption21")}
         ></option>
         <option
           children="Soy Bean Meal"
           value="Soy Bean Meal"
-          {...getOverrideProps(overrides, "cargo6_typeoption22")}
+          {...getOverrideProps(overrides, "cargo1_typeoption22")}
         ></option>
         <option
           children="Steel Coil"
           value="Steel Coil"
-          {...getOverrideProps(overrides, "cargo6_typeoption23")}
+          {...getOverrideProps(overrides, "cargo1_typeoption23")}
+        ></option>
+        <option
+          children="Steel Product"
+          value="Steel Coil"
+          {...getOverrideProps(overrides, "cargo1_typeoption24")}
         ></option>
         <option
           children="Tapioca"
           value="Tapioca"
-          {...getOverrideProps(overrides, "cargo6_typeoption24")}
+          {...getOverrideProps(overrides, "cargo1_typeoption25")}
         ></option>
         <option
           children="Tapioca (Jumbo)"
           value="Tapioca (Jumbo)"
-          {...getOverrideProps(overrides, "cargo6_typeoption25")}
+          {...getOverrideProps(overrides, "cargo1_typeoption26")}
         ></option>
         <option
           children="Tapioca Pellet"
           value="Tapioca Pellet"
-          {...getOverrideProps(overrides, "cargo6_typeoption26")}
+          {...getOverrideProps(overrides, "cargo1_typeoption27")}
         ></option>
         <option
           children="Timber"
           value="Timber"
-          {...getOverrideProps(overrides, "cargo6_typeoption27")}
+          {...getOverrideProps(overrides, "cargo1_typeoption28")}
+        ></option>
+        <option
+          children="Titimas Bleaching Earth"
+          value="Titimas Bleaching Earth"
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Urea"
           value="Urea"
-          {...getOverrideProps(overrides, "cargo6_typeoption28")}
+          {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
           children="Wheat"
           value="Wheat"
-          {...getOverrideProps(overrides, "cargo6_typeoption29")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Chips"
           value="Wood Chips"
-          {...getOverrideProps(overrides, "cargo6_typeoption30")}
+          {...getOverrideProps(overrides, "cargo1_typeoption31")}
         ></option>
         <option
           children="Wood Pellets"
           value="Wood Pellets"
-          {...getOverrideProps(overrides, "cargo6_typeoption31")}
+          {...getOverrideProps(overrides, "cargo1_typeoption32")}
         ></option>
       </SelectField>
       <Grid
@@ -16337,7 +16397,7 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo6_quantity")}
         ></TextField>
         <TextField
-          label="Freight Rate"
+          label="Freight Rate (%)"
           type="number"
           step="any"
           value={cargo6_rate}
