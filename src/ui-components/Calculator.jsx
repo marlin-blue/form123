@@ -8377,7 +8377,7 @@ export default function Calculator(props) {
           if (errors.port7?.hasError) {
             runValidationTasks("port7", value);
           }
-          setport7(value);
+          setPort7(value);
         }}
         onBlur={() => runValidationTasks("port7", port7)}
         errorMessage={errors.port7?.errorMessage}
@@ -9143,7 +9143,7 @@ export default function Calculator(props) {
             if (errors.port7_fees?.hasError) {
               runValidationTasks("port7_fees", value);
             }
-            setport7_fees(value);
+            setPort7_fees(value);
           }}
           onBlur={() => runValidationTasks("port7_fees", port7_fees)}
           errorMessage={errors.port7_fees?.errorMessage}
@@ -9247,7 +9247,7 @@ export default function Calculator(props) {
             if (errors.port7_port_call?.hasError) {
               runValidationTasks("port7_port_call", value);
             }
-            setport7_port_call(value);
+            setPort7_port_call(value);
           }}
           onBlur={() => runValidationTasks("port7_port_call", port7_port_call)}
           errorMessage={errors.port7_port_call?.errorMessage}
@@ -9351,7 +9351,7 @@ export default function Calculator(props) {
             if (errors.port7_crane_usage?.hasError) {
               runValidationTasks("port7_crane_usage", value);
             }
-            setport7_crane_usage(value);
+            setPort7_crane_usage(value);
           }}
           onBlur={() =>
             runValidationTasks("port7_crane_usage", port7_crane_usage)
@@ -9457,7 +9457,7 @@ export default function Calculator(props) {
             if (errors.port7_surveying_fees?.hasError) {
               runValidationTasks("port7_surveying_fees", value);
             }
-            setport7_surveying_fees(value);
+            setPort7_surveying_fees(value);
           }}
           onBlur={() =>
             runValidationTasks("port7_surveying_fees", port7_surveying_fees)
@@ -9563,7 +9563,7 @@ export default function Calculator(props) {
           if (errors.port8?.hasError) {
             runValidationTasks("port8", value);
           }
-          setport8(value);
+          setPort8(value);
         }}
         onBlur={() => runValidationTasks("port8", port8)}
         errorMessage={errors.port8?.errorMessage}
@@ -10329,7 +10329,7 @@ export default function Calculator(props) {
             if (errors.port8_fees?.hasError) {
               runValidationTasks("port8_fees", value);
             }
-            setport8_fees(value);
+            setPort8_fees(value);
           }}
           onBlur={() => runValidationTasks("port8_fees", port8_fees)}
           errorMessage={errors.port8_fees?.errorMessage}
@@ -10433,7 +10433,7 @@ export default function Calculator(props) {
             if (errors.port8_port_call?.hasError) {
               runValidationTasks("port8_port_call", value);
             }
-            setport8_port_call(value);
+            setPort8_port_call(value);
           }}
           onBlur={() => runValidationTasks("port8_port_call", port8_port_call)}
           errorMessage={errors.port8_port_call?.errorMessage}
@@ -10537,7 +10537,7 @@ export default function Calculator(props) {
             if (errors.port8_crane_usage?.hasError) {
               runValidationTasks("port8_crane_usage", value);
             }
-            setport8_crane_usage(value);
+            setPort8_crane_usage(value);
           }}
           onBlur={() =>
             runValidationTasks("port8_crane_usage", port8_crane_usage)
@@ -10643,7 +10643,7 @@ export default function Calculator(props) {
             if (errors.port8_surveying_fees?.hasError) {
               runValidationTasks("port8_surveying_fees", value);
             }
-            setport8_surveying_fees(value);
+            setPort8_surveying_fees(value);
           }}
           onBlur={() =>
             runValidationTasks("port8_surveying_fees", port8_surveying_fees)
@@ -10750,7 +10750,7 @@ export default function Calculator(props) {
           if (errors.port9?.hasError) {
             runValidationTasks("port9", value);
           }
-          setport9(value);
+          setPort9(value);
         }}
         onBlur={() => runValidationTasks("port9", port9)}
         errorMessage={errors.port9?.errorMessage}
@@ -11516,7 +11516,7 @@ export default function Calculator(props) {
             if (errors.port9_fees?.hasError) {
               runValidationTasks("port9_fees", value);
             }
-            setport9_fees(value);
+            setPort9_fees(value);
           }}
           onBlur={() => runValidationTasks("port9_fees", port9_fees)}
           errorMessage={errors.port9_fees?.errorMessage}
@@ -11620,7 +11620,7 @@ export default function Calculator(props) {
             if (errors.port9_port_call?.hasError) {
               runValidationTasks("port9_port_call", value);
             }
-            setport9_port_call(value);
+            setPort9_port_call(value);
           }}
           onBlur={() => runValidationTasks("port9_port_call", port9_port_call)}
           errorMessage={errors.port9_port_call?.errorMessage}
@@ -11724,7 +11724,7 @@ export default function Calculator(props) {
             if (errors.port9_crane_usage?.hasError) {
               runValidationTasks("port9_crane_usage", value);
             }
-            setport9_crane_usage(value);
+            setPort9_crane_usage(value);
           }}
           onBlur={() =>
             runValidationTasks("port9_crane_usage", port9_crane_usage)
@@ -11830,7 +11830,7 @@ export default function Calculator(props) {
             if (errors.port9_surveying_fees?.hasError) {
               runValidationTasks("port9_surveying_fees", value);
             }
-            setport9_surveying_fees(value);
+            setPort9_surveying_fees(value);
           }}
           onBlur={() =>
             runValidationTasks("port9_surveying_fees", port9_surveying_fees)
@@ -11937,7 +11937,7 @@ export default function Calculator(props) {
           if (errors.port10?.hasError) {
             runValidationTasks("port10", value);
           }
-          setport10(value);
+          setPort10(value);
         }}
         onBlur={() => runValidationTasks("port10", port10)}
         errorMessage={errors.port10?.errorMessage}
@@ -12703,7 +12703,7 @@ export default function Calculator(props) {
             if (errors.port10_fees?.hasError) {
               runValidationTasks("port10_fees", value);
             }
-            setport10_fees(value);
+            setPort10_fees(value);
           }}
           onBlur={() => runValidationTasks("port10_fees", port10_fees)}
           errorMessage={errors.port10_fees?.errorMessage}
@@ -12807,7 +12807,7 @@ export default function Calculator(props) {
             if (errors.port10_port_call?.hasError) {
               runValidationTasks("port10_port_call", value);
             }
-            setport10_port_call(value);
+            setPort10_port_call(value);
           }}
           onBlur={() => runValidationTasks("port10_port_call", port10_port_call)}
           errorMessage={errors.port10_port_call?.errorMessage}
@@ -12911,7 +12911,7 @@ export default function Calculator(props) {
             if (errors.port10_crane_usage?.hasError) {
               runValidationTasks("port10_crane_usage", value);
             }
-            setport10_crane_usage(value);
+            setPort10_crane_usage(value);
           }}
           onBlur={() =>
             runValidationTasks("port10_crane_usage", port10_crane_usage)
@@ -13017,7 +13017,7 @@ export default function Calculator(props) {
             if (errors.port10_surveying_fees?.hasError) {
               runValidationTasks("port10_surveying_fees", value);
             }
-            setport10_surveying_fees(value);
+            setPort10_surveying_fees(value);
           }}
           onBlur={() =>
             runValidationTasks("port10_surveying_fees", port10_surveying_fees)
