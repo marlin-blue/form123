@@ -100,7 +100,7 @@ function App() {
   
       <div style={{ marginTop: '20px' }}>
         {!loading && !errorMessage && !result && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Please complete and submit the form.</p>}
-        {loading && !errorMessage && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Loading...</p>}}
+        {loading && !errorMessage && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Loading...</p>}
         {!loading && errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
         {!loading && result && !errorMessage && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
       </div>
