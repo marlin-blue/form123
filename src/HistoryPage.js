@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { Calculator } from './ui-components';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
+import { fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
 import { Button } from "@aws-amplify/ui-react";
 
+
+
 function HistoryPage() {
+    const [calculationData, setCalculationData] = useState(["7 July 2023"]);
     return (
         <div>
             <div>
@@ -22,15 +24,42 @@ function HistoryPage() {
                     </div>
                 </nav>
             </div>
-            <h2>Past Calculations</h2>
-            <ul>
-                <li>Calculation 1</li>
-                <li>Calculation 2</li>
-                <li>Calculation 3</li>
-                {/* Add more items as needed */}
-            </ul>
+            <div>
+                <h1>Past Calculations</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Calculation ID</th>
+                            <th>Created Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12341233</td>
+                            {calculationData.map((data, index) => (
+                                <td key={index}>
+                                    <span>
+                                        {data}
+                                    </span>
+                                </td>
+                            ))}
+                            <td>Cargo, Ports</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     );
 };
-
 export default HistoryPage;
+
+function formatNumber(number) {
+    if (typeof number === 'number') {
+      return number.toLocaleString();
+    }
+    return '';
+  }
+  

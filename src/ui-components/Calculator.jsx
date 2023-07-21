@@ -503,7 +503,8 @@ export default function Calculator(props) {
       margin-bottom="10px"
       margin="0 auto"
       border= "2px solid gray"
-      borderRadius= "10px"      
+      borderRadius= "20px"      
+      backgroundColor= "#f9f9f9"
 
 
       onSubmit={async (event) => {

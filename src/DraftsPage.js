@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { Calculator } from './ui-components';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
 import { Button } from "@aws-amplify/ui-react";
 
 function Drafts() {
+    const [calculationData, setCalculationData] = useState(["7 July 2023"]);
     return (
         <div>
             <div>
@@ -22,15 +22,42 @@ function Drafts() {
                     </div>
                 </nav>
             </div>
-            <h2>Drafts</h2>
-            <ul>
-                <li>Form 1</li>
-                <li>Form 2</li>
-                <li>Form 3</li>
-                {/* Add more items as needed */}
-            </ul>
+            <div>
+                <h1>Draft Forms</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Form ID</th>
+                            <th>Created Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12341233</td>
+                            {calculationData.map((data, index) => (
+                                <td key={index}>
+                                    <span>
+                                        {data}
+                                    </span>
+                                </td>
+                            ))}
+                            <td>Cargo, Ports</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     );
 };
 
 export default Drafts;
+
+function formatNumber(number) {
+    if (typeof number === 'number') {
+        return number.toLocaleString();
+    }
+    return '';
+}
