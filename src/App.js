@@ -12,6 +12,7 @@ function App() {
   const [submittedMessage, setSubmittedMessage] = useState('');
   const [formId, setFormId] = useState(null); // Add formId state
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [loading, setLoading] = useState(false);
   const tableRef = useRef(null); // Create a ref for the table element
   const handleSubmit = async (formData) => {
     try {
@@ -31,11 +32,14 @@ function App() {
 
       setFormId(newFormId); // Set the formId in the state
       try {
+        setLoading(true);
         await calculateDataAPICall(newFormId); // Pass the formId for calculation
+        setLoading(false); 
         setResult(response.message);
         setErrorMessage(null);
         setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
         setIsButtonClicked(false);
+        
       } catch (error) {
         setResult(null);
         setErrorMessage(error.response.data.error || "An error occurred.");
@@ -48,10 +52,11 @@ function App() {
 
   const handleCalculate = async () => {
     try {
-
+      setLoading(true);
       const response = await calculateDataAPICall(formId, formData); // Calculate with data from the formId and form data
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
+      setLoading(false);
       setSubmittedMessage('Data has been calculated! Please submit another form'); // Reset the submittedMessage state
 
       // Add the new calculation data to the existing array of calculation data
@@ -65,6 +70,7 @@ function App() {
       console.log("CalculationData:", calculationDataResponse);
 
       setIsButtonClicked(true); // Set the state to true when the button is clicked
+      
     } catch (error) {
       console.error(error);
     }
@@ -84,26 +90,33 @@ function App() {
       <p>Welcome to the freight calculator! Enter the voyage information into this form to calculate the expected profits or loss.
         Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
         Results are displayed in the tables below the form. Happy calculating!
-      </p><p>
-        Note:   There is a limit of 10 calculation attempts. Refresh the page to reset.
+      </p>
+      <p>
+        Note: There is a limit of 10 calculation attempts. Refresh the page to reset.
         If you encounter the "Distance not available" error. Please contact the admin to add the distance.
-        Results are displayed in THB. If "Currency" is THB, please change exchange rate to "1".
+        Results are displayed in THB. If "Currency" is THB, please change the exchange rate to "1".
       </p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-
-      {errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
-      {result && !errorMessage && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
-
-      {result && !errorMessage && !isButtonClicked && (
+  
+      <div style={{ marginTop: '20px' }}>
+        {!loading && !errorMessage && !result && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Please complete and submit the form.</p>}
+        {loading && !errorMessage && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Loading...</p>}}
+        {!loading && errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
+        {!loading && result && !errorMessage && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
+      </div>
+  
+      {!loading && result && !errorMessage && !isButtonClicked && (
         <div>
           <Button
             onClick={handleCalculate}
-            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white', marginBottom: '30px' }}
+            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white', marginBottom: '30px', padding: '10px 40px'}}
           >
             Calculate
           </Button>
         </div>
       )}
+    
+  
       {calculationData.length > 0 && (
         <div>
           <h1>Form Data</h1>

@@ -497,11 +497,13 @@ export default function Calculator(props) {
       as="form"
       rowGap="20px"
       columnGap="10px"
-      padding="10px"
+      padding="30px"
       maxWidth="80%"
       margin-top="10px"
       margin-bottom="10px"
       margin="0 auto"
+      border= "2px solid gray"
+      borderRadius= "10px"      
 
 
       onSubmit={async (event) => {
