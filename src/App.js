@@ -25,7 +25,7 @@ function App() {
         const negativeField = Object.keys(formData).find(key => formData[key] < 0);
         throw new Error(`Negative value at ${negativeField}! Please modify it.`);
       }
-      if (calculationData.length >= 3) {
+      if (calculationData.length >= 10) {
         setErrorMessage("Calculation limit reached! Please refresh the page to start again.");
         throw new Error("Calculation limit reached! Please refresh the page to start again.");
       }
