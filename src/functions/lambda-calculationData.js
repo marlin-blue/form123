@@ -218,6 +218,7 @@
           duration_at_port: duration_at_port,
           duration_crane_usage: duration_crane_usage,
 
+          portCosts: portCosts,
           totalSurveyingFees: totalSurveyingFees,
           brokerageCosts: brokerageCosts,
           miscCosts: miscCosts,

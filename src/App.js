@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { Calculator } from './ui-components';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
 import { Button } from "@aws-amplify/ui-react";
+
 
 function App() {
   const [result, setResult] = useState(null);
@@ -39,12 +41,12 @@ function App() {
       try {
         setLoading(true);
         await calculateDataAPICall(newFormId); // Pass the formId for calculation
-        setLoading(false); 
+        setLoading(false);
         setResult(response.message);
         setErrorMessage(null);
         setSubmittedMessage("Form has been submitted! Please click 'Calculate' below."); // Update the submittedMessage state
         setIsButtonClicked(false);
-        
+
       } catch (error) {
         setResult(null);
         setErrorMessage(error.response.data.error || "An error occurred.");
@@ -75,7 +77,7 @@ function App() {
       console.log("CalculationData:", calculationDataResponse);
 
       setIsButtonClicked(true); // Set the state to true when the button is clicked
-      
+
     } catch (error) {
       console.error(error);
     }
@@ -83,6 +85,21 @@ function App() {
 
   return (
     <div>
+      <div>
+        {/* Navigation Bar */}
+        <nav className="navbar">
+          {/* Left side: Freight Calculator */}
+          <h1 className="navbar-title">Freight Calculator</h1>
+
+          {/* Right side: Calculator, Drafts, and History */}
+          <div className="navbar-buttons">
+            <Link to="/" className="navbar-button">Calculator</Link>
+            <Link to="/drafts" className="navbar-button">Drafts</Link>
+            <Link to="/history" className="navbar-button">History</Link>
+          </div>
+        </nav>
+      </div>
+
       <h1>Freight Calculator</h1>
       <p>Welcome to the freight calculator! Enter the voyage information into this form to calculate the expected profits or loss.
         Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results.
@@ -94,26 +111,26 @@ function App() {
         Results are displayed in THB. If "Currency" is THB, please change the exchange rate to "1".
       </p>
       <Calculator onSubmit={handleSubmit} onChange={setFormData} />
-  
+
       <div style={{ marginTop: '20px' }}>
-        {!loading && !errorMessage && !result && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Please complete and submit the form.</p>}
-        {loading && !errorMessage && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px'}}>Loading...</p>}
+        {!loading && !errorMessage && !result && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px' }}>Please complete and submit the form.</p>}
+        {loading && !errorMessage && <p style={{ color: 'black', fontWeight: 'bold', textAlign: 'center', marginBottom: '100px' }}>Loading...</p>}
         {!loading && errorMessage && <p style={{ color: 'red', fontWeight: 'bold', textAlign: 'center' }}>{errorMessage}</p>}
         {!loading && result && !errorMessage && <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{submittedMessage}</p>}
       </div>
-  
+
       {!loading && result && !errorMessage && !isButtonClicked && (
         <div>
           <Button
             onClick={handleCalculate}
-            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white', marginBottom: '30px', padding: '10px 40px'}}
+            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white', marginBottom: '30px', padding: '10px 40px' }}
           >
             Calculate
           </Button>
         </div>
       )}
-    
-  
+
+
       {calculationData.length > 0 && (
         <div>
           <h1>Form Data</h1>
@@ -148,6 +165,12 @@ function App() {
                 </tr>
 
               ))}
+              <tr>
+                <td>PDA Fees</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(Math.round(data.portCosts))} THB</td>
+                ))}
+              </tr>
               <tr>
                 <td>Surveying Fees</td>
                 {calculationData.map((data, index) => (
