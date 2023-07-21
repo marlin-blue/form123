@@ -98,7 +98,7 @@ function App() {
         <div>
           <Button
             onClick={handleCalculate}
-            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white' }}
+            style={{ display: 'block', margin: '0 auto', backgroundColor: 'green', color: 'white', marginBottom: '30px' }}
           >
             Calculate
           </Button>
