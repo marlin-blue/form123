@@ -271,7 +271,7 @@ function App() {
                 ))}
               </tr>
               <tr>
-                <td>Percentage Fuel Cost</td>
+                <td>Percentage Fuel Cost of Revenue</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>
                     <span style={{ color: data.hn5_fuelCostsPercentage <= 30 ? 'green' : 'red', fontWeight: 'bold' }}>
@@ -284,6 +284,12 @@ function App() {
                 <td>Operational Costs</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>{formatNumber(Math.round(data.hn5_operatingCosts))} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Voyage Expenses</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(Math.round(data.voyageExpenses))} THB</td>
                 ))}
               </tr>
             </tbody>
@@ -344,7 +350,7 @@ function App() {
                 ))}
               </tr>
               <tr>
-                <td>Percentage Fuel Cost</td>
+                <td>Percentage Fuel Cost of Revenue</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>
                     <span style={{ color: data.hn9_fuelCostsPercentage <= 30 ? 'green' : 'red', fontWeight: 'bold' }}>
@@ -357,6 +363,12 @@ function App() {
                 <td>Operational Costs</td>
                 {calculationData.map((data, index) => (
                   <td key={index}>{formatNumber(Math.round(data.hn9_operatingCosts))} THB</td>
+                ))}
+              </tr>
+              <tr>
+                <td>Voyage Expenses</td>
+                {calculationData.map((data, index) => (
+                  <td key={index}>{formatNumber(Math.round(data.voyageExpenses))} THB</td>
                 ))}
               </tr>
             </tbody>

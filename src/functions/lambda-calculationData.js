@@ -156,6 +156,8 @@
       // Sum of Costs
       const hn5_totalCosts = (hn5_fuelCosts + portCosts + miscCosts
         + brokerageCosts + hn5_operatingCosts + voyageBonus + totalSurveyingFees);
+      
+      const voyageExpenses = portCosts + miscCosts + brokerageCosts + voyageBonus + totalSurveyingFees;
 
       const hn9_totalCosts = (hn9_fuelCosts + portCosts + miscCosts
         + brokerageCosts + hn9_operatingCosts + voyageBonus + totalSurveyingFees);
@@ -163,7 +165,7 @@
       // Calculate the profit
       const hn5_profit = (revenue - hn5_totalCosts);
       const hn9_profit = (revenue - hn9_totalCosts);
-
+      
       // Calculate the margin percentage
       let hn5_marginPercentage;
       if (revenue <= 0) {
@@ -223,6 +225,7 @@
           brokerageCosts: brokerageCosts,
           miscCosts: miscCosts,
           voyageBonus: voyageBonus, 
+          voyageExpenses: voyageExpenses,
 
           hn5_totalCosts: hn5_totalCosts,
           hn5_profit: hn5_profit,
