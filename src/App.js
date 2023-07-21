@@ -14,6 +14,7 @@ function App() {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [loading, setLoading] = useState(false);
   const tableRef = useRef(null); // Create a ref for the table element
+
   const handleSubmit = async (formData) => {
     try {
       if (Object.values(formData).some(value => value === "")) {
@@ -23,6 +24,10 @@ function App() {
       if (Object.values(formData).some(value => value < 0)) {
         const negativeField = Object.keys(formData).find(key => formData[key] < 0);
         throw new Error(`Negative value at ${negativeField}! Please modify it.`);
+      }
+      if (calculationData.length >= 3) {
+        setErrorMessage("Calculation limit reached! Please refresh the page to start again.");
+        throw new Error("Calculation limit reached! Please refresh the page to start again.");
       }
       console.log(formData);
       const response = await storeFormAPICall(formData);
@@ -57,7 +62,7 @@ function App() {
       const calculationId = response.id;
       const calculationDataResponse = await fetchCalculationAPICall(calculationId);
       setLoading(false);
-      setSubmittedMessage('Data has been calculated! Please submit another form'); // Reset the submittedMessage state
+      setSubmittedMessage('Data has been calculated! Please submit another form.'); // Reset the submittedMessage state
 
       // Add the new calculation data to the existing array of calculation data
       setCalculationData((prevCalculationData) => [...prevCalculationData, calculationDataResponse]);
