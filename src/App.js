@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Calculator } from './ui-components';
 import { storeFormAPICall, calculateDataAPICall, fetchCalculationAPICall } from './functions/api/api-calls';
 import './App.css';
@@ -75,14 +75,6 @@ function App() {
       console.error(error);
     }
   };
-
-
-  useEffect(() => {
-    // Scroll to the bottom when calculationData updates
-    if (tableRef.current) {
-      tableRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [calculationData]);
 
   return (
     <div>
