@@ -12,6 +12,7 @@ import awsconfig from './aws-exports';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "@aws-amplify/ui-react/styles.css";
 import { studioTheme } from "./ui-components";
+import CalculationDataPage from './CalculationDataPage';
 
 Amplify.configure(awsconfig);
 
@@ -25,6 +26,7 @@ root.render(
           <Route exact path="/" element={<App />}></Route>
           <Route path="/drafts" element={<DraftsPage />}></Route>
           <Route path="/history" element={<HistoryPage />}></Route>
+          <Route path="/calculation/" element={<CalculationDataPage />}></Route>
         </Routes>
       </Router>
     </ThemeProvider>

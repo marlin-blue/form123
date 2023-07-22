@@ -13,6 +13,7 @@ function HistoryPage() {
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
   const itemsPerPage = 10; // Number of calculations to display per page
   const [nextToken, setNextToken] = useState(null);
+  
 
   useEffect(() => {
     fetchCalculationData(); // Fetch the initial calculation data when the component mounts
