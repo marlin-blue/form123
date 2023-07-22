@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
 
     // Parameters for the DynamoDB query
     const params = {
-      TableName: "calculatedData",
+      TableName: "formsTable",
       ScanIndexForward: false, // Set to false to get the latest items first
       Limit: 10, // Get the next 10 items
       ExclusiveStartKey: nextToken

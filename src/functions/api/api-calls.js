@@ -187,3 +187,25 @@ export async function fetchCalculationAPICall(calculationId) {
     throw error;
   }
 }
+
+export async function historyCalculationAPICall(timestamp) {
+  try {
+    const response = await axios.get(`${apiUrl}/calculate/history/`);
+    return response.data;
+  } catch (error) {
+    console.error('History Calcuation API call error:', error);
+    throw error;
+  }
+
+}
+
+export async function draftFormsAPICall(timestamp) {
+  try {
+    const response = await axios.get(`${apiUrl}/form/drafts/`);
+    return response.data;
+  } catch (error) {
+    console.error('Draft Forms API call error:', error);
+    throw error;
+  }
+
+}
