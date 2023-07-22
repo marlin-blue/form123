@@ -52,4 +52,4 @@ function CalculationDataPage() {
   );
 }
 
-export default CalculationDetailsPage;
+export default CalculationDataPage;
