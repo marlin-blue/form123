@@ -2,16 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@aws-amplify/ui-react";
 import { draftFormsAPICall } from './functions/api/api-calls';
+import './App.css';
 
 function DraftsPage() {
   const [formData, setFormData] = useState([]);
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' for ascending, 'desc' for descending
+  const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
   const itemsPerPage = 10; // Number of calculations to display per page
   const [nextToken, setNextToken] = useState(null);
 
   useEffect(() => {
-    fetchFormData(); // Fetch the initial calculation data when the component mounts
+    fetchFormData(); // Fetch the initial form data when the component mounts
   }, []);
+
+  useEffect(() => {
+    // When the search query changes, filter the formData
+    const filteredData = formData.filter(data => {
+      const { id, created_at } = data;
+      const query = searchQuery.toLowerCase();
+
+      // Perform the relevant search based on your criteria
+      return (
+        id.toLowerCase().includes(query) ||
+        created_at.toLowerCase().includes(query)
+      );
+    });
+
+    setFormData(filteredData);
+  }, [searchQuery]);
 
   const fetchFormData = async () => {
     try {
@@ -57,9 +75,17 @@ function DraftsPage() {
       </div>
       <div>
         <h1>Draft Forms</h1>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search..." 
+          style={{ marginLeft: '10%', marginBottom: '10px'}}
+        />
         <table>
           <thead>
             <tr>
+              <th>Item</th>
               <th>
                 Form ID
               </th>
@@ -69,15 +95,17 @@ function DraftsPage() {
             </tr>
           </thead>
           <tbody>
-            {formData.map((data) => (
+            {formData && formData.map((data, index) => (
               <tr key={data.id}>
+                <td>{index + 1}</td> {/* Item number starts from 1 */}
                 <td>{data.id}</td>
-                <td>{data.created_at}</td>
+                <td>{new Date(new Date(data.created_at).getTime() ).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })}</td>
+
               </tr>
             ))}
           </tbody>
         </table>
-        {nextToken && <Button onClick={handleLoadMore}>Load More</Button>} {/* Show Load More button only if there's a nextToken */}
+        {nextToken && <Button onClick={handleLoadMore} style={{ marginLeft: '10%', marginTop: '10px', marginBottom: '50px'}}>Load More</Button>} {/* Show Load More button only if there's a nextToken */}
       </div>
     </div>
   );

@@ -16,6 +16,20 @@ exports.handler = async (event) => {
 
     const result = await dynamodb.get(params).promise();
 
+    // Check if the item was found
+    if (!result.Item) {
+      // Return a 404 Not Found response
+      return {
+        statusCode: 404,
+        headers: {
+          "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        body: JSON.stringify({ error: 'Calculation data not found' }),
+      };
+    }
+
     // Return the calculation data
     return {
       statusCode: 200,      
@@ -25,7 +39,6 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
       },
       body: JSON.stringify(result.Item),
-
     };
   } catch (error) {
     console.error(error);
@@ -33,7 +46,7 @@ exports.handler = async (event) => {
     // Return an error response
     return {
       statusCode: 500,
-            headers: {
+      headers: {
         "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
