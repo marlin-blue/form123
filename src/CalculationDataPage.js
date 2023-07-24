@@ -72,9 +72,12 @@ function CalculationDataPage() {
           </Link>
         </div>
       </nav>
-
-      <h1>Calculation ID: {calculationData.id}</h1>
-
+      <h1>Past Calculation</h1>
+      <h3>Calculation ID: {calculationData.id}</h3>
+      <h3>Created on {new Date(new Date(calculationData.created_at).getTime()).toLocaleString(
+        "en-UK",
+        { timeZone: "Asia/Bangkok" }
+      )}</h3>
       <h2>Form Data</h2>
 
       <div>
@@ -87,7 +90,7 @@ function CalculationDataPage() {
               <th>Port Call (Days)</th>
               <th>Crane Usage (Hours)</th>
               <th>Surveying Fees</th>
-              <th>Misc Costs</th>
+              <th>Misc Costs </th>
             </tr>
           </thead>
           <tbody>

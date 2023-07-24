@@ -6,6 +6,7 @@ import {
   draftFormsAPICall,
 } from "./functions/api/api-calls";
 import './App.css';
+import moment from "moment";
 
 function HistoryPage() {
   const [calculationData, setCalculationData] = useState([]);
@@ -24,13 +25,18 @@ function HistoryPage() {
   useEffect(() => {
     // When the search query changes, filter the calculationData and update filteredCalculationData
     const filteredData = calculationData.filter((data) => {
-      const { id, formId, created_at } = data;
+      const { id, formId, cargoData, created_at } = data;
       const query = searchQuery.toLowerCase();
+      const dateTimeRegex = /^\d{1,2}\/\d{1,2}\/\d{4}, \d{1,2}:\d{2}:\d{2} (AM|PM)$/;
+    // Format the date and time in the desired format for comparison
+    const formattedDateTime = moment(created_at).format("M/D/YYYY, h:mm:ss A");
 
       // Perform the relevant search based on your criteria
       return (
         id.toLowerCase().includes(query) ||
         formId.toLowerCase().includes(query) ||
+        cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
+        dateTimeRegex.test(query) && formattedDateTime.includes(query) || // Check if query matches date and time format
         created_at.toLowerCase().includes(query)
       );
     });
@@ -110,8 +116,8 @@ function HistoryPage() {
               <th>
                 Calculation ID
               </th>
-              <th>Form ID {sortOrder === "asc" ? "↑" : "↓"}</th>
-              <th>Cargo {sortOrder === "asc" ? "↑" : "↓"}</th>
+              <th>Form ID</th>
+              <th>Cargo</th>
               <th onClick={sortCalculationData}>
                 Created Date (BKT) {sortOrder === "asc" ? "↑" : "↓"}
               </th>
@@ -137,7 +143,7 @@ function HistoryPage() {
                 </td>
                 <td>
                   {new Date(new Date(data.created_at).getTime()).toLocaleString(
-                    "en-US",
+                    "en-UK",
                     { timeZone: "Asia/Bangkok" }
                   )}
                 </td>
