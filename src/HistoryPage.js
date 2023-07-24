@@ -13,7 +13,7 @@ function HistoryPage() {
   const [sortOrder, setSortOrder] = useState("desc"); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
   const [filteredCalculationData, setFilteredCalculationData] = useState([]); // New state for filtered data
-  const itemsPerPage = 10; // Number of calculations to display per page
+  const [portData, setPortData] = useState(null);
   const [nextToken, setNextToken] = useState(null);
 
 
@@ -41,6 +41,7 @@ function HistoryPage() {
       );
     });
 
+    
     const sortedData = filteredData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
 
@@ -137,7 +138,7 @@ function HistoryPage() {
                   {data.cargoData.map((cargo, index) => (
                     // Only show the cargo type if it's not "NIL"
                     cargo.type !== "NIL" && (
-                      <span key={index}>{cargo.type} </span>
+                      <div key={index}>{cargo.type}</div>
                     )
                   ))}
                 </td>

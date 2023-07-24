@@ -1,21 +1,20 @@
 const AWS = require("aws-sdk");
 const dynamodb = new AWS.DynamoDB.DocumentClient();
+
 exports.handler = async (event, context) => {
   try {
     // Get the pagination token from the query parameters
     const { nextToken } = event.queryStringParameters || {};
 
-    // Parameters for the DynamoDB query
+    // Parameters for the DynamoDB scan
     const params = {
       TableName: "formsTable",
-      ScanIndexForward: false, // Set to false to get the latest items first
-      Limit: 10, // Get the next 10 items
       ExclusiveStartKey: nextToken
         ? JSON.parse(decodeURIComponent(nextToken))
         : undefined, // Use the pagination token
     };
 
-    // Perform the query
+    // Perform the scan operation
     const result = await dynamodb.scan(params).promise();
 
     // Create the next pagination token for the next query
@@ -38,7 +37,7 @@ exports.handler = async (event, context) => {
       }),
     };
   } catch (error) {
-    // Handle any errors that occur during the query
+    // Handle any errors that occur during the scan
     return {
       statusCode: 500,
       headers: {
