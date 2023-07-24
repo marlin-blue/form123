@@ -27,6 +27,7 @@ root.render(
           <Route path="/drafts" element={<DraftsPage />}></Route>
           <Route path="/history" element={<HistoryPage />}></Route>
           <Route path="/calculation/" element={<CalculationDataPage />}></Route>
+          <Route path="/calculation/:id" element={<CalculationDataPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

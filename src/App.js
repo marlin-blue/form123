@@ -18,6 +18,7 @@ function App() {
   const [calculationId, setCalculationId] = useState(null); // Add formId state
   const [loading, setLoading] = useState(false);
   const tableRef = useRef(null); // Create a ref for the table element
+  const [calculationLink, setCalculationLink] = useState(null);
 
   const handleSubmit = async (formData) => {
     try {
@@ -51,27 +52,27 @@ function App() {
       console.log("FormId:", newFormId);
       setFormId(newFormId); // Set the formId in the state
       try {
-      setLoading(true);
-      const calculationResponse = await calculateDataAPICall(newFormId); // Pass the formId for calculation
-      setLoading(false);
-      console.log("CalculationId:", calculationResponse.id);
-      setCalculationId(calculationResponse.id); // Get the calculation ID from the response
+        setLoading(true);
+        const calculationResponse = await calculateDataAPICall(newFormId); // Pass the formId for calculation
+        setLoading(false);
+        console.log("CalculationId:", calculationResponse.id);
+        setCalculationId(calculationResponse.id); // Get the calculation ID from the response
 
-      setResult(response.message);
-      setErrorMessage(null);
-       // Update the submittedMessage state
 
-      // Call displayCalculation with the calculation ID
-      displayCalculation(calculationResponse.id);
-    } catch (error) {
-      setResult(null);
-      setErrorMessage(error.response.data.error || "An error occurred.");
-    }
+        setResult(response.message);
+        setErrorMessage(null);
+
+        // The displayCalculation function will be called automatically through useEffect when calculationId changes
+      } catch (error) {
+        setResult(null);
+        setErrorMessage(error.response.data.error || "An error occurred.");
+      }
     } catch (error) {
       setResult(null);
       setErrorMessage(error.message || "An error occurred.");
     }
   };
+
 
   const displayCalculation = async (calculationId) => {
     try {
@@ -184,11 +185,14 @@ function App() {
           </p>
         )}
         {!loading && result && !errorMessage && (
-          <p
-            style={{ color: "green", fontWeight: "bold", textAlign: "center" }}
-          >
-            {submittedMessage}
-          </p>
+          <div>
+            <p style={{ color: "green", fontWeight: "bold", textAlign: "center" }}>
+              {submittedMessage}
+            </p>
+            <p style={{ fontWeight: "bold", textAlign: "center" }}>
+              <Link to={`/calculation/${calculationId}` } target="_blank">View Calculation</Link>
+            </p>
+          </div>
         )}
       </div>
 
@@ -500,6 +504,8 @@ function App() {
         </div>
       )}
     </div>
+
+
   );
 }
 

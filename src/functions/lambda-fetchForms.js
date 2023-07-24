@@ -3,16 +3,16 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
   try {
-    // Retrieve the calculation ID from the request path parameters
-    const calculationId = event.pathParameters.id;
+    // Retrieve the form ID from the request path parameters
+    const formId = event.pathParameters.id;
 
-    // Retrieve the calculation data from the DynamoDB table
+    // Retrieve the form data from the DynamoDB table
     const params = {
-      TableName: 'calculatedData',
-      KeyConditionExpression: 'id = :id',
+      TableName: 'formsTable',
+      KeyConditionExpression: 'id = :formId', // Fix the KeyConditionExpression to filter by formId
       ExpressionAttributeValues: {
-        ':id': calculationId
-      }
+        ':formId': formId,
+      },
     };
 
     const result = await dynamodb.query(params).promise();
@@ -27,13 +27,13 @@ exports.handler = async (event) => {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
         },
-        body: JSON.stringify({ error: 'Calculation data not found' }),
+        body: JSON.stringify({ error: 'Form data not found' }),
       };
     }
 
-    // Return the calculation data
+    // Return the form data
     return {
-      statusCode: 200,      
+      statusCode: 200,
       headers: {
         "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
         "Access-Control-Allow-Origin": "*",
@@ -52,7 +52,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
       },
-      body: JSON.stringify({ error: 'An error occurred while retrieving the calculation data' })
+      body: JSON.stringify({ error: 'An error occurred while retrieving the form data' })
     };
   }
 };

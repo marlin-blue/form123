@@ -11,16 +11,18 @@ function HistoryPage() {
   const [calculationData, setCalculationData] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc"); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
+  const [filteredCalculationData, setFilteredCalculationData] = useState([]); // New state for filtered data
   const itemsPerPage = 10; // Number of calculations to display per page
   const [nextToken, setNextToken] = useState(null);
-  
+
 
   useEffect(() => {
     fetchCalculationData(); // Fetch the initial calculation data when the component mounts
   }, []);
 
+
   useEffect(() => {
-    // When the search query changes, filter the calculationData
+    // When the search query changes, filter the calculationData and update filteredCalculationData
     const filteredData = calculationData.filter((data) => {
       const { id, formId, created_at } = data;
       const query = searchQuery.toLowerCase();
@@ -33,8 +35,11 @@ function HistoryPage() {
       );
     });
 
-    setCalculationData(filteredData);
-  }, [searchQuery]);
+    const sortedData = filteredData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+
+    setFilteredCalculationData(sortedData); // Update the filteredCalculationData
+  }, [searchQuery, calculationData]); // Include calculationData in the dependency array
 
   const fetchCalculationData = async () => {
     try {
@@ -49,23 +54,25 @@ function HistoryPage() {
     }
   };
 
+
   const handleLoadMore = () => {
     fetchCalculationData();
   };
 
   // Sorting function for 'Created Date'
   const sortCalculationData = () => {
-    setCalculationData((prevData) => {
+    setFilteredCalculationData((prevData) => {
       const sortedData = [...prevData].sort((a, b) => {
         // Date comparison for sorting
         const dateA = new Date(a.created_at);
         const dateB = new Date(b.created_at);
-        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
       });
       return sortedData;
     });
-    setSortOrder(sortOrder === "asc" ? "desc" : "asc"); // Toggle the sort order
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle the sort order
   };
+
 
   return (
     <div>
@@ -100,26 +107,45 @@ function HistoryPage() {
           <thead>
             <tr>
               <th>Item</th>
-              <th>Calculation ID</th>
-              <th>Form ID</th>
+              <th>
+                Calculation ID
+              </th>
+              <th>Form ID {sortOrder === "asc" ? "↑" : "↓"}</th>
+              <th>Cargo {sortOrder === "asc" ? "↑" : "↓"}</th>
               <th onClick={sortCalculationData}>
                 Created Date (BKT) {sortOrder === "asc" ? "↑" : "↓"}
               </th>
+
             </tr>
           </thead>
           <tbody>
-            {calculationData.map((data, index) => (
+            {filteredCalculationData.map((data, index) => (
               <tr key={data.id}>
                 <td>{index + 1}</td> {/* Item number starts from 1 */}
-                <td>{data.id}</td>
+                <td>
+                  {/* Make the Calculation ID clickable and open in a new tab */}
+                  <Link to={`/calculation/${data.id}`} target="_blank">{data.id}</Link>
+                </td>
                 <td>{data.formId}</td>
-                <td>{new Date(new Date(data.created_at).getTime() ).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })}</td>
+                <td>
+                  {data.cargoData.map((cargo, index) => (
+                    // Only show the cargo type if it's not "NIL"
+                    cargo.type !== "NIL" && (
+                      <span key={index}>{cargo.type} </span>
+                    )
+                  ))}
+                </td>
+                <td>
+                  {new Date(new Date(data.created_at).getTime()).toLocaleString(
+                    "en-US",
+                    { timeZone: "Asia/Bangkok" }
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
-        {nextToken && <Button onClick={handleLoadMore} style={{ marginLeft: '10%', marginTop: '10px', marginBottom: '50px'}}>Load More</Button>} {/* Show Load More button only if there's a nextToken */}
-        {/* Show Load More button only if there's a nextToken */}
+        {nextToken && <Button onClick={handleLoadMore} style={{ marginLeft: '10%', marginTop: '10px', marginBottom: '50px' }}>Load More</Button>}
       </div>
     </div>
   );

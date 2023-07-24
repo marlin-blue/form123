@@ -210,6 +210,13 @@ export async function draftFormsAPICall(timestamp) {
 
 }
 
-export async function  getCalculationDataById (calculationId) {
+export async function fetchFormDataAPICall(formId) {
+  try {
+    const response = await axios.get(`${apiUrl}/form/fetch/${formId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Fetch form Data API call error:', error);
+    throw error;
+  }
 
 }
