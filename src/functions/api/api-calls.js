@@ -220,3 +220,13 @@ export async function fetchFormDataAPICall(formId) {
   }
 
 }
+
+export async function toggleHideCalculationDataAPICall(calculationId) {
+  try {
+    const response = await axios.post(`${apiUrl}/calculate/history/hide/${calculationId}`);
+    return response;
+  } catch (error) {
+    console.error('Fetch form Data API call error:', error);
+    throw error;
+  }
+}

@@ -1,10 +1,12 @@
 const AWS = require('aws-sdk');
-const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
   try {
     // Retrieve the calculation ID from the request path parameters
     const calculationId = event.pathParameters.id;
+
+    // Create a DynamoDB DocumentClient
+    const dynamodb = new AWS.DynamoDB.DocumentClient();
 
     // Retrieve the calculation data from the DynamoDB table
     const params = {
@@ -31,15 +33,30 @@ exports.handler = async (event) => {
       };
     }
 
+    const calculationData = result.Items[0];
+    calculationData.hideData = !calculationData.hideData;
+    console.log(calculationData.hideData);
+
+    // Update the item in DynamoDB
+    const updateParams = {
+      TableName: 'calculatedData',
+      Key: { id: calculationId, created_at: calculationData.created_at },
+      UpdateExpression: 'SET hideData = :hideData',
+      ExpressionAttributeValues: { ':hideData': calculationData.hideData },
+      ReturnValues: 'ALL_NEW',
+    };
+
+    await dynamodb.update(updateParams).promise();
+
     // Return the calculation data
     return {
-      statusCode: 200,      
+      statusCode: 200,
       headers: {
         "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
       },
-      body: JSON.stringify(result.Items[0]), // Assuming the ID is unique and you only want to return one item
+      body: JSON.stringify(calculationData.hideData),
     };
   } catch (error) {
     console.error(error);

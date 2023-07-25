@@ -39,6 +39,8 @@ exports.handler = async (event) => {
     const voyageBonus = form.voyageBonus * exchange_rate;
     const cargoData = form.cargos;
 
+    const hideData = false;
+
     // Calculate the revenue
     const revenue = cargos.reduce((sum, cargo) => {
       return sum + (cargo.quantity * cargo.rate * exchange_rate);
@@ -213,6 +215,7 @@ exports.handler = async (event) => {
         formId: formId,
         currency_type: currency_type,
         revenue: revenue,
+        ports: ports,
 
         duration_at_sea: duration_at_sea,
         duration_at_port: duration_at_port,
@@ -240,7 +243,8 @@ exports.handler = async (event) => {
         hn9_operatingCosts: hn9_operatingCosts,
 
         cargoData: cargoData,
-        created_at: created_at
+        created_at: created_at,
+        hideData: hideData
       }
     };
 

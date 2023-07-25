@@ -99,36 +99,36 @@ function CalculationDataPage() {
                 <tr key={rowIndex}>
                   <td>Port {rowIndex + 1}</td>
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.port}</td>
+                    <td key={`port${rowIndex}`}>{data.port}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`port${rowIndex}`}>N/A</td>
                   )}
 
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.fees}</td>
+                    <td key={`fees_${rowIndex}`}>{data.fees}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`fees_${rowIndex}`}>N/A</td>
                   )}
 
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.port_call}</td>
+                    <td key={`port_call_${rowIndex}`}>{data.port_call}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`port_call_${rowIndex}`}>N/A</td>
                   )}
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.crane_usage}</td>
+                    <td key={`crane_usage)${rowIndex}`}>{data.crane_usage}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`crane_usage${rowIndex}`}>N/A</td>
                   )}
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.surveying_fees}</td>
+                    <td key={`surveying_fees_${rowIndex}`}>{data.surveying_fees}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`surveying_fees_${rowIndex}`}>N/A</td>
                   )}
                   {data.type !== "NIL" ? (
-                    <td key={`details_${rowIndex}`}>{data.miscCosts}</td>
+                    <td key={`miscCosts_${rowIndex}`}>{data.miscCosts}</td>
                   ) : (
-                    <td key={`details_${rowIndex}`}>N/A</td>
+                    <td key={`miscCosts_${rowIndex}`}>N/A</td>
                   )}
 
 

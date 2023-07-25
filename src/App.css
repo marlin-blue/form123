@@ -67,7 +67,7 @@
   th,
   td {
     padding: 12px;
-    width: 120px;
+    width: auto;
     text-align: left;
     border: 1px solid #ddd;
   }
@@ -134,3 +134,9 @@
   .navbar-button:focus {
     outline: none;
   }
+
+  /* Remove the blue underline for links with the "link" class */
+.link {
+  text-decoration: none;
+}
+
