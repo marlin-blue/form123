@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "@aws-amplify/ui-react/styles.css";
 import { studioTheme } from "./ui-components";
 import CalculationDataPage from './CalculationDataPage';
+import { AmplifyProvider } from '@aws-amplify/ui-react'
 
 Amplify.configure(awsconfig);
 

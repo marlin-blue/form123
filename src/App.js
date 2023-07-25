@@ -7,8 +7,13 @@ import {
   fetchCalculationAPICall,
 } from "./functions/api/api-calls";
 import "./App.css";
+import { withAuthenticator, Button } from '@aws-amplify/ui-react';
+import { Auth } from 'aws-amplify';
 
-function App() {
+
+function App({signOut}) {
+
+
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({});
@@ -115,6 +120,8 @@ function App() {
     }
   }, [calculationId]);
 
+  
+
   return (
     <div>
       <div>
@@ -134,6 +141,7 @@ function App() {
             <Link to="/history" className="navbar-button">
               History
             </Link>
+            <Button onClick={signOut}>Sign out</Button>
           </div>
         </nav>
       </div>
@@ -516,4 +524,8 @@ function formatNumber(number) {
   return "";
 }
 
-export default App;
+const withAuthenticatorOptions = {
+  hideSignUp: true
+}
+
+export default withAuthenticator(App, withAuthenticatorOptions);

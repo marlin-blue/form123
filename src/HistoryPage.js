@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@aws-amplify/ui-react";
+import { Button, withAuthenticator } from "@aws-amplify/ui-react";
 import {
   historyCalculationAPICall,
   draftFormsAPICall,
@@ -9,7 +9,7 @@ import {
 import './App.css';
 import moment from "moment";
 
-function HistoryPage() {
+function HistoryPage(signOut) {
   const [calculationData, setCalculationData] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc"); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
@@ -145,6 +145,7 @@ function HistoryPage() {
             <Link to="/history" className="navbar-button">
               History
             </Link>
+            <Button onClick={signOut}>Sign out</Button>
           </div>
         </nav>
       </div>
@@ -236,7 +237,11 @@ function HistoryPage() {
   );
 }
 
-export default HistoryPage;
+const withAuthenticatorOptions = {
+  hideSignUp: true
+}
+
+export default withAuthenticator(HistoryPage, withAuthenticatorOptions);
 
 function formatNumber(number) {
   if (typeof number === "number") {

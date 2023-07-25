@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { fetchCalculationAPICall, fetchFormDataAPICall } from "./functions/api/api-calls";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import { Button, withAuthenticator } from '@aws-amplify/ui-react';
 
-function CalculationDataPage() {
+function CalculationDataPage(signOut) {
   const { id } = useParams();
   const [calculationData, setCalculationData] = useState(null);
   const [formId, setFormId] = useState(null);
@@ -70,6 +71,7 @@ function CalculationDataPage() {
           <Link to="/history" className="navbar-button">
             History
           </Link>
+          <Button onClick={signOut}>Sign out</Button>
         </div>
       </nav>
       <h1>Past Calculation</h1>
@@ -329,12 +331,6 @@ function CalculationDataPage() {
       </div>
     </div>
 
-
-
-
-
-
-
   );
 }
 
@@ -345,4 +341,8 @@ function formatNumber(number) {
   return "";
 }
 
-export default CalculationDataPage;
+const withAuthenticatorOptions = {
+  hideSignUp: true
+}
+
+export default withAuthenticator(CalculationDataPage, withAuthenticatorOptions);

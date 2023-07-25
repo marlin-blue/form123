@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from "@aws-amplify/ui-react";
+import { Button, withAuthenticator} from "@aws-amplify/ui-react";
 import { draftFormsAPICall } from './functions/api/api-calls';
 import './App.css';
 
-function DraftsPage() {
+
+function DraftsPage(signOut) {
   const [formData, setFormData] = useState([]);
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
@@ -70,6 +71,7 @@ function DraftsPage() {
             <Link to="/" className="navbar-button">Calculator</Link>
             <Link to="/drafts" className="navbar-button">Drafts</Link>
             <Link to="/history" className="navbar-button">History</Link>
+            <Button onClick={signOut}>Sign out</Button>
           </div>
         </nav>
       </div>
@@ -111,4 +113,7 @@ function DraftsPage() {
   );
 }
 
-export default DraftsPage;
+const withAuthenticatorOptions = {
+  hideSignUp: true
+}
+export default withAuthenticator(DraftsPage, withAuthenticatorOptions);
