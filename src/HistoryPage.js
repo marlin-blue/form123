@@ -170,7 +170,7 @@ function HistoryPage({signOut}) {
               <th>Form ID</th>
               <th>Ports</th>
               <th>Cargo</th>
-              <th>Revenue</th>
+              <th>Profit/Loss</th>
               <th onClick={sortCalculationData}>
                 Details {sortOrder === "asc" ? "↑" : "↓"}
               </th>
@@ -217,7 +217,28 @@ function HistoryPage({signOut}) {
                     )
                   ))}
                 </td>
-                <td>{formatNumberMemoized(data.revenue)} THB</td>
+                <td>
+                  <div>                    
+                    <span
+                      style={{
+                        color: data.hn5_profit >= 0 ? "green" : "red",
+                        fontWeight: "bold",
+                      }}
+                    >
+                  HN5: {formatNumberMemoized(data.hn5_profit)} THB
+                  </span>
+                  </div>
+                  <div>
+                  <span
+                      style={{
+                        color: data.hn9_profit >= 0 ? "green" : "red",
+                        fontWeight: "bold",
+                      }}
+                    >
+                  HN9: {formatNumber(Math.round(data.hn9_profit))} THB
+                  </span>
+                  </div>
+                  </td>
                 <td>
                   <div>
                   {new Date(new Date(data.created_at).getTime()).toLocaleString(
