@@ -14935,8 +14935,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
@@ -15570,8 +15570,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
@@ -16205,8 +16205,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
@@ -16840,8 +16840,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
@@ -17475,8 +17475,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
@@ -18110,8 +18110,8 @@ export default function Calculator(props) {
           {...getOverrideProps(overrides, "cargo1_typeoption28")}
         ></option>
         <option
-          children="Titimas Bleaching Earth"
-          value="Titimas Bleaching Earth"
+          children="Bleaching Earth"
+          value="Bleaching Earth"
           {...getOverrideProps(overrides, "cargo1_typeoption29")}
         ></option>
         <option
