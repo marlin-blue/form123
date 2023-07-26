@@ -25,10 +25,10 @@ root.render(
       <Router>
         <Routes>
           <Route exact path="/" element={<App />}></Route>
-          <Route path="/drafts" element={<DraftsPage />}></Route>
           <Route path="/history" element={<HistoryPage />}></Route>
           <Route path="/calculation/" element={<CalculationDataPage />}></Route>
           <Route path="/calculation/:id" element={<CalculationDataPage />} />
+          <Route path="/form/:formId" element={<DraftsPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

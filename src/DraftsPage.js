@@ -1,119 +1,96 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { Button, withAuthenticator} from "@aws-amplify/ui-react";
-import { draftFormsAPICall } from './functions/api/api-calls';
+import { Button, withAuthenticator } from "@aws-amplify/ui-react";
+import { fetchFormDataAPICall } from './functions/api/api-calls';
 import './App.css';
+import App from './App';
 
-
-function DraftsPage({signOut}) {
+function DraftsPage({ signOut }) {
+  const { formId } = useParams();
   const [formData, setFormData] = useState([]);
-  const [sortOrder, setSortOrder] = useState('desc'); // 'asc' for ascending, 'desc' for descending
-  const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
-  const itemsPerPage = 10; // Number of calculations to display per page
-  const [nextToken, setNextToken] = useState(null);
+  const [initialValues, setInitialValues] = useState({}); // Move this outside the useEffect and initialize with an empty object
 
   useEffect(() => {
-    fetchFormData(); // Fetch the initial form data when the component mounts
-  }, []);
+    async function fetchData() {
+      const response = await fetchFormDataAPICall(formId);
+      setFormData(response);
 
-  useEffect(() => {
-    // When the search query changes, filter the formData
-    const filteredData = formData.filter(data => {
-      const { id, created_at } = data;
-      const query = searchQuery.toLowerCase();
-
-      // Perform the relevant search based on your criteria
-      return (
-        id.toLowerCase().includes(query) ||
-        created_at.toLowerCase().includes(query)
-      );
-    });
-
-    setFormData(filteredData);
-  }, [searchQuery]);
-
-  const fetchFormData = async () => {
-    try {
-      const response = await draftFormsAPICall(nextToken); // Pass the nextToken as a parameter
-      console.log(response);
-      setNextToken(response.nextToken); // Update the nextToken for pagination
-      setFormData((prevData) => (nextToken ? [...prevData, ...response.items] : response.items)); // Replace or append the data
-    } catch (error) {
-      console.error(error);
+      // Convert the fetched formData to initialValues
+      const initialValuesData = convertFormData(response);
+      setInitialValues(initialValuesData);
     }
-  };
 
-  const handleLoadMore = () => {
-    fetchFormData();
-  };
+    fetchData();
+  }, [formId]);
 
-  // Sorting function for 'Created Date'
-  const sortFormData = () => {
-    setFormData((prevData) => {
-      const sortedData = [...prevData].sort((a, b) => {
-        // Date comparison for sorting
-        const dateA = new Date(a.created_at);
-        const dateB = new Date(b.created_at);
-        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-      });
-      return sortedData;
-    });
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle the sort order
-  };
+  // Check if formData is empty before attempting to convert
+  if (!formData || formData.length === 0) {
+    return <div><h1>Loading...</h1></div>;
+  }
 
   return (
     <div>
-      <div>
-        {/* Navigation Bar */}
-        <nav className="navbar">
-          <h1 className="navbar-title">Freight Calculator</h1>
-          <div className="navbar-buttons">
-            <Link to="/" className="navbar-button">Calculator</Link>
-            <Link to="/drafts" className="navbar-button">Drafts</Link>
-            <Link to="/history" className="navbar-button">History</Link>
-            <Button onClick={signOut}>Sign out</Button>
-          </div>
-        </nav>
-      </div>
-      <div>
-        <h1>Draft Forms</h1>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search..." 
-          style={{ marginLeft: '10%', marginBottom: '10px'}}
-        />
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>
-                Form ID
-              </th>
-              <th onClick={sortFormData}>
-              Created Date (BKT) {sortOrder === 'asc' ? '↑' : '↓'}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {formData && formData.map((data, index) => (
-              <tr key={data.id}>
-                <td>{index + 1}</td> {/* Item number starts from 1 */}
-                <td>{data.id}</td>
-                <td>{new Date(new Date(data.created_at).getTime() ).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })}</td>
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {nextToken && <Button onClick={handleLoadMore} style={{ marginLeft: '10%', marginTop: '10px', marginBottom: '50px'}}>Load More</Button>} {/* Show Load More button only if there's a nextToken */}
-      </div>
+      <App
+        signOut={signOut}
+        initialValues={initialValues}
+        titleMessage={`Displaying Form ${formId}`}
+        instructionsMessage=""
+      />
     </div>
   );
 }
 
 const withAuthenticatorOptions = {
   hideSignUp: true
-}
+};
+
 export default withAuthenticator(DraftsPage, withAuthenticatorOptions);
+
+function convertFormData(formData) {
+  // Extract individual properties from the formData object
+  const {
+    currency_type,
+    exchangeRate,
+    dieselFuelRate,
+    bunkerFuelRate,
+    lubeRate,
+    voyageBonus,
+    ports,
+    cargos,
+  } = formData;
+
+  // Create the initial values object for the Calculator component
+  const initialValues = {
+    currency_type,
+    exchange_rate: exchangeRate.toString(),
+    diesel_rate: dieselFuelRate.toString(),
+    bunker_rate: bunkerFuelRate.toString(),
+    lube_rate: lubeRate.toString(),
+    voyageBonus: voyageBonus.toString(),
+  };
+
+  // Add port details to the initialValues object
+  for (let i = 0; i < ports.length; i++) {
+    const port = ports[i];
+    const portNumber = i + 1;
+    initialValues[`port${portNumber}`] = port.port;
+    initialValues[`port${portNumber}_fees`] = port.fees.toString();
+    initialValues[`port${portNumber}_port_call`] = port.port_call.toString();
+    initialValues[`port${portNumber}_crane_usage`] = port.crane_usage.toString();
+    initialValues[`port${portNumber}_surveying_fees`] = port.surveying_fees.toString();
+    initialValues[`port${portNumber}_miscCosts`] = port.miscCosts.toString();
+  }
+
+  // Add cargo details to the initialValues object
+  for (let i = 0; i < cargos.length; i++) {
+    const cargo = cargos[i];
+    const cargoNumber = i + 1;
+    initialValues[`cargo${cargoNumber}_type`] = cargo.type;
+    initialValues[`cargo${cargoNumber}_quantity`] = cargo.quantity.toString();
+    initialValues[`cargo${cargoNumber}_rate`] = cargo.rate.toString();
+    initialValues[`cargo${cargoNumber}_brokerage_fees`] = cargo.brokerage_fees.toString();
+  }
+
+  return initialValues;
+}

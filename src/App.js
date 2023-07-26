@@ -11,8 +11,7 @@ import { withAuthenticator, Button } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 
 
-function App({ signOut }) {
-
+function App({ signOut, initialValues, titleMessage, instructionsMessage }) {
 
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -24,6 +23,15 @@ function App({ signOut }) {
   const [formId, setFormId] = useState()
   const [creatorUsername , setCreatorUsername] = useState()
   const tableRef = useRef(null); // Create a ref for the table element
+  const [titleMessageData, setTitleMessageData] = useState(titleMessage)
+  const [instructionsMessageData, setInstructionsMessageData] = useState(instructionsMessage)
+
+  useEffect(() => {
+    if (!initialValues) {
+      setTitleMessageData('Freight Calculator');
+      setInstructionsMessageData('Welcome to the freight calculator! Enter the voyage information into this form to calculate the expected profits or loss. Complete the form and click "Submit". Once submission is successful, click "Calculate" to display the results. Results are displayed in the tables below the form. Happy calculating!');
+    }
+  }, []);
 
   const handleSubmit = async (formData) => {
     try {
@@ -126,8 +134,6 @@ function App({ signOut }) {
     }
   }, [calculationId]);
 
-
-
   return (
     <div>
       <div>
@@ -141,9 +147,6 @@ function App({ signOut }) {
             <Link to="/" className="navbar-button">
               Calculator
             </Link>
-            <Link to="/drafts" className="navbar-button">
-              Drafts
-            </Link>
             <Link to="/history" className="navbar-button">
               History
             </Link>
@@ -152,21 +155,11 @@ function App({ signOut }) {
         </nav>
       </div>
 
-      <h1>Freight Calculator</h1>
+      <h1>{titleMessageData}</h1>
       <p>
-        Welcome to the freight calculator! Enter the voyage information into
-        this form to calculate the expected profits or loss. Complete the form
-        and click "Submit". Once submission is successful, click "Calculate" to
-        display the results. Results are displayed in the tables below the form.
-        Happy calculating!
+      {instructionsMessageData}
       </p>
-      <p>
-        Note: There is a limit of 10 calculation attempts. Refresh the page to
-        reset. If you encounter the "Distance not available" error. Please
-        contact the admin to add the distance. Results are displayed in THB. If
-        "Currency" is THB, please change the exchange rate to "1".
-      </p>
-      <Calculator onSubmit={handleSubmit} onChange={setFormData} />
+      <Calculator onSubmit={handleSubmit} onChange={setFormData} initialFormData={initialValues} />
 
       <div style={{ marginTop: "20px" }}>
         {!loading && !errorMessage && !result && (

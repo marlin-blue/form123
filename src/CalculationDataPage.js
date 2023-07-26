@@ -65,9 +65,6 @@ function CalculationDataPage({signOut}) {
           <Link to="/" className="navbar-button">
             Calculator
           </Link>
-          <Link to="/drafts" className="navbar-button">
-            Drafts
-          </Link>
           <Link to="/history" className="navbar-button">
             History
           </Link>

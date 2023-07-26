@@ -141,9 +141,6 @@ function HistoryPage({signOut}) {
             <Link to="/" className="navbar-button">
               Calculator
             </Link>
-            <Link to="/drafts" className="navbar-button">
-              Drafts
-            </Link>
             <Link to="/history" className="navbar-button">
               History
             </Link>
@@ -189,7 +186,11 @@ function HistoryPage({signOut}) {
                     {data.id}
                   </Link>
                 </td>
-                <td>{data.formId}</td>
+                <td>                  
+                  {/* Make the Calculation ID clickable and open in a new tab */}
+                  <Link to={`/form/${data.formId}`} target="_blank">
+                    {data.formId}
+                  </Link></td>
                 <td>
                   {data.ports.map((port, index) => (
                     // Only show the port if it's not "NIL"

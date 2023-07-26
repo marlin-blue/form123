@@ -1,10 +1,3 @@
-/***************************************************************************
- * The contents of this file were generated with Amplify Studio.           *
- * Please refrain from making any modifications to this file.              *
- * Any changes to this file will be overwritten when running amplify pull. *
- **************************************************************************/
-
-/* eslint-disable */
 import * as React from "react";
 import {
   Button,
@@ -18,8 +11,10 @@ import {
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { fetchByPath, validateField } from "./utils";
 export default function Calculator(props) {
-  const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
-  const initialValues = {
+  const { initialFormData, onSubmit, onValidate, onChange, overrides, ...rest } = props;
+
+  // Define the default initial values in case initialFormData is not provided
+  const defaultInitialValues = {
     currency_type: "US Dollar (USD)",
     exchange_rate: "35",
     diesel_rate: "0.8",
@@ -122,6 +117,11 @@ export default function Calculator(props) {
     cargo6_brokerage_fees: "0",
     voyageBonus: "0",
   };
+  
+  // Merge the initialFormData with the defaultInitialValues using the spread operator
+  const initialValues = { ...defaultInitialValues, ...initialFormData };
+
+
 
   const [currency_type, setCurrency_type] = React.useState(
     initialValues.currency_type
@@ -362,6 +362,8 @@ export default function Calculator(props) {
     initialValues.voyageBonus
   );
   const [errors, setErrors] = React.useState({});
+
+
   const resetStateValues = () => {
     setCurrency_type(initialValues.currency_type);
     setExchange_rate(initialValues.exchange_rate);
@@ -691,7 +693,7 @@ export default function Calculator(props) {
           cargo6_rate,
           cargo6_brokerage_fees,
           voyageBonus,
-          
+
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -820,7 +822,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.currency_type ?? value;
@@ -945,7 +947,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.exchange_rate ?? value;
@@ -1065,7 +1067,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.diesel_rate ?? value;
@@ -1098,7 +1100,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -1179,7 +1181,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.bunker_rate ?? value;
@@ -1212,7 +1214,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -1293,7 +1295,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.lube_rate ?? value;
@@ -1416,7 +1418,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port1 ?? value;
@@ -2193,7 +2195,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port1_fees ?? value;
@@ -2308,7 +2310,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port1_port_call ?? value;
@@ -2423,7 +2425,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port1_crane_usage ?? value;
@@ -2540,7 +2542,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port1_surveying_fees ?? value;
@@ -2656,7 +2658,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port1_miscCosts ?? value;
@@ -2772,7 +2774,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port2 ?? value;
@@ -3548,7 +3550,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port2_fees ?? value;
@@ -3659,7 +3661,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port2_port_call ?? value;
@@ -3770,7 +3772,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port2_crane_usage ?? value;
@@ -3883,7 +3885,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port2_surveying_fees ?? value;
@@ -3999,7 +4001,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port2_miscCosts ?? value;
@@ -4105,7 +4107,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port3 ?? value;
@@ -4879,7 +4881,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port3_fees ?? value;
@@ -4990,7 +4992,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port3_port_call ?? value;
@@ -5102,7 +5104,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port3_crane_usage ?? value;
@@ -5215,7 +5217,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port3_surveying_fees ?? value;
@@ -5331,7 +5333,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port3_miscCosts ?? value;
@@ -5437,7 +5439,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port4 ?? value;
@@ -6211,7 +6213,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port4_fees ?? value;
@@ -6323,7 +6325,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port4_port_call ?? value;
@@ -6435,7 +6437,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port4_crane_usage ?? value;
@@ -6549,7 +6551,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port4_surveying_fees ?? value;
@@ -6665,7 +6667,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port4_miscCosts ?? value;
@@ -6771,7 +6773,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port5 ?? value;
@@ -7544,7 +7546,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port5_fees ?? value;
@@ -7655,7 +7657,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port5_port_call ?? value;
@@ -7766,7 +7768,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port5_crane_usage ?? value;
@@ -7879,7 +7881,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port5_surveying_fees ?? value;
@@ -7995,7 +7997,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port5_miscCosts ?? value;
@@ -8101,7 +8103,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port6 ?? value;
@@ -8874,7 +8876,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port6_fees ?? value;
@@ -8985,7 +8987,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port6_port_call ?? value;
@@ -9096,7 +9098,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port6_crane_usage ?? value;
@@ -9209,7 +9211,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port6_surveying_fees ?? value;
@@ -9325,7 +9327,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port6_miscCosts ?? value;
@@ -9431,7 +9433,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port7 ?? value;
@@ -10203,7 +10205,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port7_fees ?? value;
@@ -10314,7 +10316,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port7_port_call ?? value;
@@ -10425,7 +10427,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port7_crane_usage ?? value;
@@ -10538,7 +10540,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port7_surveying_fees ?? value;
@@ -10654,7 +10656,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port7_miscCosts ?? value;
@@ -10760,7 +10762,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port8 ?? value;
@@ -11533,7 +11535,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port8_fees ?? value;
@@ -11644,7 +11646,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port8_port_call ?? value;
@@ -11755,7 +11757,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port8_crane_usage ?? value;
@@ -11868,7 +11870,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port8_surveying_fees ?? value;
@@ -11984,7 +11986,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port8_miscCosts ?? value;
@@ -12090,7 +12092,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port9 ?? value;
@@ -12863,7 +12865,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port9_fees ?? value;
@@ -12974,7 +12976,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port9_port_call ?? value;
@@ -13085,7 +13087,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port9_crane_usage ?? value;
@@ -13198,7 +13200,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port9_surveying_fees ?? value;
@@ -13314,7 +13316,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port9_miscCosts ?? value;
@@ -13421,7 +13423,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.port10 ?? value;
@@ -14194,7 +14196,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port10_fees ?? value;
@@ -14305,7 +14307,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port10_port_call ?? value;
@@ -14416,7 +14418,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port10_crane_usage ?? value;
@@ -14530,7 +14532,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port10_surveying_fees ?? value;
@@ -14547,7 +14549,7 @@ export default function Calculator(props) {
           hasError={errors.port10_surveying_fees?.hasError}
           {...getOverrideProps(overrides, "port10_surveying_fees")}
         ></TextField>
-                <TextField
+        <TextField
           label="Misc Costs"
           type="number"
           step="any"
@@ -14646,7 +14648,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.port10_miscCosts ?? value;
@@ -14772,7 +14774,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo1_type ?? value;
@@ -14982,7 +14984,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15063,7 +15065,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo1_quantity ?? value;
@@ -15096,7 +15098,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15177,7 +15179,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo1_rate ?? value;
@@ -15210,7 +15212,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15291,7 +15293,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo1_brokerage_fees ?? value;
@@ -15407,7 +15409,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo2_type ?? value;
@@ -15617,7 +15619,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15698,7 +15700,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo2_quantity ?? value;
@@ -15731,7 +15733,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15812,7 +15814,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo2_rate ?? value;
@@ -15845,7 +15847,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -15926,7 +15928,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo2_brokerage_fees ?? value;
@@ -16042,7 +16044,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo3_type ?? value;
@@ -16252,7 +16254,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -16333,7 +16335,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo3_quantity ?? value;
@@ -16366,7 +16368,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -16447,7 +16449,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo3_rate ?? value;
@@ -16480,7 +16482,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -16561,7 +16563,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo3_brokerage_fees ?? value;
@@ -16677,7 +16679,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo4_type ?? value;
@@ -16887,7 +16889,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -16968,7 +16970,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo4_quantity ?? value;
@@ -17001,7 +17003,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -17082,7 +17084,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo4_rate ?? value;
@@ -17115,7 +17117,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -17196,7 +17198,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo4_brokerage_fees ?? value;
@@ -17312,7 +17314,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo5_type ?? value;
@@ -17522,7 +17524,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -17603,7 +17605,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo5_quantity ?? value;
@@ -17636,7 +17638,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -17717,7 +17719,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo5_rate ?? value;
@@ -17750,7 +17752,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -17831,7 +17833,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo5_brokerage_fees ?? value;
@@ -17947,7 +17949,7 @@ export default function Calculator(props) {
               cargo6_rate,
               cargo6_brokerage_fees,
               voyageBonus,
-              
+
             };
             const result = onChange(modelFields);
             value = result?.cargo6_type ?? value;
@@ -18157,7 +18159,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -18238,7 +18240,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo6_quantity ?? value;
@@ -18271,7 +18273,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -18352,7 +18354,7 @@ export default function Calculator(props) {
                 cargo6_rate: value,
                 cargo6_brokerage_fees,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo6_rate ?? value;
@@ -18385,7 +18387,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -18466,7 +18468,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees: value,
                 voyageBonus,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.cargo6_brokerage_fees ?? value;
@@ -18517,7 +18519,7 @@ export default function Calculator(props) {
                 port1_port_call,
                 port1_crane_usage,
                 port1_surveying_fees,
-                port1_miscCosts ,
+                port1_miscCosts,
                 port2,
                 port2_fees,
                 port2_port_call,
@@ -18598,7 +18600,7 @@ export default function Calculator(props) {
                 cargo6_rate,
                 cargo6_brokerage_fees,
                 voyageBonus: value,
-                
+
               };
               const result = onChange(modelFields);
               value = result?.voyageBonus ?? value;
