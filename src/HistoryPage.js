@@ -7,7 +7,7 @@ import {
   toggleHideCalculationDataAPICall
 } from "./functions/api/api-calls";
 import './App.css';
-import moment from "moment";
+import moment, { max } from "moment";
 
 function HistoryPage({signOut}) {
   const [calculationData, setCalculationData] = useState([]);
@@ -230,7 +230,7 @@ function HistoryPage({signOut}) {
                   </div>
                 </td>
                 <td className="button-td" style={{ border: "none", padding: 0, background: "transparent", textAlign: "center" }}>
-                  <Button onClick={() => toggleHideRow(data.id)}
+                  <Button onClick={() => toggleHideRow(data.id)  } style={{ maxWidth: "50px", margin:"10px",fontWeight: 'normal' }}
                   >
                     {hiddenRows.includes(data.id) || data.hideData ? "Show" : "Hide"}
                   </Button>
