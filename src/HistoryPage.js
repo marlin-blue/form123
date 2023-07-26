@@ -39,7 +39,7 @@ function HistoryPage({ signOut }) {
         username.toLowerCase().includes(query) ||
         ports.some((port) => port.port.toLowerCase().includes(query)) ||
         ports.map(port => port.port.toLowerCase()).join(' ').includes(query) ||
-        ports.map(port => port.port.replace(/\s+\(.+?\)/g, '')).join(' ').toLowerCase().includes(query) ||
+        ports.map(port => port.port.replace(/\s+\(.+?\)/g, '')).join(' ').toLowerCase().includes(query);
         cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
         (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
         created_at.toLowerCase().includes(query);
