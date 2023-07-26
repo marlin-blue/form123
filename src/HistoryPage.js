@@ -33,16 +33,33 @@ function HistoryPage({ signOut }) {
       const formattedDateTime = moment(created_at).format("M/D/YYYY, h:mm:ss A");
 
       // Perform the relevant search based on your criteria
+      const portNames = ports.map((port) => port.port.toLowerCase());
+      const portCodes = ports.map((port) => port.port.replace(/\s+\(.+?\)/g, '').toLowerCase());
+
+      const partialMatchId = id.toLowerCase().includes(query);
+      const partialMatchFormId = formId.toLowerCase().includes(query);
+
+      // Check for exact matches for each field, including entire port query
+      const exactMatch =
+        id.toLowerCase() === query ||
+        formId.toLowerCase() === query ||
+        username.toLowerCase() === query ||
+        portNames.includes(query) ||
+        portCodes.includes(query) ||
+        cargoData.some((cargo) => cargo.type.toLowerCase() === query) ||
+        created_at.toLowerCase().includes(query) ||
+        ports.map((port) => port.port.toLowerCase()).join(', ').includes(query); // Search for the entire comma-separated ports string
+
+      // Perform the relevant search based on your criteria
       const matchesSearchQuery =
-        id.toLowerCase().includes(query) ||
-        formId.toLowerCase().includes(query) ||
-        username.toLowerCase().includes(query) ||
+        exactMatch ||
+        partialMatchId ||
+        partialMatchFormId ||
         ports.some((port) => port.port.toLowerCase().includes(query)) ||
         ports.map(port => port.port.toLowerCase()).join(' ').includes(query) ||
-        ports.map(port => port.port.replace(/\s+\(.+?\)/g, '')).join(' ').toLowerCase().includes(query);
+        ports.map(port => port.port.replace(/\s+\(.+?\)/g, '')).join(' ').toLowerCase().includes(query) ||
         cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
-        (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
-        created_at.toLowerCase().includes(query);
+        (dateTimeRegex.test(query) && formattedDateTime.includes(query));
 
       // Show all rows if showAll is true, otherwise only show rows that are not hidden
       return showAll ? matchesSearchQuery : (matchesSearchQuery && !data.hideData);
