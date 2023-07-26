@@ -206,13 +206,14 @@ exports.handler = async (event) => {
 
     // Get the current timestamp for created_at
     const created_at = new Date().toISOString();
-
+    const username = form.username;
     // Store the calculation results in the calculated data table
     const calculatedDataParams = {
       TableName: calculatedDataName,
       Item: {
         id: id,
         formId: formId,
+        username: username,
         currency_type: currency_type,
         revenue: revenue,
         ports: ports,

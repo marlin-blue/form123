@@ -5,7 +5,7 @@ import { draftFormsAPICall } from './functions/api/api-calls';
 import './App.css';
 
 
-function DraftsPage(signOut) {
+function DraftsPage({signOut}) {
   const [formData, setFormData] = useState([]);
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query

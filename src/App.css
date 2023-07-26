@@ -69,7 +69,7 @@
     padding: 12px;
     width: auto;
     text-align: left;
-    border: 1px solid #f2f2f2;
+    border: 1px solid #a1a1a1;
   }
   
   th {
@@ -78,13 +78,10 @@
     text-align: left;
   }
   
-  tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+  tbody tr {
+    background-color: #ffffff;
   }
   
-  tbody tr:hover {
-    background-color: #f2f2f2 ;
-  }
 
   .navbar {
     display: flex;

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import { Button, withAuthenticator } from '@aws-amplify/ui-react';
 
-function CalculationDataPage(signOut) {
+function CalculationDataPage({signOut}) {
   const { id } = useParams();
   const [calculationData, setCalculationData] = useState(null);
   const [formId, setFormId] = useState(null);

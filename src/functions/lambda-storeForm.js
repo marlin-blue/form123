@@ -11,6 +11,9 @@
 
     exports.handler = async (event) => {
         try {
+            const requestBody = JSON.parse(event.body);
+            const username = requestBody.username;
+            console.log(username)
             // Generate a unique ID
             const id = generateTimestampId();
 
@@ -153,6 +156,7 @@
             const bunkerFuelRate = parseFloat(event.queryStringParameters.bunker_rate);
             const lubeRate = parseFloat(event.queryStringParameters.lube_rate);
             const voyageBonus = parseFloat(event.queryStringParameters.voyageBonus);
+            
 
             // Store the form details in the DynamoDB table
             const formParams = {
@@ -160,6 +164,7 @@
                 Item: {
                     id: id,
                     created_at: created_at,
+                    username: username,
                     currency_type: currency_type,
                     ports: ports,
                     cargos: cargos,

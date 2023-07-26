@@ -9,7 +9,7 @@ import {
 import './App.css';
 import moment from "moment";
 
-function HistoryPage(signOut) {
+function HistoryPage({signOut}) {
   const [calculationData, setCalculationData] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc"); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
@@ -26,24 +26,26 @@ function HistoryPage(signOut) {
   // Filtering and sorting data
   useEffect(() => {
     const filteredData = calculationData.filter((data) => {
-      const { id, formId, cargoData, created_at } = data;
+      const { id, formId, cargoData, created_at, ports, username } = data;
       const query = searchQuery.toLowerCase();
-      const dateTimeRegex = /^\d{1,2}\/\d{1,2}\/\d{4}, \d{1,2}:\d{2}:\d{2} (AM|PM)$/;
+      const dateTimeRegex = /^\d{1,2}\/\d{1,2}\/\d{4}, \d{1,2}:\d{2}:\d{2} (AM|PM)$/; // Remove the single quote at the end
       // Format the date and time in the desired format for comparison
       const formattedDateTime = moment(created_at).format("M/D/YYYY, h:mm:ss A");
-
+  
       // Perform the relevant search based on your criteria
       const matchesSearchQuery =
-        id.toLowerCase().includes(query) ||
-        formId.toLowerCase().includes(query) ||
-        cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
-        (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
-        created_at.toLowerCase().includes(query);
+      id.toLowerCase().includes(query) ||
+      formId.toLowerCase().includes(query) ||
+      username.toLowerCase().includes(query) ||
+      ports.some((port) => port.port.toLowerCase().includes(query)) ||
+      cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
+      (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
+      created_at.toLowerCase().includes(query);
 
       // Show all rows if showAll is true, otherwise only show rows that are not hidden
       return showAll ? matchesSearchQuery : (matchesSearchQuery && !data.hideData);
     });
-
+  
     const sortedData = filteredData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     setFilteredCalculationData(sortedData); // Update the filteredCalculationData
@@ -173,7 +175,7 @@ function HistoryPage(signOut) {
               <th>Cargo</th>
               <th>Revenue</th>
               <th onClick={sortCalculationData}>
-                Created Date (BKT) {sortOrder === "asc" ? "↑" : "↓"}
+                Details {sortOrder === "asc" ? "↑" : "↓"}
               </th>
             </tr>
           </thead>
@@ -216,10 +218,15 @@ function HistoryPage(signOut) {
                 </td>
                 <td>{formatNumberMemoized(data.revenue)} THB</td>
                 <td>
+                  <div>
                   {new Date(new Date(data.created_at).getTime()).toLocaleString(
                     "en-UK",
                     { timeZone: "Asia/Bangkok" }
                   )}
+                  </div>
+                  <div>
+                    Created by: {data.username}
+                  </div>
                 </td>
                 <td className="button-td" style={{ border: "none", padding: 0, background: "transparent", textAlign: "center" }}>
                   <Button onClick={() => toggleHideRow(data.id)}

@@ -1,7 +1,7 @@
 const axios = require('axios');
 const apiUrl = 'https://mms8hsgh9g.execute-api.ap-southeast-2.amazonaws.com/prod';
 
-export async function storeFormAPICall(formInputs) {
+export async function storeFormAPICall(formInputs, username) {
   try {
 
     const queryStringParameters = {
@@ -104,6 +104,7 @@ export async function storeFormAPICall(formInputs) {
       bunker_rate: formInputs.bunker_rate,
       lube_rate: formInputs.lube_rate,
       voyageBonus: formInputs.voyageBonus,
+      username: username,
     };
 
     const response = await axios.get(`${apiUrl}/form`, {
@@ -117,48 +118,6 @@ export async function storeFormAPICall(formInputs) {
   }
 }
 
-// export async function updateFormAPICall(formId, formInputs) {
-//   try {
-//     const response = await fetch(`https://wyvjgrod85.execute-api.us-west-2.amazonaws.com/prod/form/${formId}`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(formInputs),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Failed to update form data');
-//     }
-
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     throw new Error(error.message);
-//   }
-// }
-
-
-
-// export async function getFormAPICall(formId) {
-//   try {
-//     const apiUrl = `https://wyvjgrod85.execute-api.us-west-2.amazonaws.com/prod/form/${formId}`;
-
-//     const response = await fetch(apiUrl);
-//     const data = await response.json();
-
-//     if (response.ok) {
-//       // API call was successful, return the form data
-//       return data;
-//     } else {
-//       // API call returned an error, throw an error with the message
-//       throw new Error(data.message);
-//     }
-//   } catch (error) {
-//     console.error('GetForm API call error:', error);
-//     throw error;
-//   }
-// }
 
 
 export async function calculateDataAPICall(formId) {

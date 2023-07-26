@@ -11,19 +11,19 @@ import { withAuthenticator, Button } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 
 
-function App({signOut}) {
+function App({ signOut }) {
 
 
   const [result, setResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [formData, setFormData] = useState({});
   const [calculationData, setCalculationData] = useState([]);
   const [submittedMessage, setSubmittedMessage] = useState("");
-  const [formId, setFormId] = useState(null); // Add formId state
   const [calculationId, setCalculationId] = useState(null); // Add formId state
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState()
+  const [formId, setFormId] = useState()
+  const [creatorUsername , setCreatorUsername] = useState()
   const tableRef = useRef(null); // Create a ref for the table element
-  const [calculationLink, setCalculationLink] = useState(null);
 
   const handleSubmit = async (formData) => {
     try {
@@ -51,15 +51,22 @@ function App({signOut}) {
         );
       }
 
+      // Get the current authenticated user
+      const user = await Auth.currentAuthenticatedUser();
+      const username = user.username;
+      setCreatorUsername(username); // Store the username in the state
+
+
       console.log(formData);
-      const response = await storeFormAPICall(formData);
+      console.log(username);
+      const response = await storeFormAPICall(formData, username);
       const newFormId = response.id;
       console.log("FormId:", newFormId);
       setFormId(newFormId); // Set the formId in the state
       try {
         setLoading(true);
         const calculationResponse = await calculateDataAPICall(newFormId); // Pass the formId for calculation
-        setLoading(false);
+        
         console.log("CalculationId:", calculationResponse.id);
         setCalculationId(calculationResponse.id); // Get the calculation ID from the response
 
@@ -106,7 +113,6 @@ function App({signOut}) {
           "Calculation limit reached! Please refresh the page to start again."
         );
       }
-      console.log("CalculationId:", calculationId);
       console.log("CalculationData:", calculationDataResponse);
     } catch (error) {
       console.error(error);
@@ -120,7 +126,7 @@ function App({signOut}) {
     }
   }, [calculationId]);
 
-  
+
 
   return (
     <div>
@@ -198,7 +204,7 @@ function App({signOut}) {
               {submittedMessage}
             </p>
             <p style={{ fontWeight: "bold", textAlign: "center" }}>
-              <Link to={`/calculation/${calculationId}` } target="_blank">View Calculation</Link>
+              <Link to={`/calculation/${calculationId}`} target="_blank">View Calculation</Link>
             </p>
           </div>
         )}
