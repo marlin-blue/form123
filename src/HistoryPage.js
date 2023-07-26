@@ -9,7 +9,7 @@ import {
 import './App.css';
 import moment, { max } from "moment";
 
-function HistoryPage({signOut}) {
+function HistoryPage({ signOut }) {
   const [calculationData, setCalculationData] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc"); // 'asc' for ascending, 'desc' for descending
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
@@ -31,21 +31,23 @@ function HistoryPage({signOut}) {
       const dateTimeRegex = /^\d{1,2}\/\d{1,2}\/\d{4}, \d{1,2}:\d{2}:\d{2} (AM|PM)$/; // Remove the single quote at the end
       // Format the date and time in the desired format for comparison
       const formattedDateTime = moment(created_at).format("M/D/YYYY, h:mm:ss A");
-  
+
       // Perform the relevant search based on your criteria
       const matchesSearchQuery =
-      id.toLowerCase().includes(query) ||
-      formId.toLowerCase().includes(query) ||
-      username.toLowerCase().includes(query) ||
-      ports.some((port) => port.port.toLowerCase().includes(query)) ||
-      cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
-      (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
-      created_at.toLowerCase().includes(query);
+        id.toLowerCase().includes(query) ||
+        formId.toLowerCase().includes(query) ||
+        username.toLowerCase().includes(query) ||
+        ports.some((port) => port.port.toLowerCase().includes(query)) ||
+        ports.map(port => port.port.toLowerCase()).join(' ').includes(query) ||
+        ports.map(port => port.port.replace(/\s+\(.+?\)/g, '')).join(' ').toLowerCase().includes(query) ||
+        cargoData.some((cargo) => cargo.type.toLowerCase().includes(query)) ||
+        (dateTimeRegex.test(query) && formattedDateTime.includes(query)) || // Check if query matches date and time format
+        created_at.toLowerCase().includes(query);
 
       // Show all rows if showAll is true, otherwise only show rows that are not hidden
       return showAll ? matchesSearchQuery : (matchesSearchQuery && !data.hideData);
     });
-  
+
     const sortedData = filteredData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     setFilteredCalculationData(sortedData); // Update the filteredCalculationData
@@ -71,7 +73,7 @@ function HistoryPage({signOut}) {
     try {
       // Call the API function to toggle hide data
       await toggleHideCalculationDataAPICall(id);
-  
+
       // Update the hiddenRows state to show or hide the row based on its current state
       setHiddenRows(prevHiddenRows => {
         if (prevHiddenRows.includes(id)) {
@@ -80,7 +82,7 @@ function HistoryPage({signOut}) {
           return [...prevHiddenRows, id]; // Add the id to hiddenRows
         }
       });
-  
+
       // Update the filteredCalculationData state to reflect the updated data
       setFilteredCalculationData((prevData) =>
         prevData.map((data) => (data.id === id ? { ...data, hideData: !data.hideData } : data))
@@ -89,7 +91,7 @@ function HistoryPage({signOut}) {
       console.error(error);
     }
   };
-  
+
   const handleShowAll = async () => {
     setShowAll((prevShowAll) => !prevShowAll);
     setHiddenRows([]); // Reset the hiddenRows when showing all
@@ -162,7 +164,7 @@ function HistoryPage({signOut}) {
         <Button onClick={handleShowAll} style={{ marginLeft: "10%", marginBottom: "20px" }}>
           {showAll ? "Hide All" : "Show All"}
         </Button>
-        <table>
+        <table style={{ fontSize: "12px" }} >
           <thead>
             <tr>
               <th style={{ width: "10px" }}>Item</th>
@@ -172,7 +174,7 @@ function HistoryPage({signOut}) {
               <th>Cargo</th>
               <th>Profit/Loss</th>
               <th onClick={sortCalculationData}>
-                Details {sortOrder === "asc" ? "↑" : "↓"}
+                Timestamp {sortOrder === "asc" ? "↑" : "↓"}
               </th>
             </tr>
           </thead>
@@ -186,7 +188,7 @@ function HistoryPage({signOut}) {
                     {data.id}
                   </Link>
                 </td>
-                <td>                  
+                <td>
                   {/* Make the Calculation ID clickable and open in a new tab */}
                   <Link to={`/form/${data.formId}`} target="_blank">
                     {data.formId}
@@ -195,12 +197,10 @@ function HistoryPage({signOut}) {
                   {data.ports.map((port, index) => (
                     // Only show the port if it's not "NIL"
                     port.port !== "NIL" && (
-                      <div
-                        key={port.id} // Use a unique identifier for each row
-                        hidden={!showAll && hiddenRows.includes(port.id)}
-                      >
+                      <React.Fragment key={port.id}>
+                        {index > 0 && ', '}
                         {port.port}
-                      </div>
+                      </React.Fragment>
                     )
                   ))}
                 </td>
@@ -218,40 +218,40 @@ function HistoryPage({signOut}) {
                   ))}
                 </td>
                 <td>
-                  <div>                    
+                  <div>
                     <span
                       style={{
                         color: data.hn5_profit >= 0 ? "green" : "red",
                         fontWeight: "bold",
                       }}
                     >
-                  HN5: {formatNumberMemoized(data.hn5_profit)} THB
-                  </span>
+                      HN5: {formatNumberMemoized(data.hn5_profit)} THB
+                    </span>
                   </div>
                   <div>
-                  <span
+                    <span
                       style={{
                         color: data.hn9_profit >= 0 ? "green" : "red",
                         fontWeight: "bold",
                       }}
                     >
-                  HN9: {formatNumber(Math.round(data.hn9_profit))} THB
-                  </span>
+                      HN9: {formatNumber(Math.round(data.hn9_profit))} THB
+                    </span>
                   </div>
-                  </td>
+                </td>
                 <td>
                   <div>
-                  {new Date(new Date(data.created_at).getTime()).toLocaleString(
-                    "en-UK",
-                    { timeZone: "Asia/Bangkok" }
-                  )}
+                    {new Date(new Date(data.created_at).getTime()).toLocaleString(
+                      "en-UK",
+                      { timeZone: "Asia/Bangkok" }
+                    )}
                   </div>
                   <div>
                     Created by: {data.username}
                   </div>
                 </td>
                 <td className="button-td" style={{ border: "none", padding: 0, background: "transparent", textAlign: "center" }}>
-                  <Button onClick={() => toggleHideRow(data.id)  } style={{ maxWidth: "50px", margin:"10px",fontWeight: 'normal' }}
+                  <Button onClick={() => toggleHideRow(data.id)} style={{ maxWidth: "50px", margin: "10px", fontWeight: 'normal' }}
                   >
                     {hiddenRows.includes(data.id) || data.hideData ? "Show" : "Hide"}
                   </Button>
