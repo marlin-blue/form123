@@ -91,9 +91,9 @@ export default function Calculator(props) {
     port10_surveying_fees: "0",
     port10_miscCosts: "0",
 
-    cargo1_type: "Rice",
-    cargo1_quantity: "3000",
-    cargo1_rate: "18",
+    cargo1_type: "NIL",
+    cargo1_quantity: "0",
+    cargo1_rate: "0",
     cargo1_brokerage_fees: "0",
     cargo2_type: "NIL",
     cargo2_quantity: "0",
